@@ -5,13 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div {
+            border-style:solid 2px
+        }
+    </style>
 </head>
 <body>
   <button>输出</button>
   <div></div>
     <script>
-      var btn = documment.queryselector('button')
-      var div = documment.queryselector('div')
+      var btn = document.queryselector('button')
+      var div = document.queryselector('div')
       btn.addEventListener('click', function(){
         div.innerHTML = 'hello!'
       })
