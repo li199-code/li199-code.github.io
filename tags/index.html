@@ -20,23 +20,26 @@
 
     <meta name="description" content="nothing but freedom">
 <meta property="og:type" content="website">
-<meta property="og:title" content="goldspot&#39;s blog">
-<meta property="og:url" content="http://www.goldspot.top/index.html">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://www.goldspot.top/tags/index.html">
 <meta property="og:site_name" content="goldspot&#39;s blog">
 <meta property="og:description" content="nothing but freedom">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-07-26T14:59:08.000Z">
+<meta property="article:modified_time" content="2022-07-26T15:00:15.037Z">
 <meta property="article:author" content="goldspot">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://www.goldspot.top/">
+<link rel="canonical" href="http://www.goldspot.top/tags/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"en","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/tags/index.html","path":"tags/index.html","title":"tags"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>goldspot's blog</title>
+<title>tags | goldspot's blog
+</title>
   
 
 
@@ -66,7 +69,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">goldspot's blog</h1>
+      <p class="site-title">goldspot's blog</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">nothing but freedom</p>
@@ -165,103 +168,41 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner page posts-expand">
+
 
     
+    
+    
+    <div class="post-block" lang="en"><header class="post-header">
 
+<h1 class="post-title" itemprop="name headline">tags
+</h1>
 
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/07/26/JS%E4%B9%8BPromise/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="goldspot">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="goldspot's blog">
-      <meta itemprop="description" content="nothing but freedom">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | goldspot's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/JS%E4%B9%8BPromise/" class="post-title-link" itemprop="url">JS之Promise</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-07-26 17:58:45 / Modified: 21:09:46" itemprop="dateCreated datePublished" datetime="2022-07-26T17:58:45+08:00">2022-07-26</time>
-    </span>
-
-  
+<div class="post-meta-container">
 </div>
 
-        </div>
-      </header>
+</header>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="为什么需要promise"><a href="#为什么需要promise" class="headerlink" title="为什么需要promise"></a>为什么需要promise</h2><p>首先，存在一次异步任务的需求。然后又有了多次异步任务的需求，而多次异步的书写存在函数瀑布问题，不利于阅读和维护：</p>
-<pre><code>setTimeout(function () &#123;
-    console.log(&quot;First&quot;);
-    setTimeout(function () &#123;
-        console.log(&quot;Second&quot;);
-        setTimeout(function () &#123;
-            console.log(&quot;Third&quot;);
-        &#125;, 3000);
-    &#125;, 4000);
-&#125;, 1000);
-</code></pre>
-<p>所以，出现了promise对象，将多次异步代码写成顺序格式而非嵌套格式：</p>
-<pre><code>function print(delay, message) &#123;
-    return new Promise(function (resolve, reject) &#123;
-        setTimeout(function () &#123;
-            console.log(message);
-            resolve();
-        &#125;, delay);
-    &#125;);
-&#125;
-print(1000, &quot;First&quot;).then(function () &#123;
-    return print(4000, &quot;Second&quot;);
-&#125;).then(function () &#123;
-    print(3000, &quot;Third&quot;);
-&#125;);
-</code></pre>
-<p>因此，异步是异步，promise是promise，异步任务的实现靠的是异步函数，而不是promise，promise仅是改变了书写格式。</p>
+      
+      
+      <div class="post-body"><div class="tag-cloud">
+  <div class="tag-cloud-title">
+    1 tag in total
+  </div>
+  <div class="tag-cloud-tags">
+    <a href="/tags/javascript/" style="font-size: 12px;" class="tag-cloud-0">javascript</a>
+  </div>
+</div>
 
+      </div>
+      
+      
       
     </div>
 
     
     
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
 
 
 </div>
