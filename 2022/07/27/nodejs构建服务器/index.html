@@ -18,28 +18,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.goldspot.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="为什么需要promise首先，存在一次异步任务的需求。然后又有了多次异步任务的需求，而多次异步的书写存在函数瀑布问题，不利于阅读和维护： 123456789setTimeout(function () &amp;#123;    console.log(&quot;First&quot;);    setTimeout(function () &amp;#123;        console.log(&amp;quot">
+    <meta name="description" content="从nodejs服务器想到的服务器的定义是，监听请求，处理请求和做出响应。除了nodejs外，其他语言也有对应的web server框架，比如java的tomcat。 用下列代码实现一个简单的服务器： 12345678910var http &#x3D; require(&amp;#x27;http&amp;#x27;)var fs &#x3D; require(&amp;#x27;fs&amp;#x27;)http.createServer(fun">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS之Promise">
-<meta property="og:url" content="http://www.goldspot.top/2022/07/26/JS%E4%B9%8BPromise/index.html">
+<meta property="og:title" content="nodejs构建服务器">
+<meta property="og:url" content="http://www.goldspot.top/2022/07/27/nodejs%E6%9E%84%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/index.html">
 <meta property="og:site_name" content="Goldspot&#39;s blog">
-<meta property="og:description" content="为什么需要promise首先，存在一次异步任务的需求。然后又有了多次异步任务的需求，而多次异步的书写存在函数瀑布问题，不利于阅读和维护： 123456789setTimeout(function () &amp;#123;    console.log(&quot;First&quot;);    setTimeout(function () &amp;#123;        console.log(&amp;quot">
+<meta property="og:description" content="从nodejs服务器想到的服务器的定义是，监听请求，处理请求和做出响应。除了nodejs外，其他语言也有对应的web server框架，比如java的tomcat。 用下列代码实现一个简单的服务器： 12345678910var http &#x3D; require(&amp;#x27;http&amp;#x27;)var fs &#x3D; require(&amp;#x27;fs&amp;#x27;)http.createServer(fun">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-07-26T09:58:45.000Z">
-<meta property="article:modified_time" content="2022-07-27T01:35:02.355Z">
+<meta property="article:published_time" content="2022-07-27T13:31:25.000Z">
+<meta property="article:modified_time" content="2022-07-27T13:58:43.184Z">
 <meta property="article:author" content="goldspot">
-<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="nodejs">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://www.goldspot.top/2022/07/26/JS%E4%B9%8BPromise/">
+<link rel="canonical" href="http://www.goldspot.top/2022/07/27/nodejs%E6%9E%84%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/07/26/JS%E4%B9%8BPromise/","path":"2022/07/26/JS之Promise/","title":"JS之Promise"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/07/27/nodejs%E6%9E%84%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/","path":"2022/07/27/nodejs构建服务器/","title":"nodejs构建服务器"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>JS之Promise | Goldspot's blog</title>
+<title>nodejs构建服务器 | Goldspot's blog</title>
   
 
   <script src="/js/third-party/analytics/baidu-analytics.js"></script>
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81promise"><span class="nav-number">1.</span> <span class="nav-text">为什么需要promise</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8Enodejs%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%83%B3%E5%88%B0%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">从nodejs服务器想到的</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -182,7 +182,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/07/26/JS%E4%B9%8BPromise/">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/07/27/nodejs%E6%9E%84%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -195,12 +195,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="JS之Promise | Goldspot's blog">
+      <meta itemprop="name" content="nodejs构建服务器 | Goldspot's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          JS之Promise
+          nodejs构建服务器
         </h1>
 
         <div class="post-meta-container">
@@ -210,15 +210,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-07-26 17:58:45" itemprop="dateCreated datePublished" datetime="2022-07-26T17:58:45+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-27 09:35:02" itemprop="dateModified" datetime="2022-07-27T09:35:02+08:00">2022-07-27</time>
+      <time title="Created: 2022-07-27 21:31:25 / Modified: 21:58:43" itemprop="dateCreated datePublished" datetime="2022-07-27T21:31:25+08:00">2022-07-27</time>
     </span>
 
   
@@ -231,14 +225,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="为什么需要promise"><a href="#为什么需要promise" class="headerlink" title="为什么需要promise"></a>为什么需要promise</h2><p>首先，存在一次异步任务的需求。然后又有了多次异步任务的需求，而多次异步的书写存在函数瀑布问题，不利于阅读和维护：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;First&quot;</span>);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Second&quot;</span>);</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Third&quot;</span>);</span><br><span class="line">        &#125;, <span class="number">3000</span>);</span><br><span class="line">    &#125;, <span class="number">4000</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+        <h2 id="从nodejs服务器想到的"><a href="#从nodejs服务器想到的" class="headerlink" title="从nodejs服务器想到的"></a>从nodejs服务器想到的</h2><p>服务器的定义是，监听请求，处理请求和做出响应。除了nodejs外，其他语言也有对应的web server框架，比如java的tomcat。</p>
+<p>用下列代码实现一个简单的服务器：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">&#x27;http&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line">http.<span class="title function_">createServer</span>(<span class="keyword">function</span> (<span class="params">request, response</span>) &#123;</span><br><span class="line">    fs.<span class="title function_">readFile</span>(<span class="string">&#x27;1.txt&#x27;</span>, <span class="function">(<span class="params">err, data</span>)=&gt;</span>&#123;</span><br><span class="line">        response.<span class="title function_">setHeader</span>(<span class="string">&quot;Access-Control-Allow-Origin&quot;</span>, <span class="string">&quot;*&quot;</span>)</span><br><span class="line">        response.<span class="title function_">end</span>(data)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;).<span class="title function_">listen</span>(<span class="number">3000</span>, <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;running&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-
-<p>所以，出现了promise对象，将多次异步代码写成顺序格式而非嵌套格式：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">print</span>(<span class="params">delay, message</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params">resolve, reject</span>) &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(message);</span><br><span class="line">            <span class="title function_">resolve</span>();</span><br><span class="line">        &#125;, delay);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">print</span>(<span class="number">1000</span>, <span class="string">&quot;First&quot;</span>).<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">print</span>(<span class="number">4000</span>, <span class="string">&quot;Second&quot;</span>);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">print</span>(<span class="number">3000</span>, <span class="string">&quot;Third&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>因此，异步是异步，promise是promise，异步任务的实现靠的是异步函数，而不是promise，promise仅是改变了书写格式。</p>
+<p>用node命令执行上述代码后，就可以发送请求了。我们总说请求，可是请求究竟有哪些类型呢？网上将http请求分为get\post等8种类型，我觉得，从另一个角度，可以分为全局型和局部型。全局型是浏览器输入框改变，则会发起请求，并刷新页面。而局部型如ajax，只更新dom树几个节点的内容，不刷新页面。</p>
+<p>全局型请求，是通过更改末尾地址实现。而上面的代码对于所有请求的响应都相同。所以，可以通过路由分发来实现不同地址响应。</p>
 
     </div>
 
@@ -248,21 +240,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i> javascript</a>
+              <a href="/tags/nodejs/" rel="tag"><i class="fa fa-tag"></i> nodejs</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/07/26/Hello-World/" rel="prev" title="Hello World!">
-                  <i class="fa fa-chevron-left"></i> Hello World!
+                <a href="/2022/07/26/JS%E4%B9%8BPromise/" rel="prev" title="JS之Promise">
+                  <i class="fa fa-chevron-left"></i> JS之Promise
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/27/nodejs%E6%9E%84%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="next" title="nodejs构建服务器">
-                  nodejs构建服务器 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
