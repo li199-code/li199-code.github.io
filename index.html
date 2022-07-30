@@ -205,7 +205,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-07-30 10:55:52 / Modified: 15:08:33" itemprop="dateCreated datePublished" datetime="2022-07-30T10:55:52+08:00">2022-07-30</time>
+      <time title="Created: 2022-07-30 10:55:52 / Modified: 18:02:24" itemprop="dateCreated datePublished" datetime="2022-07-30T10:55:52+08:00">2022-07-30</time>
     </span>
 
   
@@ -221,30 +221,67 @@
           <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一直苦于css的内容繁多，潜意识回避。但是对于初级前端岗位，重现页面是基本功。所以，决定花几天时间，重学css。知乎上的<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/383581311/answer/1114218936">回答</a>建议将css分为选择器、样式、盒模型、定位四个部分。那么我就按这个路线学一遍，并记录自己容易出错的地方。</p>
 <h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><p>id，类自不必说。</p>
 <ul>
-<li><p>分组&#x2F;后代&#x2F;子元素区别</p>
+<li>分组&#x2F;后代&#x2F;子元素区别</li>
+</ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>, <span class="selector-tag">h2</span>&#123;&#125; <span class="comment">/*分组*/</span></span><br><span class="line"><span class="selector-tag">h1</span> <span class="selector-tag">h2</span>&#123;&#125; <span class="comment">/*后代*/</span></span><br><span class="line"><span class="selector-tag">h1</span>&gt;<span class="selector-tag">h2</span>&#123;&#125; <span class="comment">/*子元素*/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>兄弟选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>+<span class="selector-tag">h2</span> &#123;&#125; <span class="comment">/*兄弟选择器有两种，这种是相邻兄弟选择器，只选择到了h2*/</span></span><br><span class="line"><span class="selector-tag">h1</span>~<span class="selector-tag">h2</span> &#123;&#125; <span class="comment">/*通用兄弟选择器，选择h1所有的兄弟h2*/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>属性选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href]</span> &#123;&#125; <span class="comment">/*模仿了其他语言对象属性的表达方式，选择有href属性的a标签*/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>伪类选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;&#125; <span class="comment">/*语法特点：单个冒号，后面表示标签的状态，解释为：“处于某状态下的标签”。我更愿意称之为状态选择器。*/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>伪元素选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::before</span>&#123;&#125; <span class="comment">/*指定元素的某一部分，一共5种伪元素选择器*/</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一个大坑</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class1</span><span class="selector-class">.class2</span> 同时属于两类的元素</span><br><span class="line"><span class="selector-class">.class1</span> <span class="selector-class">.class2</span> 属于class1的元素的后代里，属于class2的</span><br></pre></td></tr></table></figure></li>
-<li><p>总结<br>没什么，背住！</p>
-</li>
-</ul>
-<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><p>这部分，可想而知，最杂。</p>
+
 <ul>
-<li>background<br>一种是颜色背景，一种是图片背景。后者需要设置一些属性，写法上应该都采取简写：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ffffff</span> <span class="built_in">url</span>(<span class="string">&quot;tree.png&quot;</span>) no-repeat right top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>兄弟选择器</li>
 </ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">h1</span>+<span class="selector-tag">h2</span> &#123;&#125; <span class="comment">/*兄弟选择器有两种，这种是相邻兄弟选择器，只选择到了h2*/</span></span><br><span class="line"><span class="selector-tag">h1</span>~<span class="selector-tag">h2</span> &#123;&#125; <span class="comment">/*通用兄弟选择器，选择h1所有的兄弟h2*/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>属性选择器</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-attr">[href]</span> &#123;&#125; <span class="comment">/*模仿了其他语言对象属性的表达方式，选择有href属性的a标签*/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>伪类选择器</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;&#125; <span class="comment">/*语法特点：单个冒号，后面表示标签的状态，解释为：“处于某状态下的标签”。我更愿意称之为状态选择器。*/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>伪元素选择器</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::before</span>&#123;&#125; <span class="comment">/*指定元素的某一部分，一共5种伪元素选择器*/</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>一个大坑</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class1</span><span class="selector-class">.class2</span> 同时属于两类的元素</span><br><span class="line"><span class="selector-class">.class1</span> <span class="selector-class">.class2</span> 属于class1的元素的后代里，属于class2的</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>总结<br>没什么，背住！</li>
+</ul>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><p>这部分一般面试不问，使用时查找即可。</p>
+<ul>
+<li>background<br>一种是颜色背景，一种是图片背景。后者需要设置一些属性，写法上应该都采取简写：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">  background: #ffffff url(&quot;tree.png&quot;) no-repeat right top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h3><p>面试重点！应该牢牢掌握。</p>
+<ul>
+<li><p>padding<br>内边距，空白透明，只能设置长度。顺便记录一下非常重要的浏览器长度单位：<br>可分为绝对单位和相对单位，<br>绝对：</p>
+<ul>
+<li>px. 最基础的</li>
+<li>in\cm\mm 计算机中都会转成px。</li>
+</ul>
+<p>相对：</p>
+<ul>
+<li>em: 相对于父元素字体大小的倍数, 百分号也是基于父元素</li>
+<li>rem: 相对于根节点html(16px).rem用的更多，因为它不需要层层换算。</li>
+<li>vw&#x2F;vh：基于可视区域，1vw&#x3D;可视区宽度的1%</li>
+</ul>
+</li>
+<li><p>border<br>牵涉到上下左右的问题，出于简便的考虑，应该采用简写形式。</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid red; <span class="comment">/**如果要设置某一侧边框的样式，应该写border-left: xxxx */</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>margin<br>margin和padding书写方式很像，但是操蛋的是auto。auto表示自动计算应得的空间。所以可以实现居中操作。</li>
+</ul>
+<h3 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h3><p>最复杂和让人蛋疼的部分。</p>
 
       
     </div>
@@ -382,7 +419,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-27 09:35:02" itemprop="dateModified" datetime="2022-07-27T09:35:02+08:00">2022-07-27</time>
+      <time title="Modified: 2022-07-30 17:24:27" itemprop="dateModified" datetime="2022-07-30T17:24:27+08:00">2022-07-30</time>
     </span>
 
   
@@ -397,7 +434,6 @@
     <div class="post-body" itemprop="articleBody">
           <h2 id="为什么需要promise"><a href="#为什么需要promise" class="headerlink" title="为什么需要promise"></a>为什么需要promise</h2><p>首先，存在一次异步任务的需求。然后又有了多次异步任务的需求，而多次异步的书写存在函数瀑布问题，不利于阅读和维护：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;First&quot;</span>);</span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Second&quot;</span>);</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Third&quot;</span>);</span><br><span class="line">        &#125;, <span class="number">3000</span>);</span><br><span class="line">    &#125;, <span class="number">4000</span>);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-
 
 <p>所以，出现了promise对象，将多次异步代码写成顺序格式而非嵌套格式：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">print</span>(<span class="params">delay, message</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="keyword">function</span> (<span class="params">resolve, reject</span>) &#123;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(message);</span><br><span class="line">            <span class="title function_">resolve</span>();</span><br><span class="line">        &#125;, delay);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">print</span>(<span class="number">1000</span>, <span class="string">&quot;First&quot;</span>).<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">print</span>(<span class="number">4000</span>, <span class="string">&quot;Second&quot;</span>);</span><br><span class="line">&#125;).<span class="title function_">then</span>(<span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">print</span>(<span class="number">3000</span>, <span class="string">&quot;Third&quot;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -465,7 +501,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-27 09:34:50" itemprop="dateModified" datetime="2022-07-27T09:34:50+08:00">2022-07-27</time>
+      <time title="Modified: 2022-07-30 17:21:39" itemprop="dateModified" datetime="2022-07-30T17:21:39+08:00">2022-07-30</time>
     </span>
 
   
