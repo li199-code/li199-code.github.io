@@ -205,7 +205,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-07-30 10:55:52 / Modified: 14:34:44" itemprop="dateCreated datePublished" datetime="2022-07-30T10:55:52+08:00">2022-07-30</time>
+      <time title="Created: 2022-07-30 10:55:52 / Modified: 15:08:33" itemprop="dateCreated datePublished" datetime="2022-07-30T10:55:52+08:00">2022-07-30</time>
     </span>
 
   
@@ -234,7 +234,16 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> &#123;&#125; <span class="comment">/*语法特点：单个冒号，后面表示标签的状态，解释为：“处于某状态下的标签”。我更愿意称之为状态选择器。*/</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>伪元素选择器</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::before</span>&#123;&#125; <span class="comment">/*指定元素的某一部分，一共5种伪元素选择器*/</span></span><br></pre></td></tr></table></figure></li>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::before</span>&#123;&#125; <span class="comment">/*指定元素的某一部分，一共5种伪元素选择器*/</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一个大坑</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class1</span><span class="selector-class">.class2</span> 同时属于两类的元素</span><br><span class="line"><span class="selector-class">.class1</span> <span class="selector-class">.class2</span> 属于class1的元素的后代里，属于class2的</span><br></pre></td></tr></table></figure></li>
+<li><p>总结<br>没什么，背住！</p>
+</li>
+</ul>
+<h3 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h3><p>这部分，可想而知，最杂。</p>
+<ul>
+<li>background<br>一种是颜色背景，一种是图片背景。后者需要设置一些属性，写法上应该都采取简写：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ffffff</span> <span class="built_in">url</span>(<span class="string">&quot;tree.png&quot;</span>) no-repeat right top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
       
