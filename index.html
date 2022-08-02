@@ -126,7 +126,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -175,6 +175,123 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/01/%E5%88%9D%E5%AD%A6vue2%E8%B8%A9%E5%9D%91%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="goldspot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Goldspot's blog">
+      <meta itemprop="description" content="Nothing but freedom">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Goldspot's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/01/%E5%88%9D%E5%AD%A6vue2%E8%B8%A9%E5%9D%91%E8%AE%B0/" class="post-title-link" itemprop="url">初学vue2踩坑记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-01 11:03:20" itemprop="dateCreated datePublished" datetime="2022-08-01T11:03:20+08:00">2022-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-08-02 13:20:10" itemprop="dateModified" datetime="2022-08-02T13:20:10+08:00">2022-08-02</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>跟着b站黑马程序员的视频入门vue，跟敲代码过程中，踩到一些坑，在这里记录一下：</p>
+<ul>
+<li><p>定义方法时，是<code>methods</code>而不是<code>method</code></p>
+</li>
+<li><p><code>&#123;&#123;&#125;&#125;</code>叫做插值表达式</p>
+</li>
+<li><p>写计数器案例时用到了flex,发现下面这种换行不是flex认可的换行，<code>align-content</code>无效：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;num&#125;&#125;<span class="tag">&lt;/<span class="name">br</span>&gt;</span>&#123;&#123;num&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>v-bind<br>bind,绑定的意思，就是给元素绑定属性。首先，用简写形式<code>:[name]=&quot;content&quot;</code>。然后绑定类名属性<code>class</code>时，最简单的写法是，<code>:class=&quot;&#123;[name]:isActive&#125;&quot;</code>,也就是切换类。 </p>
+</li>
+<li><p>v-model<br>双向绑定<strong>表单元素</strong>的值。那么常见的表单元素及其值有哪些呢？</p>
+</li>
+</ul>
+<blockquote>
+<p>你可以用 v-model 指令在表单 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 及 <code>&lt;select&gt;</code> 元素上创建双向数据绑定。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/guide/forms.html">官网文档</a>上的举得例子挺多，感觉这里是比较容易犯错的。</p>
+<ul>
+<li><code>&lt;input type=&#39;&#39;&gt;</code></li>
+</ul>
+<p>顺便复习一下input表单元素。看到以下类型能想起他们作用和浏览器中的样式即可。<br><code>text/password/radio/checkbox/button</code></p>
+<hr>
+<p>下面是做视频中的项目时遇到问题的记录</p>
+<ul>
+<li>如何将输入框的内容双向绑定？</li>
+</ul>
+<p>原以为<code>input</code>需要声明一个值作为输入内容，实际上v-model自己就可以将输入值和<code>data</code>中的变量绑定。所以应该先创建<code>data</code>中的变量，然后绑定。</p>
+<ul>
+<li>悬浮在item时，显示删除符合的css</li>
+</ul>
+<p>原本想的是先用行内样式将删除模块设为<code>display:none</code>。后来发现不起效。原因是行内样式的优先级最高，<code>&lt;style&gt;</code>标签里的css会被覆盖。所以把上述代码放到了<code>&lt;style&gt;</code>里，成功。</p>
+<ul>
+<li>如何设置主体高度随条目数量增大而增大，并在超过某一限度时设置滚动</li>
+</ul>
+<p>直接上代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.items</span> &#123;</span><br><span class="line">    <span class="attribute">max-height</span>: <span class="number">420px</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>附上<code>overflow</code>中scroll和auto属性的区别：</p>
+<blockquote>
+<p>二者都会在内容超出范围时显示滚动条，但在元素没有超出时，auto会隐藏滚动条，scroll依旧显示滚动条，但是禁用该滚动条。</p>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/07/30/css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -211,7 +328,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-31 12:05:17" itemprop="dateModified" datetime="2022-07-31T12:05:17+08:00">2022-07-31</time>
+      <time title="Modified: 2022-07-31 12:10:57" itemprop="dateModified" datetime="2022-07-31T12:10:57+08:00">2022-07-31</time>
     </span>
 
   
@@ -270,9 +387,6 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">text-align</span><span class="selector-pseudo">:left</span>\<span class="attribute">right</span>\justify</span><br><span class="line"><span class="attribute">vertical-align</span>:top\middle\button</span><br></pre></td></tr></table></figure></li>
 <li><p>line-height 一张图说明</p>
 <img src="https://img1.imgtp.com/2022/07/31/caYaV0yT.png">
-
-
-
 </li>
 <li><p>一些坑</p>
 </li>
