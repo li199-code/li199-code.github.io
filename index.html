@@ -211,7 +211,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-02 20:36:26" itemprop="dateModified" datetime="2022-08-02T20:36:26+08:00">2022-08-02</time>
+      <time title="Modified: 2022-08-03 16:26:46" itemprop="dateModified" datetime="2022-08-03T16:26:46+08:00">2022-08-03</time>
     </span>
 
   
@@ -233,7 +233,7 @@
 <li><p>写计数器案例时用到了flex,发现下面这种换行不是flex认可的换行，<code>align-content</code>无效：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;&#123;num&#125;&#125;<span class="tag">&lt;/<span class="name">br</span>&gt;</span>&#123;&#123;num&#125;&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>v-bind<br>bind,绑定的意思，就是给元素绑定属性。首先，用简写形式<code>:[name]=&quot;content&quot;</code>。然后绑定类名属性<code>class</code>时，最简单的写法是，<code>:class=&quot;&#123;[name]:isActive&#125;&quot;</code>,也就是切换类。 </p>
+<li><p>v-bind<br>bind,绑定的意思，就是给元素绑定属性。首先，用简写形式<code>:[name]=&quot;content&quot;</code>。然后绑定类名属性<code>class</code>时，最简单的写法是，<code>:class=&quot;&#123;[name]:isActive&#125;&quot;</code>,也就是切换类。<br>v-for有一个性能优化问题。实时绑定的数据，在数据量大的情况下，计算复杂大，所以，vue在使用了v-for的标签里添加了一个key属性，并将其用v-bind绑定，属性值应该是一个不重复的值，在数据更新时，判断是否时新的key, 然后渲染。不宜用索引值，因为在数组中间插入时，很多数据的key会更新。</p>
 </li>
 <li><p>v-model<br>双向绑定<strong>表单元素</strong>的值。那么常见的表单元素及其值有哪些呢？</p>
 </li>
@@ -277,7 +277,18 @@
 </li>
 <li><p>开发环境和生产环境：开发环境包含了很多库，还要<code>.vue</code>后缀文件，不能被浏览器解析。所以，执行webpack（vuecli自带）打包，<code>npm run build</code>命令后，变成html\css\js的生成环境。</p>
 </li>
+<li><p><code>.gitignore</code>说明了哪些文件在git上传中被忽略</p>
+</li>
+<li><p>在<code>.vue</code>文件中的<code>&lt;template&gt;</code>标签下。只能用一个html根标签。一个组件就包含了html\js\css.</p>
+</li>
+<li><p><code>main.js</code>和vue组件里的js代码什么关系？<br><code>index.html</code>直接执行的js文件只有<code>main.js</code>,而<code>main.js</code>导入了其他组件编写的js代码的接口。</p>
+</li>
+<li><p>组件注册分为全局（很少用）和局部。局部组件三步走：引入+注册+使用。注册完毕后，就可以将整个组件以html标签的形式插入到app.vue中。</p>
+</li>
+<li><p><code>style</code>标签里面添加<code>scoped</code>可以令样式只作用于当前组件，是通过为组件标签添加hash值属性实现的。</p>
+</li>
 </ul>
+<p>-<code>slot</code>是什么？用于组件间传递html标签。在父组件中，在别的组件标签内部，插入标签，并添加slot及id。然后在子组件内添加slot标签，name属性是id。即可实现占位。</p>
 
       
     </div>
