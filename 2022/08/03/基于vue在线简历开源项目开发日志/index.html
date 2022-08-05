@@ -18,25 +18,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.goldspot.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Nothing but freedom">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Goldspot&#39;s blog">
-<meta property="og:url" content="http://www.goldspot.top/tags/website/index.html">
+    <meta name="description" content="本想从头开始做简历项目，但是个人能力有限，做了两天太难了，就先找一个开源项目学习起来，后面添加一些功能。  源码github地址  计划添加的一些功能 能储存多条简历条目于本地，并通过首页展示 增加云端同步选项 部署到网站 …  day1 分析源代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于vue在线简历开源项目开发日志">
+<meta property="og:url" content="http://www.goldspot.top/2022/08/03/%E5%9F%BA%E4%BA%8Evue%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/index.html">
 <meta property="og:site_name" content="Goldspot&#39;s blog">
-<meta property="og:description" content="Nothing but freedom">
+<meta property="og:description" content="本想从头开始做简历项目，但是个人能力有限，做了两天太难了，就先找一个开源项目学习起来，后面添加一些功能。  源码github地址  计划添加的一些功能 能储存多条简历条目于本地，并通过首页展示 增加云端同步选项 部署到网站 …  day1 分析源代码">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-03T09:39:52.000Z">
+<meta property="article:modified_time" content="2022-08-05T09:33:58.808Z">
 <meta property="article:author" content="goldspot">
+<meta property="article:tag" content="vue2">
+<meta property="article:tag" content="project">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://www.goldspot.top/tags/website/">
+<link rel="canonical" href="http://www.goldspot.top/2022/08/03/%E5%9F%BA%E4%BA%8Evue%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"en","comments":"","permalink":"","path":"tags/website/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/08/03/%E5%9F%BA%E4%BA%8Evue%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/","path":"2022/08/03/基于vue在线简历开源项目开发日志/","title":"基于vue在线简历开源项目开发日志"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Tag: website | Goldspot's blog</title>
+<title>基于vue在线简历开源项目开发日志 | Goldspot's blog</title>
   
 
 
@@ -99,7 +103,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -112,6 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A1%E5%88%92%E6%B7%BB%E5%8A%A0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8A%9F%E8%83%BD"><span class="nav-number">1.</span> <span class="nav-text">计划添加的一些功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#day1-%E5%88%86%E6%9E%90%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.</span> <span class="nav-text">day1 分析源代码</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -165,50 +170,115 @@
 </noscript>
 
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">website
-          <small>Tag</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/03/%E5%9F%BA%E4%BA%8Evue%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="goldspot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Goldspot's blog">
+      <meta itemprop="description" content="Nothing but freedom">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="基于vue在线简历开源项目开发日志 | Goldspot's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          基于vue在线简历开源项目开发日志
         </h1>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-03 17:39:52" itemprop="dateCreated datePublished" datetime="2022-08-03T17:39:52+08:00">2022-08-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-08-05 17:33:58" itemprop="dateModified" datetime="2022-08-05T17:33:58+08:00">2022-08-05</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>本想从头开始做简历项目，但是个人能力有限，做了两天太难了，就先找一个开源项目学习起来，后面添加一些功能。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href='https://github.com/luosijie/vue-resume'>源码github地址</a></p>
+</blockquote>
+<h3 id="计划添加的一些功能"><a href="#计划添加的一些功能" class="headerlink" title="计划添加的一些功能"></a>计划添加的一些功能</h3><ul>
+<li>能储存多条简历条目于本地，并通过首页展示</li>
+<li>增加云端同步选项</li>
+<li>部署到网站</li>
+<li>…</li>
+</ul>
+<h4 id="day1-分析源代码"><a href="#day1-分析源代码" class="headerlink" title="day1 分析源代码"></a>day1 分析源代码</h4>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2022-07-26T09:41:37+08:00"
-              content="2022-07-26">
-          07-26
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/26/Hello-World/" itemprop="url">
-            <span itemprop="name">Hello World!</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/vue2/" rel="tag"><i class="fa fa-tag"></i> vue2</a>
+              <a href="/tags/project/" rel="tag"><i class="fa fa-tag"></i> project</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/01/%E5%88%9D%E5%AD%A6vue2%E8%B8%A9%E5%9D%91%E8%AE%B0/" rel="prev" title="初学vue2踩坑记">
+                  <i class="fa fa-chevron-left"></i> 初学vue2踩坑记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
+
 
 </div>
   </main>
