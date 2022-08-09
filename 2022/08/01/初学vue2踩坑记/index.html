@@ -26,7 +26,7 @@
 <meta property="og:description" content="跟着b站黑马程序员的视频入门vue，跟敲代码过程中，踩到一些坑，在这里记录一下：  定义方法时，是methods而不是method  &amp;#123;&amp;#123;&amp;#125;&amp;#125;叫做插值表达式  写计数器案例时用到了flex,发现下面这种换行不是flex认可的换行，align-content无效： 1&lt;span&gt;&amp;#123;&amp;#123;num&amp;#125;&amp;#125;&lt;&#x2F;br&amp;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-01T03:03:20.000Z">
-<meta property="article:modified_time" content="2022-08-03T08:26:46.547Z">
+<meta property="article:modified_time" content="2022-08-05T14:21:42.456Z">
 <meta property="article:author" content="goldspot">
 <meta property="article:tag" content="vue2">
 <meta name="twitter:card" content="summary">
@@ -129,13 +129,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -215,7 +215,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-03 16:26:46" itemprop="dateModified" datetime="2022-08-03T16:26:46+08:00">2022-08-03</time>
+      <time title="Modified: 2022-08-05 22:21:42" itemprop="dateModified" datetime="2022-08-05T22:21:42+08:00">2022-08-05</time>
     </span>
 
   
@@ -299,7 +299,7 @@
 <li><p><code>style</code>标签里面添加<code>scoped</code>可以令样式只作用于当前组件，是通过为组件标签添加hash值属性实现的。</p>
 </li>
 </ul>
-<p>-<code>slot</code>是什么？用于组件间传递html标签。在父组件中，在别的组件标签内部，插入标签，并添加slot及id。然后在子组件内添加slot标签，name属性是id。即可实现占位。</p>
+<p>-<code>slot</code>是什么？用于组件之间的嵌套。在组件a标签内部，插入组件b标签，并在组件b标签中添加slot属性及id。然后在组件a内添加<code>&lt;slot&gt;</code>标签，name属性是id。即可实现精确的占位。</p>
 
     </div>
 
@@ -321,9 +321,6 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/08/03/%E5%9F%BA%E4%BA%8Evue%E5%9C%A8%E7%BA%BF%E7%AE%80%E5%8E%86%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/" rel="next" title="基于vue在线简历开源项目开发日志">
-                  基于vue在线简历开源项目开发日志 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
