@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -166,6 +166,207 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/09/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-js%E5%9F%BA%E7%A1%80%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="goldspot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Goldspot's blog">
+      <meta itemprop="description" content="Nothing but freedom">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Goldspot's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/09/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-js%E5%9F%BA%E7%A1%80%E7%AF%87/" class="post-title-link" itemprop="url">面试八股准备-js基础篇'</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-09 17:45:28" itemprop="dateCreated datePublished" datetime="2022-08-09T17:45:28+08:00">2022-08-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-08-11 22:39:14" itemprop="dateModified" datetime="2022-08-11T22:39:14+08:00">2022-08-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h4 id="说说JavaScript中的数据类型？存储上的差别？"><a href="#说说JavaScript中的数据类型？存储上的差别？" class="headerlink" title="说说JavaScript中的数据类型？存储上的差别？"></a>说说JavaScript中的数据类型？存储上的差别？</h4><p>在JavaScript中，我们可以分成两种类型：基本类型,引用类型<br>两种类型的区别是：存储位置不同。</p>
+<p>基本数据类型：<br>Number<br>String<br>Boolean<br>Undefined<br>null</p>
+<p>引用数据类型：<br>Object<br>Array<br>Function</p>
+<ul>
+<li>声明变量时不同的内存地址分配：</li>
+</ul>
+<p>简单类型的值存放在栈中，在栈中存放的是对应的值。<br>引用类型对应的值存储在堆中，在栈中存放的是指向堆内存的地址</p>
+<ul>
+<li>不同的类型数据导致赋值变量时的不同：</li>
+</ul>
+<p>简单类型赋值，是生成相同的值，两个对象对应不同的地址<br>复杂类型赋值，是将保存对象的内存地址赋值给另一个变量。也就是两个变量指向堆内存中同一个对象</p>
+<h4 id="栈和堆的区别"><a href="#栈和堆的区别" class="headerlink" title="栈和堆的区别"></a>栈和堆的区别</h4><ul>
+<li>空间：栈小，堆大</li>
+<li>访问方式：栈直接访问，堆需要指针</li>
+<li>生命周期：栈内存和函数调用的生命周期一致，而堆可能一致存在，故需要额外的垃圾回收机制</li>
+</ul>
+<h4 id="谈谈-JavaScript-中的类型转换机制"><a href="#谈谈-JavaScript-中的类型转换机制" class="headerlink" title="谈谈 JavaScript 中的类型转换机制"></a>谈谈 JavaScript 中的类型转换机制</h4><ul>
+<li>显式转换</li>
+</ul>
+<p>Number()<br>parseInt()<br>String()<br>Boolean()</p>
+<ul>
+<li>隐式转换</li>
+</ul>
+<p>可分为两种场景：1.比较运算，需要布尔值；2.算术运算。</p>
+<p>比较运算：除了undefined\null\0等会转换为false,其他的转为true<br>加号+：转换为字符串<br>除了加号的运算符：转换为number</p>
+<h4 id="x3D-x3D-和-x3D-x3D-x3D-区别，分别在什么情况使用"><a href="#x3D-x3D-和-x3D-x3D-x3D-区别，分别在什么情况使用" class="headerlink" title="&#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D;区别，分别在什么情况使用"></a>&#x3D;&#x3D; 和 &#x3D;&#x3D;&#x3D;区别，分别在什么情况使用</h4><ul>
+<li>等于操作符</li>
+</ul>
+<p>两个都为简单类型，字符串和布尔值都会转换成数值，再比较</p>
+<p>简单类型与引用类型比较，对象转化成其原始类型的值，再比较</p>
+<p>两个都为引用类型，则比较它们是否指向同一个对象</p>
+<p>null 和 undefined 相等</p>
+<p>存在 NaN 则返回 false</p>
+<ul>
+<li>全等操作符</li>
+</ul>
+<p>在类型和值都相同时，才返回true</p>
+<ul>
+<li>区别</li>
+</ul>
+<p>相等操作符（&#x3D;&#x3D;）会做类型转换，再进行值的比较，全等运算符不会做类型转换</p>
+<p>null 和 undefined 比较，相等操作符（&#x3D;&#x3D;）为true，全等为false</p>
+<ul>
+<li>使用</li>
+</ul>
+<p>为了不引起歧义，一般都用全等</p>
+<h3 id="深拷贝和浅拷贝的区别"><a href="#深拷贝和浅拷贝的区别" class="headerlink" title="深拷贝和浅拷贝的区别"></a>深拷贝和浅拷贝的区别</h3><ol>
+<li><p>浅拷贝：只复制引用，而未复制真正的值。</p>
+<pre><code> var obj2=Object.assign(obj1)
+ 
+</code></pre>
+</li>
+<li><p>深拷贝：是复制真正的值 （不同引用）</p>
+<pre><code> //递归的形式
+ function copyObj( obj )&#123;
+     if(  Array.isArray(obj)  )&#123;
+         var newObj = [];
+     &#125;else&#123;
+         var newObj = &#123;&#125;;
+     &#125;
+     for( var key in obj )&#123;
+         if( typeof obj[key] == &#39;object&#39; )&#123;
+             newObj[key] = copyObj(obj[key]);
+         &#125;else&#123;
+             newObj[key] = obj[key];
+         &#125;
+     &#125;
+     return newObj;
+ &#125;
+</code></pre>
+</li>
+</ol>
+<h4 id="闭包的理解"><a href="#闭包的理解" class="headerlink" title="闭包的理解"></a>闭包的理解</h4><p>一个函数和对其周围状态（lexical environment，词法环境）的引用捆绑在一起（或者说函数被引用包围），这样的组合就是闭包（closure）</p>
+<p>使用场景：</p>
+<ul>
+<li>创建私有变量</li>
+<li>延长变量的生命周期</li>
+</ul>
+<p>一般函数的词法环境在函数返回后就被销毁，但是闭包会保存对创建时所在词法环境的引用，即便创建时所在的执行上下文被销毁，但创建时所在词法环境依然存在，以达到延长变量的生命周期的目的</p>
+<p>缺点：因为闭包在处理速度和内存消耗方面对脚本性能具有负面影响，所以应该尽量避免使用闭包。</p>
+<h4 id="作用域链的理解"><a href="#作用域链的理解" class="headerlink" title="作用域链的理解"></a>作用域链的理解</h4><ul>
+<li>作用域</li>
+</ul>
+<p>作用域，即变量（变量作用域又称上下文）和函数生效（能被访问）的区域或集合</p>
+<p>一般分为三种：全局作用域，函数作用域，块级作用域</p>
+<ul>
+<li>作用域链</li>
+</ul>
+<p>当在Javascript中使用一个变量的时候，首先Javascript引擎会尝试在当前作用域下去寻找该变量，如果没找到，再到它的上层作用域寻找，以此类推直到找到该变量或是已经到了全局作用域</p>
+<p>如果在全局作用域里仍然找不到该变量，它就会在全局范围内隐式声明该变量(非严格模式下)或是直接报错</p>
+<h4 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h4><p>原型是什么：对象的构造函数的一个特殊属性，对象可以从原型中继承属性和方法</p>
+<ol>
+<li>原型可以解决什么问题<br> 对象共享属性和共享方法</li>
+<li>谁有原型<br>函数拥有：prototype<br>对象拥有：_<em>proto</em>_</li>
+<li>对象查找属性或者方法的顺序<br> 先在对象本身查找 –&gt; 构造函数中查找 –&gt; 对象的原型 –&gt; 当前原型的原型中查找</li>
+<li>原型链<br> 4.1 是什么？：就是把原型串联起来<br> 4.2 原型链的最顶端是null</li>
+</ol>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><h5 id="方式一：ES6"><a href="#方式一：ES6" class="headerlink" title="方式一：ES6"></a>方式一：ES6</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class Parent&#123;</span><br><span class="line">	constructor()&#123;</span><br><span class="line">		this.age = 18;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Child extends Parent&#123;</span><br><span class="line">	constructor()&#123;</span><br><span class="line">		super();</span><br><span class="line">		this.name = &#x27;张三&#x27;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">let o1 = new Child();</span><br><span class="line">console.log( o1,o1.name,o1.age );</span><br></pre></td></tr></table></figure>
+
+<h5 id="方式二：原型链继承"><a href="#方式二：原型链继承" class="headerlink" title="方式二：原型链继承"></a>方式二：原型链继承</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Parent()&#123;</span><br><span class="line">	this.age = 20;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">	this.name = &#x27;张三&#x27;</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = new Parent();</span><br><span class="line">let o2 = new Child();</span><br><span class="line">console.log( o2,o2.name,o2.age );</span><br></pre></td></tr></table></figure>
+
+<h5 id="方式三：借用构造函数继承"><a href="#方式三：借用构造函数继承" class="headerlink" title="方式三：借用构造函数继承"></a>方式三：借用构造函数继承</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function Parent()&#123;</span><br><span class="line">	this.age = 22;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">	this.name = &#x27;张三&#x27;</span><br><span class="line">	Parent.call(this);</span><br><span class="line">&#125;</span><br><span class="line">let o3 = new Child();</span><br><span class="line">console.log( o3,o3.name,o3.age );</span><br></pre></td></tr></table></figure>
+
+<h5 id="方式四：组合式继承"><a href="#方式四：组合式继承" class="headerlink" title="方式四：组合式继承"></a>方式四：组合式继承</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function Parent()&#123;</span><br><span class="line">	this.age = 100;</span><br><span class="line">&#125;</span><br><span class="line">function Child()&#123;</span><br><span class="line">	Parent.call(this);</span><br><span class="line">	this.name = &#x27;张三&#x27;</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = new Parent();</span><br><span class="line">let o4 = new Child();</span><br><span class="line">console.log( o4,o4.name,o4.age );</span><br></pre></td></tr></table></figure>
+
+<h4 id="this指向"><a href="#this指向" class="headerlink" title="this指向"></a>this指向</h4><p>this总是动态指向实际执行函数的对象，而不是代码位置。</p>
+<ol>
+<li><p>默认绑定：全局环境中执行函数，this指向window</p>
+</li>
+<li><p>隐式绑定：当this所在函数作为对象方法时被调用时，this指向这个对象</p>
+</li>
+<li><p>构造函数绑定：通过构建函数new关键字生成一个实例对象，此时this指向这个实例对象</p>
+<p> 特殊情况：构造函数return一个对象时，this指向这个return对象</p>
+</li>
+<li><p>显式绑定<br>apply()、call()、bind()是函数的一个方法，作用是改变函数的调用对象。</p>
+</li>
+</ol>
+<h4 id="事件流和事件模型"><a href="#事件流和事件模型" class="headerlink" title="事件流和事件模型"></a>事件流和事件模型</h4><p>事件是用户和浏览器的交互操作。</p>
+<p>事件流：事件捕获阶段(capture phase)<br>处于目标阶段(target phase)<br>事件冒泡阶段(bubbling phase)</p>
+<p>事件模型可以分为三种：<br>原始事件模型（DOM0级）<br>标准事件模型（DOM2级）</p>
+<h4 id="typeof-and-instanceof-区别"><a href="#typeof-and-instanceof-区别" class="headerlink" title="typeof and instanceof 区别"></a>typeof and instanceof 区别</h4><p>typeof与instanceof都是判断数据类型的方法，区别如下：</p>
+<p>typeof会返回一个变量的基本类型，instanceof返回的是一个布尔值</p>
+<p>instanceof 可以准确地判断复杂引用数据类型，但是不能正确判断基础数据类型</p>
+<p>而typeof 也存在弊端，它虽然可以判断基础数据类型（null 除外），但是引用数据类型中，除了function 类型以外，其他的也无法判断</p>
+<p>可以看到，上述两种方法都有弊端，并不能满足所有场景的需求</p>
+<p>如果需要通用检测数据类型，可以采用Object.prototype.toString，调用该方法，统一返回格式“[object Xxx]”的字符串</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
