@@ -18,16 +18,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.goldspot.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言一直苦于css的内容繁多，潜意识回避。但是对于初级前端岗位，重现页面是基本功。所以，决定花几天时间，重学css。知乎上的回答建议将css分为选择器、样式、盒模型、定位四个部分。那么我就按这个路线学一遍，并记录自己容易出错的地方。 选择器id，类自不必说。  分组&#x2F;后代&#x2F;子元素区别  123h1, h2&amp;#123;&amp;#125; &#x2F;*分组*&#x2F;h1 h2&amp;#123;&amp;#125;">
+    <meta name="description" content="前言一直苦于css的内容繁多，潜意识回避。但是对于初级前端岗位，重现页面是基本功。所以，决定花几天时间，重学css。知乎上的回答建议将css分为选择器、样式、盒模型、定位四个部分。那么我就按这个路线学一遍，并记录自己容易出错的地方。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="css从0开始">
 <meta property="og:url" content="http://www.goldspot.top/2022/07/30/css/index.html">
 <meta property="og:site_name" content="Goldspot&#39;s blog">
-<meta property="og:description" content="前言一直苦于css的内容繁多，潜意识回避。但是对于初级前端岗位，重现页面是基本功。所以，决定花几天时间，重学css。知乎上的回答建议将css分为选择器、样式、盒模型、定位四个部分。那么我就按这个路线学一遍，并记录自己容易出错的地方。 选择器id，类自不必说。  分组&#x2F;后代&#x2F;子元素区别  123h1, h2&amp;#123;&amp;#125; &#x2F;*分组*&#x2F;h1 h2&amp;#123;&amp;#125;">
+<meta property="og:description" content="前言一直苦于css的内容繁多，潜意识回避。但是对于初级前端岗位，重现页面是基本功。所以，决定花几天时间，重学css。知乎上的回答建议将css分为选择器、样式、盒模型、定位四个部分。那么我就按这个路线学一遍，并记录自己容易出错的地方。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img1.imgtp.com/2022/07/31/caYaV0yT.png">
 <meta property="article:published_time" content="2022-07-30T02:55:52.000Z">
-<meta property="article:modified_time" content="2022-07-31T04:10:57.904Z">
+<meta property="article:modified_time" content="2022-08-12T02:08:00.403Z">
 <meta property="article:author" content="goldspot">
 <meta property="article:tag" content="css">
 <meta name="twitter:card" content="summary">
@@ -218,7 +218,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-31 12:10:57" itemprop="dateModified" datetime="2022-07-31T12:10:57+08:00">2022-07-31</time>
+      <time title="Modified: 2022-08-12 10:08:00" itemprop="dateModified" datetime="2022-08-12T10:08:00+08:00">2022-08-12</time>
     </span>
 
   
@@ -239,6 +239,8 @@
     
     <div class="post-body" itemprop="articleBody">
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一直苦于css的内容繁多，潜意识回避。但是对于初级前端岗位，重现页面是基本功。所以，决定花几天时间，重学css。知乎上的<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/383581311/answer/1114218936">回答</a>建议将css分为选择器、样式、盒模型、定位四个部分。那么我就按这个路线学一遍，并记录自己容易出错的地方。</p>
+<span id="more"></span>
+
 <h3 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h3><p>id，类自不必说。</p>
 <ul>
 <li>分组&#x2F;后代&#x2F;子元素区别</li>
