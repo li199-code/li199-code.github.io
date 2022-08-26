@@ -26,7 +26,7 @@
 <meta property="og:description" content="问题描述：调试阶段，前端项目请求后端接口返回数据，前端项目和后端的端口不一致，产生了跨域问题。部署阶段，前端打包完毕，项目发起请求，同样有跨域问题，两种场景的解决方法不同。 下面解决问题的场景是，打包的前端文件并不在服务器的文件路径中。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-17T09:24:13.000Z">
-<meta property="article:modified_time" content="2022-08-17T09:44:11.452Z">
+<meta property="article:modified_time" content="2022-08-20T03:30:18.133Z">
 <meta property="article:author" content="goldspot">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -130,7 +130,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -208,9 +208,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-08-17 17:24:13 / Modified: 17:44:11" itemprop="dateCreated datePublished" datetime="2022-08-17T17:24:13+08:00">2022-08-17</time>
+      <time title="Created: 2022-08-17 17:24:13" itemprop="dateCreated datePublished" datetime="2022-08-17T17:24:13+08:00">2022-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-08-20 11:30:18" itemprop="dateModified" datetime="2022-08-20T11:30:18+08:00">2022-08-20</time>
     </span>
 
   
@@ -237,7 +243,7 @@
 <h3 id="调试阶段"><a href="#调试阶段" class="headerlink" title="调试阶段"></a>调试阶段</h3><p>后端可以不用设置，只要前端设置代理服务器即可。在vue根目录下的<code>vue.config.js</code>添加下述代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = (&#123;</span><br><span class="line">	<span class="attr">devServer</span>: &#123;</span><br><span class="line">		<span class="attr">proxy</span>: <span class="string">&#x27;http://localhost:3000&#x27;</span> <span class="comment">//3000为后端接口的端口号</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="attr">publicPath</span>: <span class="string">&#x27;./&#x27;</span> <span class="comment">//解决打包后的静态文件路径问题</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>可以理解为中间有一个服务器，和后端同源，先将请求到的数据发送到代理，再给前端。</p>
+<p>跨域只存在浏览器中，服务器之间不存在跨域，所以可以通过服务器代理</p>
 <h3 id="部署阶段"><a href="#部署阶段" class="headerlink" title="部署阶段"></a>部署阶段</h3><p>vue根目录下建立两个配置文件：<code>.env.development</code>和<code>.env.production</code></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//.env.development</span><br><span class="line">VUE_APP_BASE_API=&#x27;http://localhost:3000&#x27;</span><br><span class="line">VUE_APP_ENV=&#x27;dev&#x27;</span><br></pre></td></tr></table></figure>
 
