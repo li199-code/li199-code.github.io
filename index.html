@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -166,6 +166,305 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/11/03/moka%E6%8B%9B%E8%81%98%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E7%8A%B6%E6%80%81%E7%88%AC%E8%99%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="goldspot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Goldspot's blog">
+      <meta itemprop="description" content="Nothing but freedom">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Goldspot's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/11/03/moka%E6%8B%9B%E8%81%98%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E7%8A%B6%E6%80%81%E7%88%AC%E8%99%AB/" class="post-title-link" itemprop="url">moka招聘系统面试状态爬虫</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-11-03 21:26:48 / Modified: 21:52:58" itemprop="dateCreated datePublished" datetime="2022-11-03T21:26:48+08:00">2022-11-03</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>这几天学python爬虫，又买了腾讯云服务器，找个项目练练手。找到了一个需求：对中兴的招聘进度做一个定时爬取，如果有变化，微信通知我。任务可以分为两大块，一块是代码实现，一块是项目部署。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>之前手头上有几个moka的api:</p>
+<p><code>https://app.mokahr.com/personal-center/editApplication/xxxxxx?orgId=zte</code></p>
+<p>后来觉得官网上的会更直观：</p>
+<p><code>https://app.mokahr.com/personal-center/applications?orgId=zte</code></p>
+<p>带上cookie，发起get请求，对返回的json数据肉眼解析，找到面试状态字段的位置。如果状态不是‘面试’，或者脚本请求不到数据，通知我。脚本可能会因为cookie过期失效。所以在外层套try&#x2F;catch进行异常处理。最后，用一个免费的消息推送网站<code>http://wx.xtuis.cn/</code>提供的接口，将消息推送到手机。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment">## 中文乱码着实麻烦。将编码方式改为utf-8.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">defaultencoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line"><span class="keyword">if</span> sys.getdefaultencoding() != defaultencoding:</span><br><span class="line">    reload(sys)</span><br><span class="line">    sys.setdefaultencoding(defaultencoding)</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;https://app.mokahr.com/personal-center/applications?orgId=zte&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sendMessage</span>(<span class="params">token, mydata</span>):</span><br><span class="line">    baseurl = <span class="string">&quot;http://wx.xtuis.cn/&quot;</span></span><br><span class="line">    url = baseurl + token + <span class="string">&quot;.send&quot;</span></span><br><span class="line">    </span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&quot;text&quot;</span>: <span class="string">&#x27;zte notification：&#x27;</span>+mydata,</span><br><span class="line">        <span class="string">&quot;desp&quot;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    requests.post(url, data=data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		res = requests.get(url=url, headers=headers)</span><br><span class="line">		<span class="comment"># fp = open(&#x27;zte.json&#x27;, &#x27;w&#x27;, encoding=&#x27;utf-8&#x27;)</span></span><br><span class="line">		<span class="built_in">print</span>(res.json())</span><br><span class="line">		<span class="comment"># json.dump(res.json(), fp, ensure_ascii=False)</span></span><br><span class="line">		app_list = res.json()[<span class="number">0</span>][<span class="string">&#x27;candidateApps&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;projectApps&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;apps&#x27;</span>]</span><br><span class="line">		app = app_list[<span class="number">0</span>]</span><br><span class="line">		status = app[<span class="string">&#x27;stage&#x27;</span>]</span><br><span class="line">		<span class="built_in">print</span>(status)</span><br><span class="line">	<span class="keyword">except</span>:</span><br><span class="line">		status = <span class="string">&#x27;error!&#x27;</span></span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&#x27;error!&#x27;</span>)</span><br><span class="line">	<span class="keyword">if</span> status != <span class="string">&#x27;面试&#x27;</span>:</span><br><span class="line">		sendMessage(<span class="string">&#x27;&#x27;</span>, status)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><p>webshell可以直接拖拽上传本地编写好的py文件，很方便。上传后，设置任务调度。核心命令就是linux的<code>crond</code>。参数：前面五个<code>*</code>设置执行时间间隔，后面跟命令。依次输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crond -e ##进入vim编辑</span><br><span class="line">60 * * * * python ../zte.py  ##注意要从根目录开始，写绝对路径。一小时执行一次。</span><br><span class="line">crond -l ##查看任务是否创建</span><br></pre></td></tr></table></figure>
+
+<p>如果py程序中有print语句用于调试等目的，可以打开mail。任务执行的打印语句会出现在mail中。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>学爬虫是有强大的正向激励的。之前秋招时经常守着页面刷新查看状态，很焦虑。现在可以放心了。我还要很多想法，比如b站虚拟主播生日会舰长数爬取，并自动制作表格等。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/10/31/https%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="goldspot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Goldspot's blog">
+      <meta itemprop="description" content="Nothing but freedom">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Goldspot's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/31/https%E5%8D%8F%E8%AE%AE/" class="post-title-link" itemprop="url">https协议</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-10-31 15:42:50 / Modified: 15:46:41" itemprop="dateCreated datePublished" datetime="2022-10-31T15:42:50+08:00">2022-10-31</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="什么是公钥和私钥"><a href="#什么是公钥和私钥" class="headerlink" title="什么是公钥和私钥"></a>什么是公钥和私钥</h3><p>为了增加http报文内容的安全性，需要对明文加密。公钥是一种加密规则，由服务器端创建，经过证书认证机构签名后发给客户端，客户端根据是否有签名来确定是否是服务器端发出的公钥。报文根据公钥在客户端加密后，发向服务器，服务器收到，用私钥进行解密。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/09/12/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="goldspot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Goldspot's blog">
+      <meta itemprop="description" content="Nothing but freedom">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Goldspot's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/12/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AF%87/" class="post-title-link" itemprop="url">面试八股准备-性能优化篇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-12 11:07:31 / Modified: 11:12:40" itemprop="dateCreated datePublished" datetime="2022-09-12T11:07:31+08:00">2022-09-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="节流和防抖"><a href="#节流和防抖" class="headerlink" title="节流和防抖"></a>节流和防抖</h3><p>节流：单位时间内只执行一次事件的回调函数，典型使用场景：拖拽<br>防抖：事件被触发 n 秒后再执行回调，如果在这 n 秒内事件又被触发，则重新计时。典型使用场景：防⽌多次提交按钮，只执⾏最后提交的⼀次</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/09/08/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="goldspot">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Goldspot's blog">
+      <meta itemprop="description" content="Nothing but freedom">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Goldspot's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/08/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">js事件循环机制</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-09-08 09:59:46 / Modified: 10:04:29" itemprop="dateCreated datePublished" datetime="2022-09-08T09:59:46+08:00">2022-09-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="一个困扰我已久的问题："><a href="#一个困扰我已久的问题：" class="headerlink" title="一个困扰我已久的问题："></a>一个困扰我已久的问题：</h3><p>JS 是单线程的，在同一个时间只能做一件事情，那为什么浏览器可以同时执行异步任务呢？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/09/08/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -488,7 +787,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/17/vue%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -506,7 +805,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/17/vue%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">vue解决跨域问题</a>
+          <a href="/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">跨域问题描述和解决方案</a>
         </h2>
 
         <div class="post-meta-container">
@@ -524,7 +823,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-20 11:30:18" itemprop="dateModified" datetime="2022-08-20T11:30:18+08:00">2022-08-20</time>
+      <time title="Modified: 2022-09-08 09:50:12" itemprop="dateModified" datetime="2022-09-08T09:50:12+08:00">2022-09-08</time>
     </span>
 
   
@@ -537,11 +836,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>问题描述：调试阶段，前端项目请求后端接口返回数据，前端项目和后端的端口不一致，产生了跨域问题。部署阶段，前端打包完毕，项目发起请求，同样有跨域问题，两种场景的解决方法不同。</p>
+          <h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><p>跨域是浏览器对js脚本和ajax请求做出的限制。不同源的js脚本获取对方的cookie，ajax无法发送跨域请求。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h4><p>在服务器设置字段<code>Access-Control-Allow-Origin</code>。当浏览器收到服务器返回的资源上，没有<code>Access-Control-Allow-Origin</code>字段,就会拒绝加载</p>
+<h4 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h4><p>jsonp的原理就是利用<code>&lt;script&gt;</code>标签没有跨域限制，通过<code>&lt;script&gt;</code>标签src属性，发送带有callback参数的GET请求，服务端将接口返回数据拼凑到callback函数中，返回给浏览器，浏览器解析执行，从而前端拿到callback函数返回的数据。</p>
+<p>问题描述：调试阶段，前端项目请求后端接口返回数据，前端项目和后端的端口不一致，产生了跨域问题。部署阶段，前端打包完毕，项目发起请求，同样有跨域问题，两种场景的解决方法不同。</p>
 <p>下面解决问题的场景是，打包的前端文件并不在服务器的文件路径中。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2022/08/17/vue%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/#more" rel="contents">
+              <a class="btn" href="/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -633,343 +935,6 @@
 <p>挥手：1.客户端发送fin报文和初始号，2.服务器收到后发送ack报文和确认号，并进入close-wait状态，此时，客户端不能向服务器请求数据，但服务器可以向浏览器输送未完成输送的数据，3.等数据全部传输完毕后，服务器再次向客户端发送fin报文，并进入last-ack状态，此时所有数据传输停止，4.客户端收到后，发送ack报文，进入time-wait状态，等2msl（最大段生存期，指报文段在网络中生存的时间，超时会被抛弃）后，进入关闭状态，服务器收到报文后，才会进入关闭状态。</p>
 <h3 id="http状态码"><a href="#http状态码" class="headerlink" title="http状态码"></a>http状态码</h3><p>2xx Success 请求正常处理完毕<br>3xx Redirection 需要进行附加操作来完成请求<br>4xx Client Error 服务器无法处理请求<br>5xx Server Error 服务器处理请求出错</p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/12/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-ES6%E7%89%B9%E6%80%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="goldspot">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Goldspot's blog">
-      <meta itemprop="description" content="Nothing but freedom">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Goldspot's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/12/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-ES6%E7%89%B9%E6%80%A7/" class="post-title-link" itemprop="url">面试八股准备-ES6特性</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-12 23:23:28" itemprop="dateCreated datePublished" datetime="2022-08-12T23:23:28+08:00">2022-08-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-13 10:59:42" itemprop="dateModified" datetime="2022-08-13T10:59:42+08:00">2022-08-13</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="var、let、const区别"><a href="#var、let、const区别" class="headerlink" title="var、let、const区别"></a>var、let、const区别</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var、let、const 共同点都是可以声明变量的</span><br><span class="line"></span><br><span class="line">区别一：</span><br><span class="line">	var 具有变量提升的机制</span><br><span class="line">	let和const没有变量提升的机制</span><br><span class="line">区别二：</span><br><span class="line">	var 可以多次声明同一个变量</span><br><span class="line">	let和const不可以多次声明同一个变量</span><br><span class="line">区别三：</span><br><span class="line">	var、let声明变量的</span><br><span class="line">	const声明常量</span><br><span class="line">	</span><br><span class="line">	var和let声明的变量可以再次赋值，但是const不可以再次赋值了。</span><br><span class="line">区别四：</span><br><span class="line">	var声明的变量没有自身作用域</span><br><span class="line">	let和const声明的变量有自身的作用域</span><br></pre></td></tr></table></figure>
-
-<h4 id="箭头函数和普通函数有什么区别？"><a href="#箭头函数和普通函数有什么区别？" class="headerlink" title="箭头函数和普通函数有什么区别？"></a>箭头函数和普通函数有什么区别？</h4><p>&#96;&#96;&#96;</p>
-<ol>
-<li>this指向的问题<br> 箭头函数中的this只在箭头函数定义时就决定的，而且不可修改的（call、apply、bind）<br> ****箭头函数的this指向定义时候、外层第一个普通函数的this</li>
-<li>箭头函数不能new（不能当作构造函数）</li>
-<li>箭头函数没有原型prototype</li>
-<li>箭头函数没有arguments对象</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/09/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-js%E5%9F%BA%E7%A1%80%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="goldspot">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Goldspot's blog">
-      <meta itemprop="description" content="Nothing but freedom">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Goldspot's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/09/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-js%E5%9F%BA%E7%A1%80%E7%AF%87/" class="post-title-link" itemprop="url">面试八股准备-js基础篇</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-09 17:45:28" itemprop="dateCreated datePublished" datetime="2022-08-09T17:45:28+08:00">2022-08-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-12 23:13:47" itemprop="dateModified" datetime="2022-08-12T23:13:47+08:00">2022-08-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h4 id="说说JavaScript中的数据类型？存储上的差别？"><a href="#说说JavaScript中的数据类型？存储上的差别？" class="headerlink" title="说说JavaScript中的数据类型？存储上的差别？"></a>说说JavaScript中的数据类型？存储上的差别？</h4><p>在JavaScript中，我们可以分成两种类型：基本类型,引用类型<br>两种类型的区别是：存储位置不同。</p>
-<p>基本数据类型：<br>Number<br>String<br>Boolean<br>Undefined<br>null</p>
-<p>引用数据类型：<br>Object<br>Array<br>Function</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/09/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-js%E5%9F%BA%E7%A1%80%E7%AF%87/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/01/%E5%88%9D%E5%AD%A6vue2%E8%B8%A9%E5%9D%91%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="goldspot">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Goldspot's blog">
-      <meta itemprop="description" content="Nothing but freedom">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Goldspot's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/01/%E5%88%9D%E5%AD%A6vue2%E8%B8%A9%E5%9D%91%E8%AE%B0/" class="post-title-link" itemprop="url">初学vue2踩坑记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-08-01 11:03:20" itemprop="dateCreated datePublished" datetime="2022-08-01T11:03:20+08:00">2022-08-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-19 10:17:39" itemprop="dateModified" datetime="2022-08-19T10:17:39+08:00">2022-08-19</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>跟着b站黑马程序员的视频入门vue，跟敲代码过程中，踩到一些坑，在这里记录一下：</p>
-<ul>
-<li><p>定义方法时，是<code>methods</code>而不是<code>method</code></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/01/%E5%88%9D%E5%AD%A6vue2%E8%B8%A9%E5%9D%91%E8%AE%B0/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/07/30/css/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="goldspot">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Goldspot's blog">
-      <meta itemprop="description" content="Nothing but freedom">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Goldspot's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/30/css/" class="post-title-link" itemprop="url">css从0开始</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-07-30 10:55:52" itemprop="dateCreated datePublished" datetime="2022-07-30T10:55:52+08:00">2022-07-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-09-02 20:41:28" itemprop="dateModified" datetime="2022-09-02T20:41:28+08:00">2022-09-02</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>一直苦于css的内容繁多，潜意识回避。但是对于初级前端岗位，重现页面是基本功。所以，决定花几天时间，重学css。知乎上的<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/383581311/answer/1114218936">回答</a>建议将css分为选择器、样式、盒模型、定位四个部分。那么我就按这个路线学一遍，并记录自己容易出错的地方。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/30/css/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

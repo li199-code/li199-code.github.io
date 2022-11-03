@@ -18,28 +18,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.goldspot.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="问题描述：调试阶段，前端项目请求后端接口返回数据，前端项目和后端的端口不一致，产生了跨域问题。部署阶段，前端打包完毕，项目发起请求，同样有跨域问题，两种场景的解决方法不同。 下面解决问题的场景是，打包的前端文件并不在服务器的文件路径中。">
+    <meta name="description" content="什么是跨域跨域是浏览器对js脚本和ajax请求做出的限制。不同源的js脚本获取对方的cookie，ajax无法发送跨域请求。 解决方案CORS在服务器设置字段Access-Control-Allow-Origin。当浏览器收到服务器返回的资源上，没有Access-Control-Allow-Origin字段,就会拒绝加载 jsonpjsonp的原理就是利用&lt;script&gt;标签没有跨域限">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue解决跨域问题">
-<meta property="og:url" content="http://www.goldspot.top/2022/08/17/vue%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="跨域问题描述和解决方案">
+<meta property="og:url" content="http://www.goldspot.top/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
 <meta property="og:site_name" content="Goldspot&#39;s blog">
-<meta property="og:description" content="问题描述：调试阶段，前端项目请求后端接口返回数据，前端项目和后端的端口不一致，产生了跨域问题。部署阶段，前端打包完毕，项目发起请求，同样有跨域问题，两种场景的解决方法不同。 下面解决问题的场景是，打包的前端文件并不在服务器的文件路径中。">
+<meta property="og:description" content="什么是跨域跨域是浏览器对js脚本和ajax请求做出的限制。不同源的js脚本获取对方的cookie，ajax无法发送跨域请求。 解决方案CORS在服务器设置字段Access-Control-Allow-Origin。当浏览器收到服务器返回的资源上，没有Access-Control-Allow-Origin字段,就会拒绝加载 jsonpjsonp的原理就是利用&lt;script&gt;标签没有跨域限">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-17T09:24:13.000Z">
-<meta property="article:modified_time" content="2022-08-20T03:30:18.133Z">
+<meta property="article:modified_time" content="2022-09-08T01:50:12.965Z">
 <meta property="article:author" content="goldspot">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://www.goldspot.top/2022/08/17/vue%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="http://www.goldspot.top/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/08/17/vue%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/","path":"2022/08/17/vue解决跨域问题/","title":"vue解决跨域问题"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/","path":"2022/08/17/跨域问题描述和解决方案/","title":"跨域问题描述和解决方案"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>vue解决跨域问题 | Goldspot's blog</title>
+<title>跨域问题描述和解决方案 | Goldspot's blog</title>
   
 
 
@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E9%98%B6%E6%AE%B5"><span class="nav-number">1.</span> <span class="nav-text">调试阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E9%98%B6%E6%AE%B5"><span class="nav-number">2.</span> <span class="nav-text">部署阶段</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%B7%A8%E5%9F%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CORS"><span class="nav-number">2.1.</span> <span class="nav-text">CORS</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jsonp"><span class="nav-number">2.2.</span> <span class="nav-text">jsonp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E9%98%B6%E6%AE%B5"><span class="nav-number">3.</span> <span class="nav-text">调试阶段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E9%98%B6%E6%AE%B5"><span class="nav-number">4.</span> <span class="nav-text">部署阶段</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -130,13 +130,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -180,7 +180,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/17/vue%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -193,12 +193,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="vue解决跨域问题 | Goldspot's blog">
+      <meta itemprop="name" content="跨域问题描述和解决方案 | Goldspot's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          vue解决跨域问题
+          跨域问题描述和解决方案
         </h1>
 
         <div class="post-meta-container">
@@ -216,7 +216,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-20 11:30:18" itemprop="dateModified" datetime="2022-08-20T11:30:18+08:00">2022-08-20</time>
+      <time title="Modified: 2022-09-08 09:50:12" itemprop="dateModified" datetime="2022-09-08T09:50:12+08:00">2022-09-08</time>
     </span>
 
   
@@ -236,7 +236,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>问题描述：调试阶段，前端项目请求后端接口返回数据，前端项目和后端的端口不一致，产生了跨域问题。部署阶段，前端打包完毕，项目发起请求，同样有跨域问题，两种场景的解决方法不同。</p>
+        <h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><p>跨域是浏览器对js脚本和ajax请求做出的限制。不同源的js脚本获取对方的cookie，ajax无法发送跨域请求。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h4><p>在服务器设置字段<code>Access-Control-Allow-Origin</code>。当浏览器收到服务器返回的资源上，没有<code>Access-Control-Allow-Origin</code>字段,就会拒绝加载</p>
+<h4 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h4><p>jsonp的原理就是利用<code>&lt;script&gt;</code>标签没有跨域限制，通过<code>&lt;script&gt;</code>标签src属性，发送带有callback参数的GET请求，服务端将接口返回数据拼凑到callback函数中，返回给浏览器，浏览器解析执行，从而前端拿到callback函数返回的数据。</p>
+<p>问题描述：调试阶段，前端项目请求后端接口返回数据，前端项目和后端的端口不一致，产生了跨域问题。部署阶段，前端打包完毕，项目发起请求，同样有跨域问题，两种场景的解决方法不同。</p>
 <p>下面解决问题的场景是，打包的前端文件并不在服务器的文件路径中。</p>
 <span id="more"></span>
 
