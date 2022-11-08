@@ -26,7 +26,7 @@
 <meta property="og:description" content="这几天学python爬虫，又买了腾讯云服务器，找个项目练练手。找到了一个需求：对中兴的招聘进度做一个定时爬取，如果有变化，微信通知我。任务可以分为两大块，一块是代码实现，一块是项目部署。 代码实现之前手头上有几个moka的api: https:&#x2F;&#x2F;app.mokahr.com&#x2F;personal-center&#x2F;editApplication&#x2F;xxxxxx?orgId&#x3D;zte 后来觉得官网上的会更直观">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-03T13:26:48.000Z">
-<meta property="article:modified_time" content="2022-11-03T13:52:58.556Z">
+<meta property="article:modified_time" content="2022-11-08T10:37:22.740Z">
 <meta property="article:author" content="goldspot">
 <meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
@@ -130,13 +130,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -208,9 +208,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-11-03 21:26:48 / Modified: 21:52:58" itemprop="dateCreated datePublished" datetime="2022-11-03T21:26:48+08:00">2022-11-03</time>
+      <time title="Created: 2022-11-03 21:26:48" itemprop="dateCreated datePublished" datetime="2022-11-03T21:26:48+08:00">2022-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-08 18:37:22" itemprop="dateModified" datetime="2022-11-08T18:37:22+08:00">2022-11-08</time>
     </span>
 
   
@@ -239,9 +245,10 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: UTF-8 -*- </span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="comment">## 中文乱码着实麻烦。将编码方式改为utf-8.</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">defaultencoding = <span class="string">&#x27;utf-8&#x27;</span></span><br><span class="line"><span class="keyword">if</span> sys.getdefaultencoding() != defaultencoding:</span><br><span class="line">    reload(sys)</span><br><span class="line">    sys.setdefaultencoding(defaultencoding)</span><br><span class="line"></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">url = <span class="string">&#x27;https://app.mokahr.com/personal-center/applications?orgId=zte&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sendMessage</span>(<span class="params">token, mydata</span>):</span><br><span class="line">    baseurl = <span class="string">&quot;http://wx.xtuis.cn/&quot;</span></span><br><span class="line">    url = baseurl + token + <span class="string">&quot;.send&quot;</span></span><br><span class="line">    </span><br><span class="line">    data = &#123;</span><br><span class="line">        <span class="string">&quot;text&quot;</span>: <span class="string">&#x27;zte notification：&#x27;</span>+mydata,</span><br><span class="line">        <span class="string">&quot;desp&quot;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    requests.post(url, data=data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		res = requests.get(url=url, headers=headers)</span><br><span class="line">		<span class="comment"># fp = open(&#x27;zte.json&#x27;, &#x27;w&#x27;, encoding=&#x27;utf-8&#x27;)</span></span><br><span class="line">		<span class="built_in">print</span>(res.json())</span><br><span class="line">		<span class="comment"># json.dump(res.json(), fp, ensure_ascii=False)</span></span><br><span class="line">		app_list = res.json()[<span class="number">0</span>][<span class="string">&#x27;candidateApps&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;projectApps&#x27;</span>][<span class="number">0</span>][<span class="string">&#x27;apps&#x27;</span>]</span><br><span class="line">		app = app_list[<span class="number">0</span>]</span><br><span class="line">		status = app[<span class="string">&#x27;stage&#x27;</span>]</span><br><span class="line">		<span class="built_in">print</span>(status)</span><br><span class="line">	<span class="keyword">except</span>:</span><br><span class="line">		status = <span class="string">&#x27;error!&#x27;</span></span><br><span class="line">		<span class="built_in">print</span>(<span class="string">&#x27;error!&#x27;</span>)</span><br><span class="line">	<span class="keyword">if</span> status != <span class="string">&#x27;面试&#x27;</span>:</span><br><span class="line">		sendMessage(<span class="string">&#x27;&#x27;</span>, status)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="项目部署"><a href="#项目部署" class="headerlink" title="项目部署"></a>项目部署</h2><p>webshell可以直接拖拽上传本地编写好的py文件，很方便。上传后，设置任务调度。核心命令就是linux的<code>crond</code>。参数：前面五个<code>*</code>设置执行时间间隔，后面跟命令。依次输入：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crond -e ##进入vim编辑</span><br><span class="line">60 * * * * python ../zte.py  ##注意要从根目录开始，写绝对路径。一小时执行一次。</span><br><span class="line">crond -l ##查看任务是否创建</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">crontab -e ##进入vim编辑</span><br><span class="line">60 * * * * python ../zte.py  ##注意要从根目录开始，写绝对路径。一小时执行一次。</span><br><span class="line">crontab -l ##查看任务是否创建</span><br></pre></td></tr></table></figure>
 
 <p>如果py程序中有print语句用于调试等目的，可以打开mail。任务执行的打印语句会出现在mail中。</p>
+<p>mail的翻页命令：<code>z</code></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>学爬虫是有强大的正向激励的。之前秋招时经常守着页面刷新查看状态，很焦虑。现在可以放心了。我还要很多想法，比如b站虚拟主播生日会舰长数爬取，并自动制作表格等。</p>
 
     </div>
@@ -264,6 +271,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="next" title="区块链">
+                  区块链 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
