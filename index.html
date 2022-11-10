@@ -193,7 +193,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="post-title-link" itemprop="url">区块链</a>
+          <a href="/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/" class="post-title-link" itemprop="url">我对区块链学习过程的记录</a>
         </h2>
 
         <div class="post-meta-container">
@@ -203,9 +203,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-11-08 12:26:30 / Modified: 18:36:28" itemprop="dateCreated datePublished" datetime="2022-11-08T12:26:30+08:00">2022-11-08</time>
+      <time title="Created: 2022-11-08 12:26:30" itemprop="dateCreated datePublished" datetime="2022-11-08T12:26:30+08:00">2022-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-10 10:44:47" itemprop="dateModified" datetime="2022-11-10T10:44:47+08:00">2022-11-10</time>
     </span>
 
   
@@ -218,11 +224,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="hash算法在区块链中的体现形式"><a href="#hash算法在区块链中的体现形式" class="headerlink" title="hash算法在区块链中的体现形式"></a>hash算法在区块链中的体现形式</h3><p>（算法是演示网站上的，和实际的以太坊算法不一样，但总体原理类似）</p>
-<p>现有一种哈希算法，表示为 <code>hashvalue = f(block, nonce, data)</code>.其中hashvalue是哈希值，block指区块，nonce是随机数，data是要存储的数据。<code>mine</code>这个动作就是要求解出一个随机数，使生成的哈希值开头四位数为0.</p>
-<h4 id="分布式区块链"><a href="#分布式区块链" class="headerlink" title="分布式区块链"></a>分布式区块链</h4><p>区块链是一种类似链表的数据结构。相比于区块，区块链中的区块增加了prev数据段，记录了上一个区块的hashvalue,(第一个区块的prev为000…000).每修改其中一个区块的数据，那么在链上的后续区块都要重新求解，这保证了数据篡改成本极高。同时，分布式使每个用户都保存了区块，使得数据修改成为不可能。</p>
-<h3 id="数字签名技术"><a href="#数字签名技术" class="headerlink" title="数字签名技术"></a>数字签名技术</h3><p>有算法负责根据私钥（密码）生成公钥。然后，私钥可以对数据进行签名，生成的签名发布到公共空间，别人可以用公钥（公开）来判断数据是否来自于你。</p>
-
+          <p>从抽象到具体，从为什么创立区块链，到技术层面。一个掺杂我个人思考的记录。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

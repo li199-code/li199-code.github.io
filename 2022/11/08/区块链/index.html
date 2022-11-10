@@ -18,15 +18,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.goldspot.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="hash算法在区块链中的体现形式（算法是演示网站上的，和实际的以太坊算法不一样，但总体原理类似） 现有一种哈希算法，表示为 hashvalue &#x3D; f(block, nonce, data).其中hashvalue是哈希值，block指区块，nonce是随机数，data是要存储的数据。mine这个动作就是要求解出一个随机数，使生成的哈希值开头四位数为0. 分布式区块链区块链是一种类似链表的数据结构">
+    <meta name="description" content="从抽象到具体，从为什么创立区块链，到技术层面。一个掺杂我个人思考的记录。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="区块链">
+<meta property="og:title" content="我对区块链学习过程的记录">
 <meta property="og:url" content="http://www.goldspot.top/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/index.html">
 <meta property="og:site_name" content="Jason Lee">
-<meta property="og:description" content="hash算法在区块链中的体现形式（算法是演示网站上的，和实际的以太坊算法不一样，但总体原理类似） 现有一种哈希算法，表示为 hashvalue &#x3D; f(block, nonce, data).其中hashvalue是哈希值，block指区块，nonce是随机数，data是要存储的数据。mine这个动作就是要求解出一个随机数，使生成的哈希值开头四位数为0. 分布式区块链区块链是一种类似链表的数据结构">
+<meta property="og:description" content="从抽象到具体，从为什么创立区块链，到技术层面。一个掺杂我个人思考的记录。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-08T04:26:30.000Z">
-<meta property="article:modified_time" content="2022-11-08T10:36:28.564Z">
+<meta property="article:modified_time" content="2022-11-10T02:44:47.940Z">
 <meta property="article:author" content="jason">
 <meta property="article:tag" content="blockchain">
 <meta name="twitter:card" content="summary">
@@ -36,10 +36,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/","path":"2022/11/08/区块链/","title":"区块链"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/","path":"2022/11/08/区块链/","title":"我对区块链学习过程的记录"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>区块链 | Jason Lee</title>
+<title>我对区块链学习过程的记录 | Jason Lee</title>
   
 
 
@@ -115,7 +115,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#hash%E7%AE%97%E6%B3%95%E5%9C%A8%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B8%AD%E7%9A%84%E4%BD%93%E7%8E%B0%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">hash算法在区块链中的体现形式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%8C%BA%E5%9D%97%E9%93%BE"><span class="nav-number">1.1.</span> <span class="nav-text">分布式区块链</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E6%8A%80%E6%9C%AF"><span class="nav-number">2.</span> <span class="nav-text">数字签名技术</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9B%E7%AB%8B%E5%8C%BA%E5%9D%97%E9%93%BE%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么创立区块链？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hash%E7%AE%97%E6%B3%95%E5%9C%A8%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B8%AD%E7%9A%84%E4%BD%93%E7%8E%B0%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.0.1.</span> <span class="nav-text">hash算法在区块链中的体现形式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%8C%BA%E5%9D%97%E9%93%BE"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">分布式区块链</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E6%8A%80%E6%9C%AF"><span class="nav-number">1.0.2.</span> <span class="nav-text">数字签名技术</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -193,12 +193,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="区块链 | Jason Lee">
+      <meta itemprop="name" content="我对区块链学习过程的记录 | Jason Lee">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          区块链
+          我对区块链学习过程的记录
         </h1>
 
         <div class="post-meta-container">
@@ -208,9 +208,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-11-08 12:26:30 / Modified: 18:36:28" itemprop="dateCreated datePublished" datetime="2022-11-08T12:26:30+08:00">2022-11-08</time>
+      <time title="Created: 2022-11-08 12:26:30" itemprop="dateCreated datePublished" datetime="2022-11-08T12:26:30+08:00">2022-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-10 10:44:47" itemprop="dateModified" datetime="2022-11-10T10:44:47+08:00">2022-11-10</time>
     </span>
 
   
@@ -230,7 +236,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="hash算法在区块链中的体现形式"><a href="#hash算法在区块链中的体现形式" class="headerlink" title="hash算法在区块链中的体现形式"></a>hash算法在区块链中的体现形式</h3><p>（算法是演示网站上的，和实际的以太坊算法不一样，但总体原理类似）</p>
+        <p>从抽象到具体，从为什么创立区块链，到技术层面。一个掺杂我个人思考的记录。</p>
+<span id="more"></span>
+
+<h1 id="为什么创立区块链？"><a href="#为什么创立区块链？" class="headerlink" title="为什么创立区块链？"></a>为什么创立区块链？</h1><p>自由世界人民对自由更进一步的追求，用技术天然的可靠性替代对大机构的信任。一开始，区块链第一个实现形式是比特币，创始人希望它成为一种货币，交易货币产生的账单，在区块链中存储，谁能获得记账权，谁能获得比特币奖励。区块链的数据存在于每个节点的电脑中（节点可以是你我他这样的普通人）。整个世界历史上产生的所有数据都存在一台普通的家用电脑也许不可思议，但是区块链只存储数据的摘要，比特币区块链至今总大小只有几百G。所谓的挖矿就是对记账权的争夺，谁算力强解出难题，谁能获得奖励。</p>
+<p>区块链各节点之间每隔一小段时间会进行相互通信，看看是否有人篡改数据，并对异常节点做出惩罚，所以，想篡改区块链中的数据是不可能的。所以，区块链不会跑路，不会毁约。</p>
+<p>比特币是区块链在货币上的伟大实践，后来人们发现，不只是货币，其他类型数据也可以上链。互联网经过多年发展，也变得和现实一样，形成了寡头统治的局面。国内的比如美团，滴滴等，收取高额提成。于是，以太坊出现了。以太坊相当于把世界上加入区块链的电脑组合成一台超级计算机，而以太坊就是操作系统。以太坊上可以部署智能合约，取代现在的合同（租房，打车，外卖等线上线下的合约）。以太坊的资金一直在快速增长，它是未来。</p>
+<h3 id="hash算法在区块链中的体现形式"><a href="#hash算法在区块链中的体现形式" class="headerlink" title="hash算法在区块链中的体现形式"></a>hash算法在区块链中的体现形式</h3><p>（算法是演示网站上的，和实际的以太坊算法不一样，但总体原理类似）</p>
 <p>现有一种哈希算法，表示为 <code>hashvalue = f(block, nonce, data)</code>.其中hashvalue是哈希值，block指区块，nonce是随机数，data是要存储的数据。<code>mine</code>这个动作就是要求解出一个随机数，使生成的哈希值开头四位数为0.</p>
 <h4 id="分布式区块链"><a href="#分布式区块链" class="headerlink" title="分布式区块链"></a>分布式区块链</h4><p>区块链是一种类似链表的数据结构。相比于区块，区块链中的区块增加了prev数据段，记录了上一个区块的hashvalue,(第一个区块的prev为000…000).每修改其中一个区块的数据，那么在链上的后续区块都要重新求解，这保证了数据篡改成本极高。同时，分布式使每个用户都保存了区块，使得数据修改成为不可能。</p>
 <h3 id="数字签名技术"><a href="#数字签名技术" class="headerlink" title="数字签名技术"></a>数字签名技术</h3><p>有算法负责根据私钥（密码）生成公钥。然后，私钥可以对数据进行签名，生成的签名发布到公共空间，别人可以用公钥（公开）来判断数据是否来自于你。</p>
