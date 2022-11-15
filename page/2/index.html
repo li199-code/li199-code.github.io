@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -166,6 +166,176 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/18/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E5%90%8E%E9%83%A8%E7%BD%B2%E5%88%B0%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="jason">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content="追寻自由">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jason Lee">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/18/vue%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E5%90%8E%E9%83%A8%E7%BD%B2%E5%88%B0%E8%85%BE%E8%AE%AF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">vue项目打包后部署到腾讯云服务器的过程记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-18 00:03:56" itemprop="dateCreated datePublished" datetime="2022-08-18T00:03:56+08:00">2022-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-08-20 11:28:28" itemprop="dateModified" datetime="2022-08-20T11:28:28+08:00">2022-08-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>跟着视频学的。首先记录一些简单的Linux命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">文件操作</span><br><span class="line">ls   查看当前文件夹下的内容</span><br><span class="line">pwd  打印当前文件夹名称</span><br><span class="line">cd   跳转</span><br><span class="line">touch 若文件不存在，新建</span><br><span class="line">mkdir 创建文件夹</span><br><span class="line">rm remove,删除文件名</span><br><span class="line">clear 命令行窗口清屏</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">echo  输出，可以用内容创造文件</span><br><span class="line">cat 查看文件内容 </span><br><span class="line">more 同上，按行查看</span><br><span class="line">grep 按条件将符合项高亮</span><br><span class="line">cp [1] [2] 将1的内容复制到[2]</span><br><span class="line">mv [1] [2] 将1移动到2处</span><br><span class="line">vi 编辑文本文件</span><br><span class="line">	首先进入的是命令行模式，按a进入编辑模式。编辑完毕后，按esc退出编辑模式，然后按shift+:进入行末模式，输入wq，保持退出。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">上传和下载文件（本地和云服务器）</span><br><span class="line">安装lrzsz</span><br><span class="line">sz 下载</span><br><span class="line">rz -y 上传（覆盖）</span><br><span class="line">netstat -ntpl  查看当前网络服务的pid</span><br></pre></td></tr></table></figure>
+
+<p>用xshell创建文件夹存放静态文件和express服务器，运行app.js。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="jason">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content="追寻自由">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jason Lee">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="post-title-link" itemprop="url">跨域问题描述和解决方案</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-08-17 17:24:13" itemprop="dateCreated datePublished" datetime="2022-08-17T17:24:13+08:00">2022-08-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-09-08 09:50:12" itemprop="dateModified" datetime="2022-09-08T09:50:12+08:00">2022-09-08</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="什么是跨域"><a href="#什么是跨域" class="headerlink" title="什么是跨域"></a>什么是跨域</h3><p>跨域是浏览器对js脚本和ajax请求做出的限制。不同源的js脚本获取对方的cookie，ajax无法发送跨域请求。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h4><p>在服务器设置字段<code>Access-Control-Allow-Origin</code>。当浏览器收到服务器返回的资源上，没有<code>Access-Control-Allow-Origin</code>字段,就会拒绝加载</p>
+<h4 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h4><p>jsonp的原理就是利用<code>&lt;script&gt;</code>标签没有跨域限制，通过<code>&lt;script&gt;</code>标签src属性，发送带有callback参数的GET请求，服务端将接口返回数据拼凑到callback函数中，返回给浏览器，浏览器解析执行，从而前端拿到callback函数返回的数据。</p>
+<p>问题描述：调试阶段，前端项目请求后端接口返回数据，前端项目和后端的端口不一致，产生了跨域问题。部署阶段，前端打包完毕，项目发起请求，同样有跨域问题，两种场景的解决方法不同。</p>
+<p>下面解决问题的场景是，打包的前端文件并不在服务器的文件路径中。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/17/%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0%E5%92%8C%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -634,7 +804,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-08-12 23:16:25" itemprop="dateModified" datetime="2022-08-12T23:16:25+08:00">2022-08-12</time>
+      <time title="Modified: 2022-08-20 11:30:21" itemprop="dateModified" datetime="2022-08-20T11:30:21+08:00">2022-08-20</time>
     </span>
 
   
@@ -657,6 +827,88 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/07/26/Hello-World/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="jason">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content="追寻自由">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jason Lee">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/26/Hello-World/" class="post-title-link" itemprop="url">Untitled</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-07-26 23:41:37" itemprop="dateCreated datePublished" datetime="2022-07-26T23:41:37+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-15 10:43:26" itemprop="dateModified" datetime="2022-11-15T10:43:26+08:00">2022-11-15</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>—shell<br>title: Hello World!<br>date: 2022-07-26 09:41:37<br>tags: website</p>
+<hr>
+<h2 id="记录一下本网站的建立过程"><a href="#记录一下本网站的建立过程" class="headerlink" title="记录一下本网站的建立过程"></a>记录一下本网站的建立过程</h2><p>首先，本网站是一个静态博客，基于GitHub pages提供的免费服务器，域名在Namesilo上购买，页面管理器为基于nodejs的hexo, 总花费￥6.72&#x2F;year. 建站第一天，感觉访问速度还可以。因为在国外买的域名，还不用备案，很爽，all for freedom.</p>
+<p>日常管理上，需要发布新文章时，在Git Bash上执行下列流程：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;title&quot;</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>如果后期网站外观固定下来，维护起来还是很省心的，nice。</p>
+
       
     </div>
 
@@ -740,86 +992,6 @@
             </div>
           <!--/noindex-->
         
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/07/26/Hello-World/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="jason">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason Lee">
-      <meta itemprop="description" content="追寻自由">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jason Lee">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/26/Hello-World/" class="post-title-link" itemprop="url">Hello World!</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-07-26 09:41:37" itemprop="dateCreated datePublished" datetime="2022-07-26T09:41:37+08:00">2022-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-07-30 17:21:39" itemprop="dateModified" datetime="2022-07-30T17:21:39+08:00">2022-07-30</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="记录一下本网站的建立过程"><a href="#记录一下本网站的建立过程" class="headerlink" title="记录一下本网站的建立过程"></a>记录一下本网站的建立过程</h2><p>首先，本网站是一个静态博客，基于GitHub pages提供的免费服务器，域名在Namesilo上购买，页面管理器为基于nodejs的hexo, 总花费￥6.72&#x2F;year. 建站第一天，感觉访问速度还可以。因为在国外买的域名，还不用备案，很爽，all for freedom.</p>
-<p>日常管理上，需要发布新文章时，在Git Bash上执行下列流程：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;title&quot;</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>如果后期网站外观固定下来，维护起来还是很省心的，nice。</p>
-
       
     </div>
 

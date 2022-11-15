@@ -18,29 +18,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.goldspot.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="从抽象到具体，从为什么创立区块链，到技术层面。一个掺杂我个人思考的记录。">
+    <meta name="description" content="Django是python的一个web后台框架。他的特点是大而全，因此本身命令和代码构架和原生python有较大区别，这篇文章是对django从入门到项目运行的学习记录。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我对区块链学习过程的记录">
-<meta property="og:url" content="http://www.goldspot.top/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/index.html">
+<meta property="og:title" content="Django框架学习笔记">
+<meta property="og:url" content="http://www.goldspot.top/2022/11/10/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Jason Lee">
-<meta property="og:description" content="从抽象到具体，从为什么创立区块链，到技术层面。一个掺杂我个人思考的记录。">
+<meta property="og:description" content="Django是python的一个web后台框架。他的特点是大而全，因此本身命令和代码构架和原生python有较大区别，这篇文章是对django从入门到项目运行的学习记录。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-08T04:26:30.000Z">
-<meta property="article:modified_time" content="2022-11-10T05:53:01.401Z">
+<meta property="og:image" content="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png">
+<meta property="article:published_time" content="2022-11-10T05:50:11.000Z">
+<meta property="article:modified_time" content="2022-11-15T02:44:02.737Z">
 <meta property="article:author" content="jason">
-<meta property="article:tag" content="blockchain">
-<meta property="article:tag" content="ethereum">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="Django">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png">
 
 
-<link rel="canonical" href="http://www.goldspot.top/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/">
+<link rel="canonical" href="http://www.goldspot.top/2022/11/10/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/","path":"2022/11/08/区块链/","title":"我对区块链学习过程的记录"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/11/10/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"2022/11/10/Django框架学习笔记/","title":"Django框架学习笔记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>我对区块链学习过程的记录 | Jason Lee</title>
+<title>Django框架学习笔记 | Jason Lee</title>
   
 
 
@@ -116,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E5%88%9B%E7%AB%8B%E5%8C%BA%E5%9D%97%E9%93%BE%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">为什么创立区块链？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E7%BB%86%E8%8A%82"><span class="nav-number">2.</span> <span class="nav-text">技术细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hash%E7%AE%97%E6%B3%95%E5%9C%A8%E5%8C%BA%E5%9D%97%E9%93%BE%E4%B8%AD%E7%9A%84%E4%BD%93%E7%8E%B0%E5%BD%A2%E5%BC%8F"><span class="nav-number">2.0.1.</span> <span class="nav-text">hash算法在区块链中的体现形式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E5%8C%BA%E5%9D%97%E9%93%BE"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">分布式区块链</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E6%8A%80%E6%9C%AF"><span class="nav-number">2.0.2.</span> <span class="nav-text">数字签名技术</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#django%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E8%80%A6%E7%9A%84%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">django是如何解耦的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#template%E5%88%9B%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">template创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#migration-%E8%BF%81%E7%A7%BB"><span class="nav-number">2.3.</span> <span class="nav-text">migration 迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.</span> <span class="nav-text">静态文件的部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORM-django%E5%A6%82%E4%BD%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%A4%E4%BA%92"><span class="nav-number">2.5.</span> <span class="nav-text">ORM django如何与数据库交互</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -181,7 +183,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/11/10/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -194,12 +196,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="我对区块链学习过程的记录 | Jason Lee">
+      <meta itemprop="name" content="Django框架学习笔记 | Jason Lee">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          我对区块链学习过程的记录
+          Django框架学习笔记
         </h1>
 
         <div class="post-meta-container">
@@ -210,14 +212,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-11-08 12:26:30" itemprop="dateCreated datePublished" datetime="2022-11-08T12:26:30+08:00">2022-11-08</time>
+      <time title="Created: 2022-11-10 13:50:11" itemprop="dateCreated datePublished" datetime="2022-11-10T13:50:11+08:00">2022-11-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-10 13:53:01" itemprop="dateModified" datetime="2022-11-10T13:53:01+08:00">2022-11-10</time>
+      <time title="Modified: 2022-11-15 10:44:02" itemprop="dateModified" datetime="2022-11-15T10:44:02+08:00">2022-11-15</time>
     </span>
 
   
@@ -237,17 +239,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>从抽象到具体，从为什么创立区块链，到技术层面。一个掺杂我个人思考的记录。</p>
+        <p>Django是python的一个web后台框架。他的特点是大而全，因此本身命令和代码构架和原生python有较大区别，这篇文章是对django从入门到项目运行的学习记录。</p>
 <span id="more"></span>
 
-<h1 id="为什么创立区块链？"><a href="#为什么创立区块链？" class="headerlink" title="为什么创立区块链？"></a>为什么创立区块链？</h1><p>自由世界人民对自由更进一步的追求，用技术天然的可靠性替代对大机构的信任。</p>
-<p>一开始，区块链第一个实现形式是比特币，创始人希望它成为一种货币，交易货币产生的账单，在区块链中存储，谁能获得记账权，谁能获得比特币奖励。区块链的数据存在于每个节点的电脑中（节点可以是你我他这样的普通人）。挖矿就是对记账权的争夺，谁算力强解出难题，谁能获得奖励。整个世界历史上产生的所有数据都存在一台普通的家用电脑也许不可思议，但是区块链只存储数据的摘要，比特币区块链至今总大小只有几百G。另外，对于个人用户来说，如果不从事挖矿，也不需要下载全部数据。个人用户可以进行加密货币交易，或者使用智能合约，而挖矿的任务交给算力强的节点。而个人只需要付给矿工少量加密货币即可。这并不违背去中心化，因为每个人参与区块链建设的机会是均等的，数据也是透明可查的。</p>
-<p>区块链各节点之间每隔一小段时间会进行相互通信，看看是否有人篡改数据，并对异常节点做出惩罚，所以，想篡改区块链中的数据是不可能的。所以，区块链不会跑路，不会毁约。</p>
-<p>比特币是区块链在货币上的伟大实践，后来人们发现，不只是货币，其他类型数据也可以上链。互联网经过多年发展，也变得和现实一样，形成了寡头统治的局面。国内的比如美团，滴滴等，收取高额提成。于是，以太坊出现了。以太坊相当于把世界上加入区块链的电脑组合成一台超级计算机，而以太坊就是操作系统。以太坊上可以部署智能合约，取代现在的合同（租房，打车，外卖等线上线下的合约）。以太坊的资金一直在快速增长，它是未来。</p>
-<h1 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h1><h3 id="hash算法在区块链中的体现形式"><a href="#hash算法在区块链中的体现形式" class="headerlink" title="hash算法在区块链中的体现形式"></a>hash算法在区块链中的体现形式</h3><p>（算法是演示网站上的，和实际的以太坊算法不一样，但总体原理类似）</p>
-<p>现有一种哈希算法，表示为 <code>hashvalue = f(block, nonce, data)</code>.其中hashvalue是哈希值，block指区块，nonce是随机数，data是要存储的数据。<code>mine</code>这个动作就是要求解出一个随机数，使生成的哈希值开头四位数为0.</p>
-<h4 id="分布式区块链"><a href="#分布式区块链" class="headerlink" title="分布式区块链"></a>分布式区块链</h4><p>区块链是一种类似链表的数据结构。相比于区块，区块链中的区块增加了prev数据段，记录了上一个区块的hashvalue,(第一个区块的prev为000…000).每修改其中一个区块的数据，那么在链上的后续区块都要重新求解，这保证了数据篡改成本极高。同时，分布式使每个用户都保存了区块，使得数据修改成为不可能。</p>
-<h3 id="数字签名技术"><a href="#数字签名技术" class="headerlink" title="数字签名技术"></a>数字签名技术</h3><p>有算法负责根据私钥（密码）生成公钥。然后，私钥可以对数据进行签名，生成的签名发布到公共空间，别人可以用公钥（公开）来判断数据是否来自于你。</p>
+<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject name  //创建项目目录</span><br><span class="line">python manage.py runserver //启动项目</span><br><span class="line">django-admin startapp name //创建app</span><br></pre></td></tr></table></figure>
+
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>在django体系中，一个网站由多个app组成，每个app都有完整的MTV体系：</p>
+<ul>
+<li>M，model，负责建立和数据库的连接</li>
+<li>T，Template，负责html</li>
+<li>V，view，负责处理请求逻辑，比如是请求页面还是数据,是函数形式</li>
+</ul>
+<h2 id="django是如何解耦的？"><a href="#django是如何解耦的？" class="headerlink" title="django是如何解耦的？"></a>django是如何解耦的？</h2><p>首先，一块业务的代码放入一个app里。创建app后要在setting.py注册。app里面有models.py, views.py.手动创建一个urls.py。把模块用到的url放进去。把处理请求的函数放在views.py. 最后，回到‘大哥’文件夹的urls.py, 用include方式引入app的urls.</p>
+<h2 id="template创建"><a href="#template创建" class="headerlink" title="template创建"></a>template创建</h2><p>template不是重点。</p>
+<p>首先，在根目录下创建templates文件夹，在下面建立html文件。之后在settings.py里注册一下，使项目认识templates文件夹。这样，调用render函数时，第二个参数字符串就会寻找html模板文件。</p>
+<p>模板文件同样需要解耦。在app下建立templates folder，下面子文件夹名为app的名字。创建模板文件。在views.py里改render参数的路径。</p>
+<p>extends 和 include引入的模板要放在根目录下的tempplates folder.</p>
+<h2 id="migration-迁移"><a href="#migration-迁移" class="headerlink" title="migration 迁移"></a>migration 迁移</h2><p>迁移似乎不是很直观。可以理解为在models.py中进行了相关表的创建和修改字段等操作，并应用到数据库中。django默认的数据库是sqlite。具体流程是：</p>
+<ol>
+<li>在model.py中建立一个class</li>
+<li>将class在admin.py中注册</li>
+<li>运行两条命令: makemigrations(会在migrations文件夹下建立一个带序号的py文件，相当于提交修改）和migrate（执行修改）</li>
+</ol>
+<h2 id="静态文件的部署"><a href="#静态文件的部署" class="headerlink" title="静态文件的部署"></a>静态文件的部署</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># the settings above</span></span><br><span class="line"><span class="comment"># STATIC SETTINGS</span></span><br><span class="line">STATIC_URL = <span class="string">&#x27;/static/&#x27;</span></span><br><span class="line"><span class="comment"># BASE_DIR 是项目的绝对地址</span></span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">&#x27;collect_static&#x27;</span>)</span><br><span class="line"><span class="comment">#以下不是必须的</span></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">&#x27;common_static&#x27;</span>),</span><br><span class="line">) </span><br></pre></td></tr></table></figure>
+
+<p>在项目地址中，STATIC_ROOT是在部署阶段，django收集所有app中的静态文件并拷贝的目标文件夹。STATICFILES_DIRS是告诉django公共静态文件夹（如果有的话，放在根目录下）的位置。STATIC_URL是在浏览器中访问静态文件时的url参数，代替STATIC_ROOT。</p>
+<h2 id="ORM-django如何与数据库交互"><a href="#ORM-django如何与数据库交互" class="headerlink" title="ORM django如何与数据库交互"></a>ORM django如何与数据库交互</h2><p><img src="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png" alt="1668480185606.png"></p>
 
     </div>
 
@@ -257,21 +274,21 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/blockchain/" rel="tag"><i class="fa fa-tag"></i> blockchain</a>
-              <a href="/tags/ethereum/" rel="tag"><i class="fa fa-tag"></i> ethereum</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/Django/" rel="tag"><i class="fa fa-tag"></i> Django</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/11/03/moka%E6%8B%9B%E8%81%98%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E7%8A%B6%E6%80%81%E7%88%AC%E8%99%AB/" rel="prev" title="招聘系统面试状态爬虫">
-                  <i class="fa fa-chevron-left"></i> 招聘系统面试状态爬虫
+                <a href="/2022/11/08/%E5%8C%BA%E5%9D%97%E9%93%BE/" rel="prev" title="我对区块链学习过程的记录">
+                  <i class="fa fa-chevron-left"></i> 我对区块链学习过程的记录
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/11/10/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="Django框架学习笔记">
-                  Django框架学习笔记 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/11/15/hexo%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87/" rel="next" title="hexo插入图片">
+                  hexo插入图片 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
