@@ -26,7 +26,7 @@
 <meta property="og:description" content="最近在学django的过程中，发现django乃至整个后端开发，其实围绕的都是数据的请求和响应，也就是数据库操作。后端服务器就是浏览器和数据库之间的桥梁罢了。后端最重要的不是服务器的建设，而是数据库。距离之前学mysql已经过了很长时间，现在对数据库整体的了解做一个记录。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-15T08:47:08.000Z">
-<meta property="article:modified_time" content="2022-11-16T06:30:48.262Z">
+<meta property="article:modified_time" content="2022-11-16T07:55:04.812Z">
 <meta property="article:author" content="jason">
 <meta property="article:tag" content="database">
 <meta property="article:tag" content="mysql">
@@ -217,7 +217,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-16 14:30:48" itemprop="dateModified" datetime="2022-11-16T14:30:48+08:00">2022-11-16</time>
+      <time title="Modified: 2022-11-16 15:55:04" itemprop="dateModified" datetime="2022-11-16T15:55:04+08:00">2022-11-16</time>
     </span>
 
   
@@ -250,6 +250,7 @@
 
 <h2 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h2><p>字段三要素：名称，字符，约束条件（可选）。约束条件主要有primary key、unique、not null、default等。</p>
 <h2 id="一些可能混淆的名词"><a href="#一些可能混淆的名词" class="headerlink" title="一些可能混淆的名词"></a>一些可能混淆的名词</h2><p>fields：字段属性，将key所有属性列出</p>
+<p>ForeignKey: 外键，是用来将两张表连接起来索引的字段。设置方式：<code>Id_P int FOREIGN KEY REFERENCES Persons(Id_P)</code></p>
 <h2 id="连接查询-join"><a href="#连接查询-join" class="headerlink" title="连接查询(join)"></a>连接查询(join)</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name1</span><br><span class="line"><span class="keyword">JOIN</span> table_name2</span><br><span class="line"><span class="keyword">ON</span> table_name1.column_name<span class="operator">=</span>table_name2.column_name</span><br></pre></td></tr></table></figure>
 <p>连接查询的结果一般都是将两张表的个别字段拼在一张表。</p>
 <p>内连接：左右都符合的项才会输出<br>左外连接：左表所有的数据都会输出，而右表只输出匹配上左表的。<br>全连接：将所有字段都输出</p>

@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png">
 <meta property="article:published_time" content="2022-11-10T05:50:11.000Z">
-<meta property="article:modified_time" content="2022-11-15T02:44:02.737Z">
+<meta property="article:modified_time" content="2022-11-17T07:39:07.837Z">
 <meta property="article:author" content="jason">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="Django">
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#django%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E8%80%A6%E7%9A%84%EF%BC%9F"><span class="nav-number">2.1.</span> <span class="nav-text">django是如何解耦的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#template%E5%88%9B%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">template创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#migration-%E8%BF%81%E7%A7%BB"><span class="nav-number">2.3.</span> <span class="nav-text">migration 迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.</span> <span class="nav-text">静态文件的部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORM-django%E5%A6%82%E4%BD%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%A4%E4%BA%92"><span class="nav-number">2.5.</span> <span class="nav-text">ORM django如何与数据库交互</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">新项目初始化设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#template%E5%88%9B%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">template创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#migration-%E8%BF%81%E7%A7%BB"><span class="nav-number">2.3.</span> <span class="nav-text">migration 迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.</span> <span class="nav-text">静态文件的部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORM-django%E5%A6%82%E4%BD%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%A4%E4%BA%92"><span class="nav-number">2.5.</span> <span class="nav-text">ORM django如何与数据库交互</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -219,7 +219,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-15 10:44:02" itemprop="dateModified" datetime="2022-11-15T10:44:02+08:00">2022-11-15</time>
+      <time title="Modified: 2022-11-17 15:39:07" itemprop="dateModified" datetime="2022-11-17T15:39:07+08:00">2022-11-17</time>
     </span>
 
   
@@ -250,7 +250,7 @@
 <li>T，Template，负责html</li>
 <li>V，view，负责处理请求逻辑，比如是请求页面还是数据,是函数形式</li>
 </ul>
-<h2 id="django是如何解耦的？"><a href="#django是如何解耦的？" class="headerlink" title="django是如何解耦的？"></a>django是如何解耦的？</h2><p>首先，一块业务的代码放入一个app里。创建app后要在setting.py注册。app里面有models.py, views.py.手动创建一个urls.py。把模块用到的url放进去。把处理请求的函数放在views.py. 最后，回到‘大哥’文件夹的urls.py, 用include方式引入app的urls.</p>
+<h2 id="新项目初始化设置"><a href="#新项目初始化设置" class="headerlink" title="新项目初始化设置"></a>新项目初始化设置</h2><p>app：类名.apps.类名Config。app里面有models.py, views.py.手动创建一个urls.py。把模块用到的url放进去。把处理请求的函数放在views.py. 最后，回到‘大哥’文件夹的urls.py, 用include方式引入app的urls.</p>
 <h2 id="template创建"><a href="#template创建" class="headerlink" title="template创建"></a>template创建</h2><p>template不是重点。</p>
 <p>首先，在根目录下创建templates文件夹，在下面建立html文件。之后在settings.py里注册一下，使项目认识templates文件夹。这样，调用render函数时，第二个参数字符串就会寻找html模板文件。</p>
 <p>模板文件同样需要解耦。在app下建立templates folder，下面子文件夹名为app的名字。创建模板文件。在views.py里改render参数的路径。</p>
@@ -261,9 +261,10 @@
 <li>将class在admin.py中注册</li>
 <li>运行两条命令: makemigrations(会在migrations文件夹下建立一个带序号的py文件，相当于提交修改）和migrate（执行修改）</li>
 </ol>
-<h2 id="静态文件的部署"><a href="#静态文件的部署" class="headerlink" title="静态文件的部署"></a>静态文件的部署</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># the settings above</span></span><br><span class="line"><span class="comment"># STATIC SETTINGS</span></span><br><span class="line">STATIC_URL = <span class="string">&#x27;/static/&#x27;</span></span><br><span class="line"><span class="comment"># BASE_DIR 是项目的绝对地址</span></span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">&#x27;collect_static&#x27;</span>)</span><br><span class="line"><span class="comment">#以下不是必须的</span></span><br><span class="line">STATICFILES_DIRS = (</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">&#x27;common_static&#x27;</span>),</span><br><span class="line">) </span><br></pre></td></tr></table></figure>
+<h2 id="静态文件的部署"><a href="#静态文件的部署" class="headerlink" title="静态文件的部署"></a>静态文件的部署</h2><p>静态文件的部署和setting有关。这里用django推荐的模板语法写。如果我们要配置整个project下的静态文件的话，执行此步骤。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">STATICFILES_DIRS = (</span><br><span class="line"> os.path.join(BASE_DIR, <span class="string">&quot;static&quot;</span>), <span class="comment"># 首选project静态文件搜寻路径</span></span><br><span class="line"> <span class="string">&#x27;/var/www/static/&#x27;</span>, <span class="comment"># 第二选project静态文件搜寻路径，还可以有第三选，第四选……</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
-<p>在项目地址中，STATIC_ROOT是在部署阶段，django收集所有app中的静态文件并拷贝的目标文件夹。STATICFILES_DIRS是告诉django公共静态文件夹（如果有的话，放在根目录下）的位置。STATIC_URL是在浏览器中访问静态文件时的url参数，代替STATIC_ROOT。</p>
+<p>访问顺序：会先访问app下的static&#x2F;文件夹下的myexample.jpg 文件，若app下的static文件夹中没有该文件，则访问project中的static&#x2F;文件夹，查看是否有myexample.jpg文件，若有则返回，若没有则去&#x2F;var&#x2F;www&#x2F;static&#x2F;中寻找。<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1741406">参考链接</a></p>
 <h2 id="ORM-django如何与数据库交互"><a href="#ORM-django如何与数据库交互" class="headerlink" title="ORM django如何与数据库交互"></a>ORM django如何与数据库交互</h2><p><img src="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png" alt="1668480185606.png"></p>
 
     </div>
