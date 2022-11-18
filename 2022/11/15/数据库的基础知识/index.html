@@ -26,7 +26,7 @@
 <meta property="og:description" content="最近在学django的过程中，发现django乃至整个后端开发，其实围绕的都是数据的请求和响应，也就是数据库操作。后端服务器就是浏览器和数据库之间的桥梁罢了。后端最重要的不是服务器的建设，而是数据库。距离之前学mysql已经过了很长时间，现在对数据库整体的了解做一个记录。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-15T08:47:08.000Z">
-<meta property="article:modified_time" content="2022-11-16T07:55:04.812Z">
+<meta property="article:modified_time" content="2022-11-18T12:47:58.117Z">
 <meta property="article:author" content="jason">
 <meta property="article:tag" content="database">
 <meta property="article:tag" content="mysql">
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">数据库分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">关系型数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">非关系型数据库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql"><span class="nav-number">3.</span> <span class="nav-text">mysql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8"><span class="nav-number">3.2.</span> <span class="nav-text">建表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%AF%E8%83%BD%E6%B7%B7%E6%B7%86%E7%9A%84%E5%90%8D%E8%AF%8D"><span class="nav-number">3.3.</span> <span class="nav-text">一些可能混淆的名词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2-join"><span class="nav-number">3.4.</span> <span class="nav-text">连接查询(join)</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">数据库分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">关系型数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%9E%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">非关系型数据库</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql"><span class="nav-number">3.</span> <span class="nav-text">sql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">3.1.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E8%A1%A8"><span class="nav-number">3.2.</span> <span class="nav-text">建表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%8F%AF%E8%83%BD%E6%B7%B7%E6%B7%86%E7%9A%84%E5%90%8D%E8%AF%8D"><span class="nav-number">3.3.</span> <span class="nav-text">一些可能混淆的名词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2-join"><span class="nav-number">3.4.</span> <span class="nav-text">连接查询(join)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -131,7 +131,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -217,7 +217,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-16 15:55:04" itemprop="dateModified" datetime="2022-11-16T15:55:04+08:00">2022-11-16</time>
+      <time title="Modified: 2022-11-18 20:47:58" itemprop="dateModified" datetime="2022-11-18T20:47:58+08:00">2022-11-18</time>
     </span>
 
   
@@ -246,7 +246,7 @@
 <p>sql server: 微软推出的，只能用于windows系统，收费。</p>
 <h2 id="非关系型数据库"><a href="#非关系型数据库" class="headerlink" title="非关系型数据库"></a>非关系型数据库</h2><p>近几年似乎经常在一些企业面试题中出现，实际上非关系型数据库（nosql, not only sql)是用在高并发，高负载的场景，作为个人起步肯定是用不到的。常见的有redis, mongoDB。</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>现阶段，毫无疑问，学mysql就对了。</p>
-<h1 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>: 整数</span><br><span class="line"><span class="keyword">double</span>: 小数</span><br><span class="line">datetime: 日期，查询数据时的显示格式：YYYY<span class="operator">-</span>MM<span class="operator">-</span>DD HH:MM:SS</span><br><span class="line"><span class="type">char</span>: 定长字符</span><br><span class="line"><span class="type">varchar</span>:不定长字符</span><br><span class="line">text：大文本</span><br></pre></td></tr></table></figure>
+<h1 id="sql"><a href="#sql" class="headerlink" title="sql"></a>sql</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span>: 整数</span><br><span class="line"><span class="keyword">double</span>: 小数</span><br><span class="line">datetime: 日期，查询数据时的显示格式：YYYY<span class="operator">-</span>MM<span class="operator">-</span>DD HH:MM:SS</span><br><span class="line"><span class="type">char</span>: 定长字符</span><br><span class="line"><span class="type">varchar</span>:不定长字符</span><br><span class="line">text：大文本</span><br></pre></td></tr></table></figure>
 
 <h2 id="建表"><a href="#建表" class="headerlink" title="建表"></a>建表</h2><p>字段三要素：名称，字符，约束条件（可选）。约束条件主要有primary key、unique、not null、default等。</p>
 <h2 id="一些可能混淆的名词"><a href="#一些可能混淆的名词" class="headerlink" title="一些可能混淆的名词"></a>一些可能混淆的名词</h2><p>fields：字段属性，将key所有属性列出</p>
