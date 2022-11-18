@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png">
 <meta property="article:published_time" content="2022-11-10T05:50:11.000Z">
-<meta property="article:modified_time" content="2022-11-17T07:39:07.837Z">
+<meta property="article:modified_time" content="2022-11-17T14:41:17.000Z">
 <meta property="article:author" content="jason">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="Django">
@@ -133,13 +133,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -219,7 +219,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-17 15:39:07" itemprop="dateModified" datetime="2022-11-17T15:39:07+08:00">2022-11-17</time>
+      <time title="Modified: 2022-11-17 22:41:17" itemprop="dateModified" datetime="2022-11-17T22:41:17+08:00">2022-11-17</time>
     </span>
 
   
@@ -265,6 +265,13 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">STATICFILES_DIRS = (</span><br><span class="line"> os.path.join(BASE_DIR, <span class="string">&quot;static&quot;</span>), <span class="comment"># 首选project静态文件搜寻路径</span></span><br><span class="line"> <span class="string">&#x27;/var/www/static/&#x27;</span>, <span class="comment"># 第二选project静态文件搜寻路径，还可以有第三选，第四选……</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <p>访问顺序：会先访问app下的static&#x2F;文件夹下的myexample.jpg 文件，若app下的static文件夹中没有该文件，则访问project中的static&#x2F;文件夹，查看是否有myexample.jpg文件，若有则返回，若没有则去&#x2F;var&#x2F;www&#x2F;static&#x2F;中寻找。<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1741406">参考链接</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py collectstatic</span><br></pre></td></tr></table></figure>
+
+<p>为什么要使用STATIC_ROOT呢，是因为当你设置中DEBUG为True时，django会自动为你静态文件代理，不过当DEBUG为False时，意味着你要进入生产环境，那么，你就必须使用STATIC_ROOT来指明你的静态文件在哪里，就像MEDIA_ROOT一样。部署过程中，输入上面这条命令就将静态文件集中起来了。</p>
+<p>完整的静态文件配置如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STATIC_URL = <span class="string">&#x27;/static/&#x27;</span></span><br><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">&quot;static&quot;</span>)</span><br><span class="line">]</span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">&quot;static&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在部署阶段</p>
 <h2 id="ORM-django如何与数据库交互"><a href="#ORM-django如何与数据库交互" class="headerlink" title="ORM django如何与数据库交互"></a>ORM django如何与数据库交互</h2><p><img src="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png" alt="1668480185606.png"></p>
 
     </div>
