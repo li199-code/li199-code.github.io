@@ -18,16 +18,16 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.goldspot.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="mysql安装到我们的电脑后，是怎么工作的？">
+    <meta name="description" content="mysql的单表查询很简单，但是单表体积增大时，或者涉及到多表查询时就成了难点。本文主要对这些问题做一些记录。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mysql">
 <meta property="og:url" content="http://www.goldspot.top/2022/11/18/mysql/index.html">
 <meta property="og:site_name" content="Jason Lee">
-<meta property="og:description" content="mysql安装到我们的电脑后，是怎么工作的？">
+<meta property="og:description" content="mysql的单表查询很简单，但是单表体积增大时，或者涉及到多表查询时就成了难点。本文主要对这些问题做一些记录。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img1.imgtp.com/2022/11/18/i1KAwxVu.png">
 <meta property="article:published_time" content="2022-11-18T12:48:20.000Z">
-<meta property="article:modified_time" content="2022-11-18T12:55:06.963Z">
+<meta property="article:modified_time" content="2022-11-19T08:57:57.429Z">
 <meta property="article:author" content="jason">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
@@ -104,7 +104,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           Table of Contents
@@ -117,6 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">mysql工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="nav-number">2.</span> <span class="nav-text">数据库的备份和恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%A1%B5"><span class="nav-number">3.</span> <span class="nav-text">分页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%AD%90%E5%8F%A5%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%85%88%E5%90%8E%E9%A1%BA%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">多子句查询的先后顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">自连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%87%AA%E5%A4%8D%E5%88%B6%E5%92%8C%E5%8E%BB%E9%87%8D"><span class="nav-number">6.</span> <span class="nav-text">表自复制和去重</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -131,7 +132,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -209,9 +210,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-11-18 20:48:20 / Modified: 20:55:06" itemprop="dateCreated datePublished" datetime="2022-11-18T20:48:20+08:00">2022-11-18</time>
+      <time title="Created: 2022-11-18 20:48:20" itemprop="dateCreated datePublished" datetime="2022-11-18T20:48:20+08:00">2022-11-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-11-19 16:57:57" itemprop="dateModified" datetime="2022-11-19T16:57:57+08:00">2022-11-19</time>
     </span>
 
   
@@ -231,11 +238,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>mysql安装到我们的电脑后，是怎么工作的？</p>
+        <p>mysql的单表查询很简单，但是单表体积增大时，或者涉及到多表查询时就成了难点。本文主要对这些问题做一些记录。</p>
 <span id="more"></span>
 
-<p>mysql服务启动，监听3306端口。外界的客户端，如cmd，django框架，heidisql都视作客户端，用户名密码验证后可以连接到mysql服务。在操作系统中，数据库视作文件夹，每一张表都是一个特殊后缀的文件。<br><img src="https://img1.imgtp.com/2022/11/18/i1KAwxVu.png" alt="1668775623718.png"></p>
+<h2 id="mysql工作原理"><a href="#mysql工作原理" class="headerlink" title="mysql工作原理"></a>mysql工作原理</h2><p>mysql服务启动，监听3306端口。外界的客户端，如cmd，django框架，heidisql都视作客户端，用户名密码验证后可以连接到mysql服务。在操作系统中，数据库视作文件夹，每一张表都是一个特殊后缀的文件。<br><img src="https://img1.imgtp.com/2022/11/18/i1KAwxVu.png" alt="1668775623718.png"></p>
+<h2 id="数据库的备份和恢复"><a href="#数据库的备份和恢复" class="headerlink" title="数据库的备份和恢复"></a>数据库的备份和恢复</h2><p>备份的本质是创建一个sql文件。命令：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="operator">-</span>u <span class="operator">-</span>p <span class="operator">-</span>B db1 db2 <span class="operator">&gt;</span> d:\\xxx.sql  <span class="comment">-- 按照数据库来备份</span></span><br><span class="line">mysql <span class="operator">-</span>u <span class="operator">-</span>p db1 table1 table2 <span class="operator">&gt;</span> d:\\yyy.sql  <span class="comment">-- 按照表来备份</span></span><br><span class="line">source d:\\xxx.sql  <span class="comment">-- 恢复</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h2><p>在数据库规模较大的情况下，每次请求都是请求部分，这样就需要分页。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">table</span> limit 每页记录数<span class="operator">*</span>（页序号<span class="number">-1</span>）, 每页记录数</span><br></pre></td></tr></table></figure>
+
+<h2 id="多子句查询的先后顺序"><a href="#多子句查询的先后顺序" class="headerlink" title="多子句查询的先后顺序"></a>多子句查询的先后顺序</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> <span class="keyword">table</span></span><br><span class="line">	<span class="keyword">group</span> <span class="keyword">by</span> ..</span><br><span class="line">	hanving ..</span><br><span class="line">	<span class="keyword">order</span> <span class="keyword">by</span> ..</span><br><span class="line">	limit ..</span><br></pre></td></tr></table></figure>
+
+<h2 id="自连接"><a href="#自连接" class="headerlink" title="自连接"></a>自连接</h2><p>将一张表当作两张表联合查询，需要给表取别名。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> table1 <span class="keyword">as</span> A, table1 <span class="keyword">as</span> B <span class="keyword">where</span> ...</span><br></pre></td></tr></table></figure>
+
+<h2 id="表自复制和去重"><a href="#表自复制和去重" class="headerlink" title="表自复制和去重"></a>表自复制和去重</h2>
     </div>
 
     
