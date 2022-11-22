@@ -26,8 +26,10 @@
 <meta property="og:description" content="mysql的单表查询很简单，但是单表体积增大时，或者涉及到多表查询时就成了难点。本文主要对这些问题做一些记录。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img1.imgtp.com/2022/11/18/i1KAwxVu.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/11/20/w3dP2bXN.png">
+<meta property="og:image" content="https://img1.imgtp.com/2022/11/20/Q4XkXqXT.png">
 <meta property="article:published_time" content="2022-11-18T12:48:20.000Z">
-<meta property="article:modified_time" content="2022-11-20T09:29:57.039Z">
+<meta property="article:modified_time" content="2022-11-20T14:43:30.718Z">
 <meta property="article:author" content="jason">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
@@ -117,7 +119,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">mysql工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="nav-number">2.</span> <span class="nav-text">数据库的备份和恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%A1%B5"><span class="nav-number">3.</span> <span class="nav-text">分页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%AD%90%E5%8F%A5%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%85%88%E5%90%8E%E9%A1%BA%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">多子句查询的先后顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">自连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%87%AA%E5%A4%8D%E5%88%B6%E5%92%8C%E5%8E%BB%E9%87%8D"><span class="nav-number">6.</span> <span class="nav-text">表自复制和去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">7.</span> <span class="nav-text">外连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%94%AE"><span class="nav-number">8.</span> <span class="nav-text">外键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#check%E7%BA%A6%E6%9D%9F"><span class="nav-number">9.</span> <span class="nav-text">check约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">10.</span> <span class="nav-text">索引</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">mysql工作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="nav-number">2.</span> <span class="nav-text">数据库的备份和恢复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%A1%B5"><span class="nav-number">3.</span> <span class="nav-text">分页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%AD%90%E5%8F%A5%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%85%88%E5%90%8E%E9%A1%BA%E5%BA%8F"><span class="nav-number">4.</span> <span class="nav-text">多子句查询的先后顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">自连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A8%E8%87%AA%E5%A4%8D%E5%88%B6%E5%92%8C%E5%8E%BB%E9%87%8D"><span class="nav-number">6.</span> <span class="nav-text">表自复制和去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E8%BF%9E%E6%8E%A5"><span class="nav-number">7.</span> <span class="nav-text">外连接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%94%AE"><span class="nav-number">8.</span> <span class="nav-text">外键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#check%E7%BA%A6%E6%9D%9F"><span class="nav-number">9.</span> <span class="nav-text">check约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95"><span class="nav-number">10.</span> <span class="nav-text">索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1"><span class="nav-number">11.</span> <span class="nav-text">事务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9A%94%E7%A6%BB"><span class="nav-number">12.</span> <span class="nav-text">隔离</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -218,7 +220,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-20 17:29:57" itemprop="dateModified" datetime="2022-11-20T17:29:57+08:00">2022-11-20</time>
+      <time title="Modified: 2022-11-20 22:43:30" itemprop="dateModified" datetime="2022-11-20T22:43:30+08:00">2022-11-20</time>
     </span>
 
   
@@ -269,6 +271,15 @@
 
 <h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><p>索引是对一个字段建立的一个二叉树，提升查找速度。是一种空间换时间的策略。对于查找操作多于修改操作的数据库很有必要。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> index_name <span class="keyword">on</span> <span class="keyword">table</span> (ziduan)</span><br></pre></td></tr></table></figure>
+
+<h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><p>为了能将多个sql语句作为一个整体执行，事务提出，将增删改包裹起来。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span> transaction; <span class="comment">-- 开始事务，此时其他会话看不到事务过程中修改的数据结果</span></span><br><span class="line"><span class="comment">-- 执行一些操作 --</span></span><br><span class="line"><span class="keyword">savepoint</span> A; <span class="comment">-- 设置保存点A</span></span><br><span class="line"><span class="comment">-- 执行一些操作 --</span></span><br><span class="line"><span class="keyword">rollback</span> <span class="keyword">to</span> A; <span class="comment">-- 回退到保存点A</span></span><br><span class="line"><span class="keyword">rollback</span>; <span class="comment">-- 回退到事务开始时状态</span></span><br><span class="line"><span class="keyword">commit</span> <span class="comment">-- 提交事务，删除所有保存点，此时修改后的数据向其他会话开放</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="隔离"><a href="#隔离" class="headerlink" title="隔离"></a>隔离</h2><p>为了确保事务获得数据的准确性，提出了隔离。默认隔离级别下，不同事务同时开启造成的问题有：</p>
+<p><img src="https://img1.imgtp.com/2022/11/20/w3dP2bXN.png" alt="1668952763819.png"></p>
+<p>事务隔离级别和各级别会出现的问题：</p>
+<p><img src="https://img1.imgtp.com/2022/11/20/Q4XkXqXT.png" alt="1668952901628.png"></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> @<span class="variable">@transaction</span>_isolation; <span class="comment">--查看当前事务隔离级别（mysql8.0+，低版本为select @@tx_isolation）</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
