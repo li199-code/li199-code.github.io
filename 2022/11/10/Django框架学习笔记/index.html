@@ -27,7 +27,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png">
 <meta property="article:published_time" content="2022-11-10T05:50:11.000Z">
-<meta property="article:modified_time" content="2022-11-22T14:15:06.797Z">
+<meta property="article:modified_time" content="2022-11-22T14:25:44.500Z">
 <meta property="article:author" content="jason">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="Django">
@@ -219,7 +219,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-22 22:15:06" itemprop="dateModified" datetime="2022-11-22T22:15:06+08:00">2022-11-22</time>
+      <time title="Modified: 2022-11-22 22:25:44" itemprop="dateModified" datetime="2022-11-22T22:25:44+08:00">2022-11-22</time>
     </span>
 
   
@@ -275,6 +275,11 @@
 <h2 id="ORM-django如何与数据库交互"><a href="#ORM-django如何与数据库交互" class="headerlink" title="ORM django如何与数据库交互"></a>ORM django如何与数据库交互</h2><p><img src="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png" alt="1668480185606.png"></p>
 <h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><p>ORM可以将用户的python语句翻译为sql语句交给mysql等数据库执行。它的好处是不用写很多的sql语句，可以连接多种数据库。除了建立数据库需要手动在mysql客户端外，建表、删表、操作表内数据都可以用ORM完成。models.py文件可以视为建表操作，每次更改这个文件，就要执行下列命令，将更改应用到数据库中，同时会在migrations文件夹内留下历史记录，类似于github提交。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<p>建表完毕后，要在views.py中对表数据修改。首先要正确引入models文件，要写全路径：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> app01.models <span class="keyword">import</span> UserInfo</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UserInfo.objects.create(name=user, password=pwd, age=age) </span><br><span class="line"><span class="comment">## objects，对象，在orm中，一行数据视作一个对象</span></span><br><span class="line"><span class="comment">## all():所有数据，filter() 就类似与sql的where</span></span><br><span class="line"><span class="comment">## create:增加，update：改，delete：删除</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
