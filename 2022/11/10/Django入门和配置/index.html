@@ -20,14 +20,14 @@
 
     <meta name="description" content="Django是python的一个web后台框架。他的特点是大而全，因此本身命令和代码构架和原生python有较大区别，这篇文章是对django从入门到项目运行的学习记录。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Django框架学习笔记">
-<meta property="og:url" content="http://www.goldspot.top/2022/11/10/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Django入门和配置">
+<meta property="og:url" content="http://www.goldspot.top/2022/11/10/Django%E5%85%A5%E9%97%A8%E5%92%8C%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Jason Lee">
 <meta property="og:description" content="Django是python的一个web后台框架。他的特点是大而全，因此本身命令和代码构架和原生python有较大区别，这篇文章是对django从入门到项目运行的学习记录。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png">
 <meta property="article:published_time" content="2022-11-10T05:50:11.000Z">
-<meta property="article:modified_time" content="2022-11-22T14:25:44.500Z">
+<meta property="article:modified_time" content="2022-11-25T05:18:35.961Z">
 <meta property="article:author" content="jason">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="Django">
@@ -35,14 +35,14 @@
 <meta name="twitter:image" content="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png">
 
 
-<link rel="canonical" href="http://www.goldspot.top/2022/11/10/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://www.goldspot.top/2022/11/10/Django%E5%85%A5%E9%97%A8%E5%92%8C%E9%85%8D%E7%BD%AE/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/11/10/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/","path":"2022/11/10/Django框架学习笔记/","title":"Django框架学习笔记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/11/10/Django%E5%85%A5%E9%97%A8%E5%92%8C%E9%85%8D%E7%BD%AE/","path":"2022/11/10/Django入门和配置/","title":"Django入门和配置"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Django框架学习笔记 | Jason Lee</title>
+<title>Django入门和配置 | Jason Lee</title>
   
 
 
@@ -118,7 +118,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">新项目初始化设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#template%E5%88%9B%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">template创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#migration-%E8%BF%81%E7%A7%BB"><span class="nav-number">2.3.</span> <span class="nav-text">migration 迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.</span> <span class="nav-text">静态文件的部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORM-django%E5%A6%82%E4%BD%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%A4%E4%BA%92"><span class="nav-number">2.5.</span> <span class="nav-text">ORM django如何与数据库交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORM"><span class="nav-number">2.6.</span> <span class="nav-text">ORM</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4d"><span class="nav-number">1.</span> <span class="nav-text">常用命令d</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E9%A1%B9%E7%9B%AE%E5%88%9D%E5%A7%8B%E5%8C%96%E8%AE%BE%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">新项目初始化设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#template%E5%88%9B%E5%BB%BA"><span class="nav-number">2.2.</span> <span class="nav-text">template创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#migration-%E8%BF%81%E7%A7%BB"><span class="nav-number">2.3.</span> <span class="nav-text">migration 迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="nav-number">2.4.</span> <span class="nav-text">静态文件的部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORM-django%E5%A6%82%E4%BD%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BA%A4%E4%BA%92"><span class="nav-number">2.5.</span> <span class="nav-text">ORM django如何与数据库交互</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ORM"><span class="nav-number">2.6.</span> <span class="nav-text">ORM</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -133,13 +133,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -183,7 +183,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/11/10/Django%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/11/10/Django%E5%85%A5%E9%97%A8%E5%92%8C%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -196,12 +196,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Django框架学习笔记 | Jason Lee">
+      <meta itemprop="name" content="Django入门和配置 | Jason Lee">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Django框架学习笔记
+          Django入门和配置
         </h1>
 
         <div class="post-meta-container">
@@ -219,7 +219,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-22 22:25:44" itemprop="dateModified" datetime="2022-11-22T22:25:44+08:00">2022-11-22</time>
+      <time title="Modified: 2022-11-25 13:18:35" itemprop="dateModified" datetime="2022-11-25T13:18:35+08:00">2022-11-25</time>
     </span>
 
   
@@ -242,7 +242,7 @@
         <p>Django是python的一个web后台框架。他的特点是大而全，因此本身命令和代码构架和原生python有较大区别，这篇文章是对django从入门到项目运行的学习记录。</p>
 <span id="more"></span>
 
-<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject name  //创建项目目录</span><br><span class="line">python manage.py runserver //启动项目</span><br><span class="line">django-admin startapp name //创建app</span><br></pre></td></tr></table></figure>
+<h1 id="常用命令d"><a href="#常用命令d" class="headerlink" title="常用命令d"></a>常用命令d</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject name  //创建项目目录</span><br><span class="line">python manage.py runserver //启动项目</span><br><span class="line">django-admin startapp name //创建app</span><br></pre></td></tr></table></figure>
 
 <h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p>在django体系中，一个网站由多个app组成，每个app都有完整的MTV体系：</p>
 <ul>
@@ -271,15 +271,16 @@
 <p>完整的静态文件配置如下：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">STATIC_URL = <span class="string">&#x27;/static/&#x27;</span></span><br><span class="line">STATICFILES_DIRS = [</span><br><span class="line">    os.path.join(BASE_DIR, <span class="string">&quot;static&quot;</span>)</span><br><span class="line">]</span><br><span class="line">STATIC_ROOT = os.path.join(BASE_DIR, <span class="string">&quot;static&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<p>在部署阶段</p>
 <h2 id="ORM-django如何与数据库交互"><a href="#ORM-django如何与数据库交互" class="headerlink" title="ORM django如何与数据库交互"></a>ORM django如何与数据库交互</h2><p><img src="https://img1.imgtp.com/2022/11/15/qgoC6U6I.png" alt="1668480185606.png"></p>
-<h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><p>ORM可以将用户的python语句翻译为sql语句交给mysql等数据库执行。它的好处是不用写很多的sql语句，可以连接多种数据库。除了建立数据库需要手动在mysql客户端外，建表、删表、操作表内数据都可以用ORM完成。models.py文件可以视为建表操作，每次更改这个文件，就要执行下列命令，将更改应用到数据库中，同时会在migrations文件夹内留下历史记录，类似于github提交。</p>
+<h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><p>ORM(object relational mapping),对象关系映射，是将数据库的记录视作程序中的对象。</p>
+<p>ORM可以将用户的python语句翻译为sql语句交给mysql等数据库执行。它的好处是不用写很多的sql语句，可以连接多种数据库。除了建立数据库需要手动在mysql客户端外，建表、删表、操作表内数据都可以用ORM完成。models.py文件可以视为建表操作，每次更改这个文件，就要执行下列命令，将更改应用到数据库中，同时会在migrations文件夹内留下历史记录，类似于github提交。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
 
 <p>建表完毕后，要在views.py中对表数据修改。首先要正确引入models文件，要写全路径：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> app01.models <span class="keyword">import</span> UserInfo</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UserInfo.objects.create(name=user, password=pwd, age=age) </span><br><span class="line"><span class="comment">## objects，对象，在orm中，一行数据视作一个对象</span></span><br><span class="line"><span class="comment">## all():所有数据，filter() 就类似与sql的where</span></span><br><span class="line"><span class="comment">## create:增加，update：改，delete：删除</span></span><br></pre></td></tr></table></figure>
+
     </div>
 
     
