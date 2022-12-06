@@ -20,15 +20,15 @@
 
     <meta name="description" content="记录曾经不懂的问题和踩过的坑">
 <meta property="og:type" content="article">
-<meta property="og:title" content="django ORM记录">
+<meta property="og:title" content="Django ORM记录">
 <meta property="og:url" content="http://www.goldspot.top/2022/11/24/django%20ORM%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Jason Lee">
 <meta property="og:description" content="记录曾经不懂的问题和踩过的坑">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-11-24T03:22:00.000Z">
-<meta property="article:modified_time" content="2022-11-24T08:19:54.504Z">
+<meta property="article:modified_time" content="2022-12-06T03:40:48.908Z">
 <meta property="article:author" content="jason">
-<meta property="article:tag" content="django">
+<meta property="article:tag" content="Django">
 <meta property="article:tag" content="ORM">
 <meta name="twitter:card" content="summary">
 
@@ -37,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/11/24/django%20ORM%E8%AE%B0%E5%BD%95/","path":"2022/11/24/django ORM记录/","title":"django ORM记录"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://www.goldspot.top/2022/11/24/django%20ORM%E8%AE%B0%E5%BD%95/","path":"2022/11/24/django ORM记录/","title":"Django ORM记录"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>django ORM记录 | Jason Lee</title>
+<title>Django ORM记录 | Jason Lee</title>
   
 
 
@@ -131,13 +131,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -194,12 +194,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="django ORM记录 | Jason Lee">
+      <meta itemprop="name" content="Django ORM记录 | Jason Lee">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          django ORM记录
+          Django ORM记录
         </h1>
 
         <div class="post-meta-container">
@@ -209,9 +209,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-11-24 11:22:00 / Modified: 16:19:54" itemprop="dateCreated datePublished" datetime="2022-11-24T11:22:00+08:00">2022-11-24</time>
+      <time title="Created: 2022-11-24 11:22:00" itemprop="dateCreated datePublished" datetime="2022-11-24T11:22:00+08:00">2022-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-06 11:40:48" itemprop="dateModified" datetime="2022-12-06T11:40:48+08:00">2022-12-06</time>
     </span>
 
   
@@ -236,18 +242,21 @@
 
 <h2 id="choices"><a href="#choices" class="headerlink" title="choices"></a>choices</h2><p>Django模型中的字段有个choices属性，这个属性可以提供被选数据。如果一个字段设置了这个属性,在模版中如果我要显示这个字段，那么django模版系统就会将它默认解析为一个下拉菜单。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># models.py</span></span><br><span class="line">choices = (</span><br><span class="line">		(<span class="number">1</span>, <span class="string">&#x27;男&#x27;</span>), (<span class="number">2</span>, <span class="string">&#x27;女&#x27;</span>), (<span class="number">3</span>, <span class="string">&#x27;其他&#x27;</span>)</span><br><span class="line">)</span><br><span class="line">gender = models.IntegerField(choices=choices)</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># html</span><br><span class="line">&#123;&#123; obj.get_gender_display &#125;&#125; ##在模板中，为了获取元组中id对应值，用左边的语法</span><br></pre></td></tr></table></figure>
 
 <h2 id="外键"><a href="#外键" class="headerlink" title="外键"></a>外键</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#model.py</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 外键要关联的表</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">department</span>(models.Model):</span><br><span class="line">	name = models.CharField(max_length=<span class="number">32</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">## 在结合modelForm时，若for循环输出，下面语句可避免bug</span></span><br><span class="line">	<span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">		<span class="keyword">return</span> self.name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">department = models.ForeignKey(to=<span class="string">&#x27;department&#x27;</span>, on_delete=models.CASCADE)</span><br><span class="line"><span class="comment">## 外键关联上后，执行迁移，会在本表创建一个名为&#x27;department_id&#x27;字段。</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># html</span><br><span class="line">&#123;&#123; obj.department.name &#125;&#125; ##department字段会返回一个department表的对象</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="modelForm"><a href="#modelForm" class="headerlink" title="modelForm"></a>modelForm</h2><h3 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h3><p>当想让用户向已有数据库中添加新的数据，应该用modelForm来创建一个对象。这个对象可以用for循环来在模板中显示字段，而且具有自动对数据进行校验和报错功能。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">employModelForm</span>(forms.ModelForm):</span><br><span class="line">	<span class="comment">## 默认校验非空，可以对数据进行个性化校验，如：</span></span><br><span class="line">	<span class="comment">## password = forms.CharField(min_length=3, label=&#x27;密码&#x27;)</span></span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">		model = employee</span><br><span class="line">		fields = <span class="string">&quot;__all__&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">req</span>):</span><br><span class="line">	<span class="keyword">if</span> req.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">		<span class="comment"># form = employeeForm()</span></span><br><span class="line">		form = employModelForm()</span><br><span class="line">		<span class="keyword">return</span> render(req, <span class="string">&#x27;emp_add.html&#x27;</span>, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br><span class="line">	</span><br><span class="line">	form = employModelForm(data=req.POST)</span><br><span class="line">	<span class="keyword">if</span> form.is_valid():</span><br><span class="line">		form.save()</span><br><span class="line">		<span class="keyword">return</span> redirect(<span class="string">&#x27;/emp/list/&#x27;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">## 数据校验失败，将已输入的信息和产生的错误提示返回给页面</span></span><br><span class="line">	<span class="keyword">return</span> render(req, <span class="string">&#x27;emp_add.html&#x27;</span>, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## views.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">employModelForm</span>(forms.ModelForm):</span><br><span class="line">	<span class="comment">## 默认校验非空，可以对数据进行个性化校验，如：</span></span><br><span class="line">	<span class="comment">## password = forms.CharField(min_length=3, label=&#x27;密码&#x27;)</span></span><br><span class="line">	<span class="keyword">class</span> <span class="title class_">Meta</span>:</span><br><span class="line">		model = employee</span><br><span class="line">		fields = <span class="string">&quot;__all__&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">req</span>):</span><br><span class="line">	<span class="keyword">if</span> req.method == <span class="string">&#x27;GET&#x27;</span>:</span><br><span class="line">		<span class="comment"># form = employeeForm()</span></span><br><span class="line">		form = employModelForm()</span><br><span class="line">		<span class="keyword">return</span> render(req, <span class="string">&#x27;emp_add.html&#x27;</span>, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br><span class="line"></span><br><span class="line">	form = employModelForm(data=req.POST)</span><br><span class="line">	<span class="keyword">if</span> form.is_valid():</span><br><span class="line">		form.save()</span><br><span class="line">		<span class="keyword">return</span> redirect(<span class="string">&#x27;/emp/list/&#x27;</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">## 数据校验失败，将已输入的信息和产生的错误提示返回给页面</span></span><br><span class="line">	<span class="keyword">return</span> render(req, <span class="string">&#x27;emp_add.html&#x27;</span>, &#123;<span class="string">&#x27;form&#x27;</span>: form&#125;)</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;field.label&#125;&#125;: &#123;&#123; field &#125;&#125; </span><br><span class="line">&#123;&#123; field.errors.0 &#125;&#125; //错误信息输出  </span><br></pre></td></tr></table></figure>
 
 <h3 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h3><p>修改数据时，要告诉django修改的对象是哪个。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## views.py</span></span><br><span class="line">form = employModelForm(data=req.POST, instance=obj)</span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -256,7 +265,7 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/django/" rel="tag"><i class="fa fa-tag"></i> django</a>
+              <a href="/tags/Django/" rel="tag"><i class="fa fa-tag"></i> Django</a>
               <a href="/tags/ORM/" rel="tag"><i class="fa fa-tag"></i> ORM</a>
           </div>
 

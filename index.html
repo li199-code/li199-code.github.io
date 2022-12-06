@@ -126,13 +126,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -193,7 +193,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/11/24/django%20ORM%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">django ORM记录</a>
+          <a href="/2022/11/24/django%20ORM%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Django ORM记录</a>
         </h2>
 
         <div class="post-meta-container">
@@ -203,9 +203,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-11-24 11:22:00 / Modified: 16:19:54" itemprop="dateCreated datePublished" datetime="2022-11-24T11:22:00+08:00">2022-11-24</time>
+      <time title="Created: 2022-11-24 11:22:00" itemprop="dateCreated datePublished" datetime="2022-11-24T11:22:00+08:00">2022-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-12-06 11:40:48" itemprop="dateModified" datetime="2022-12-06T11:40:48+08:00">2022-12-06</time>
     </span>
 
   
@@ -305,83 +311,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/11/18/mysql/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/11/18/%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95-win10%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="jason">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jason Lee">
-      <meta itemprop="description" content="追寻自由">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Jason Lee">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/11/18/%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95-win10%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">校园网自动登录+win10开机执行脚本</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2022-11-18 14:11:31 / Modified: 14:26:39" itemprop="dateCreated datePublished" datetime="2022-11-18T14:11:31+08:00">2022-11-18</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="问题的提出"><a href="#问题的提出" class="headerlink" title="问题的提出"></a>问题的提出</h1><p>痛点：校园网的登录比较迷，我主要用的chrome，按理说只要连上无线，就要马上弹出登录界面。但是，chrome就是不行，即使将登录页面保存为书签，登录后却不能上网。这方面，firefox可以解决。firefox每次启动会检查是否需要登录强制门户。<a target="_blank" rel="noopener" href="https://support.mozilla.org/zh-CN/kb/%E5%BC%BA%E5%88%B6%E9%97%A8%E6%88%B7%E6%8E%A2%E6%B5%8B">文章链接</a>.所以我打算用selenium请求<a target="_blank" rel="noopener" href="http://detectportal.firefox.com/canonical.html">这个网址</a>,自动登录。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/11/18/%E6%A0%A1%E5%9B%AD%E7%BD%91%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95-win10%E5%BC%80%E6%9C%BA%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC/#more" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -602,7 +531,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-11-25 13:18:35" itemprop="dateModified" datetime="2022-11-25T13:18:35+08:00">2022-11-25</time>
+      <time title="Modified: 2022-11-25 13:23:09" itemprop="dateModified" datetime="2022-11-25T13:23:09+08:00">2022-11-25</time>
     </span>
 
   
@@ -885,7 +814,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/09/12/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AF%87/">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/09/08/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -903,7 +832,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/12/%E9%9D%A2%E8%AF%95%E5%85%AB%E8%82%A1%E5%87%86%E5%A4%87-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%AF%87/" class="post-title-link" itemprop="url">面试八股准备-性能优化篇</a>
+          <a href="/2022/09/08/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/" class="post-title-link" itemprop="url">js事件循环机制</a>
         </h2>
 
         <div class="post-meta-container">
@@ -915,7 +844,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2022-09-12 11:07:31 / Modified: 11:12:40" itemprop="dateCreated datePublished" datetime="2022-09-12T11:07:31+08:00">2022-09-12</time>
+      <time title="Created: 2022-09-08 09:59:46 / Modified: 10:04:29" itemprop="dateCreated datePublished" datetime="2022-09-08T09:59:46+08:00">2022-09-08</time>
     </span>
 
   
@@ -928,8 +857,85 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="节流和防抖"><a href="#节流和防抖" class="headerlink" title="节流和防抖"></a>节流和防抖</h3><p>节流：单位时间内只执行一次事件的回调函数，典型使用场景：拖拽<br>防抖：事件被触发 n 秒后再执行回调，如果在这 n 秒内事件又被触发，则重新计时。典型使用场景：防⽌多次提交按钮，只执⾏最后提交的⼀次</p>
+          <h3 id="一个困扰我已久的问题："><a href="#一个困扰我已久的问题：" class="headerlink" title="一个困扰我已久的问题："></a>一个困扰我已久的问题：</h3><p>JS 是单线程的，在同一个时间只能做一件事情，那为什么浏览器可以同时执行异步任务呢？</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/09/08/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/08/26/%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E7%AD%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="jason">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content="追寻自由">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Jason Lee">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/26/%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E7%AD%89/" class="post-title-link" itemprop="url">函数的变量提升等</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-08-26 23:04:24 / Modified: 23:29:13" itemprop="dateCreated datePublished" datetime="2022-08-26T23:04:24+08:00">2022-08-26</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>函数表达式和函数声明的区别<br>函数表达式与函数声明的最主要区别是函数名称（function name），在函数表达式中可省略它，从而创建匿名函数（anonymous functions）。函数表达式不能提升，而函数声明可以。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fun1 = <span class="keyword">function</span> <span class="title function_">fun2</span>(<span class="params">name</span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(name);</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">fun1</span>(<span class="string">&#x27;fun1&#x27;</span>) <span class="comment">//func1</span></span><br><span class="line"><span class="title function_">fun2</span>(<span class="string">&#x27;fun2&#x27;</span>) <span class="comment">//reference error.所以函数表达式最好去掉函数名称</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -948,7 +954,7 @@
 
 
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>
