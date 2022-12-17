@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/boxer_dog_animal_48.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/boxer_dog_animal_32.png">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.goldspot.top","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.12.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="modelAdmin 自定义后台管理articleAdmin是用来管理后台模型的展示方式的： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950class ArticlelAdmin(admin.ModelAdmin):    list_per_page &#x3D; 20 #">
+<meta property="og:type" content="article">
+<meta property="og:title" content="djangoBlog学习记录4 - Admin">
+<meta property="og:url" content="http://www.goldspot.top/2022/12/15/djangoBlog%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954-Admin/index.html">
+<meta property="og:site_name" content="Jason Lee">
+<meta property="og:description" content="modelAdmin 自定义后台管理articleAdmin是用来管理后台模型的展示方式的： 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950class ArticlelAdmin(admin.ModelAdmin):    list_per_page &#x3D; 20 #">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="attachment:4da533e7ca03bbd477cf473c4996c470">
+<meta property="article:published_time" content="2022-12-15T07:58:29.000Z">
+<meta property="article:modified_time" content="2022-12-15T08:02:32.769Z">
+<meta property="article:author" content="jason">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="attachment:4da533e7ca03bbd477cf473c4996c470">
+
+
+<link rel="canonical" href="http://www.goldspot.top/2022/12/15/djangoBlog%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954-Admin/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://www.goldspot.top/2022/12/15/djangoBlog%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954-Admin/","path":"2022/12/15/djangoBlog学习记录4-Admin/","title":"djangoBlog学习记录4 - Admin"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>djangoBlog学习记录4 - Admin | Jason Lee</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Jason Lee</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">追寻自由</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">26</span></a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#modelAdmin-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">modelAdmin 自定义后台管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#djangoBlog-admin-site-py"><span class="nav-number"></span> <span class="nav-text">djangoBlog admin_site.py</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="jason"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">jason</p>
+  <div class="site-description" itemprop="description">追寻自由</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/li199-code" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;li199-code" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.goldspot.top/2022/12/15/djangoBlog%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%954-Admin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="jason">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jason Lee">
+      <meta itemprop="description" content="追寻自由">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="djangoBlog学习记录4 - Admin | Jason Lee">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          djangoBlog学习记录4 - Admin
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-12-15 15:58:29 / 修改时间：16:02:32" itemprop="dateCreated datePublished" datetime="2022-12-15T15:58:29+08:00">2022-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/djangoBlog/" itemprop="url" rel="index"><span itemprop="name">djangoBlog</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="modelAdmin-自定义后台管理"><a href="#modelAdmin-自定义后台管理" class="headerlink" title="modelAdmin 自定义后台管理"></a>modelAdmin 自定义后台管理</h3><p>articleAdmin是用来管理后台模型的展示方式的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ArticlelAdmin</span>(admin.ModelAdmin):</span><br><span class="line">    list_per_page = <span class="number">20</span> <span class="comment">## 分页</span></span><br><span class="line">    search_fields = (<span class="string">&#x27;body&#x27;</span>, <span class="string">&#x27;title&#x27;</span>) <span class="comment">## 搜索框</span></span><br><span class="line">    form = ArticleForm</span><br><span class="line">    list_display = (</span><br><span class="line">        <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;title&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;author&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;link_to_category&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;created_time&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;views&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;status&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;type&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;article_order&#x27;</span>) <span class="comment">##定制哪些字段需要展示</span></span><br><span class="line">    list_display_links = (<span class="string">&#x27;id&#x27;</span>, <span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">    <span class="comment">## 过滤选项</span></span><br><span class="line">    list_filter = (ArticleListFilter, <span class="string">&#x27;status&#x27;</span>, <span class="string">&#x27;type&#x27;</span>, <span class="string">&#x27;category&#x27;</span>, <span class="string">&#x27;tags&#x27;</span>)</span><br><span class="line">    filter_horizontal = (<span class="string">&#x27;tags&#x27;</span>,)</span><br><span class="line">    exclude = (<span class="string">&#x27;created_time&#x27;</span>, <span class="string">&#x27;last_mod_time&#x27;</span>)</span><br><span class="line">    view_on_site = <span class="literal">True</span></span><br><span class="line">    actions = [</span><br><span class="line">        makr_article_publish,</span><br><span class="line">        draft_article,</span><br><span class="line">        close_article_commentstatus,</span><br><span class="line">        open_article_commentstatus]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">link_to_category</span>(<span class="params">self, obj</span>):</span><br><span class="line">        info = (obj.category._meta.app_label, obj.category._meta.model_name)</span><br><span class="line">        link = reverse(<span class="string">&#x27;admin:%s_%s_change&#x27;</span> % info, args=(obj.category.<span class="built_in">id</span>,))</span><br><span class="line">        <span class="keyword">return</span> format_html(<span class="string">u&#x27;&lt;a href=&quot;%s&quot;&gt;%s&lt;/a&gt;&#x27;</span> % (link, obj.category.name))</span><br><span class="line"></span><br><span class="line">    link_to_category.short_description = <span class="string">&#x27;分类目录&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_form</span>(<span class="params">self, request, obj=<span class="literal">None</span>, **kwargs</span>):</span><br><span class="line">        form = <span class="built_in">super</span>(ArticlelAdmin, self).get_form(request, obj, **kwargs)</span><br><span class="line">        form.base_fields[<span class="string">&#x27;author&#x27;</span>].queryset = get_user_model(</span><br><span class="line">        ).objects.<span class="built_in">filter</span>(is_superuser=<span class="literal">True</span>)</span><br><span class="line">        <span class="keyword">return</span> form</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save_model</span>(<span class="params">self, request, obj, form, change</span>):</span><br><span class="line">        <span class="built_in">super</span>(ArticlelAdmin, self).save_model(request, obj, form, change)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_view_on_site_url</span>(<span class="params">self, obj=<span class="literal">None</span></span>):</span><br><span class="line">        <span class="keyword">if</span> obj:</span><br><span class="line">            url = obj.get_full_url()</span><br><span class="line">            <span class="keyword">return</span> url</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">from</span> djangoblog.utils <span class="keyword">import</span> get_current_site</span><br><span class="line">            site = get_current_site().domain</span><br><span class="line">            <span class="keyword">return</span> site</span><br></pre></td></tr></table></figure>
+
+<p>在settings.py中，将用户模型由默认的auth.User设置为account.BlogUser</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AUTH_USER_MODEL = <span class="string">&#x27;accounts.BlogUser&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>这样，django就不会生成自带的auth_user表。</p>
+<p>默认的user表(继承自AbstractUser)含有的字段包括：</p>
+<p><img src="attachment:4da533e7ca03bbd477cf473c4996c470" alt="截图"></p>
+<br/>
+
+<h2 id="djangoBlog-admin-site-py"><a href="#djangoBlog-admin-site-py" class="headerlink" title="djangoBlog admin_site.py"></a>djangoBlog admin_site.py</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">from django.contrib.admin import AdminSite</span><br><span class="line"></span><br><span class="line">class DjangoBlogAdminSite(AdminSite):</span><br><span class="line">    site_header = &#x27;djangoblog administration&#x27; ## 放在每个管理页面顶部的文字</span><br><span class="line">    site_title = &#x27;djangoblog site admin&#x27; ## &lt;title&gt;,标签页名字</span><br><span class="line"></span><br><span class="line">    def __init__(self, name=&#x27;admin&#x27;):</span><br><span class="line">        super().__init__(name)</span><br><span class="line"></span><br><span class="line">    def has_permission(self, request):</span><br><span class="line">        return request.user.is_superuser</span><br><span class="line">      </span><br><span class="line">admin_site = DjangoBlogAdminSite(name=&#x27;admin&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>admin_site和auth.admin平级，是一个admin实例。AdminSite用于自定义admin。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/12/15/djangoBlog%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%952-Blog/" rel="prev" title="djangoBlog学习记录2 - Blog">
+                  <i class="fa fa-chevron-left"></i> djangoBlog学习记录2 - Blog
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/12/15/djangoBlog%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%953-Account/" rel="next" title="djangoBlog学习记录3 - Account">
+                  djangoBlog学习记录3 - Account <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jason</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
