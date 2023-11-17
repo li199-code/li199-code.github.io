@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jason Lee</title>
+  <icon>https://blog.jasonleehere.com/icon.png</icon>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://blog.jasonleehere.com/"/>
+  <updated>2023-11-12T12:47:20.000Z</updated>
+  <id>https://blog.jasonleehere.com/</id>
+  
+  <author>
+    <name>Jason</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于网站主题的一系列小问题的修复过程</title>
+    <link href="https://blog.jasonleehere.com/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%B3%BB%E5%88%97%E5%B0%8F%E9%97%AE%E9%A2%98%E7%9A%84%E4%BF%AE%E5%A4%8D%E8%BF%87%E7%A8%8B.html"/>
+    <id>https://blog.jasonleehere.com/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%B3%BB%E5%88%97%E5%B0%8F%E9%97%AE%E9%A2%98%E7%9A%84%E4%BF%AE%E5%A4%8D%E8%BF%87%E7%A8%8B.html</id>
+    <published>2023-11-12T12:47:20.000Z</published>
+    <updated>2023-11-12T12:47:20.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;前阵子发现，本网站的主题 oranges 有一系列历史遗留问题一直没解决，包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;代码块样式失效&lt;/li&gt;
+&lt;li&gt;控制台有很多莫名其妙的报错&lt;/li&gt;
+&lt;li&gt;更新时间显示错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;由于这些问题不好解决，我甚至想过迁移到
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="网站建设" scheme="https://blog.jasonleehere.com/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pgsql常用且容易忘记的一些用法</title>
+    <link href="https://blog.jasonleehere.com/pgsql%E5%B8%B8%E7%94%A8%E4%B8%94%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html"/>
+    <id>https://blog.jasonleehere.com/pgsql%E5%B8%B8%E7%94%A8%E4%B8%94%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html</id>
+    <published>2023-11-11T08:41:49.000Z</published>
+    <updated>2023-11-17T13:59:04.273Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;总结一些工作中非常有用的 pgsql 用法。&lt;/p&gt;
+&lt;h2 id=&quot;日期类&quot;&gt;&lt;a href=&quot;#日期类&quot; class=&quot;headerlink&quot; title=&quot;日期类&quot;&gt;&lt;/a&gt;日期类&lt;/h2&gt;&lt;p&gt;加入 time 列是 timestamp
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="pgsql" scheme="https://blog.jasonleehere.com/tags/pgsql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>第一次装机记录</title>
+    <link href="https://blog.jasonleehere.com/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A3%85%E6%9C%BA%E8%AE%B0%E5%BD%95.html"/>
+    <id>https://blog.jasonleehere.com/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A3%85%E6%9C%BA%E8%AE%B0%E5%BD%95.html</id>
+    <published>2023-11-09T14:17:43.000Z</published>
+    <updated>2023-11-17T13:56:07.644Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;硬件配置&quot;&gt;&lt;a href=&quot;#硬件配置&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="装机" scheme="https://blog.jasonleehere.com/tags/%E8%A3%85%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>德国JSV找工作签证</title>
+    <link href="https://blog.jasonleehere.com/%E5%BE%B7%E5%9B%BDJSV%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%AD%BE%E8%AF%81.html"/>
+    <id>https://blog.jasonleehere.com/%E5%BE%B7%E5%9B%BDJSV%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%AD%BE%E8%AF%81.html</id>
+    <published>2023-10-30T14:21:23.000Z</published>
+    <updated>2023-11-17T13:56:07.633Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;今天刷到一个不错的签证，之前也有看到，但是没记录下来。&lt;/p&gt;
+&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
+        
+      
+    
+    </summary>
+    
+    
+      <category term="润学心经" scheme="https://blog.jasonleehere.com/categories/%E6%B6%A6%E5%AD%A6%E5%BF%83%E7%BB%8F/"/>
+    
+    
+      <category term="run" scheme="https://blog.jasonleehere.com/tags/run/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>宏观经济学--助力分析股票市场周期背后的原因</title>
+    <link href="https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%86%85%E5%8A%9F%E4%BF%AE%E7%82%BC-%E5%B0%8Flin%E8%AF%B4%E7%B3%BB%E5%88%97%E8%A7%86%E9%A2%91%E8%A7%82%E5%90%8E%E8%AE%B0%E5%BD%95.html"/>
+    <id>https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%86%85%E5%8A%9F%E4%BF%AE%E7%82%BC-%E5%B0%8Flin%E8%AF%B4%E7%B3%BB%E5%88%97%E8%A7%86%E9%A2%91%E8%A7%82%E5%90%8E%E8%AE%B0%E5%BD%95.html</id>
+    <published>2023-10-28T13:07:21.000Z</published>
+    <updated>2023-11-17T13:56:07.637Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最大的感触就是经济学真的很复杂，一环扣一环，而且多种因素往往互相影响，这对于结果的预测带来很强的不确定性。可以静下心来想一想，到底什么才是经济好？&lt;/p&gt;
+&lt;p&gt;如果人们在一段时间里，普遍找到工作，从事生产（低失业率），然后把足够的钱用于消费，从而刺激需求，工厂产能提高，能
+        
+      
+    
+    </summary>
+    
+    
+      <category term="投资知识和实操" scheme="https://blog.jasonleehere.com/categories/%E6%8A%95%E8%B5%84%E7%9F%A5%E8%AF%86%E5%92%8C%E5%AE%9E%E6%93%8D/"/>
+    
+    
+      <category term="经济" scheme="https://blog.jasonleehere.com/tags/%E7%BB%8F%E6%B5%8E/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python机器学习-在web中嵌入机器学习模型</title>
+    <link href="https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9C%A8web%E4%B8%AD%E5%B5%8C%E5%85%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B.html"/>
+    <id>https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9C%A8web%E4%B8%AD%E5%B5%8C%E5%85%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B.html</id>
+    <published>2023-10-28T12:34:28.000Z</published>
+    <updated>2023-11-17T13:56:07.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;本书第九章通过一个简单的文本情感分析的例子，讲述如何在网站上提供机器学习服务。&lt;/p&gt;
+&lt;p&gt;首先我们来分析一下需求。流程描述是，用户输入一段文本，后台将文本送入模型，并把结果返回给前端，用户对结果进行反馈。后台将反馈和输入文本记录到数据库，并更新分类器。那么，我们应该先在
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python 机器学习" scheme="https://blog.jasonleehere.com/categories/python-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python机器学习-模型评估与参数调优</title>
+    <link href="https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98.html"/>
+    <id>https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98.html</id>
+    <published>2023-10-23T15:20:22.000Z</published>
+    <updated>2023-11-17T13:56:07.607Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;性能指标（二分类问题）&quot;&gt;&lt;a href=&quot;#性能指标（二分类问题）&quot; class=&quot;headerlink&quot; title=&quot;性能指标（二分类问题）&quot;&gt;&lt;/a&gt;性能指标（二分类问题）&lt;/h2&gt;&lt;h3 id=&quot;混淆矩阵&quot;&gt;&lt;a href=&quot;#混淆矩阵&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python 机器学习" scheme="https://blog.jasonleehere.com/categories/python-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>投资基金记录（长期更新）</title>
+    <link href="https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%AE%B0%E5%BD%95.html"/>
+    <id>https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%AE%B0%E5%BD%95.html</id>
+    <published>2023-10-19T07:22:44.000Z</published>
+    <updated>2023-11-17T13:56:07.637Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;起步&quot;&gt;&lt;a href=&quot;#起步&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="投资知识和实操" scheme="https://blog.jasonleehere.com/categories/%E6%8A%95%E8%B5%84%E7%9F%A5%E8%AF%86%E5%92%8C%E5%AE%9E%E6%93%8D/"/>
+    
+    
+      <category term="基金" scheme="https://blog.jasonleehere.com/tags/%E5%9F%BA%E9%87%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python机器学习-数据降维</title>
+    <link href="https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4.html"/>
+    <id>https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%95%B0%E6%8D%AE%E9%99%8D%E7%BB%B4.html</id>
+    <published>2023-10-15T15:00:39.000Z</published>
+    <updated>2023-11-17T13:56:07.606Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;PCA（主成分分析）&quot;&gt;&lt;a href=&quot;#PCA（主成分分析）&quot; class=&quot;headerlink&quot; title=&quot;PCA（主成分分析）&quot;&gt;&lt;/a&gt;PCA（主成分分析）&lt;/h2&gt;&lt;p&gt;example:&lt;/p&gt;
+&lt;figure class=&quot;highlight
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python 机器学习" scheme="https://blog.jasonleehere.com/categories/python-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工作中的一些工具使用技巧和方法论</title>
+    <link href="https://blog.jasonleehere.com/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E5%92%8C%E6%96%B9%E6%B3%95%E8%AE%BA.html"/>
+    <id>https://blog.jasonleehere.com/%E5%B7%A5%E4%BD%9C%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E5%92%8C%E6%96%B9%E6%B3%95%E8%AE%BA.html</id>
+    <published>2023-10-11T06:37:37.000Z</published>
+    <updated>2023-11-17T13:56:07.631Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;我的工作是后端开发，这几天的内容就是做一套增删改查接口，暂时还没涉及复杂的逻辑。之前在外包里面搞前端，工具就两个：vscode
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="日常" scheme="https://blog.jasonleehere.com/tags/%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《python 机器学习》数据预处理</title>
+    <link href="https://blog.jasonleehere.com/%E3%80%8Apython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86.html"/>
+    <id>https://blog.jasonleehere.com/%E3%80%8Apython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86.html</id>
+    <published>2023-10-10T13:20:00.000Z</published>
+    <updated>2023-11-17T13:56:07.619Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;缺失数据值的处理&quot;&gt;&lt;a href=&quot;#缺失数据值的处理&quot; class=&quot;headerlink&quot; title=&quot;缺失数据值的处理&quot;&gt;&lt;/a&gt;缺失数据值的处理&lt;/h2&gt;&lt;h3 id=&quot;在-scikit-learn-中处理缺失数据的方法：&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python 机器学习" scheme="https://blog.jasonleehere.com/categories/python-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《python机器学习》分类算法</title>
+    <link href="https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0.html"/>
+    <id>https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0.html</id>
+    <published>2023-10-02T02:57:30.000Z</published>
+    <updated>2023-11-17T13:56:07.608Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;我打算开一个全新的系列，记录我在学习《python 机器学习》这本书过程中的要点和感想。&lt;/p&gt;
+&lt;h2 id=&quot;决策边界图&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="python 机器学习" scheme="https://blog.jasonleehere.com/categories/python-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>基于eggjs, sequelize和pgsql的小需求</title>
+    <link href="https://blog.jasonleehere.com/%E5%9F%BA%E4%BA%8Eeggjs,%20sequelize%E5%92%8Cpgsql%E7%9A%84%E5%B0%8F%E9%9C%80%E6%B1%82.html"/>
+    <id>https://blog.jasonleehere.com/%E5%9F%BA%E4%BA%8Eeggjs,%20sequelize%E5%92%8Cpgsql%E7%9A%84%E5%B0%8F%E9%9C%80%E6%B1%82.html</id>
+    <published>2023-09-29T04:13:49.000Z</published>
+    <updated>2023-11-17T13:56:07.629Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="eggjs" scheme="https://blog.jasonleehere.com/tags/eggjs/"/>
+    
+      <category term="sequelize" scheme="https://blog.jasonleehere.com/tags/sequelize/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>sklearn crash course</title>
+    <link href="https://blog.jasonleehere.com/sklearn-crash-course.html"/>
+    <id>https://blog.jasonleehere.com/sklearn-crash-course.html</id>
+    <published>2023-09-24T15:06:24.000Z</published>
+    <updated>2023-11-17T13:56:07.611Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;油管&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="sklearn" scheme="https://blog.jasonleehere.com/tags/sklearn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kafka初体验</title>
+    <link href="https://blog.jasonleehere.com/kafka%E5%88%9D%E4%BD%93%E9%AA%8C.html"/>
+    <id>https://blog.jasonleehere.com/kafka%E5%88%9D%E4%BD%93%E9%AA%8C.html</id>
+    <published>2023-09-20T01:06:00.000Z</published>
+    <updated>2023-11-17T13:56:07.598Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;启动-zookeeper-和-kafka&quot;&gt;&lt;a href=&quot;#启动-zookeeper-和-kafka&quot; class=&quot;headerlink&quot; title=&quot;启动 zookeeper 和 kafka&quot;&gt;&lt;/a&gt;启动 zookeeper 和
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="kafka" scheme="https://blog.jasonleehere.com/tags/kafka/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>文本分类比赛学习记录</title>
+    <link href="https://blog.jasonleehere.com/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E6%AF%94%E8%B5%9B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html"/>
+    <id>https://blog.jasonleehere.com/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E6%AF%94%E8%B5%9B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html</id>
+    <published>2023-09-06T02:54:38.000Z</published>
+    <updated>2023-11-17T13:56:07.639Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本文是我对在公司参加的“ChatGPT 生成文本检测器”比赛。数据集为中文作文样本，其中从互联网上采集得到了真实作文，并且
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="deep-learning" scheme="https://blog.jasonleehere.com/tags/deep-learning/"/>
+    
+      <category term="NLP" scheme="https://blog.jasonleehere.com/tags/NLP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>五险一金怎么扣</title>
+    <link href="https://blog.jasonleehere.com/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88%E5%B7%A5%E8%B5%84%E8%A2%AB%E6%89%A3%E4%BA%86%E5%93%AA%E4%BA%9B%E9%A1%B9%E7%9B%AE.html"/>
+    <id>https://blog.jasonleehere.com/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88%E5%B7%A5%E8%B5%84%E8%A2%AB%E6%89%A3%E4%BA%86%E5%93%AA%E4%BA%9B%E9%A1%B9%E7%9B%AE.html</id>
+    <published>2023-08-12T01:28:25.000Z</published>
+    <updated>2023-11-17T13:56:07.643Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础知识&quot; class=&quot;headerlink&quot; title=&quot;基础知识&quot;&gt;&lt;/a&gt;基础知识&lt;/h2&gt;&lt;p&gt;五险一金：养老保险、医疗保险、工伤保险、失业保险、生育保险和住房公积金。&lt;/p&gt;
+&lt;h2 id=&quot;明细&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>redis, pgsql远程连接教程</title>
+    <link href="https://blog.jasonleehere.com/redis-pgsql%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%95%99%E7%A8%8B.html"/>
+    <id>https://blog.jasonleehere.com/redis-pgsql%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%95%99%E7%A8%8B.html</id>
+    <published>2023-08-10T02:19:58.000Z</published>
+    <updated>2023-11-17T13:56:07.610Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;部门在云服务器上开了 redis、postgresql
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="redis" scheme="https://blog.jasonleehere.com/tags/redis/"/>
+    
+      <category term="postgresql" scheme="https://blog.jasonleehere.com/tags/postgresql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>typescript文件造成win文件夹卡顿原因及解决方案</title>
+    <link href="https://blog.jasonleehere.com/typescript%E6%96%87%E4%BB%B6%E9%80%A0%E6%88%90win%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8D%A1%E9%A1%BF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html"/>
+    <id>https://blog.jasonleehere.com/typescript%E6%96%87%E4%BB%B6%E9%80%A0%E6%88%90win%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8D%A1%E9%A1%BF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html</id>
+    <published>2023-08-09T01:43:24.000Z</published>
+    <updated>2023-11-17T13:56:07.615Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;写了好几天的 ts 代码，发现打开包含 ts 代码的文件夹时，文件夹会缓慢刷新，而且不是列表形式展示。非常痛苦:(&lt;/p&gt;
+&lt;p&gt;一开始以为是 windows11 的 bug，后来一想，最开始新建 ts 代码时，win11
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="typescript" scheme="https://blog.jasonleehere.com/tags/typescript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>同步异步任务在javascript中的实现</title>
+    <link href="https://blog.jasonleehere.com/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%9C%A8javascript%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0.html"/>
+    <id>https://blog.jasonleehere.com/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%9C%A8javascript%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0.html</id>
+    <published>2023-08-07T06:45:51.000Z</published>
+    <updated>2023-11-17T13:56:07.628Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;同步异步一直是一个绕不过去的小问题，要么遇不上，要么遇上了似懂非懂。这篇文章力争从异步任务的底层需求出发，对
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <meta name="author" content="Jason" />
+  <meta name="description" content="" />
+  
+  
+  <title>
+    
+      nestjs入门 
+      
+      
+      |
+    
+     Jason Lee
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+    
+<link rel="stylesheet" href="/css/figcaption/mac-block.css">
+
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Jason Lee" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img no-lazy src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">Jason Lee</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">主页</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">归档</a>
+        </li>
+      
+        <li class="nav-item" data-path="/categories/">
+          <a href="/categories/">分类</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">标签</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">关于</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">nestjs入门</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-11-17 21:56:07
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/nestjs/" title="nestjs">
+                    #nestjs
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>软开团队之前做过的一个项目，用 nestjs 做的。我听到时很惊讶，部门负责人竟然这么敢用当时看起来还那么稚嫩的 nodejs 作为后端语言。让我们开始吧。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>类似于 vue2，也要安装一个脚手架。启动后，访问 localhost:3000，出现一个朴实无华的 Hello world，甚至没有用标题 html 标签：</p>
+<p><img src="/images/image-loading.svg" data-original="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16907906119941690790611215.png" alt="16907906119941690790611215.png"></p>
+<h2 id="nestjs-和-express-的关系"><a href="#nestjs-和-express-的关系" class="headerlink" title="nestjs 和 express 的关系"></a>nestjs 和 express 的关系</h2><blockquote>
+<p>NestJS 和 Express 之间有密切的关系，可以将 NestJS 视为建立在 Express 之上的框架。NestJS 的 HTTP 模块和功能实际上是建立在 Express 的基础之上的，并且可以与 Express 的功能无缝交互。</p>
+</blockquote>
+<blockquote>
+<p>具体来说，NestJS 在底层使用 Express 来处理 HTTP 请求和构建 Web 应用程序。这意味着，NestJS 的 HTTP 模块实际上是使用 Express 的路由和中间件系统来定义路由和处理请求。因此，你可以在 NestJS 应用程序中直接使用 Express 中的中间件，也可以使用 NestJS 提供的中间件。</p>
+</blockquote>
+<blockquote>
+<p>虽然 NestJS 在底层使用了 Express，但它为开发者提供了一种更现代、模块化的方法来构建应用程序。NestJS 引入了一系列新的概念，如模块、控制器、提供者、依赖注入等，这些使得代码更易于组织、测试和维护。此外，NestJS 还支持多种其他功能，如 WebSocket、GraphQL 等，可以让你构建更强大的应用程序。</p>
+</blockquote>
+<blockquote>
+<p>总的来说，NestJS 是建立在 Express 之上的，它保留了 Express 的灵活性和强大性能，同时为开发者提供了更高级的抽象和功能，使得构建复杂的服务器端应用程序更加容易和愉快。</p>
+</blockquote>
+<h2 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h2><p>我是跟着油管的<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=xzu3QXwo1BU&list=PL_cUvD4qzbkw-phjGK2qq0nQiG6gw1cKK&index=2&ab_channel=AnsontheDeveloper">教程</a>敲了一个基础小项目。下面是项目目录的截图。</p>
+<p><img src="/images/image-loading.svg" data-original="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16909392755291690939274607.png" alt="16909392755291690939274607.png"></p>
+<p>nestjs 推荐通过脚手架工具来生成代码文件，这样的初始代码来自模板文件。所有可自动生成的文件如下：</p>
+<p><img src="/images/image-loading.svg" data-original="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16909397445231690939744129.png" alt="16909397445231690939744129.png"></p>
+<p>这里和我熟悉的 django 框架做一个对比。</p>
+<table>
+<thead>
+<tr>
+<th>nestjs</th>
+<th>django</th>
+<th>nest-cli</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>module</td>
+<td>app</td>
+<td>nest generate module users</td>
+<td>模块</td>
+</tr>
+<tr>
+<td>controllers</td>
+<td>urls.py</td>
+<td>nest generate controller /users/controllers/users</td>
+<td>路由</td>
+</tr>
+<tr>
+<td>services</td>
+<td>views.py</td>
+<td>nest g s /users/services/users</td>
+<td>视图，运行逻辑代码</td>
+</tr>
+<tr>
+<td>pipes</td>
+<td>forms.py</td>
+<td>nest g pipe /users/pipes/ValidateCreateUser</td>
+<td>对表单或者传来的数据进行验证</td>
+</tr>
+<tr>
+<td>middleware</td>
+<td>middleware</td>
+<td>nest g mi /users/middlewares/example</td>
+<td>中间件</td>
+</tr>
+<tr>
+<td>guard</td>
+<td>权限装饰器</td>
+<td>nest g guard /users/guards/Auth</td>
+<td>权限控制</td>
+</tr>
+</tbody></table>
+<p>其它的，<code>app.module.ts</code>对模块进行注册，相当于 django 中 settings.py 中的 INSTALLED_APPS。</p>
+<h2 id="DTO-Data-Transfer-Object"><a href="#DTO-Data-Transfer-Object" class="headerlink" title="DTO(Data Transfer Object)"></a>DTO(Data Transfer Object)</h2><p>在 NestJS 中，DTO（Data Transfer Object）是一种用于数据传输的对象。DTO 主要用于在应用程序的不同层之间传输数据，通常在控制器（Controller）层和服务（Service）层之间进行数据传递。DTO 的目的是将数据从一个地方传输到另一个地方，并在传输过程中进行数据验证和转换。</p>
+<p>DTO 在应用程序中扮演了重要的角色，特别是在处理 HTTP 请求和响应的过程中。它们可以用于将请求数据从控制器传递给服务，也可以用于将服务返回的数据转换为适合返回给客户端的格式。</p>
+<p>通常，DTO 对象会在不同层之间定义，并在控制器和服务中使用。DTO 可以用于以下几个方面：</p>
+<p>请求数据验证：在控制器中，DTO 可以用于验证客户端传递的请求数据是否符合预期的格式和规则。通过使用装饰器来定义 DTO 类的属性，NestJS 可以自动验证传入的数据，并根据定义的规则返回验证错误。</p>
+<p>数据传输：在服务层和控制器之间传递数据。服务层可以接收 DTO 对象，执行相应的业务逻辑，然后返回 DTO 对象，控制器再将其转换为 HTTP 响应返回给客户端。</p>
+<p>数据转换：DTO 可以用于将服务返回的数据转换为适合返回给客户端的格式。例如，将数据库查询的结果转换为 JSON 格式返回给客户端。</p>
+<p>隐藏敏感信息：在某些情况下，DTO 可以用于隐藏敏感信息，确保客户端只能获得必要的数据而不会暴露不应该看到的信息。</p>
+<p>在 NestJS 中，你可以使用 @nestjs/swagger 模块来自动生成 API 文档，并自动将 DTO 类中的装饰器用于验证请求数据。</p>
+<p>下面是一个简单的例子，展示了在 NestJS 中定义一个 DTO 类的示例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import &#123; IsString, IsInt &#125; from &#x27;class-validator&#x27;;</span><br><span class="line"></span><br><span class="line">export class CreateUserDto &#123;</span><br><span class="line">  @IsString()</span><br><span class="line">  readonly name: string;</span><br><span class="line"></span><br><span class="line">  @IsInt()</span><br><span class="line">  readonly age: number;</span><br><span class="line"></span><br><span class="line">  @IsString()</span><br><span class="line">  readonly email: string;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的例子中，我们定义了一个 CreateUserDto 类，该类用于在控制器中接收创建用户的请求数据。使用 @IsString() 和 @IsInt() 装饰器来定义每个属性的验证规则。在控制器中，我们可以使用该 DTO 类来验证客户端传入的数据是否符合预期的规则。</p>
+<h2 id="两处类型验证的区别"><a href="#两处类型验证的区别" class="headerlink" title="两处类型验证的区别"></a>两处类型验证的区别</h2><p>由于请求传入参数和保存在数据库的参数可能不一致，所以需要两种验证。请求参数的验证时 放在 dtos 文件夹下，在 controller 中使用。而保存数据库的验证放在 utils 文件夹，在 service 层使用。</p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>GPT：</p>
+<p>依赖注入是一种编程的方式，用于管理代码中不同部分之间的依赖关系。在软件开发中，一个模块可能会需要使用另一个模块提供的功能或数据，而依赖注入就是一种让这种关系更加松散和可维护的方法。</p>
+<p>举个例子，假设你在开发一个网站后端，使用了 NestJS 这个框架。你需要创建一些控制器来处理不同的请求，同时还需要连接数据库来存储和检索数据。这时就涉及到依赖关系：控制器依赖于数据库连接来获取数据。</p>
+<p>在使用依赖注入之前，你可能会在每个控制器内部创建数据库连接，但这会导致代码重复和难以维护。而使用依赖注入，你可以这样做：</p>
+<p>定义一个数据库连接的服务（或者称之为提供者）：在 NestJS 中，你可以创建一个类，用于创建和管理数据库连接。</p>
+<p>在控制器中声明依赖：在你的控制器类中，你可以声明需要使用的依赖，比如数据库连接。</p>
+<p>在模块中设置依赖关系：在 NestJS 中，你需要将控制器和提供者（数据库连接）放入同一个模块中，并在模块的配置中告诉 NestJS 如何建立这些依赖关系。</p>
+<p>NestJS 完成注入：当你启动应用程序时，NestJS 将根据你在模块中的配置，自动将数据库连接注入到控制器中。这意味着你不必自己管理控制器和连接之间的关系，NestJS 会帮你处理。</p>
+<p>通过依赖注入，你可以更好地组织代码，降低模块之间的耦合度，使得代码更容易测试和维护。</p>
+<p>下面是一个伪代码示例，演示如何在 NestJS 中使用依赖注入：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// 数据库连接提供者</span><br><span class="line">@Injectable()</span><br><span class="line">class DatabaseService &#123;</span><br><span class="line">  connect() &#123;</span><br><span class="line">    // 连接数据库的逻辑</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 控制器</span><br><span class="line">@Controller()</span><br><span class="line">class UserController &#123;</span><br><span class="line">  constructor(private databaseService: DatabaseService) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  getUser(id: number) &#123;</span><br><span class="line">    const user = this.databaseService.fetchUser(id);</span><br><span class="line">    return user;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 模块配置</span><br><span class="line">@Module(&#123;</span><br><span class="line">  providers: [DatabaseService],</span><br><span class="line">  controllers: [UserController],</span><br><span class="line">&#125;)</span><br><span class="line">class UserModule &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个示例中，DatabaseService 负责数据库连接，UserController 控制器依赖于 DatabaseService 来获取用户信息。在 UserModule 模块中，我们通过将 DatabaseService 提供者添加到 providers 列表中，将 UserController 控制器添加到 controllers 列表中，NestJS 将自动完成依赖注入。</p>
+<p><strong>简单来说，nestjs 的依赖注入，就类似于 django 中的 urls 和 views 相分离。</strong></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/%E5%85%A5%E8%81%8C%E5%88%9D%E4%BD%93%E9%AA%8C.html" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2023-11-17 21:56:07
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/nestjs/" title="nestjs">
+                        #nestjs
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/typescript%E5%85%A5%E9%97%A8%E8%AE%B0%E5%BD%95.html" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nestjs-%E5%92%8C-express-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">nestjs 和 express 的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-text">项目结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DTO-Data-Transfer-Object"><span class="toc-text">DTO(Data Transfer Object)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E5%A4%84%E7%B1%BB%E5%9E%8B%E9%AA%8C%E8%AF%81%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">两处类型验证的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="toc-text">依赖注入</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+  <div id="disqus_thread"></div>
+  <script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jason-no2pj2oj4d.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+              <a title="github" target="_blank" rel="noopener" href="https://github.com/li199-code/">
+                <i class="iconfont icon-github"></i>
+              </a>
+              
+        </li>
+        
+        <li>
+          
+              <a title="rss" href="/atom.xml">
+                <i class="iconfont icon-rss"></i>
+              </a>
+              
+        </li>
+        
+        <li>
+          
+            <a title="email" href="mailto:realjasonlee4000@gmail.com">
+              <i class="iconfont icon-envelope"></i>
+            </a>
+            
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2023 Oranges</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://hexo.io/index.html">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + nestjs%E5%85%A5%E9%97%A8 + '&url=' + https%3A%2F%2Fblog.jasonleehere.com%2Fnestjs%25E5%2585%25A5%25E9%2597%25A8.html + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://blog.jasonleehere.com/nestjs%E5%85%A5%E9%97%A8.html" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+</html>
