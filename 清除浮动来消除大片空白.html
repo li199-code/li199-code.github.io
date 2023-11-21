@@ -145,15 +145,15 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-11-17 21:56:07
+          2023-11-20 10:22:30
         </span>
         
               <span class="post-categories">
                 <i class="iconfont icon-bookmark" title="分类"></i>
                 
                 <span class="span--category">
-                  <a href="/categories/%E7%A1%95%E5%A3%AB%E8%AE%BA%E6%96%87/" title="硕士论文">
-                    <b>#</b> 硕士论文
+                  <a href="/categories/%E5%86%99%E8%AE%BA%E6%96%87%E5%B7%A5%E5%85%B7/" title="写论文工具">
+                    <b>#</b> 写论文工具
                   </a>
                 </span>
                 
@@ -172,10 +172,11 @@
           
       </div>
       <div class="markdown-body">
-        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>虽然latex是自动排版，但是偶尔会出现明明可以放下内容的地方，被留下空白。通常是发生在多个表格或者图片相连，然后后面跟着文字，文字和最后一个图表之间就会分页。</p>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>虽然 latex 是自动排版，但是偶尔会出现明明可以放下内容的地方，被留下空白。通常是发生在多个表格或者图片相连，然后后面跟着文字，文字和最后一个图表之间就会分页。</p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>最简单的，先从垂直间距开始调起。<code>\vspace&#123;-1cm&#125;</code>。但是可能不起效果，比如本文提到的情景。</p>
-<p>或者是清除浮动。浮动的含义是，图表的位置并不固定在源码的位置，而可能被放置在上下几页，具体取决于latex算法认为美观的地方。在我这种情况中，显然是latex的算法自动排列的算法不符合真正的美观，所以要手动取消浮动，并且人工微调。取消浮动的方式是引入下列的包：</p>
+<p>或者是清除浮动。浮动的含义是，图表的位置并不固定在源码的位置，而可能被放置在上下几页，具体取决于 latex 算法认为美观的地方。在我这种情况中，显然是 latex 的算法自动排列的算法不符合真正的美观，所以要手动取消浮动，并且人工微调。取消浮动的方式是引入下列的包：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\usepackage[section]&#123;placeins&#125; 避免浮动体跨过 \section</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;float&#125; 禁止浮动</span><br><span class="line">% ...</span><br><span class="line">\begin&#123;figure&#125;[H]</span><br><span class="line">% ...</span><br><span class="line">\begin&#123;table&#125;[H]</span><br><span class="line">% ...</span><br></pre></td></tr></table></figure>
 
 <p>幸运的是，取消浮动后，一张表占据一整页的现象消失了，而且位置刚好，没有出现大面积空白。</p>
@@ -197,15 +198,15 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17 21:56:07
+              2023-11-20 10:22:30
             </span>
             
                   <span class="post-categories">
                     <i class="iconfont icon-bookmark" title="分类"></i>
                     
                     <span class="span--category">
-                      <a href="/categories/%E7%A1%95%E5%A3%AB%E8%AE%BA%E6%96%87/" title="硕士论文">
-                        <b>#</b> 硕士论文
+                      <a href="/categories/%E5%86%99%E8%AE%BA%E6%96%87%E5%B7%A5%E5%85%B7/" title="写论文工具">
+                        <b>#</b> 写论文工具
                       </a>
                     </span>
                     

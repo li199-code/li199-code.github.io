@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2023-11-12T12:47:20.000Z</updated>
+  <updated>2023-11-20T13:30:53.000Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何利用晚上时间自我提升</title>
+    <link href="https://blog.jasonleehere.com/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%99%9A%E4%B8%8A%E6%97%B6%E9%97%B4%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87.html"/>
+    <id>https://blog.jasonleehere.com/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%99%9A%E4%B8%8A%E6%97%B6%E9%97%B4%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87.html</id>
+    <published>2023-11-20T13:30:53.000Z</published>
+    <updated>2023-11-20T13:30:53.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近深感自己晚上下班后有点没有事情干，结果被抑郁和虚无情绪困住，进而浪费掉大块时间的。其实也不是说玩就会浪费，而是闲玩却没有带来多少快乐，这才是真正意义上的浪费时间。基于此，我打算先规定一些事情：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;导管必须放在十点之后。导完很容易让人疲惫，从而不想
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>关于网站主题的一系列小问题的修复过程</title>
@@ -524,29 +551,6 @@
     
     
       <category term="typescript" scheme="https://blog.jasonleehere.com/tags/typescript/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>同步异步任务在javascript中的实现</title>
-    <link href="https://blog.jasonleehere.com/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%9C%A8javascript%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0.html"/>
-    <id>https://blog.jasonleehere.com/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%9C%A8javascript%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0.html</id>
-    <published>2023-08-07T06:45:51.000Z</published>
-    <updated>2023-11-17T13:56:07.628Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;同步异步一直是一个绕不过去的小问题，要么遇不上，要么遇上了似懂非懂。这篇文章力争从异步任务的底层需求出发，对
-        
-      
-    
-    </summary>
-    
-    
     
   </entry>
   
