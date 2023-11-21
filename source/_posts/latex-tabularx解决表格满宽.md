@@ -2,7 +2,7 @@
 title: latex tabularx解决表格满宽
 date: 2023-02-22 21:51:43
 tags: latex
-categories: 硕士论文
+categories: 写论文工具
 ---
 
 需求：让表格宽度等于页面宽度，单元格列宽可以指定，单元格文字居中。

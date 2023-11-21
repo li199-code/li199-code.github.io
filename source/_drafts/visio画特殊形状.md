@@ -2,7 +2,7 @@
 title: visio画特殊形状
 date: 2023-03-07 10:42:53
 tags:
-categories: 硕士论文
+categories: 写论文工具
 ---
 
 需求，用 visio 画神经网络结构，需要长方体。手搓显然对于调整角度等操作不方便。

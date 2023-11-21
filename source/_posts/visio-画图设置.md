@@ -2,7 +2,7 @@
 title: visio 使用记录
 date: 2023-02-21 21:57:53
 tags: visio
-categories: 硕士论文
+categories: 写论文工具
 ---
 
 # 配置
