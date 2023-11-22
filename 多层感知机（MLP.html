@@ -282,6 +282,18 @@
   <div id="gitalk-container"></div>
 
   <script>
+    function generateRandomString() {
+        var characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+        var length = 10;
+        var randomString = '';
+
+        for (var i = 0; i < length; i++) {
+          var randomIndex = Math.floor(Math.random() * characters.length);
+          randomString += characters.charAt(randomIndex);
+        }
+
+        return randomString;
+      }
     function loadGitalkSuc() {
       const gitalk = new Gitalk({
         clientID: '94102312257c8d3ad729',
@@ -290,7 +302,7 @@
         owner: 'li199-code',
         admin: ['li199-code'],
         // id: location.pathname,
-        id: '123',
+        id: generateRandomString(),
         distractionFreeMode: false
       })
 
