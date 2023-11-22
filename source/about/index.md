@@ -18,7 +18,7 @@ layout: "about"
 
 ### 架构
 
-本站从建立之初至今一直采用 hexo 作为后台系统，hexo 的优点是依赖于我相对熟悉的 javascript 且渲染速度快。图床选择 github, 结合 jsdelivr cdn 来加快访问速度。disqus 是本站评论系统。墙内访问的话，图片和评论区都不能正常显示的。主题目前采用了开源的 [oranges](https://github.com/zchengsite/hexo-theme-oranges)，我自己在此基础上添加了一些功能并修改了局部样式来满足我的喜好。
+本站从建立之初至今一直采用 hexo 作为后台系统，hexo 的优点是依赖于我相对熟悉的 javascript 且渲染速度快。图床选择 github, 结合 jsdelivr cdn 来加快访问速度。gitalk 是本站评论系统。主题目前采用了开源的 [oranges](https://github.com/zchengsite/hexo-theme-oranges)，我自己在此基础上添加了一些功能并修改了局部样式来满足我的喜好。
 
 ### 更新
 
