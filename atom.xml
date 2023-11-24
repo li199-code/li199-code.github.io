@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2023-11-20T13:30:53.000Z</updated>
+  <updated>2023-11-23T14:18:04.000Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,63 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新冠防疫政策改变了我的什么--写在动态清零结束一周年之际</title>
+    <link href="https://blog.jasonleehere.com/%E6%96%B0%E5%86%A0%E9%98%B2%E7%96%AB%E6%94%BF%E7%AD%96%E6%94%B9%E5%8F%98%E4%BA%86%E6%88%91%E7%9A%84%E4%BB%80%E4%B9%88-%E5%86%99%E5%9C%A8%E5%8A%A8%E6%80%81%E6%B8%85%E9%9B%B6%E7%BB%93%E6%9D%9F%E4%B8%80%E5%91%A8%E5%B9%B4%E4%B9%8B%E9%99%85.html"/>
+    <id>https://blog.jasonleehere.com/%E6%96%B0%E5%86%A0%E9%98%B2%E7%96%AB%E6%94%BF%E7%AD%96%E6%94%B9%E5%8F%98%E4%BA%86%E6%88%91%E7%9A%84%E4%BB%80%E4%B9%88-%E5%86%99%E5%9C%A8%E5%8A%A8%E6%80%81%E6%B8%85%E9%9B%B6%E7%BB%93%E6%9D%9F%E4%B8%80%E5%91%A8%E5%B9%B4%E4%B9%8B%E9%99%85.html</id>
+    <published>2023-11-23T14:18:04.000Z</published>
+    <updated>2023-11-23T14:18:04.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;人总是健忘的，尤其是中国人。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最近我脑中一直回荡一句话：人活得久了，什么奇怪的事情都会发生。就是说，世界上很少有一成不变的东西，很多看似坚不可摧，流传万世的事物，实际上风一吹就散了。正如这三年对中国大陆的改
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs程序调试</title>
+    <link href="https://blog.jasonleehere.com/nodejs%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95.html"/>
+    <id>https://blog.jasonleehere.com/nodejs%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95.html</id>
+    <published>2023-11-23T02:22:54.000Z</published>
+    <updated>2023-11-23T02:22:54.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;一种是在浏览器中调试，另一种是在 vscode 中调试。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;test&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;浏览器&quot;&gt;&lt;a href=&quot;#浏览器&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="nodejs" scheme="https://blog.jasonleehere.com/tags/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title>如何利用晚上时间自我提升</title>
@@ -498,59 +555,6 @@
     
     
       <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redis, pgsql远程连接教程</title>
-    <link href="https://blog.jasonleehere.com/redis-pgsql%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%95%99%E7%A8%8B.html"/>
-    <id>https://blog.jasonleehere.com/redis-pgsql%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%95%99%E7%A8%8B.html</id>
-    <published>2023-08-10T02:19:58.000Z</published>
-    <updated>2023-11-17T13:56:07.610Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;部门在云服务器上开了 redis、postgresql
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="redis" scheme="https://blog.jasonleehere.com/tags/redis/"/>
-    
-      <category term="postgresql" scheme="https://blog.jasonleehere.com/tags/postgresql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>typescript文件造成win文件夹卡顿原因及解决方案</title>
-    <link href="https://blog.jasonleehere.com/typescript%E6%96%87%E4%BB%B6%E9%80%A0%E6%88%90win%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8D%A1%E9%A1%BF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html"/>
-    <id>https://blog.jasonleehere.com/typescript%E6%96%87%E4%BB%B6%E9%80%A0%E6%88%90win%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8D%A1%E9%A1%BF%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.html</id>
-    <published>2023-08-09T01:43:24.000Z</published>
-    <updated>2023-11-17T13:56:07.615Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;写了好几天的 ts 代码，发现打开包含 ts 代码的文件夹时，文件夹会缓慢刷新，而且不是列表形式展示。非常痛苦:(&lt;/p&gt;
-&lt;p&gt;一开始以为是 windows11 的 bug，后来一想，最开始新建 ts 代码时，win11
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="typescript" scheme="https://blog.jasonleehere.com/tags/typescript/"/>
     
   </entry>
   

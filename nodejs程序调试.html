@@ -11,6 +11,11 @@
   
   <title>
     
+      nodejs程序调试 
+      
+      
+      |
+    
      Jason Lee
   </title>
 
@@ -106,149 +111,191 @@
 
 
       <div class="flex-container">
-        <div class="container index">
-  <div class="post-list">
-    <!-- 遍历渲染文章 -->
-    
-      <div class="post-item" title="投资基金记录（长期更新）">
-        <div class="time-m-d">2023-10-19</div>
-        <div class="title">
-          <a href="/%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%AE%B0%E5%BD%95.html">
-            
-              
-                <span><span title="置顶" class="icon iconfont icon-pin-top post-top"></span>投资基金记录（长期更新）</span>
-              
-            
-          </a>
-        </div>
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">nodejs程序调试</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2023-11-23 10:22:54
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/nodejs/" title="nodejs">
+                    #nodejs
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
-    
-      <div class="post-item" title="谈谈移民的过程中目标的安排和进度更新（长期更新）">
-        <div class="time-m-d">2023-06-13</div>
-        <div class="title">
-          <a href="/%E8%B0%88%E8%B0%88%E7%A7%BB%E6%B0%91%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9B%AE%E6%A0%87%E7%9A%84%E5%AE%89%E6%8E%92.html">
-            
-              
-                <span><span title="置顶" class="icon iconfont icon-pin-top post-top"></span>谈谈移民的过程中目标的安排和进度更新（长期更新）</span>
-              
-            
-          </a>
-        </div>
+      <div class="markdown-body">
+        <p>一种是在浏览器中调试，另一种是在 vscode 中调试。</p>
+<blockquote>
+<p>test</p>
+</blockquote>
+<h2 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h2><p><code>node --inspect-brk</code>命令用于启动 Node.js 调试器，并在脚本的第一行设置一个断点，以便在调试器启动后立即暂停执行。</p>
+<p>以下是使用<code>node --inspect-brk</code>进行调试的步骤：</p>
+<ol>
+<li><p>打开终端，并导航到你的项目目录。</p>
+</li>
+<li><p>运行以下命令来启动调试器并设置断点：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">node --inspect-brk your-script.js</span><br><span class="line">```</span><br><span class="line"></span><br><span class="line">这里的`your-script.js`是你要调试的Node.js脚本文件。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Node.js 将会启动调试器并在脚本的第一行设置断点。你将看到类似以下的输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Debugger listening on ws://127.0.0.1:9229/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</span><br><span class="line">For help, see: https://nodejs.org/en/docs/inspector</span><br><span class="line">```</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开一个支持 Chrome 开发者工具协议的浏览器（如 Google Chrome）。</p>
+</li>
+<li><p>在地址栏中输入<code>chrome://inspect</code>，然后按下回车键。</p>
+</li>
+<li><p>在页面上的”Remote Target”部分，你应该能够看到你正在调试的 Node.js 脚本。</p>
+</li>
+<li><p>点击”inspect”链接，将打开开发者工具面板。</p>
+</li>
+<li><p>在开发者工具面板中，你可以查看调试器的各种选项，例如调用栈、变量的值、执行表达式等。</p>
+</li>
+<li><p>你可以使用“Resume script execution”按钮继续执行脚本，也可以使用其他调试工具来控制调试器的行为。</p>
+</li>
+<li><p>当你完成调试时，关闭浏览器选项卡，或者在终端中使用<code>Ctrl + C</code>两次来停止 Node.js 调试器。</p>
+</li>
+</ol>
+<p>使用<code>node --inspect-brk</code>命令启动调试器后，它将在脚本的第一行暂停，以便你可以检查和调试代码。你可以使用浏览器中的开发者工具来查看和操作调试器。</p>
+<p>如果不想从头开始调试，可以在程序要打断点处加上 debugger。</p>
+<h2 id="vscode"><a href="#vscode" class="headerlink" title="vscode"></a>vscode</h2><p>点击界面左边的第四个 DEBUG 按钮，进入调试界面，然后点击界面上方“No Configuration”下拉菜单，选择“Add Configuration”。</p>
+<p>选择 Node.js 环境。选择完成之后，在项目的根目录中会生成一个 .vscode 的目录，这个目录中存放了各种各样的 VSCode 的配置。现在这个目录中就包含了一个文件名为 lanuch.json 的配置文件。</p>
+<p>断点标记好后，就可以开始执行程序了。由于我们要程序在断点处停下来，所以要以 Debug 模式启动程序。</p>
+<p>现在我们回到 VSCode 调试面板，点击顶部绿色的“执行”按钮，VSCode 就以调试模式启动程序了。可以看到，会新建一个 JavaScript debug console。输入 node app.js 就可以调试了。</p>
+
       </div>
-    
-      <div class="post-item" title="新冠防疫政策改变了我的什么--写在动态清零结束一周年之际">
-        <div class="time-m-d">2023-11-23</div>
-        <div class="title">
-          <a href="/%E6%96%B0%E5%86%A0%E9%98%B2%E7%96%AB%E6%94%BF%E7%AD%96%E6%94%B9%E5%8F%98%E4%BA%86%E6%88%91%E7%9A%84%E4%BB%80%E4%B9%88-%E5%86%99%E5%9C%A8%E5%8A%A8%E6%80%81%E6%B8%85%E9%9B%B6%E7%BB%93%E6%9D%9F%E4%B8%80%E5%91%A8%E5%B9%B4%E4%B9%8B%E9%99%85.html">
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
             
-              
-                <span>新冠防疫政策改变了我的什么--写在动态清零结束一周年之际</span>
-              
+              <a href="/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%99%9A%E4%B8%8A%E6%97%B6%E9%97%B4%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87.html" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
             
-          </a>
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2023-11-23 10:22:54
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/nodejs/" title="nodejs">
+                        #nodejs
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/%E6%96%B0%E5%86%A0%E9%98%B2%E7%96%AB%E6%94%BF%E7%AD%96%E6%94%B9%E5%8F%98%E4%BA%86%E6%88%91%E7%9A%84%E4%BB%80%E4%B9%88-%E5%86%99%E5%9C%A8%E5%8A%A8%E6%80%81%E6%B8%85%E9%9B%B6%E7%BB%93%E6%9D%9F%E4%B8%80%E5%91%A8%E5%B9%B4%E4%B9%8B%E9%99%85.html" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
-      </div>
+      
+    </div>
     
-      <div class="post-item" title="nodejs程序调试">
-        <div class="time-m-d">2023-11-23</div>
-        <div class="title">
-          <a href="/nodejs%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95.html">
-            
-              
-                <span>nodejs程序调试</span>
-              
-            
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-text">浏览器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vscode"><span class="toc-text">vscode</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="如何利用晚上时间自我提升">
-        <div class="time-m-d">2023-11-20</div>
-        <div class="title">
-          <a href="/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%99%9A%E4%B8%8A%E6%97%B6%E9%97%B4%E8%87%AA%E6%88%91%E6%8F%90%E5%8D%87.html">
-            
-              
-                <span>如何利用晚上时间自我提升</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="关于网站主题的一系列小问题的修复过程">
-        <div class="time-m-d">2023-11-12</div>
-        <div class="title">
-          <a href="/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%B3%BB%E5%88%97%E5%B0%8F%E9%97%AE%E9%A2%98%E7%9A%84%E4%BF%AE%E5%A4%8D%E8%BF%87%E7%A8%8B.html">
-            
-              
-                <span>关于网站主题的一系列小问题的修复过程</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="pgsql常用且容易忘记的一些用法">
-        <div class="time-m-d">2023-11-11</div>
-        <div class="title">
-          <a href="/pgsql%E5%B8%B8%E7%94%A8%E4%B8%94%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html">
-            
-              
-                <span>pgsql常用且容易忘记的一些用法</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="第一次装机记录">
-        <div class="time-m-d">2023-11-09</div>
-        <div class="title">
-          <a href="/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A3%85%E6%9C%BA%E8%AE%B0%E5%BD%95.html">
-            
-              
-                <span>第一次装机记录</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="德国JSV找工作签证">
-        <div class="time-m-d">2023-10-30</div>
-        <div class="title">
-          <a href="/%E5%BE%B7%E5%9B%BDJSV%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%AD%BE%E8%AF%81.html">
-            
-              
-                <span>德国JSV找工作签证</span>
-              
-            
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="宏观经济学--助力分析股票市场周期背后的原因">
-        <div class="time-m-d">2023-10-28</div>
-        <div class="title">
-          <a href="/%E6%8A%95%E8%B5%84%E5%86%85%E5%8A%9F%E4%BF%AE%E7%82%BC-%E5%B0%8Flin%E8%AF%B4%E7%B3%BB%E5%88%97%E8%A7%86%E9%A2%91%E8%A7%82%E5%90%8E%E8%AE%B0%E5%BD%95.html">
-            
-              
-                <span>宏观经济学--助力分析股票市场周期背后的原因</span>
-              
-            
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+  <div id="gitalk-container"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
+  <script>
+
+    function loadGitalkSuc() {
+      const gitalk = new Gitalk({
+        clientID: '94102312257c8d3ad729',
+        clientSecret: 'fe92c321bc6faf94383c1c541156790523fcdc6d',
+        repo: 'li199-code.github.io',
+        owner: 'li199-code',
+        admin: ['li199-code'],
+        // id: location.pathname,
+        id: md5(location.pathname),
+        distractionFreeMode: false
+      })
+
+      gitalk.render('gitalk-container')
+    }
+  </script>
+  
+    <link rel="stylesheet" href="/plugins/gitalk.css">
+    <script type="text/javascript" src="/plugins/gitalk.min.js" onload="loadGitalkSuc(this)"></script>
+  
+
+
+
       </div>
     
   </div>
-  <nav class="post-navigation">
-    
-    <span class="page-num">1 / 11</span>
-    
-      <a href="/page/2/"><i class="iconfont icon-angleright"></i></a>
-    
-  </nav>
-</div>
+
 
         
 <div class="footer">
@@ -521,6 +568,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + nodejs%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95 + '&url=' + https%3A%2F%2Fblog.jasonleehere.com%2Fnodejs%25E7%25A8%258B%25E5%25BA%258F%25E8%25B0%2583%25E8%25AF%2595.html + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://blog.jasonleehere.com/nodejs%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95.html" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
