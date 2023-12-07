@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2023-11-23T14:18:04.000Z</updated>
+  <updated>2023-12-07T09:13:09.000Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,88 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis入门阶段</title>
+    <link href="https://blog.jasonleehere.com/redis%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5.html"/>
+    <id>https://blog.jasonleehere.com/redis%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5.html</id>
+    <published>2023-12-07T09:13:09.000Z</published>
+    <updated>2023-12-07T09:13:09.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近数据库方面在工作中锤炼的比较多。但是经历还是围绕 pgsql 这一关系型数据库上，redis
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="redis" scheme="https://blog.jasonleehere.com/tags/redis/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>进程、线程与nodejs</title>
+    <link href="https://blog.jasonleehere.com/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8Enodejs.html"/>
+    <id>https://blog.jasonleehere.com/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8Enodejs.html</id>
+    <published>2023-12-04T02:01:11.000Z</published>
+    <updated>2023-12-04T02:01:11.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这篇文章是补齐我一些关于进程和线程的基础知识，以及他们和 nodejs 的关系。形式为 chatgpt 问答。&lt;/p&gt;
+&lt;h2 id=&quot;Q-什么是计算机的进程和线程&quot;&gt;&lt;a href=&quot;#Q-什么是计算机的进程和线程&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="nodejs" scheme="https://blog.jasonleehere.com/tags/nodejs/"/>
+    
+      <category term="进程" scheme="https://blog.jasonleehere.com/tags/%E8%BF%9B%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不用读书直接找工作的签证</title>
+    <link href="https://blog.jasonleehere.com/%E4%B8%8D%E7%94%A8%E8%AF%BB%E4%B9%A6%E7%9B%B4%E6%8E%A5%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%9A%84%E7%AD%BE%E8%AF%81.html"/>
+    <id>https://blog.jasonleehere.com/%E4%B8%8D%E7%94%A8%E8%AF%BB%E4%B9%A6%E7%9B%B4%E6%8E%A5%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%9A%84%E7%AD%BE%E8%AF%81.html</id>
+    <published>2023-11-26T00:45:02.000Z</published>
+    <updated>2023-11-26T00:45:02.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这篇文章按国家和地区总结一些可以直接通过工作移民的签证机会。&lt;/p&gt;
+&lt;h2 id=&quot;德国&quot;&gt;&lt;a href=&quot;#德国&quot; class=&quot;headerlink&quot; title=&quot;德国&quot;&gt;&lt;/a&gt;德国&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;JSV&lt;figure
+        
+      
+    
+    </summary>
+    
+    
+      <category term="润学心经" scheme="https://blog.jasonleehere.com/categories/%E6%B6%A6%E5%AD%A6%E5%BF%83%E7%BB%8F/"/>
+    
+    
+      <category term="run" scheme="https://blog.jasonleehere.com/tags/run/"/>
+    
+  </entry>
   
   <entry>
     <title>新冠防疫政策改变了我的什么--写在动态清零结束一周年之际</title>
@@ -183,34 +265,6 @@
   </entry>
   
   <entry>
-    <title>德国JSV找工作签证</title>
-    <link href="https://blog.jasonleehere.com/%E5%BE%B7%E5%9B%BDJSV%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%AD%BE%E8%AF%81.html"/>
-    <id>https://blog.jasonleehere.com/%E5%BE%B7%E5%9B%BDJSV%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%AD%BE%E8%AF%81.html</id>
-    <published>2023-10-30T14:21:23.000Z</published>
-    <updated>2023-11-17T13:56:07.633Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;今天刷到一个不错的签证，之前也有看到，但是没记录下来。&lt;/p&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span
-        
-      
-    
-    </summary>
-    
-    
-      <category term="润学心经" scheme="https://blog.jasonleehere.com/categories/%E6%B6%A6%E5%AD%A6%E5%BF%83%E7%BB%8F/"/>
-    
-    
-      <category term="run" scheme="https://blog.jasonleehere.com/tags/run/"/>
-    
-  </entry>
-  
-  <entry>
     <title>宏观经济学--助力分析股票市场周期背后的原因</title>
     <link href="https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%86%85%E5%8A%9F%E4%BF%AE%E7%82%BC-%E5%B0%8Flin%E8%AF%B4%E7%B3%BB%E5%88%97%E8%A7%86%E9%A2%91%E8%A7%82%E5%90%8E%E8%AE%B0%E5%BD%95.html"/>
     <id>https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%86%85%E5%8A%9F%E4%BF%AE%E7%82%BC-%E5%B0%8Flin%E8%AF%B4%E7%B3%BB%E5%88%97%E8%A7%86%E9%A2%91%E8%A7%82%E5%90%8E%E8%AE%B0%E5%BD%95.html</id>
@@ -298,7 +352,7 @@
     <link href="https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%AE%B0%E5%BD%95.html"/>
     <id>https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%AE%B0%E5%BD%95.html</id>
     <published>2023-10-19T07:22:44.000Z</published>
-    <updated>2023-11-17T13:56:07.637Z</updated>
+    <updated>2023-12-04T02:01:11.714Z</updated>
     
     <summary type="html">
     
@@ -502,59 +556,6 @@
     
     
       <category term="kafka" scheme="https://blog.jasonleehere.com/tags/kafka/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>文本分类比赛学习记录</title>
-    <link href="https://blog.jasonleehere.com/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E6%AF%94%E8%B5%9B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html"/>
-    <id>https://blog.jasonleehere.com/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E6%AF%94%E8%B5%9B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html</id>
-    <published>2023-09-06T02:54:38.000Z</published>
-    <updated>2023-11-17T13:56:07.639Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本文是我对在公司参加的“ChatGPT 生成文本检测器”比赛。数据集为中文作文样本，其中从互联网上采集得到了真实作文，并且
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="deep-learning" scheme="https://blog.jasonleehere.com/tags/deep-learning/"/>
-    
-      <category term="NLP" scheme="https://blog.jasonleehere.com/tags/NLP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>五险一金怎么扣</title>
-    <link href="https://blog.jasonleehere.com/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88%E5%B7%A5%E8%B5%84%E8%A2%AB%E6%89%A3%E4%BA%86%E5%93%AA%E4%BA%9B%E9%A1%B9%E7%9B%AE.html"/>
-    <id>https://blog.jasonleehere.com/%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9C%88%E5%B7%A5%E8%B5%84%E8%A2%AB%E6%89%A3%E4%BA%86%E5%93%AA%E4%BA%9B%E9%A1%B9%E7%9B%AE.html</id>
-    <published>2023-08-12T01:28:25.000Z</published>
-    <updated>2023-11-17T13:56:07.643Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;基础知识&quot;&gt;&lt;a href=&quot;#基础知识&quot; class=&quot;headerlink&quot; title=&quot;基础知识&quot;&gt;&lt;/a&gt;基础知识&lt;/h2&gt;&lt;p&gt;五险一金：养老保险、医疗保险、工伤保险、失业保险、生育保险和住房公积金。&lt;/p&gt;
-&lt;h2 id=&quot;明细&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   

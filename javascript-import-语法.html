@@ -11,7 +11,7 @@
   
   <title>
     
-      nodejs 模块系统 
+      javascript 模块系统 
       
       
       |
@@ -141,11 +141,11 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">nodejs 模块系统</div>
+      <div class="post-title">javascript 模块系统</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-11-21 17:28:58
+          2023-12-04 10:01:11
         </span>
         
               <span class="post-tags">
@@ -167,82 +167,70 @@
           
       </div>
       <div class="markdown-body">
-        <p>对于前端项目中广泛存在的 import 一直有许多疑问：为什么有的加花括号？为什么有的没有 from？这篇文章对 import 的各种情况做一个覆盖记录。</p>
-<p>大部分 import 的都是 export。export 的作用就是暴露给外部模块，哪些可以导出。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// module1.js</span><br><span class="line">let v = 1;</span><br><span class="line">let foo = function()&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export &#123;</span><br><span class="line">  v,</span><br><span class="line">  foo,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后再别的模块导入 <code>import * from &#39;./module1.js&#39;</code>。打印出来，格式是一个对象，对象的属性和方法就是 v,foo。如果只要部分到处呢？就要用花括号（解析操作符）:<code>export &#123;foo&#125; from &#39;./module1.js</code>.</p>
-<p>为什么还要有 export default 呢？因为要给导出对象添加 default 属性。比如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export default &#123;</span><br><span class="line">  foo</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对应的导入代码：<code>import d from &#39;./module1.js</code> 。这就把 default 属性单独取出来，并取名为 d 使用。但是，default 是不能用于 <code>import &#123;default&#125; from &#39;./module1.js</code> .因为，default 是关键字。</p>
-<p>最后，import 不导入对象，只导入文件时，视为直接执行一遍文件：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#x27;./init.js&#x27;</span><br></pre></td></tr></table></figure>
-
-<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><h3 id="export-和-export-default-区别"><a href="#export-和-export-default-区别" class="headerlink" title="export 和 export default 区别"></a>export 和 export default 区别</h3><p>在 Node.js 中，<code>export</code>和<code>export default</code>是用于导出模块的关键字。它们的主要区别如下：</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近阅读《深入浅出nodejs》和《nodejs实战》的时候，都把模块系统放在前面的位置介绍，可见其重要性。因为之前写的文章逻辑比较混乱，故重新写一下。</p>
+<p>根据环境的不同，对应两种不同的规范：es6（浏览器）和commonjs（服务端的nodejs）。</p>
+<h2 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h2><p>在 JavaScript 中，<code>import</code> 和 <code>require</code> 都是用于导入模块的关键字，但它们在语法和用法上有一些区别。</p>
 <ol>
-<li><p><code>export</code>关键字：</p>
+<li><p>语法差异：</p>
 <ul>
-<li><code>export</code>关键字用于导出模块中的一个或多个成员（变量、函数、类等）。</li>
-<li>使用<code>export</code>关键字时，需要使用具体的标识符来导出。</li>
-<li>可以使用命名导出（Named exports）或默认导出（Default export）。</li>
+<li><code>import</code> 是 ES6（ECMAScript 2015）引入的模块导入语法，它使用 <code>import</code> 关键字和花括号 <code>&#123;&#125;</code> 或者 <code>*</code> 来导入具体的模块成员。</li>
+<li><code>require</code> 是 CommonJS 规范中使用的模块导入语法，它使用 <code>require</code> 函数来导入整个模块或指定的模块成员。</li>
 </ul>
 </li>
-<li><p><code>export default</code>关键字：</p>
+<li><p>动态/静态导入：</p>
 <ul>
-<li><code>export default</code>关键字用于导出模块的默认成员。</li>
-<li>一个模块只能有一个默认导出。</li>
-<li>导入该模块时，可以选择为默认导出指定任意名称。</li>
-<li>默认导出可以在导入时使用任意名称，使得在导入时不需要知道导出成员的具体名称。</li>
+<li><code>import</code> 是静态导入，它在代码执行之前进行解析和编译，这意味着模块的依赖关系在代码静态分析阶段就会确定。</li>
+<li><code>require</code> 是动态导入，它在代码执行期间进行解析和执行，这意味着它可以根据条件或代码逻辑来决定加载哪些模块。</li>
+</ul>
+</li>
+<li><p>浏览器支持：</p>
+<ul>
+<li><code>import</code> 目前主要用于现代浏览器中的 JavaScript 模块化开发，需要在支持 ES6 模块的环境中使用，或者通过 Babel 等工具进行转换。</li>
+<li><code>require</code> 主要用于服务器端的 Node.js 开发，也可以通过一些工具（例如 Browserify、Webpack）在浏览器中使用。</li>
 </ul>
 </li>
 </ol>
-<p>下面是一些示例来说明两者之间的区别：</p>
-<p>使用<code>export</code>关键字导出模块成员：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> name = <span class="string">&quot;John&quot;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">greet</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; name, greet &#125; <span class="keyword">from</span> <span class="string">&quot;./module.js&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name); <span class="comment">// 输出: John</span></span><br><span class="line"><span class="title function_">greet</span>(); <span class="comment">// 输出: Hello!</span></span><br></pre></td></tr></table></figure>
+<p>综上所述，如果你在浏览器环境中使用 JavaScript 模块，你应该使用 <code>import</code> 关键字。如果你在 Node.js 环境中开发，你可以使用 <code>require</code> 函数。</p>
+<p>示例：</p>
+<p>使用 <code>import</code> 导入模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; moduleA, moduleB &#125; <span class="keyword">from</span> <span class="string">&#x27;./myModule&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> myModule <span class="keyword">from</span> <span class="string">&#x27;./myModule&#x27;</span>;</span><br></pre></td></tr></table></figure>
 
-<p>使用<code>export default</code>关键字导出默认成员：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.js</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&quot;John&quot;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">greet</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello!&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  name,</span><br><span class="line">  greet,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">import</span> myModule <span class="keyword">from</span> <span class="string">&quot;./module.js&quot;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myModule.<span class="property">name</span>); <span class="comment">// 输出: John</span></span><br><span class="line">myModule.<span class="title function_">greet</span>(); <span class="comment">// 输出: Hello!</span></span><br></pre></td></tr></table></figure>
+<p>使用 <code>require</code> 导入模块：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> moduleA = <span class="built_in">require</span>(<span class="string">&#x27;./myModule&#x27;</span>).<span class="property">moduleA</span>;</span><br><span class="line"><span class="keyword">const</span> moduleB = <span class="built_in">require</span>(<span class="string">&#x27;./myModule&#x27;</span>).<span class="property">moduleB</span>;</span><br><span class="line"><span class="keyword">const</span> myModule = <span class="built_in">require</span>(<span class="string">&#x27;./myModule&#x27;</span>);</span><br></pre></td></tr></table></figure>
 
-<p>需要注意的是，<code>export</code>和<code>export default</code>是 ES 模块的语法，可用于现代的 Node.js 版本和一些支持 ES 模块的浏览器环境。在较旧的 Node.js 版本中，可能需要使用其他模块系统（如 CommonJS）的语法来导出和导入模块。</p>
-<h3 id="exports-module-exports-和-export-的区别"><a href="#exports-module-exports-和-export-的区别" class="headerlink" title="exports module.exports 和 export 的区别"></a>exports module.exports 和 export 的区别</h3><p>在 Node.js 中，有三种常用的导出模块的方式：<code>exports</code>、<code>module.exports</code>和<code>export</code>（ES 模块语法）。</p>
+<p>请注意，<code>import</code> 和 <code>require</code> 的具体用法还取决于模块系统的实现和你的开发环境。</p>
+<h2 id="导出"><a href="#导出" class="headerlink" title="导出"></a>导出</h2><p>ES6（ECMAScript 2015）和 CommonJS 是 JavaScript 中两种不同的模块导出规范，它们在导出模块成员的语法和用法上有一些区别。</p>
+<p>ES6 导出规范（使用 <code>export</code>）的特点：</p>
 <ol>
-<li><p><code>exports</code>：</p>
-<ul>
-<li><code>exports</code>是<code>module.exports</code>的一个引用。</li>
-<li>当你使用<code>exports</code>导出一个模块时，实际上是在修改<code>module.exports</code>的内容。</li>
-<li><code>exports</code>可以通过添加属性或方法来导出多个成员，但不能直接将<code>exports</code>指向一个新的对象。</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.js</span></span><br><span class="line"><span class="built_in">exports</span>.<span class="property">name</span> = <span class="string">&#x27;John&#x27;</span>;</span><br><span class="line"><span class="built_in">exports</span>.<span class="property">greet</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello!&#x27;</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> myModule = <span class="built_in">require</span>(<span class="string">&#x27;./module.js&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myModule.<span class="property">name</span>);  <span class="comment">// 输出: John</span></span><br><span class="line">myModule.<span class="title function_">greet</span>();  <span class="comment">// 输出: Hello!</span></span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+<li><p>单个默认导出：可以使用 <code>export default</code> 导出一个默认的模块成员。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 导出默认成员</span><br><span class="line">export default myFunction;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>module.exports</code>：</p>
-<ul>
-<li><code>module.exports</code>是真正用于导出模块的对象。</li>
-<li>当你将一个值赋给<code>module.exports</code>时，它将覆盖<code>exports</code>的引用。</li>
-<li><code>module.exports</code>可以是一个对象、函数、字符串等任何类型的值。</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>,</span><br><span class="line">  <span class="attr">greet</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello!&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">const</span> myModule = <span class="built_in">require</span>(<span class="string">&#x27;./module.js&#x27;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myModule.<span class="property">name</span>);  <span class="comment">// 输出: John</span></span><br><span class="line">myModule.<span class="title function_">greet</span>();  <span class="comment">// 输出: Hello!</span></span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+<li><p>命名导出：可以使用 <code>export</code> 导出一个或多个具名的模块成员。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 导出具名成员</span><br><span class="line">export const moduleA = 1;</span><br><span class="line">export function myFunction() &#123; /* 函数实现 */ &#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><code>export</code>（ES 模块语法）：</p>
-<ul>
-<li><code>export</code>关键字是 ES 模块语法中用于导出模块的关键字。</li>
-<li>它可以用于命名导出（Named exports）和默认导出（Default export）。</li>
-<li>命名导出使用<code>export</code>关键字导出多个成员，而默认导出使用<code>export default</code>关键字导出一个默认成员。</li>
-</ul>
-<p>示例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> name = <span class="string">&#x27;John&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">greet</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Hello!&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// app.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; name, greet &#125; <span class="keyword">from</span> <span class="string">&#x27;./module.js&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(name);  <span class="comment">// 输出: John</span></span><br><span class="line"><span class="title function_">greet</span>();  <span class="comment">// 输出: Hello!</span></span><br><span class="line"><span class="string">``</span><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<li><p>命名导出的重命名：可以使用 <code>as</code> 关键字对导出的模块成员进行重命名。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 导出具名成员并重命名</span><br><span class="line">export &#123; moduleA as A, moduleB as B &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>具名导出和默认导出的混合使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 混合导出</span><br><span class="line">export default myFunction;</span><br><span class="line">export const moduleA = 1;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ol>
-<p>总结：</p>
-<ul>
-<li><code>exports</code>和<code>module.exports</code>是 Node.js 的模块系统的一部分，用于导出模块的成员。</li>
-<li><code>exports</code>是<code>module.exports</code>的一个引用，可以通过添加属性或方法来导出多个成员。</li>
-<li><code>module.exports</code>是真正用于导出模块的对象，可以是任何类型的值。</li>
-<li><code>export</code>是 ES 模块的语法，用于导出模块的成员，可以使用命名导出或默认导出。它在一些支持 ES 模块的浏览器环境和现代的 Node.js 版本中可用。</li>
-</ul>
+<p>CommonJS 导出规范（使用 <code>module.exports</code> 或 <code>exports</code>）的特点：</p>
+<ol>
+<li><p>单个默认导出：使用 <code>module.exports</code> 导出一个默认的模块成员。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 导出默认成员</span><br><span class="line">module.exports = myFunction;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命名导出：使用 <code>exports</code> 对象导出一个或多个具名的模块成员。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 导出具名成员</span><br><span class="line">exports.moduleA = 1;</span><br><span class="line">exports.myFunction = function() &#123; /* 函数实现 */ &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导出对象字面量：可以直接使用 <code>module.exports</code> 导出一个对象字面量，其中包含多个模块成员。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 导出对象字面量</span><br><span class="line">module.exports = &#123;</span><br><span class="line">  moduleA: 1,</span><br><span class="line">  myFunction: function() &#123; /* 函数实现 */ &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>综上所述，ES6 导出规范在语法上更加简洁和灵活，支持默认导出和命名导出的组合使用。而 CommonJS 导出规范更多地被用于服务器端的 Node.js 开发，它使用 <code>module.exports</code> 和 <code>exports</code> 对象导出模块成员。</p>
+<p>值得注意的是，ES6 模块规范在浏览器环境中需要进行转换或使用打包工具（如 Webpack、Rollup）来使用，而 CommonJS 规范在 Node.js 环境中是原生支持的。</p>
 
       </div>
       
@@ -258,7 +246,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-21 17:28:58
+              2023-12-04 10:01:11
             </span>
             
                   <span class="post-tags">
@@ -298,7 +286,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-text">更新</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#export-%E5%92%8C-export-default-%E5%8C%BA%E5%88%AB"><span class="toc-text">export 和 export default 区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exports-module-exports-%E5%92%8C-export-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">exports module.exports 和 export 的区别</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5"><span class="toc-text">导入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BC%E5%87%BA"><span class="toc-text">导出</span></a></li></ol>
       
     </div>
   </div>
@@ -627,7 +615,7 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + nodejs%20%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F + '&url=' + https%3A%2F%2Fblog.jasonleehere.com%2Fjavascript-import-%25E8%25AF%25AD%25E6%25B3%2595.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + javascript%20%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F + '&url=' + https%3A%2F%2Fblog.jasonleehere.com%2Fjavascript-import-%25E8%25AF%25AD%25E6%25B3%2595.html + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
