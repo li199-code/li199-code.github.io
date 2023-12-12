@@ -180,6 +180,7 @@ a:hover {
   margin-bottom: 20px;
   align-items: center;
   line-height: 21px;
+  /* font-weight: 650; */
 }
 
 .post-item .time-m-d {
@@ -188,7 +189,7 @@ a:hover {
   color: var(--color-text-base);
   font-size: 1.5rem;
   line-height: 21px;
-  /*font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;*/
+  /* font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif; */
 }
 
 .post-item .title {
@@ -198,6 +199,8 @@ a:hover {
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* font-family: inherit; */
+  /* font-size: 2rem; */
 }
 
 .post-item .title .post-top {
@@ -238,7 +241,7 @@ a:hover {
   font-size: 1.6rem;
   color: var(--color-text-a);
   margin-bottom: 20px;
-  /*font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif;*/
+  /* font-family: 'Raleway', 'Helvetica Neue', 'Arial', sans-serif; */
 }
 
 .navbar {
