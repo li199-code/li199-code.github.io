@@ -8,7 +8,7 @@
       <link href="/redis%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5.html"/>
       <url>/redis%E5%85%A5%E9%97%A8%E9%98%B6%E6%AE%B5.html</url>
       
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近数据库方面在工作中锤炼的比较多。但是经历还是围绕 pgsql 这一关系型数据库上，redis 这种非关系型的数据库之前虽然学过，但是也基本忘了。这篇文章结合停车项目中 redis 的应用，来记录我是如何入门 redis 的。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>以前也在 windows 上安装过 redis，但因为 redis 官方不支持 windows，之前是用 github 社区支持的一种安装方案，安装过程有很多的 bug。在查阅 node-redis 的文档时，推荐用 docker 安装，打开了新世界的大门。这也启发我，如果没有 windows 版本的软件，可以用 docker 来代替。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 6379:6379 -it redis/redis-stack-server:latest</span><br></pre></td></tr></table></figure><p>这样，本机的 6379 端口就映射到了 docker 容器的 6379 端口，就和真的本机操作 redis 一样了。</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近数据库方面在工作中锤炼的比较多。但是经历还是围绕 pgsql 这一关系型数据库上，redis 这种非关系型的数据库之前虽然学过，但是也基本忘了。这篇文章结合停车项目中 redis 的应用，来记录我是如何入门 redis 的。</p><h2 id="安装和登录"><a href="#安装和登录" class="headerlink" title="安装和登录"></a>安装和登录</h2><h3 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h3><p>除非登录容器的 shell 窗口，否则无法直接输入 redis 命令。适合代码控制 redis。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 6379:6379 -it redis/redis-stack-server:latest</span><br></pre></td></tr></table></figure><p>这样，本机的 6379 端口就映射到了 docker 容器的 6379 端口，就和真的本机操作 redis 一样了。</p><h3 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/tporadowski/redis/releases</span><br></pre></td></tr></table></figure><p>选择 msi 下载，一路确定安装。进入安装目录后，打开 cmd，输入：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server.exe redis.windows.conf</span><br></pre></td></tr></table></figure><p>这一步可能出现的报错： Could not create server TCP listening socket 127.0.0.1:6379: bind: 操作成功完成。原因是 6379 端口已绑定。应该是因为上次服务没有关闭。依次输入命令来关闭旧连接：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">redis-cli</span><br><span class="line">shutdown</span><br><span class="line">exit</span><br></pre></td></tr></table></figure><p>成功启动 redis 服务后，需要进入 redis 命令行窗口：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli.exe -h 127.0.0.1 -p 6379</span><br></pre></td></tr></table></figure><p>如果输入命令后出现报错：<code>(error) NOAUTH Authentication required.</code>, 说明在 Redis 配置文件中启用了身份验证（通常是 redis.conf 文件），则需要输入密码才能登录。使用以下命令输入密码：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AUTH your_password</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
@@ -468,27 +468,6 @@
         <tags>
             
             <tag> 生活 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>redis, pgsql远程连接教程</title>
-      <link href="/redis-pgsql%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%95%99%E7%A8%8B.html"/>
-      <url>/redis-pgsql%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5%E6%95%99%E7%A8%8B.html</url>
-      
-        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>部门在云服务器上开了 redis、postgresql 服务，供新员工练手。这就需要远程登录，这里对这两个工具的登录方式做一个记录。</p><h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><p>前提是 redis 已经被安装，且被添加到环境变量的<code>path</code>中。在 cmd 中输入下列指令：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h &lt;host&gt; -p &lt;port&gt; -a &lt;password&gt;</span><br></pre></td></tr></table></figure><p>然后，就会进入远程 redis 环境。</p><p><img src="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16916343660851691634365179.png" alt="16916343660851691634365179.png"></p><p>ping 一下测试是否连通。redis 无法设置用户和数据库，所以没什么操作空间，除了设置键值对。</p><h2 id="pgsql"><a href="#pgsql" class="headerlink" title="pgsql"></a>pgsql</h2><p>需要一个数据库连接管理软件，如 navicat 等。我装的是开源的 dbeaver。要新建数据库连接，点击“文件”下的新建连接，选择 pgsql。</p><p><img src="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16916346250871691634624852.png" alt="16916346250871691634624852.png"></p><p>配置好账号密码后，连接。之后在导航栏中出现新的连接：</p><p><img src="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16916347200811691634719114.png" alt="16916347200811691634719114.png"></p><p>右键“数据库”，点击新建数据库。在新建的数据库名右键，打开 sql 编辑器，用 create 语句创建表，新建的表所在目录如下：</p><p><img src="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16916349940821691634993915.png" alt="16916349940821691634993915.png"></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> redis </tag>
-            
-            <tag> postgresql </tag>
             
         </tags>
       
