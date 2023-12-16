@@ -94,3 +94,9 @@ Received data: Data
 这个例子展示了`await`的非阻塞特性。虽然函数的执行被暂停了，但整个程序的执行仍然继续，其他任务可以被执行。这使得 JavaScript 能够以非阻塞的方式处理异步操作，提高程序的性能和响应性。
 
 所以，阻塞的部分仅仅是 async 修饰的函数内部，而不是整个程序。到这里，我也明白了 async 修饰符的意义，那就是告诉浏览器或者 nodejs，这部分代码必须要按照顺序串行执行。
+
+## 更新2
+
+async函数本质上还是一个返回promise容器的函数。async的作用，是把promise仍稍显古怪的then().then()这种‘一连串’写法，改成了跟同步一样的写法。即await来代替then。同时，更新1的例子中，fetchData()后面还能跟一个.then()，说明了async最终还是返回了一个promise容器。
+
+async就像一个大的promise，装了小的promise。

@@ -3,7 +3,7 @@ title: javascript 模块系统
 date: 2023-02-02 15:20:42
 tags:
   - nodejs
-  - es6
+  - ES6
 categories:
 ---
 
@@ -54,7 +54,7 @@ ES6（ECMAScript 2015）和 CommonJS 是 JavaScript 中两种不同的模块导�
 
 ES6 导出规范（使用 `export`）的特点：
 
-1. 单个默认导出：可以使用 `export default` 导出一个默认的模块成员。
+1. 单个默认导出：可以使用 `export default` 导出一个默认的模块成员。导入这个默认成员时，可以任意命名。
    ````javascript
    // 导出默认成员
    export default myFunction;
