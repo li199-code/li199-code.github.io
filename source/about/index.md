@@ -68,5 +68,6 @@ layout: "about"
 
 2023/11
 
-- 被迫回归 github page
+- 因为样式解析需要低版本的nodejs，而vercel不提供，回归 github page
 - 解决样式 bug
+- 评论系统更换为gitalk
