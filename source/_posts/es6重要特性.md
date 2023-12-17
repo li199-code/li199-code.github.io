@@ -6,11 +6,11 @@ tags: ES6
 categories:
 ---
 
-## 前言
+### 前言
 
 语言学习看文档是非常无聊的，所以找来[视频](https://www.youtube.com/watch?v=nZ1DMMsyVyI&ab_channel=freeCodeCamp.org)来学，并做了笔记。
 
-## 模板语法
+### 模板语法
 
 当返回一串比较复杂的字符串时，优先使用模板语法：
 ```javascript
