@@ -70,7 +70,7 @@ let/const一直是ES6经久不衰的一个重要知识点。首先必须要知�
 
 ### Class
 
-待补充
+见之前博文：[面向对象编程及其在javascript中的实现](https://blog.jasonleehere.com/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%8F%8A%E5%85%B6%E5%9C%A8javascript%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0.html)
 
 ### async/await promise
 
