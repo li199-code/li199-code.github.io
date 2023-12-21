@@ -124,7 +124,7 @@ git push origin master
 
 ![17031659366861703165935807.png](https://fastly.jsdelivr.net/gh/li199-code/blog-img-2@main/17031659366861703165935807.png)
 
-继续看，只有处在staged状态的文件才能被commit。所以下图的加号就是把modified变为staged，点了之后，文件会进入staged changes。这里都是为了精细化控制当个文件
+继续看，只有处在staged状态的文件才能被commit。所以下图的加号就是把modified变为staged，点了之后，文件会进入staged changes。这里都是为了精细化控制单个文件。另外，vscode有自己一套默认规则。正常情况下，点commit按钮只会提交staged changes内容，如果只有changes没有staged changes，那么vscode就会自动将changes内容变为staged并提交。
 
 ![17031663916541703166390710.png](https://fastly.jsdelivr.net/gh/li199-code/blog-img-2@main/17031663916541703166390710.png)
 
