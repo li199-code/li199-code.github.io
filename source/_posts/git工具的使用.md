@@ -1,5 +1,5 @@
 ---
-title: git工具的使用
+title: git、github及其在vscode中的状态表示
 date: 2023-01-23 11:04:29
 tags: git
 categories:
@@ -119,3 +119,13 @@ git push origin master
 ![16872235086311687223508501.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16872235086311687223508501.png)
 
 这张图展示了git的四种状态：untracked, unmodified, modified, staged. 从指向每个状态的箭头，我解读出一些有用的信息。首先，`git init`命令执行，创建了一个“容器”，但是所有的文件依旧是untracked. staged要么是从untracked转来，要么是已经被跟踪的文件被修改后执行`git add`而来。stage状态的文件被commit后，状态就会回到unmodified。
+
+在现代的工作环境下，大多数人是通过vscode等IDE进行git操作了。所以，结合vscode页面说明对应的git状态和操作有助于加深理解。以我的vscode界面为例。如果一个项目还没有被git管理，这时候初始化，那么在vscode的explorer里，所有文件都会变成绿色，这种对应的就是上图的untracked状态，绿色的U。同理新建一个文件，也是这种状态。然后，如果修改了一个文件，modified，黄色的M。删除不在上面的图中，表示为红色的D。当然了，没有修改的文件就是白色的，unmodified。
+
+![17031659366861703165935807.png](https://fastly.jsdelivr.net/gh/li199-code/blog-img-2@main/17031659366861703165935807.png)
+
+继续看，只有处在staged状态的文件才能被commit。所以下图的加号就是把modified变为staged，点了之后，文件会进入staged changes。这里都是为了精细化控制当个文件
+
+![17031663916541703166390710.png](https://fastly.jsdelivr.net/gh/li199-code/blog-img-2@main/17031663916541703166390710.png)
+
+![17031665366531703166535845.png](https://fastly.jsdelivr.net/gh/li199-code/blog-img-2@main/17031665366531703166535845.png)
