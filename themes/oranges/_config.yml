@@ -17,7 +17,7 @@
   # codeBlock: 代码块配置
 
 # enable: 是否开启相应功能，可选true || false
-site_start_date: '2022-07-27 18:00:00'
+site_start_date: '2022-07-26 18:00:00'
 # 网站图标
 favicon:
   enable: true
