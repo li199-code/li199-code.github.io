@@ -9,6 +9,7 @@ html, body {
   background-color: var(--bg-body);
   transition: color 400ms ease-in-out 0s, background-color 400ms ease-in-out 0s;
   font-family: Consolas, "Liberation Mono", Menlo, Monaco, "Source Han Sans CN", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif
+  /* font-family: Cambria, Consolas, "Source Han Sans CN", "PingFang SC", "Microsoft YaHei", sans-serif; */
 }
 
 body.hidden {
@@ -222,7 +223,7 @@ a:hover {
 .avatar img {
   height: 100px;
   width: 100px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .avatar .nickname {
