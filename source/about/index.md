@@ -26,7 +26,7 @@ layout: "about"
 
 ### 架构
 
-本站从建立之初至今一直采用 hexo 作为后台系统，hexo 的优点是依赖于我相对熟悉的 javascript 且渲染速度快。图床选择 github, 结合 jsdelivr cdn 来加快访问速度。gitalk 是本站评论系统。主题目前采用了开源的 [oranges](https://github.com/zchengsite/hexo-theme-oranges)，我自己在此基础上添加了一些功能并修改了局部样式来满足我的喜好。
+本站从建立之初至今一直采用 hexo 作为静态页面生成器，hexo 的优点是依赖于我相对熟悉的 javascript 且渲染速度快。主题目前采用了开源的 [oranges](https://github.com/zchengsite/hexo-theme-oranges)，我自己在此基础上添加了一些功能并修改了局部样式来满足我的喜好。网站和图片都托管在 github，结合 jsdelivr cdn 来加快访问速度。giscus 是本站评论系统，又是一个基于 github discussion 的产品。
 
 ### 更新
 
@@ -68,6 +68,10 @@ layout: "about"
 
 2023/11
 
-- 因为样式解析需要低版本的nodejs，而vercel不提供，回归 github page
+- 因为样式解析需要低版本的 nodejs，而 vercel 不提供，回归 github page
 - 解决样式 bug
-- 评论系统更换为gitalk
+- 评论系统更换为 gitalk
+
+2023/12
+
+- 评论区系统更换为 giscus

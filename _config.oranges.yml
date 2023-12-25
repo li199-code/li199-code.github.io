@@ -44,7 +44,7 @@ comments:
 
   gitalk:
     # https://github.com/gitalk/gitalk#usage 查看官方教程
-    enable: true
+    enable: false
     clientID: 94102312257c8d3ad729
     clientSecret: fe92c321bc6faf94383c1c541156790523fcdc6d
     repo: li199-code.github.io
