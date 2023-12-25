@@ -11,7 +11,7 @@
   
   <title>
     
-      https协议 
+      面向对象编程及其在javascript中的实现 
       
       
       |
@@ -20,8 +20,8 @@
   </title>
 
   
-    <link rel="apple-touch-icon" href="/images/favicon.png">
-    <link rel="icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/fish-bgfree.png">
+    <link rel="icon" href="/images/fish-bgfree.png">
   
 
   <!-- Raleway-Font -->
@@ -73,7 +73,7 @@
     <a href="/">
       <!-- 头像取消懒加载，添加no-lazy -->
       
-        <img no-lazy src="/images/avatar.png" alt="">
+        <img no-lazy src="/images/fish-bgfree.png" alt="">
       
     </a>
     <div class="nickname"><a href="/">Jason Lee</a></div>
@@ -141,25 +141,25 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">https协议</div>
+      <div class="post-title">面向对象编程及其在javascript中的实现</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-11-17 21:56:07
+          
+            2023-12-16
+          
+        
+
+          <!-- 2023-12-16 | 
+          2023-12-16      -->
         </span>
         
               <span class="post-tags">
                 <i class="iconfont icon-tags mr-10" title="标签"></i>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/%E7%88%AC%E8%99%AB/" title="爬虫">
-                    #爬虫
-                  </a>
-                </span>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/https/" title="https">
-                    #https
+                  <a href="/tags/ES6/" title="ES6">
+                    #ES6
                   </a>
                 </span>
                 
@@ -167,14 +167,29 @@
           
       </div>
       <div class="markdown-body">
-        <h3 id="什么是公钥和私钥"><a href="#什么是公钥和私钥" class="headerlink" title="什么是公钥和私钥"></a>什么是公钥和私钥</h3><p>为了增加http报文内容的安全性，需要对明文加密。公钥是一种加密规则，由服务器端创建，经过证书认证机构签名后发给客户端，客户端根据是否有签名来确定是否是服务器端发出的公钥。报文根据公钥在客户端加密后，发向服务器，服务器收到，用私钥进行解密。</p>
+        <h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>谈到 OOP（面向对象编程），我的印象总是停留在我刚学一些静态语言时（如 java），相对于 python、JavaScript，OOP 的概念总是被很早的引入。视频里的讲师总是举一些诸如 Animal 类和 Cat\Dog 对象的例子。Ok 能听懂，so what the fuck is next? 这东西到底有啥用？实际编写网站项目时，也用不着什么 Animal 类啊。</p>
+<p>在一番探索后，我目前的想法是：OOP 本身是为了降低代码的耦合度而提出的，那么一切代码耦合度较高的地方都可以尝试用 OOP。另外，现代的框架很多时候是这样工作的，框架规范了写法是在类内书写属性和方法，然后创建对象的工作交给了框架在后台进行，故看不到。这样的框架在前后端都有，比如 react、eggjs。也就是说，实际上 OOP 无处不在，学习 OOP 有助于理解框架并更好的使用。</p>
+<h2 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h2><p>OOP 作为一种编程范式，有它自己的一套规定和要素。</p>
+<h3 id="属性和方法"><a href="#属性和方法" class="headerlink" title="属性和方法"></a>属性和方法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">type = <span class="string">&quot;cat&quot;</span>, legs = <span class="number">4</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">type</span> = type;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">legs</span> = legs;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> <span class="title class_">Animal</span>((type = <span class="string">&quot;dog&quot;</span>), (legs = <span class="number">4</span>));</span><br><span class="line">dog.<span class="property">legs</span> = <span class="number">2</span>; <span class="comment">// 对象属性可以修改</span></span><br></pre></td></tr></table></figure>
+
+<p>constructor 是必须要有的函数，而方法可以没有。</p>
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><p>无需实例化对象就可以调用类中的方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">type = <span class="string">&quot;cat&quot;</span>, legs = <span class="number">4</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">type</span> = type;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">legs</span> = legs;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> <span class="title function_">return10</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;10&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Animal</span>.<span class="title function_">return10</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="get-方法"><a href="#get-方法" class="headerlink" title="get 方法"></a>get 方法</h3><p>明明是方法，但是调用时形式像是属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">type = <span class="string">&quot;cat&quot;</span>, legs = <span class="number">4</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">type</span> = type;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">legs</span> = legs;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> <span class="title function_">metaData</span>() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="variable language_">this</span>.type&#125;</span>, <span class="subst">$&#123;<span class="variable language_">this</span>.legs&#125;</span>`</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> dog = <span class="keyword">new</span> <span class="title class_">Animal</span>((type = <span class="string">&quot;dog&quot;</span>), (legs = <span class="string">&quot;2&quot;</span>));</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(dog.<span class="property">metaData</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>新类拓展父类，而不需要将父类复制一遍，这就是继承。问题是，如何继承？如何拓展？</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">type = <span class="string">&quot;cat&quot;</span>, legs = <span class="number">4</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">type</span> = type;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">legs</span> = legs;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">makeNoise</span>(<span class="params">noise = <span class="string">&quot;loud noise&quot;</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(noise);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Cat</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Animal</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">type, legs, tail</span>) &#123;</span><br><span class="line">    <span class="variable language_">super</span>(type, legs); <span class="comment">// 继承</span></span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">tail</span> = tail;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">makeNoise</span>(<span class="params">noise, db</span>) &#123;</span><br><span class="line">    <span class="comment">// 重写</span></span><br><span class="line">    <span class="variable language_">super</span>.<span class="title function_">makeNoise</span>(noise); <span class="comment">// 继承</span></span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`DB is <span class="subst">$&#123;db&#125;</span>`</span>); <span class="comment">// 拓展的新功能</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cat = <span class="keyword">new</span> <span class="title class_">Cat</span>(<span class="string">&quot;cat&quot;</span>, <span class="number">4</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">cat.<span class="title function_">makeNoise</span>(<span class="string">&quot;meow&quot;</span>, <span class="number">40</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这里的 super 就起到继承的作用，构造函数的继承就是 super()，而方法的继承是 super.methodName()。super()是随意调用的，不一定在重写中。</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/js%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%9C%BA%E5%88%B6.html" target="_self">
+              <a href="/es6%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7.html" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -183,21 +198,15 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17 21:56:07
+              2023-12-16
             </span>
             
                   <span class="post-tags">
                     <i class="iconfont icon-tags mr-10" title="标签"></i>
                     
                     <span class="span--tag mr-8">
-                      <a href="/tags/%E7%88%AC%E8%99%AB/" title="爬虫">
-                        #爬虫
-                      </a>
-                    </span>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/https/" title="https">
-                        #https
+                      <a href="/tags/ES6/" title="ES6">
+                        #ES6
                       </a>
                     </span>
                     
@@ -206,7 +215,7 @@
           </div>
           <div class="post-foot-prev">
             
-              <a href="/moka%E6%8B%9B%E8%81%98%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E7%8A%B6%E6%80%81%E7%88%AC%E8%99%AB.html" target="_self">
+              <a href="/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html" target="_self">
                 <span>下一页</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -223,7 +232,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%AC%E9%92%A5%E5%92%8C%E7%A7%81%E9%92%A5"><span class="toc-text">什么是公钥和私钥</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%86%E5%8F%B2"><span class="toc-text">历史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%84%E8%8C%83"><span class="toc-text">规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-text">属性和方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95"><span class="toc-text">静态方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get-%E6%96%B9%E6%B3%95"><span class="toc-text">get 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-text">继承</span></a></li></ol></li></ol>
       
     </div>
   </div>
@@ -305,11 +314,11 @@
         
     </ul>
   </div>
-  
+  <!-- 
     
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2023 Oranges</a>
+        <a href="https://blog.jasonleehere.com">Copyright © 2023 Jason Lee</a>
         
     </div>
   
@@ -319,7 +328,31 @@
         <a target="_blank" rel="noopener" href="https://hexo.io/index.html">Theme by Oranges | Powered by Hexo</a>
         
     </div>
+   -->
+  <div class="footer-more">
+    <!-- <a href="">© 2022 Yanghao Wang. All Rights Reserved.</a> -->
+      
+      © 2023 Jason Lee. All Rights Reserved.          
+  </div>
+
+  <div class="footer-more" style="text-align:center;">
+    Hosted by 
+    <a href="https://github.com/li199-code/li199-code.github.io" target="_blank" style="text-decoration: none;" rel="noreferrer">
+      <svg class="img-hov" style="width: 15px;" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a> with Theme  
+    <a target="_blank" href="https://github.com/zchengsite/hexo-theme-oranges" style="text-decoration: none;" rel="noreferrer noopener">
+      <img class="img-hov" style="width: 15px;" src="/images/image-loading.svg" data-original="/images/favicon.png">
+    </a> Powered by 
+    <a href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer">
+      <svg class="img-hov" style="width: 15px; fill: #03adfc" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+    </a>.
+  </div>
+  <div class="footer-more">
+    
   
+    <div>This site has been running for 515 days. Total posts: 112, Total words: 170926.</div>
+  </div>
+  <p></br></p>
   
 </div>
 
@@ -385,6 +418,8 @@
         searchOverlayArea.classList.remove('hidden')
         document.body.classList.add('hidden')
         // inputArea.focus()
+        inputArea.focus()
+        getSearchFile()
       } else {
         searchOverlayArea.classList.add('hidden')
         document.body.classList.remove('hidden')
@@ -545,29 +580,6 @@
 
 
         
-  
-    <div class="share-icon tools-bar-item">
-      <a href="javascript: void(0)" id="share-icon">
-        <i class="iconfont iconshare"></i>
-      </a>
-      <div class="share-content hidden">
-        
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + https%E5%8D%8F%E8%AE%AE + '&url=' + https%3A%2F%2Fblog.jasonleehere.com%2Fhttps%25E5%258D%258F%25E8%25AE%25AE.html + '" target="_blank" title="Twitter">
-            <i class="iconfont icon-twitter"></i>
-          </a>
-        
-        
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://blog.jasonleehere.com/https%E5%8D%8F%E8%AE%AE.html" target="_blank" title="Facebook">
-            <i class="iconfont icon-facebooksquare"></i>
-          </a>
-        
-      </div>
-    </div>
-  
-  
-<script src="/js/shares.js"></script>
-
-
 
       </div>
     </div>

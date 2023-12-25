@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2023-12-07T09:13:09.000Z</updated>
+  <updated>2023-12-22T06:31:38.000Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,134 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript函数进阶内容</title>
+    <link href="https://blog.jasonleehere.com/JavaScript%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E5%86%85%E5%AE%B9.html"/>
+    <id>https://blog.jasonleehere.com/JavaScript%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E5%86%85%E5%AE%B9.html</id>
+    <published>2023-12-22T06:31:38.000Z</published>
+    <updated>2023-12-22T06:31:38.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;根据在线书籍的&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Javascript" scheme="https://blog.jasonleehere.com/tags/Javascript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>后端工程师的成长之路（长期更新）</title>
+    <link href="https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html"/>
+    <id>https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html</id>
+    <published>2023-12-21T13:04:19.000Z</published>
+    <updated>2023-12-21T13:04:19.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;从这篇文章开始，我将按照这个网站提供的&lt;a href=&quot;https://roadmap.sh/backend&quot;&gt;技术路线&lt;/a&gt;进行学习。因为技术内容会专门写新文章，所以本文是记录学习进度和一些偏感性的认知，顺带工作过程中的一些感悟。&lt;/p&gt;
+&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="roadmap" scheme="https://blog.jasonleehere.com/tags/roadmap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>面向对象编程及其在javascript中的实现</title>
+    <link href="https://blog.jasonleehere.com/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%8F%8A%E5%85%B6%E5%9C%A8javascript%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0.html"/>
+    <id>https://blog.jasonleehere.com/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E5%8F%8A%E5%85%B6%E5%9C%A8javascript%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0.html</id>
+    <published>2023-12-16T15:38:01.000Z</published>
+    <updated>2023-12-16T15:38:01.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;历史&quot;&gt;&lt;a href=&quot;#历史&quot; class=&quot;headerlink&quot; title=&quot;历史&quot;&gt;&lt;/a&gt;历史&lt;/h2&gt;&lt;p&gt;谈到 OOP（面向对象编程），我的印象总是停留在我刚学一些静态语言时（如 java），相对于 python、JavaScript，OOP
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ES6" scheme="https://blog.jasonleehere.com/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>es6重要特性</title>
+    <link href="https://blog.jasonleehere.com/es6%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7.html"/>
+    <id>https://blog.jasonleehere.com/es6%E9%87%8D%E8%A6%81%E7%89%B9%E6%80%A7.html</id>
+    <published>2023-12-16T13:12:33.000Z</published>
+    <updated>2023-12-16T13:12:33.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;语言学习看文档是非常无聊的，所以找来&lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="ES6" scheme="https://blog.jasonleehere.com/tags/ES6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>收拾心情，继续上路——2023年终总结</title>
+    <link href="https://blog.jasonleehere.com/%E6%94%B6%E6%8B%BE%E5%BF%83%E6%83%85%EF%BC%8C%E7%BB%A7%E7%BB%AD%E4%B8%8A%E8%B7%AF%E2%80%94%E2%80%942023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93.html"/>
+    <id>https://blog.jasonleehere.com/%E6%94%B6%E6%8B%BE%E5%BF%83%E6%83%85%EF%BC%8C%E7%BB%A7%E7%BB%AD%E4%B8%8A%E8%B7%AF%E2%80%94%E2%80%942023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93.html</id>
+    <published>2023-12-16T02:19:23.000Z</published>
+    <updated>2023-12-16T02:19:23.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;谁都会制定计划，关键是执行情况。&lt;/p&gt;
+&lt;p&gt;这一年我完成从学生到社畜的身份转变，那我就分毕业前后的两个阶段来试着回顾这一年。&lt;/p&gt;
+&lt;h2 id=&quot;毕业前&quot;&gt;&lt;a href=&quot;#毕业前&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>redis入门阶段</title>
@@ -83,8 +211,7 @@
         
         
           &lt;p&gt;这篇文章按国家和地区总结一些可以直接通过工作移民的签证机会。&lt;/p&gt;
-&lt;h2 id=&quot;德国&quot;&gt;&lt;a href=&quot;#德国&quot; class=&quot;headerlink&quot; title=&quot;德国&quot;&gt;&lt;/a&gt;德国&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;JSV&lt;figure
+&lt;h2 id=&quot;德国&quot;&gt;&lt;a href=&quot;#德国&quot; class=&quot;headerlink&quot;
         
       
     
@@ -352,7 +479,7 @@
     <link href="https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%AE%B0%E5%BD%95.html"/>
     <id>https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%AE%B0%E5%BD%95.html</id>
     <published>2023-10-19T07:22:44.000Z</published>
-    <updated>2023-12-04T02:01:11.714Z</updated>
+    <updated>2023-12-22T06:06:20.622Z</updated>
     
     <summary type="html">
     
@@ -424,138 +551,6 @@
     
     
       <category term="日常" scheme="https://blog.jasonleehere.com/tags/%E6%97%A5%E5%B8%B8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《python 机器学习》数据预处理</title>
-    <link href="https://blog.jasonleehere.com/%E3%80%8Apython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86.html"/>
-    <id>https://blog.jasonleehere.com/%E3%80%8Apython%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E3%80%8B%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86.html</id>
-    <published>2023-10-10T13:20:00.000Z</published>
-    <updated>2023-11-17T13:56:07.619Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;缺失数据值的处理&quot;&gt;&lt;a href=&quot;#缺失数据值的处理&quot; class=&quot;headerlink&quot; title=&quot;缺失数据值的处理&quot;&gt;&lt;/a&gt;缺失数据值的处理&lt;/h2&gt;&lt;h3 id=&quot;在-scikit-learn-中处理缺失数据的方法：&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python 机器学习" scheme="https://blog.jasonleehere.com/categories/python-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《python机器学习》分类算法</title>
-    <link href="https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0.html"/>
-    <id>https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E7%AC%AC%E4%BA%8C%E7%AB%A0.html</id>
-    <published>2023-10-02T02:57:30.000Z</published>
-    <updated>2023-11-17T13:56:07.608Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;我打算开一个全新的系列，记录我在学习《python 机器学习》这本书过程中的要点和感想。&lt;/p&gt;
-&lt;h2 id=&quot;决策边界图&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python 机器学习" scheme="https://blog.jasonleehere.com/categories/python-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>基于eggjs, sequelize和pgsql的小需求</title>
-    <link href="https://blog.jasonleehere.com/%E5%9F%BA%E4%BA%8Eeggjs,%20sequelize%E5%92%8Cpgsql%E7%9A%84%E5%B0%8F%E9%9C%80%E6%B1%82.html"/>
-    <id>https://blog.jasonleehere.com/%E5%9F%BA%E4%BA%8Eeggjs,%20sequelize%E5%92%8Cpgsql%E7%9A%84%E5%B0%8F%E9%9C%80%E6%B1%82.html</id>
-    <published>2023-09-29T04:13:49.000Z</published>
-    <updated>2023-11-17T13:56:07.629Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="eggjs" scheme="https://blog.jasonleehere.com/tags/eggjs/"/>
-    
-      <category term="sequelize" scheme="https://blog.jasonleehere.com/tags/sequelize/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>sklearn crash course</title>
-    <link href="https://blog.jasonleehere.com/sklearn-crash-course.html"/>
-    <id>https://blog.jasonleehere.com/sklearn-crash-course.html</id>
-    <published>2023-09-24T15:06:24.000Z</published>
-    <updated>2023-11-17T13:56:07.611Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;油管&lt;a
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="sklearn" scheme="https://blog.jasonleehere.com/tags/sklearn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>kafka初体验</title>
-    <link href="https://blog.jasonleehere.com/kafka%E5%88%9D%E4%BD%93%E9%AA%8C.html"/>
-    <id>https://blog.jasonleehere.com/kafka%E5%88%9D%E4%BD%93%E9%AA%8C.html</id>
-    <published>2023-09-20T01:06:00.000Z</published>
-    <updated>2023-11-17T13:56:07.598Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;启动-zookeeper-和-kafka&quot;&gt;&lt;a href=&quot;#启动-zookeeper-和-kafka&quot; class=&quot;headerlink&quot; title=&quot;启动 zookeeper 和 kafka&quot;&gt;&lt;/a&gt;启动 zookeeper 和
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="kafka" scheme="https://blog.jasonleehere.com/tags/kafka/"/>
     
   </entry>
   

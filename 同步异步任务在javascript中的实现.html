@@ -20,8 +20,8 @@
   </title>
 
   
-    <link rel="apple-touch-icon" href="/images/favicon.png">
-    <link rel="icon" href="/images/favicon.png">
+    <link rel="apple-touch-icon" href="/images/fish-bgfree.png">
+    <link rel="icon" href="/images/fish-bgfree.png">
   
 
   <!-- Raleway-Font -->
@@ -73,7 +73,7 @@
     <a href="/">
       <!-- 头像取消懒加载，添加no-lazy -->
       
-        <img no-lazy src="/images/avatar.png" alt="">
+        <img no-lazy src="/images/fish-bgfree.png" alt="">
       
     </a>
     <div class="nickname"><a href="/">Jason Lee</a></div>
@@ -145,7 +145,14 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2023-11-22 09:57:56
+          
+            2023-08-07 | 
+            2023-12-22
+          
+        
+
+          <!-- 2023-08-07 | 
+          2023-12-22      -->
         </span>
         
       </div>
@@ -176,6 +183,8 @@
 <p>在这段等待期间，JavaScript 引擎继续执行后续的代码，输出<code>After fetchData</code>。当 2 秒钟过去后，<code>await</code>表达式恢复执行，输出<code>Data fetched</code>。最后，通过<code>.then</code>方法获取到数据并输出<code>Received data: Data</code>。</p>
 <p>这个例子展示了<code>await</code>的非阻塞特性。虽然函数的执行被暂停了，但整个程序的执行仍然继续，其他任务可以被执行。这使得 JavaScript 能够以非阻塞的方式处理异步操作，提高程序的性能和响应性。</p>
 <p>所以，阻塞的部分仅仅是 async 修饰的函数内部，而不是整个程序。到这里，我也明白了 async 修饰符的意义，那就是告诉浏览器或者 nodejs，这部分代码必须要按照顺序串行执行。</p>
+<h2 id="更新2"><a href="#更新2" class="headerlink" title="更新2"></a>更新2</h2><p>async函数本质上还是一个返回promise容器的函数。async的作用，是把promise仍稍显古怪的then().then()这种‘一连串’写法，改成了跟同步一样的写法。即await来代替then。同时，更新1的例子中，fetchData()后面还能跟一个.then()，说明了async最终还是返回了一个promise容器。</p>
+<p>async就像一个大的promise，装了小的promise。</p>
 
       </div>
       
@@ -191,7 +200,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-22 09:57:56
+              2023-12-22
             </span>
             
           </div>
@@ -214,7 +223,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5-or-%E5%BC%82%E6%AD%A5%EF%BC%9F"><span class="toc-text">同步 or 异步？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promise-%E6%98%AF%E4%B8%80%E7%A7%8D%E5%AE%B9%E5%99%A8"><span class="toc-text">promise 是一种容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-text">更新</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5-or-%E5%BC%82%E6%AD%A5%EF%BC%9F"><span class="toc-text">同步 or 异步？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#promise-%E6%98%AF%E4%B8%80%E7%A7%8D%E5%AE%B9%E5%99%A8"><span class="toc-text">promise 是一种容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0"><span class="toc-text">更新</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B02"><span class="toc-text">更新2</span></a></li></ol>
       
     </div>
   </div>
@@ -296,11 +305,11 @@
         
     </ul>
   </div>
-  
+  <!-- 
     
     <div class="footer-more">
       
-        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2023 Oranges</a>
+        <a href="https://blog.jasonleehere.com">Copyright © 2023 Jason Lee</a>
         
     </div>
   
@@ -310,7 +319,31 @@
         <a target="_blank" rel="noopener" href="https://hexo.io/index.html">Theme by Oranges | Powered by Hexo</a>
         
     </div>
+   -->
+  <div class="footer-more">
+    <!-- <a href="">© 2022 Yanghao Wang. All Rights Reserved.</a> -->
+      
+      © 2023 Jason Lee. All Rights Reserved.          
+  </div>
+
+  <div class="footer-more" style="text-align:center;">
+    Hosted by 
+    <a href="https://github.com/li199-code/li199-code.github.io" target="_blank" style="text-decoration: none;" rel="noreferrer">
+      <svg class="img-hov" style="width: 15px;" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    </a> with Theme  
+    <a target="_blank" href="https://github.com/zchengsite/hexo-theme-oranges" style="text-decoration: none;" rel="noreferrer noopener">
+      <img class="img-hov" style="width: 15px;" src="/images/image-loading.svg" data-original="/images/favicon.png">
+    </a> Powered by 
+    <a href="https://hexo.io" target="_blank" style="text-decoration: none;" rel="noreferrer">
+      <svg class="img-hov" style="width: 15px; fill: #03adfc" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Hexo.js</title><path d="M12 .007L1.57 6.056V18.05L12 23.995l10.43-6.049V5.952L12 .007zm4.798 17.105l-.939.521-.939-.521V12.94H9.08v4.172l-.94.521-.938-.521V6.89l.939-.521.939.521v4.172h5.84V6.89l.94-.521.938.521v10.222z"/></svg>
+    </a>.
+  </div>
+  <div class="footer-more">
+    
   
+    <div>This site has been running for 515 days. Total posts: 112, Total words: 170926.</div>
+  </div>
+  <p></br></p>
   
 </div>
 
@@ -376,6 +409,8 @@
         searchOverlayArea.classList.remove('hidden')
         document.body.classList.add('hidden')
         // inputArea.focus()
+        inputArea.focus()
+        getSearchFile()
       } else {
         searchOverlayArea.classList.add('hidden')
         document.body.classList.remove('hidden')
@@ -536,29 +571,6 @@
 
 
         
-  
-    <div class="share-icon tools-bar-item">
-      <a href="javascript: void(0)" id="share-icon">
-        <i class="iconfont iconshare"></i>
-      </a>
-      <div class="share-content hidden">
-        
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%9C%A8javascript%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0 + '&url=' + https%3A%2F%2Fblog.jasonleehere.com%2F%25E5%2590%258C%25E6%25AD%25A5%25E5%25BC%2582%25E6%25AD%25A5%25E4%25BB%25BB%25E5%258A%25A1%25E5%259C%25A8javascript%25E4%25B8%25AD%25E7%259A%2584%25E5%25AE%259E%25E7%258E%25B0.html + '" target="_blank" title="Twitter">
-            <i class="iconfont icon-twitter"></i>
-          </a>
-        
-        
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=https://blog.jasonleehere.com/%E5%90%8C%E6%AD%A5%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E5%9C%A8javascript%E4%B8%AD%E7%9A%84%E5%AE%9E%E7%8E%B0.html" target="_blank" title="Facebook">
-            <i class="iconfont icon-facebooksquare"></i>
-          </a>
-        
-      </div>
-    </div>
-  
-  
-<script src="/js/shares.js"></script>
-
-
 
       </div>
     </div>
