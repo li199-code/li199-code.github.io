@@ -1,0 +1,1 @@
+git add . & git commit -m "some changes" & git push origin main & hexo clean & hexo g -d
