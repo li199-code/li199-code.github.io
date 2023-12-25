@@ -9,6 +9,7 @@ html, body {
   background-color: var(--bg-body);
   transition: color 400ms ease-in-out 0s, background-color 400ms ease-in-out 0s;
   font-family: Consolas, "Liberation Mono", Menlo, Monaco, "Source Han Sans CN", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif
+  /* font-family: Cambria, Consolas, "Source Han Sans CN", "PingFang SC", "Microsoft YaHei", sans-serif; */
 }
 
 body.hidden {
@@ -174,6 +175,16 @@ a:hover {
   }
 }
 
+.index-img img{
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  box-sizing: content-box;
+  background-color: #fff;
+  padding-bottom: 2em;
+  border-radius: 5px;
+}
+
 .post-item {
   display: flex;
   font-size: 1.6rem;
@@ -218,7 +229,6 @@ a:hover {
 .avatar img {
   height: 100px;
   width: 100px;
-  border-radius: 50%;
 }
 
 .avatar .nickname {

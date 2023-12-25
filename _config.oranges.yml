@@ -20,12 +20,12 @@
 # 网站图标
 favicon:
   enable: true
-  icon: /images/favicon.png
-  touch_icon: /images/favicon.png
+  icon: /images/fish-bgfree.png
+  touch_icon: /images/fish-bgfree.png
 
 # 用户头像与昵称
 avatar:
-  author_photo: /images/avatar.png
+  author_photo: /images/fish-bgfree.png
   author_nickname: Jason Lee
   path: /
 
@@ -180,7 +180,7 @@ colorSwitch:
 
 # 文章分享
 postShare:
-  enable: true
+  enable: false
 
   twitter:
     enable: true
