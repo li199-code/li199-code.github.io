@@ -43,10 +43,7 @@
       <% } %>  
     </div>
   <% } %> -->
-  <div class="footer-more">
-    <!-- <a href="">© 2022 Yanghao Wang. All Rights Reserved.</a> -->
-      <% const thisYear = new Date().getFullYear() %>
-      © <%= thisYear %> Jason Lee. All Rights Reserved.          
+  <div class="footer-more" id="year-copy">    
   </div>
 
   <div class="footer-more" style="text-align:center;">
@@ -63,11 +60,6 @@
   </div>
   <div class="footer-more">
     <% 
-    const currentTime = new Date().getTime();
-    const startDate = new Date(config.site_start_date).getTime();
-    const timeDifference = currentTime - startDate;
-    const daysRunning = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-
     let totalWords = 0;
   
     // 遍历每篇文章并累加字数
@@ -83,7 +75,8 @@
     const postCount = site.posts.length
     %>
   
-    <div>This site has been running for <%= daysRunning %> days. Total posts: <%= postCount %>, Total words: <%= totalWords %>.</div>
+    <div><span id="stats-days"></span> Total posts: <%= postCount %>, Total words: <%= totalWords %>.</div>
+    <%- js(['/js/uptime.js']) %>
   </div>
   <p></br></p>
   <% if (theme.footer.views && theme.footer.views.enable) { %>
@@ -96,3 +89,5 @@
     </div>
   <% } %>
 </div>
+
+
