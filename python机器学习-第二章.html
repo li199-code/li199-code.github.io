@@ -268,31 +268,12 @@
 
 
 
-  <div id="gitalk-container"></div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.18.0/js/md5.min.js"></script>
-  <script>
 
-    function loadGitalkSuc() {
-      const gitalk = new Gitalk({
-        clientID: '94102312257c8d3ad729',
-        clientSecret: 'fe92c321bc6faf94383c1c541156790523fcdc6d',
-        repo: 'li199-code.github.io',
-        owner: 'li199-code',
-        admin: ['li199-code'],
-        // id: location.pathname,
-        id: md5(location.pathname),
-        distractionFreeMode: false
-      })
-
-      gitalk.render('gitalk-container')
-    }
+<script src="https://giscus.app/client.js" data-repo="li199-code/li199-code.github.io" data-repo-id="R_kgDOKm243A"
+  data-category="Announcements" data-category-id="DIC_kwDOKm243M4Cb-iG" data-mapping="title" data-strict="0"
+  data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+  data-lang="zh-CN" crossorigin="anonymous" async>
   </script>
-  
-    <link rel="stylesheet" href="/plugins/gitalk.css">
-    <script type="text/javascript" src="/plugins/gitalk.min.js" onload="loadGitalkSuc(this)"></script>
-  
-
-
 
       </div>
     
