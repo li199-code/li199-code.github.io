@@ -5,11 +5,9 @@ function uptime() {
     const timeDifference = currentTime - startDate;
     const daysRunning = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
-    return {daysRunning, thisYear};
+    return thisYear;
 }
 
-let e = document.querySelector('#stats-days')
 let y = document.querySelector('#year-copy')
-let x = uptime()
-e.innerHTML = `This site has been running for ${x.daysRunning} days.`
-y.innerHTML = `© 2022-${x.thisYear} Jason Lee. All Rights Reserved.`
+let thisYear = uptime()
+y.innerHTML = `© 2022-${thisYear} Jason Lee. All Rights Reserved.`

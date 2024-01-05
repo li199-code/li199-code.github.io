@@ -73,9 +73,25 @@
     });
 
     const postCount = site.posts.length
+
+    function getCurrentDateTime() {
+      const now = new Date();
+
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0'); // Month starts from 0
+      const day = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+
+      const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
+      return formattedDateTime;
+    }
+
+    const updatetime = getCurrentDateTime();
+
     %>
   
-    <div><span id="stats-days"></span> Total posts: <%= postCount %>, Total words: <%= totalWords %>.</div>
+    <div>Last Update: <%= updatetime %>, Total Posts: <%= postCount %>, Total Words: <%= totalWords %>.</div>
     <%- js(['/js/uptime.js']) %>
   </div>
   <p></br></p>
