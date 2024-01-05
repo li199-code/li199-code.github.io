@@ -12,4 +12,4 @@ let e = document.querySelector('#stats-days')
 let y = document.querySelector('#year-copy')
 let x = uptime()
 e.innerHTML = `This site has been running for ${x.daysRunning} days.`
-y.innerHTML = `© ${x.thisYear} Jason Lee. All Rights Reserved.`
+y.innerHTML = `© 2022-${x.thisYear} Jason Lee. All Rights Reserved.`
