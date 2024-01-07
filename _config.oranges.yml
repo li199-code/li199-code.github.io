@@ -18,6 +18,7 @@
 # enable: 是否开启相应功能，可选true || false
 
 # 网站图标
+# 
 favicon:
   enable: true
   icon: /images/fish-bgfree.png
