@@ -4,6 +4,10 @@
 <!-- now: 当前遍历到的文章的发布年份 -->
 
 <div class="container archives">
+  <div >
+    <img src="https://ghchart.rshah.org/li199-code" alt="Jason's Github chart" style="width:100%; margin-bottom: 30px;" />
+  </div>
+  
   <div class="post-list">
     <%
       var prev = -10086;// prev year
@@ -15,24 +19,51 @@
           prev = curr;
       %>
         <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
+        <div class="content-title toggle" onclick="togglePosts(<%- curr %>)">
           <h2>
+            <span class="arrow<%- curr %>">&#9660;</span> <!-- 初始箭头向下 -->
             <span><%- curr %></span>
           </h2>
         </div>
       <%
         }
       %>
-      <div class="post-item" title="<%- item.title %>">
-        <div class="time-m-d"><%- item.date.format("MM-DD") %></div>
-        <div class="title">
-          <a href="<%- url_for(item.path) %>">
-            <span><%- item.title %></span>
-          </a>
+
+        <div class="post-item y<%- item.date.year() %>" title="<%- item.title %>" style="display: none;">
+          <div class="time-m-d"><%- item.date.format("MM-DD") %></div>
+          <div class="title">
+            <a href="<%- url_for(item.path) %>">
+              <span><%- item.title %></span>
+            </a>
+          </div>
         </div>
-      </div>
+
+
     <%
       });
     %>
   </div>
 </div>
+
+<style>
+  .toggle {
+    cursor: pointer;
+  }
+</style>
+
+<script>
+  function togglePosts(elem) {
+    let arrow = document.querySelector(`.arrow${elem}`)
+
+    let items = document.querySelectorAll(`.y${elem}`);
+    items.forEach((item)=>{
+      if (item.style.display==="none"){
+        item.style.display="flex"
+        arrow.innerHTML = "&#9650;";
+      }else{
+        item.style.display = "none"
+        arrow.innerHTML = "&#9660;";
+      }
+    })
+  }
+</script>
