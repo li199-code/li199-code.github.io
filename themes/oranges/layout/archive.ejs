@@ -2,11 +2,91 @@
 
 <!-- last: 按年份把文章分组，当前遍历到的年份 -->
 <!-- now: 当前遍历到的文章的发布年份 -->
-
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <div class="container archives">
-  <div >
-    <img src="https://ghchart.rshah.org/li199-code" alt="Jason's Github chart" style="width:100%; margin-bottom: 30px;" />
-  </div>
+  <div id="main" style="width:100%; height:300px; margin: 0 auto"></div>
+  <%
+  const postsCountByDate = {};
+  site.posts.each((item, index) => {
+    let postDate = new Date(item.date);
+    // 获取年、月、日
+    let formattedDate = postDate.getFullYear() + '-' + (postDate.getMonth() + 1) + '-' + postDate.getDate();
+    postsCountByDate[formattedDate] = (postsCountByDate[formattedDate] || 0) + 1;
+  });
+  %>
+
+  <script>
+    // 将 postsCountByDate 绑定到全局对象 window 上
+    window.postsCountByDate = <%- JSON.stringify(postsCountByDate) %>;
+  </script>
+  
+  
+  
+  <script type="text/javascript">
+
+
+      var chartDom = document.getElementById('main');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      function generateRandomData(startDate, endDate) {
+        let currentDate = new Date(startDate);
+        const endDateObj = new Date(endDate);
+        const data = [];
+        
+
+        while (currentDate <= endDateObj) {
+          let formattedCur = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate();
+          const val = postsCountByDate[formattedCur] || 0
+          // const val = Math.floor(Math.random() * 100); // 生成 0 到 99 之间的随机数
+          data.push([currentDate.toLocaleDateString(), val]);
+
+          currentDate.setDate(currentDate.getDate() + 1);
+        }
+
+        return data;
+      }
+
+      const startDate = new Date(); //
+      startDate.setFullYear(startDate.getFullYear() - 1); // 一年前的日期 e.g 2023.1.10
+      const endDate = new Date(); // 当前日期 e.g 2024.1.10
+
+      const simulatedData = generateRandomData(startDate, endDate);
+
+      option = {
+        title: {
+          top: 30,
+          left: 'center',
+          text: 'Post Contribution'
+        },
+        tooltip: {},
+        visualMap: {
+          show: false, // 将 visualMap 设置为不显示
+          // 其他 visualMap 配置...
+        },
+        calendar: {
+          top: 120,
+          left: 30,
+          right: 30,
+          cellSize: ['auto', 13],
+          range: [startDate, endDate],
+          itemStyle: {
+            borderWidth: 0.5
+          },
+          yearLabel: { show: false }
+        },
+        series: {
+          type: 'heatmap',
+          coordinateSystem: 'calendar',
+          data: simulatedData
+        }
+      };
+
+      option && myChart.setOption(option);
+
+    
+  </script>
+
   
   <div class="post-list">
     <%
