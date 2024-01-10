@@ -61,9 +61,22 @@
         },
         tooltip: {},
         visualMap: {
-          show: false, // 将 visualMap 设置为不显示
-          // 其他 visualMap 配置...
+          show: true,
+          min: 0,
+          max: 3, // 你的数据中的最大值
+          calculable: true,
+          orient: 'horizontal',
+          left: 'right',
+          bottom: 10,
+          inRange: {
+            color: ['#FFFFFF', '#FF0000'] // 白色到其他颜色的渐变色，可以根据需要调整颜色值
+          },
+          pieces: [
+            { value: 0, color: '#FFFFFF' }, // 将值为0的数据映射到白色
+            { min: 1 } // 其他数据按照设定的颜色渐变
+          ]
         },
+
         calendar: {
           top: 120,
           left: 30,
