@@ -116,13 +116,130 @@
 
 <!-- last: 按年份把文章分组，当前遍历到的年份 -->
 <!-- now: 当前遍历到的文章的发布年份 -->
-
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 <div class="container archives">
-  <div >
-    <img src="/images/image-loading.svg" data-original="https://ghchart.rshah.org/li199-code" alt="Jason's Github chart" style="width:100%; margin-bottom: 30px;" />
-  </div>
+  <div id="main" style="width:100%; height:260px; margin: 0 auto"></div>
+  
+
+  <script>
+    // 将 postsCountByDate 绑定到全局对象 window 上
+    window.postsCountByDate = {"2023-12-21":1,"2023-6-13":1,"2024-1-8":2,"2023-12-22":1,"2023-12-16":3,"2023-12-7":1,"2023-12-4":1,"2023-11-26":1,"2023-11-23":2,"2023-11-20":1,"2023-11-12":1,"2023-11-11":1,"2023-11-9":1,"2023-10-28":2,"2023-10-23":1,"2023-10-19":1,"2023-10-15":1,"2023-10-11":1,"2023-10-10":1,"2023-10-2":1,"2023-9-29":1,"2023-9-24":1,"2023-9-20":1,"2023-9-6":1,"2023-8-12":1,"2023-8-9":1,"2023-8-7":1,"2023-8-4":1,"2023-7-31":2,"2023-7-16":1,"2023-7-10":1,"2023-7-6":1,"2023-7-2":1,"2023-6-26":1,"2023-6-24":1,"2023-6-22":2,"2023-6-21":1,"2023-6-19":1,"2023-6-6":1,"2023-5-30":1,"2023-5-29":1,"2023-5-24":2,"2023-5-23":1,"2023-5-22":1,"2023-5-15":1,"2023-5-13":1,"2023-5-10":1,"2023-5-8":1,"2023-5-6":1,"2023-5-3":1,"2023-5-2":1,"2023-5-1":1,"2023-4-28":1,"2023-4-27":1,"2023-4-26":1,"2023-4-21":1,"2023-4-20":1,"2023-4-14":1,"2023-4-2":1,"2023-4-1":1,"2023-3-30":2,"2023-3-28":2,"2023-3-27":1,"2023-3-25":1,"2023-3-23":1,"2023-3-22":1,"2023-3-21":1,"2023-3-19":1,"2023-3-18":1,"2023-3-15":1,"2023-3-9":1,"2023-3-8":1,"2023-3-7":1,"2023-2-22":1,"2023-2-21":1,"2023-2-16":1,"2023-2-12":1,"2023-2-10":1,"2023-2-9":1,"2023-2-4":1,"2023-2-2":1,"2023-2-1":1,"2023-1-31":1,"2023-1-30":1,"2023-1-23":1,"2023-1-21":1,"2022-12-6":1,"2022-11-24":1,"2022-11-18":1,"2022-11-15":2,"2022-11-10":1,"2022-11-8":1,"2022-11-3":1,"2022-9-8":1,"2022-8-26":1,"2022-8-24":1,"2022-8-18":1,"2022-8-17":1,"2022-8-1":1,"2022-7-30":1,"2022-7-27":1,"2022-7-26":2};
+  </script>
+  
+  
+  
+  <script type="text/javascript">
+
+
+      var chartDom = document.getElementById('main');
+      var myChart = echarts.init(chartDom);
+      var option;
+
+      function generateRandomData(startDate, endDate) {
+        let currentDate = new Date(startDate);
+        const endDateObj = new Date(endDate);
+        const data = [];
+        
+
+        while (currentDate <= endDateObj) {
+          let formattedCur = currentDate.getFullYear() + '-' + (currentDate.getMonth() + 1) + '-' + currentDate.getDate();
+          const val = postsCountByDate[formattedCur] || 0
+          // const val = Math.floor(Math.random() * 100); // 生成 0 到 99 之间的随机数
+          data.push([currentDate.toLocaleDateString(), val]);
+
+          currentDate.setDate(currentDate.getDate() + 1);
+        }
+
+        return data;
+      }
+
+      const startDate = new Date(); //
+      startDate.setFullYear(startDate.getFullYear() - 1); // 一年前的日期 e.g 2023.1.10
+      const endDate = new Date(); // 当前日期 e.g 2024.1.10
+
+      const simulatedData = generateRandomData(startDate, endDate);
+
+      option = {
+        title: {
+          top: 0,
+          left: 'center',
+          text: 'Post Contribution'
+        },
+        tooltip: {},
+        visualMap: {
+          show: true,
+          min: 0,
+          max: 3, // 你的数据中的最大值
+          calculable: true,
+          orient: 'horizontal',
+          left: 'right',
+          bottom: 10,
+          inRange: {
+            color: ['#FFFFFF', '#FF0000'] // 白色到其他颜色的渐变色，可以根据需要调整颜色值
+          },
+          pieces: [
+            { value: 0, color: '#FFFFFF' }, // 将值为0的数据映射到白色
+            { min: 1 } // 其他数据按照设定的颜色渐变
+          ]
+        },
+
+        calendar: {
+          top: 80,
+          left: 30,
+          right: 30,
+          cellSize: ['auto', 13],
+          range: [startDate, endDate],
+          itemStyle: {
+            borderWidth: 0.5
+          },
+          yearLabel: { show: false }
+        },
+        series: {
+          type: 'heatmap',
+          coordinateSystem: 'calendar',
+          data: simulatedData
+        }
+      };
+
+      option && myChart.setOption(option);
+
+    
+  </script>
+
   
   <div class="post-list">
+    
+        <!-- 后续文章的发布年份呈现 -->
+        <div class="content-title toggle" onclick="togglePosts(2024)">
+          <h2>
+            <span class="arrow2024">&#9660;</span> <!-- 初始箭头向下 -->
+            <span>2024</span>
+          </h2>
+        </div>
+      
+
+        <div class="post-item y2024" title="sql优化学习笔记" style="display: none;">
+          <div class="time-m-d">01-08</div>
+          <div class="title">
+            <a href="/sql%E4%BC%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">
+              <span>sql优化学习笔记</span>
+            </a>
+          </div>
+        </div>
+
+
+    
+
+        <div class="post-item y2024" title="收集电子书的方法论" style="display: none;">
+          <div class="time-m-d">01-08</div>
+          <div class="title">
+            <a href="/%E6%94%B6%E9%9B%86%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E6%96%B9%E6%B3%95%E8%AE%BA.html">
+              <span>收集电子书的方法论</span>
+            </a>
+          </div>
+        </div>
+
+
     
         <!-- 后续文章的发布年份呈现 -->
         <div class="content-title toggle" onclick="togglePosts(2023)">
@@ -1576,7 +1693,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-01-08 17:26 GMT+0800 (CST), Total Posts: 112, Total Words: 171661.</div>
+    <div>Last Update: 2024-01-11 08:43 GMT+0800 (CST), Total Posts: 114, Total Words: 172179.</div>
     
 <script src="/js/uptime.js"></script>
 

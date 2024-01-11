@@ -4,6 +4,44 @@
   
     
     <entry>
+      <title>sql优化学习笔记</title>
+      <link href="/sql%E4%BC%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"/>
+      <url>/sql%E4%BC%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
+      
+        <content type="html"><![CDATA[<p>在前一段时间写了不下百段的逻辑库后，sql优化将是我下一阶段的学习方向，它和业务表现息息相关。奇怪的是，它并没有在任何一个路线图上出现，尽管它其实非常重要。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> sql </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>收集电子书的方法论</title>
+      <link href="/%E6%94%B6%E9%9B%86%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E6%96%B9%E6%B3%95%E8%AE%BA.html"/>
+      <url>/%E6%94%B6%E9%9B%86%E7%94%B5%E5%AD%90%E4%B9%A6%E7%9A%84%E6%96%B9%E6%B3%95%E8%AE%BA.html</url>
+      
+        <content type="html"><![CDATA[<p>以前我喜欢买二手纸质书，后来发现即使是二手书，价格也不便宜，而且买回来后不喜欢了不方便退。现在的技术书籍本身都是五十块钱以上（全新），而且天然落后于时代。综合下来，电子书成为首选。</p><p>首选是google。优先找GitHub上别人上传的书，这种最方便。避雷百度，虽然我确实用百度几次成功找到了书，但是经常碰见解压需要密码的，非常恶心。</p><p>如果搜索引擎找不到了，就去zlibrary试试水。鉴于zlib经常换网址，而且过程较麻烦，记录一下使用中的一些坑。首先去镜像网址检测站内找能用的网址。</p><hr><p>zlibrary/anna/libgen 镜像网址检测工具<br><a href="https://mirror.yibook.org/#tab-0">https://mirror.yibook.org/#tab-0</a></p><hr><p>有趣的是，在我写这篇文章时，我发现了一个好像是正统的zlib网站。但是当我想下载一本书时，它提示我需要升级会员，哈哈。即使是山寨网站也需要登录，但是你在正统zlib网站上注册的账户肯定是不能直接在山寨网站上用了，不过可以直接点忘记密码，会收到一个验证码，就可以登录了。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 生活 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>JavaScript函数进阶内容</title>
       <link href="/JavaScript%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E5%86%85%E5%AE%B9.html"/>
       <url>/JavaScript%E5%87%BD%E6%95%B0%E8%BF%9B%E9%98%B6%E5%86%85%E5%AE%B9.html</url>
