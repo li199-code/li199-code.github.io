@@ -52,6 +52,10 @@
       const endDate = new Date(); // 当前日期 e.g 2024.1.10
 
       const simulatedData = generateRandomData(startDate, endDate);
+      let startDate_ = new Date(startDate)
+      let endDate_ = new Date(endDate)
+      formatted_startDate = startDate_.getFullYear() + '-' + (startDate_.getMonth() + 1) + '-' + startDate_.getDate();
+      formatted_endDate = endDate_.getFullYear() + '-' + (endDate_.getMonth() + 1) + '-' + endDate_.getDate();
 
       option = {
         title: {
@@ -82,7 +86,7 @@
           left: 30,
           right: 30,
           cellSize: ['auto', 13],
-          range: [startDate, endDate],
+          range: [formatted_startDate, formatted_endDate],
           itemStyle: {
             borderWidth: 0.5
           },
