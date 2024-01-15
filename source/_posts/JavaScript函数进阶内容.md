@@ -2,7 +2,7 @@
 title: JavaScript函数进阶内容
 date: 2023-12-22 14:31:38
 updated: 2023-12-22 14:31:38
-tags: Javascript
+tags: javascript
 categories:
 ---
 

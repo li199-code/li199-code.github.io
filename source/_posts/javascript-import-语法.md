@@ -3,7 +3,7 @@ title: javascript 模块系统
 date: 2023-02-02 15:20:42
 tags:
   - nodejs
-  - ES6
+  - es6
 categories:
 ---
 
