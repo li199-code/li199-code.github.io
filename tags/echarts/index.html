@@ -11,8 +11,8 @@
   
   <title>
     
-      数值稳定性和权重初始化 
-      
+      标签 
+       : echarts
       
       |
     
@@ -112,173 +112,30 @@
 
 
       <div class="flex-container">
-        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
-<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
 
-
-
-
-  <!-- clipboard -->
-
+<div class="container tag-details">
+  <div class="content-title">
+    <h2>
+      <span>echarts</span>
+    </h2>
+  </div>
   
-    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
-  
-  
-<script src="/js/codeCopy.js"></script>
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
-  <div class="container post-details" id="post-details">
-    <div class="post-content">
-      <div class="post-title">数值稳定性和权重初始化</div>
-      <div class="post-attach">
-        <span class="post-pubtime">
-          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          
-            2023-03-27 | 
-            2023-11-17
-          
-        
-
-          <!-- 2023-03-27 | 
-          2023-11-17      -->
-        </span>
-        
-              <span class="post-categories">
-                <i class="iconfont icon-bookmark" title="分类"></i>
-                
-                <span class="span--category">
-                  <a href="/categories/%E5%8A%A8%E6%89%8Bpytorch/" title="动手pytorch">
-                    <b>#</b> 动手pytorch
-                  </a>
-                </span>
-                
-              </span>
-          
-              <span class="post-tags">
-                <i class="iconfont icon-tags mr-10" title="标签"></i>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/deep-learning/" title="deep-learning">
-                    #deep-learning
-                  </a>
-                </span>
-                
-              </span>
-          
+    <div class="post-list">
+      <div class="post-item" title="基于echarts的post contribution博客组件">
+        <span class="time-m-d">2024-01-12</span>
+        <a href="/%E5%9F%BA%E4%BA%8Eecharts%E7%9A%84post-contribution%E5%8D%9A%E5%AE%A2%E7%BB%84%E4%BB%B6.html">
+          <span>基于echarts的post contribution博客组件</span>
+        </a>
       </div>
-      <div class="markdown-body">
-        <h2 id="梯度爆炸和梯度消失问题"><a href="#梯度爆炸和梯度消失问题" class="headerlink" title="梯度爆炸和梯度消失问题"></a>梯度爆炸和梯度消失问题</h2><h3 id="梯度爆炸"><a href="#梯度爆炸" class="headerlink" title="梯度爆炸"></a>梯度爆炸</h3><p>因为梯度的计算是通过偏导数的链式法则，所以，对于一个很深的网络，反向传播时，计算最后几层的梯度，很可能会超出数值的边界。比如cuda限制了16位的浮点数运算。这时，$1.1^100$超过了数值上界，程序就会报错。</p>
-<h3 id="梯度消失"><a href="#梯度消失" class="headerlink" title="梯度消失"></a>梯度消失</h3><p>如果某几个中间层的梯度很小，接近于0，那么前面几个层的梯度也是0，权重参数就得不到更新，这就是梯度消失。Sigmoid函数求导后，两头的梯度都接近于0，所以，很容易发生梯度消失。</p>
-<h2 id="合理初始化权重"><a href="#合理初始化权重" class="headerlink" title="合理初始化权重"></a>合理初始化权重</h2><p>合理初始化权重，可以缓解梯度爆炸和梯度消失问题。合理初始化化权重，就好比在选择一个离终点（最优点）近，且好走的起点。具体做法是，假设每层的输出和权重都满足独立正态分布，且均值、方差都相等。这种假设有以下几个原因(chatgpt)：</p>
-<blockquote>
-<p>避免梯度消失或梯度爆炸：如果每一层的输出和权重具有相同的均值和方差，那么它们传递的梯度也会有相同的大小，这可以避免梯度消失或梯度爆炸问题。</p>
-<p>提高网络的收敛速度：假设每一层的输出和权重具有相同的均值和方差，可以使网络更容易收敛，因为权重初始化过大或过小可能会使得网络的训练变得非常缓慢。</p>
-<p>减少过拟合的可能性：如果权重初始化过大，网络容易出现过拟合现象，而假设每一层的输出和权重具有相同的均值和方差可以避免这种情况的发生。</p>
-</blockquote>
-
-      </div>
-      
-        <div class="prev-or-next">
-          <div class="post-foot-next">
-            
-              <a href="/%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%EF%BC%88MLP.html" target="_self">
-                <i class="iconfont icon-chevronleft"></i>
-                <span>上一页</span>
-              </a>
-            
-          </div>
-          <!-- <div class="post-attach">
-            <span class="post-pubtime">
-              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17
-            </span>
-            
-                  <span class="post-categories">
-                    <i class="iconfont icon-bookmark" title="分类"></i>
-                    
-                    <span class="span--category">
-                      <a href="/categories/%E5%8A%A8%E6%89%8Bpytorch/" title="动手pytorch">
-                        <b>#</b> 动手pytorch
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags mr-10" title="标签"></i>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/deep-learning/" title="deep-learning">
-                        #deep-learning
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-          </div> -->
-          <div class="post-foot-prev">
-            
-              <a href="/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%83%E9%87%8D%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E4%B8%BA0.html" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
-            
-          </div>
-        </div>
-      
     </div>
-    
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">目录</div>
-    <div class="catalog-content">
-      
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8%E5%92%8C%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1%E9%97%AE%E9%A2%98"><span class="toc-text">梯度爆炸和梯度消失问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E7%88%86%E7%82%B8"><span class="toc-text">梯度爆炸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A2%AF%E5%BA%A6%E6%B6%88%E5%A4%B1"><span class="toc-text">梯度消失</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%88%E7%90%86%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9D%83%E9%87%8D"><span class="toc-text">合理初始化权重</span></a></li></ol>
-      
-    </div>
-  </div>
-
   
-<script src="/js/catalog.js"></script>
-
-
-
-
+  <nav class="post-navigation">
     
-      <div class="comments-container">
-        
-
-
-
-
-
-
-
-<script src="https://giscus.app/client.js" data-repo="li199-code/li199-code.github.io" data-repo-id="R_kgDOKm243A"
-  data-category="Announcements" data-category-id="DIC_kwDOKm243M4Cb-iG" data-mapping="title" data-strict="0"
-  data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
-  data-lang="zh-CN" crossorigin="anonymous" async>
-  </script>
-
-      </div>
+    <span class="page-num">1 / 1</span>
     
-  </div>
-
+  </nav>
+</div>
 
         
 <div class="footer">

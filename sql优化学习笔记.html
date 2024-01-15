@@ -169,6 +169,15 @@
       </div>
       <div class="markdown-body">
         <p>在前一段时间写了不下百段的逻辑库后，sql优化将是我下一阶段的学习方向，它和业务表现息息相关。奇怪的是，它并没有在任何一个路线图上出现，尽管它其实非常重要。</p>
+<p>首先明确什么是sql优化：</p>
+<blockquote>
+<p>SQL优化，就是指将一条SQL写的更加简洁，让SQL的执行速度更快，易读性与维护性更好。</p>
+</blockquote>
+<p>其中，快自然是首要的优化目标，至于易读性嘛，只能说兼顾，毕竟大家都是在屎山上拉屎的那个。那么如何定义一段好的sql语句呢，标准如下：</p>
+<blockquote>
+<p>减小查询的数据量、提升SQL的索引命中率</p>
+</blockquote>
+<p>另外，从测试指标上，最基本的有执行时间，这在navicat上都有显示。遇到一条执行慢的sql，应该先用explain命令得到查询计划，里面有很多有用的信息。</p>
 
       </div>
       
@@ -200,6 +209,11 @@
               
           </div> -->
           <div class="post-foot-prev">
+            
+              <a href="/%E5%9F%BA%E4%BA%8Eecharts%E7%9A%84post-contribution%E5%8D%9A%E5%AE%A2%E7%BB%84%E4%BB%B6.html" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
             
           </div>
         </div>
@@ -294,7 +308,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-01-11 08:43 GMT+0800 (CST), Total Posts: 114, Total Words: 172179.</div>
+    <div>Last Update: 2024-01-15 08:51 GMT+0800 (CST), Total Posts: 115, Total Words: 176980.</div>
     
 <script src="/js/uptime.js"></script>
 

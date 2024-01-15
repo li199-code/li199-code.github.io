@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-01-08T14:01:24.000Z</updated>
+  <updated>2024-01-12T15:03:33.000Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于echarts的post contribution博客组件</title>
+    <link href="https://blog.jasonleehere.com/%E5%9F%BA%E4%BA%8Eecharts%E7%9A%84post-contribution%E5%8D%9A%E5%AE%A2%E7%BB%84%E4%BB%B6.html"/>
+    <id>https://blog.jasonleehere.com/%E5%9F%BA%E4%BA%8Eecharts%E7%9A%84post-contribution%E5%8D%9A%E5%AE%A2%E7%BB%84%E4%BB%B6.html</id>
+    <published>2024-01-12T15:03:33.000Z</published>
+    <updated>2024-01-12T15:03:33.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;最近觉得博客的archive页太空旷了，和首页雷同，且文章多了之后，archieve页很长。archive页平时也不做停留，基本没有意义。因此，我决定改造一下archive，修复并添加一些东西。首先是历史文章要支持展开和收起，这样，archive页面就不会过长了。然后，仿照
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="网站建设" scheme="https://blog.jasonleehere.com/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/"/>
+    
+      <category term="echarts" scheme="https://blog.jasonleehere.com/tags/echarts/"/>
+    
+  </entry>
   
   <entry>
     <title>sql优化学习笔记</title>
@@ -30,7 +57,9 @@
         
         
           &lt;p&gt;在前一段时间写了不下百段的逻辑库后，sql优化将是我下一阶段的学习方向，它和业务表现息息相关。奇怪的是，它并没有在任何一个路线图上出现，尽管它其实非常重要。&lt;/p&gt;
-
+&lt;p&gt;首先明确什么是sql优化：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;SQL优化，就是指将一条SQL写的
         
       
     
@@ -89,7 +118,7 @@
     
     
     
-      <category term="Javascript" scheme="https://blog.jasonleehere.com/tags/Javascript/"/>
+      <category term="javascript" scheme="https://blog.jasonleehere.com/tags/javascript/"/>
     
   </entry>
   
@@ -140,7 +169,7 @@
     
     
     
-      <category term="ES6" scheme="https://blog.jasonleehere.com/tags/ES6/"/>
+      <category term="es6" scheme="https://blog.jasonleehere.com/tags/es6/"/>
     
   </entry>
   
@@ -165,7 +194,7 @@
     
     
     
-      <category term="ES6" scheme="https://blog.jasonleehere.com/tags/ES6/"/>
+      <category term="es6" scheme="https://blog.jasonleehere.com/tags/es6/"/>
     
   </entry>
   
@@ -523,33 +552,6 @@
     
     
       <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>投资基金记录（长期更新）</title>
-    <link href="https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%AE%B0%E5%BD%95.html"/>
-    <id>https://blog.jasonleehere.com/%E6%8A%95%E8%B5%84%E5%9F%BA%E9%87%91%E8%AE%B0%E5%BD%95.html</id>
-    <published>2023-10-19T07:22:44.000Z</published>
-    <updated>2023-12-22T06:06:20.622Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;起步&quot;&gt;&lt;a href=&quot;#起步&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="投资知识和实操" scheme="https://blog.jasonleehere.com/categories/%E6%8A%95%E8%B5%84%E7%9F%A5%E8%AF%86%E5%92%8C%E5%AE%9E%E6%93%8D/"/>
-    
-    
-      <category term="基金" scheme="https://blog.jasonleehere.com/tags/%E5%9F%BA%E9%87%91/"/>
     
   </entry>
   
