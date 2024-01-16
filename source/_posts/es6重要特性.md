@@ -2,7 +2,7 @@
 title: es6重要特性
 date: 2023-12-16 21:12:33
 updated: 2023-12-16 21:12:33
-tags: ES6
+tags: es6
 categories:
 ---
 
