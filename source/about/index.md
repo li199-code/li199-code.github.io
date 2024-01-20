@@ -6,13 +6,15 @@ layout: "about"
 
 ![17039493831578070e401a72b3c6f6e771eb976894d7.jpg](https://fastly.jsdelivr.net/gh/li199-code/blog-img-2@main/17039493831578070e401a72b3c6f6e771eb976894d7.jpg)
 
-## 读过的书
+Nodejs Web开发，心灵流浪者。
+
+<!-- ## 读过的书
 
 2023 年：
 
 - 《深入浅出 nodejs 朴灵 2013》
 - 《nodejs 实战（第二版）亚历克斯-杨 2018》
-- 《sql 必知必会（第四版） Ben Forta 2013》
+- 《sql 必知必会（第四版） Ben Forta 2013》 -->
 
 ## 关于本站
 
