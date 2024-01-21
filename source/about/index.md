@@ -24,23 +24,18 @@ Nodejs Web开发，心灵流浪者。
 
 ### 架构
 
-本站从建立之初至今一直采用 hexo 作为静态页面生成器，hexo 的优点是依赖于我相对熟悉的 javascript 且渲染速度快。主题目前采用了开源的 [oranges](https://github.com/zchengsite/hexo-theme-oranges)，我自己在此基础上添加了一些功能并修改了局部样式来满足我的喜好。网站和图片都托管在 github，结合 jsdelivr cdn 来加快访问速度。giscus 是本站评论系统，也是一个基于github生态链的开源产品。
+博客是基于hexo生成的静态网站。网站源文件和图片都托管在 github，结合 jsdelivr cdn 来加快访问速度。giscus 是本站评论系统，也是一个基于github生态链的开源产品。
 
 ### 更新
 
 2022/7
 
-- 网站成立，基于 GitHub pages 提供的免费服务器，域名在 Namesilo 上购买，hexo 主题是 next.js, top 后缀域名（￥ 6.72/year）是全部花销。
-
-2023/1
-
-- 把主题换成 butterfly
+- 网站成立，基于 GitHub pages 提供的免费服务器，域名在 Namesilo 上购买，top 后缀域名（￥ 6.72/year）是全部花销。
 
 2023/3
 
-- 主题换为极简的 oranges
 - 用 cloudflare 的 nameserver
-- vercel提供静态文件托管服务
+- 改用vercel提供静态文件托管服务
 
 2023/5
 
