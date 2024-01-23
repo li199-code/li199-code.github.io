@@ -1,7 +1,6 @@
 ---
 title: sql优化工具——学会看执行计划
 date: 2024-01-08 22:01:24
-updated: 2024-01-08 22:01:24
 tags: sql
 categories:
 ---
