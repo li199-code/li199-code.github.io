@@ -8,7 +8,7 @@ layout: "about"
 
 ## 关于我
 
-Nodejs Web开发，心灵流浪者。
+Nodejs Web 开发，心灵流浪者。
 
 <!-- ## 读过的书
 
@@ -24,7 +24,7 @@ Nodejs Web开发，心灵流浪者。
 
 ### 架构
 
-博客是基于hexo生成的静态网站。网站源文件和图片都托管在 github，结合 jsdelivr cdn 来加快访问速度。giscus 是本站评论系统，也是一个基于github生态链的开源产品。
+博客是基于 hexo 生成、利用 github pages 提供服务的静态网站。图片托管在 github 仓库，结合 jsdelivr cdn 来加快访问速度。giscus 是本站评论系统，也是一个基于 github 生态链的开源产品。
 
 ### 更新
 
@@ -35,7 +35,7 @@ Nodejs Web开发，心灵流浪者。
 2023/3
 
 - 用 cloudflare 的 nameserver
-- 改用vercel提供静态文件托管服务
+- 改用 vercel 提供静态文件托管服务
 
 2023/5
 
@@ -43,4 +43,4 @@ Nodejs Web开发，心灵流浪者。
 
 2023/11
 
-- 因为样式解析需要低版本的 nodejs，而 vercel 不提供，回归 github page
+- 因为样式解析需要低版本的 nodejs，而 vercel 不提供，回归 github pages
