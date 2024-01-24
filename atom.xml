@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-01-12T15:03:33.000Z</updated>
+  <updated>2024-01-23T09:08:33.184Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,64 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>子查询和表联结的实践整理</title>
+    <link href="https://blog.jasonleehere.com/%E5%AD%90%E6%9F%A5%E8%AF%A2%E5%92%8C%E8%A1%A8%E8%81%94%E7%BB%93%E7%9A%84%E5%AE%9E%E8%B7%B5%E6%95%B4%E7%90%86.html"/>
+    <id>https://blog.jasonleehere.com/%E5%AD%90%E6%9F%A5%E8%AF%A2%E5%92%8C%E8%A1%A8%E8%81%94%E7%BB%93%E7%9A%84%E5%AE%9E%E8%B7%B5%E6%95%B4%E7%90%86.html</id>
+    <published>2024-01-21T09:59:23.000Z</published>
+    <updated>2024-01-23T09:08:33.184Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;子查询&quot;&gt;&lt;a href=&quot;#子查询&quot; class=&quot;headerlink&quot; title=&quot;子查询&quot;&gt;&lt;/a&gt;子查询&lt;/h2&gt;&lt;p&gt;子查询是指嵌套在其他查询里的查询。主要有两个使用位置，一个是利用子查询进行过滤，另一个是作为计算字段使用子查询。&lt;/p&gt;
+&lt;h3
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="sql优化" scheme="https://blog.jasonleehere.com/tags/sql%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我对中国这些年政治情况的一些看法</title>
+    <link href="https://blog.jasonleehere.com/%E6%88%91%E5%AF%B9%E4%B8%AD%E5%9B%BD%E8%BF%99%E4%BA%9B%E5%B9%B4%E6%94%BF%E6%B2%BB%E6%83%85%E5%86%B5%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95.html"/>
+    <id>https://blog.jasonleehere.com/%E6%88%91%E5%AF%B9%E4%B8%AD%E5%9B%BD%E8%BF%99%E4%BA%9B%E5%B9%B4%E6%94%BF%E6%B2%BB%E6%83%85%E5%86%B5%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95.html</id>
+    <published>2024-01-20T14:22:47.000Z</published>
+    <updated>2024-01-23T09:08:33.185Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;这篇文章是临时起意写下的，引子是我在视频网站上看到了关于电影《寒战2》的解说，然后翻看了维基百科关于香港反修例活动的记录。&lt;/p&gt;
+&lt;p&gt;具体的过程就不说了，维基百科讲的比我清楚多了。就说说我当时的想法吧。2019年，我正在上大四，准备考研。示威游行的高峰应该是暑假（6-8
+        
+      
+    
+    </summary>
+    
+    
+      <category term="润学心经" scheme="https://blog.jasonleehere.com/categories/%E6%B6%A6%E5%AD%A6%E5%BF%83%E7%BB%8F/"/>
+    
+    
+      <category term="run" scheme="https://blog.jasonleehere.com/tags/run/"/>
+    
+      <category term="政治" scheme="https://blog.jasonleehere.com/tags/%E6%94%BF%E6%B2%BB/"/>
+    
+      <category term="随想" scheme="https://blog.jasonleehere.com/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+  </entry>
   
   <entry>
     <title>基于echarts的post contribution博客组件</title>
@@ -44,11 +102,11 @@
   </entry>
   
   <entry>
-    <title>sql优化学习笔记</title>
+    <title>sql优化工具——学会看执行计划</title>
     <link href="https://blog.jasonleehere.com/sql%E4%BC%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"/>
     <id>https://blog.jasonleehere.com/sql%E4%BC%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</id>
     <published>2024-01-08T14:01:24.000Z</published>
-    <updated>2024-01-08T14:01:24.000Z</updated>
+    <updated>2024-01-24T00:54:06.319Z</updated>
     
     <summary type="html">
     
@@ -56,10 +114,7 @@
       
         
         
-          &lt;p&gt;在前一段时间写了不下百段的逻辑库后，sql优化将是我下一阶段的学习方向，它和业务表现息息相关。奇怪的是，它并没有在任何一个路线图上出现，尽管它其实非常重要。&lt;/p&gt;
-&lt;p&gt;首先明确什么是sql优化：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;SQL优化，就是指将一条SQL写的
+          &lt;h2 id=&quot;sql-优化总览&quot;&gt;&lt;a href=&quot;#sql-优化总览&quot; class=&quot;headerlink&quot; title=&quot;sql 优化总览&quot;&gt;&lt;/a&gt;sql 优化总览&lt;/h2&gt;&lt;p&gt;在前一段时间写了不下百段的逻辑库后，sql
         
       
     
@@ -127,7 +182,7 @@
     <link href="https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html"/>
     <id>https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html</id>
     <published>2023-12-21T13:04:19.000Z</published>
-    <updated>2023-12-21T13:04:19.000Z</updated>
+    <updated>2024-01-23T09:08:33.183Z</updated>
     
     <summary type="html">
     
@@ -497,61 +552,6 @@
     
     
       <category term="经济" scheme="https://blog.jasonleehere.com/tags/%E7%BB%8F%E6%B5%8E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python机器学习-在web中嵌入机器学习模型</title>
-    <link href="https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9C%A8web%E4%B8%AD%E5%B5%8C%E5%85%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B.html"/>
-    <id>https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E5%9C%A8web%E4%B8%AD%E5%B5%8C%E5%85%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B.html</id>
-    <published>2023-10-28T12:34:28.000Z</published>
-    <updated>2023-11-17T13:56:07.606Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;本书第九章通过一个简单的文本情感分析的例子，讲述如何在网站上提供机器学习服务。&lt;/p&gt;
-&lt;p&gt;首先我们来分析一下需求。流程描述是，用户输入一段文本，后台将文本送入模型，并把结果返回给前端，用户对结果进行反馈。后台将反馈和输入文本记录到数据库，并更新分类器。那么，我们应该先在
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python 机器学习" scheme="https://blog.jasonleehere.com/categories/python-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python机器学习-模型评估与参数调优</title>
-    <link href="https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98.html"/>
-    <id>https://blog.jasonleehere.com/python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E5%8F%82%E6%95%B0%E8%B0%83%E4%BC%98.html</id>
-    <published>2023-10-23T15:20:22.000Z</published>
-    <updated>2023-11-17T13:56:07.607Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;性能指标（二分类问题）&quot;&gt;&lt;a href=&quot;#性能指标（二分类问题）&quot; class=&quot;headerlink&quot; title=&quot;性能指标（二分类问题）&quot;&gt;&lt;/a&gt;性能指标（二分类问题）&lt;/h2&gt;&lt;h3 id=&quot;混淆矩阵&quot;&gt;&lt;a href=&quot;#混淆矩阵&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="python 机器学习" scheme="https://blog.jasonleehere.com/categories/python-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-      <category term="machine-learning" scheme="https://blog.jasonleehere.com/tags/machine-learning/"/>
     
   </entry>
   
