@@ -148,12 +148,12 @@
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
             2023-12-21 | 
-            2024-01-23
+            2024-01-26
           
         
 
           <!-- 2023-12-21 | 
-          2024-01-23      -->
+          2024-01-26      -->
         </span>
         
               <span class="post-tags">
@@ -187,11 +187,9 @@
 </ul>
 <p>周末了，想聊点最近思考的东西。</p>
 <p>最近也算是深刻体会到了为什么很多人上学时开通了博客，但是毕业工作后就很少更新了。上班很容易耗尽注意力，进入一种心累的状态。下了班到家，就想躺床上刷手机，被动娱乐，难以主动学习。要想破局，要么是在上班时间，人的注意力还算充沛的时候，能接触思考富有锻炼性质的需求，从而提升能力（这对于程序员来说确实是自我提升的最快方式）；要么就是进行有效的精力管理，让自己的身体和脑子适应下班后保持学习的强度。</p>
-<p>还有，我一直以来有一种疑问：我一直在crud的圈子里打转，尽管算上研究生开始将计算机作为吃饭的家伙已经有三年多了，但是自己似乎还是没有突破下一个层级。最近想看一些数据库的书，却发现到中间看不下去。那些并发、锁之类的概念，书中也没有具体的例子，不知道怎么用。我陷入了一种迷茫，不知道下一步学什么。当我在知乎上看到一篇回答，我得到了一些启发。</p>
-<hr>
-<p>Node.js 是否是处理高并发最好的选择？<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/355501130/answer/899900063">https://www.zhihu.com/question/355501130/answer/899900063</a></p>
-<hr>
-<p>文中提到了sql优化，数据库设计和缓存命中率，这不就是为我下一步的学习解决了方向吗？没有那些不知道用不用的上的晦涩概念，一切从实际场景出发。</p>
+<p>还有，我一直以来有一种疑问：我一直在 crud 的圈子里打转，尽管算上研究生开始将计算机作为吃饭的家伙已经有三年多了，但是自己似乎还是没有突破下一个层级。最近想看一些数据库的书，却发现到中间看不下去。那些并发、锁之类的概念，书中也没有具体的例子，不知道怎么用。我陷入了一种迷茫，不知道下一步学什么。当我在知乎上看到一篇回答，我得到了一些启发。</p>
+<p><a target="_blank" href="https://www.zhihu.com/question/355501130/answer/899900063" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">Node.js 是否是处理高并发最好的选择？</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>https://www.zhihu.com/question/355501130/answer/899900063</span></span></span></a></p>
+<p>文中提到了 sql 优化，数据库设计和缓存命中率，这不就是为我下一步的学习解决了方向吗？没有那些不知道用不用的上的晦涩概念，一切从实际场景出发。</p>
 <ul>
 <li>1.13</li>
 </ul>
@@ -208,20 +206,25 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>hr大屏取数，编写了很多<strong>sql查询</strong>，写了很多<strong>定时任务</strong></td>
-<td>sql查询、定时任务</td>
+<td>hr 大屏取数，编写了很多<strong>sql 查询</strong>，写了很多<strong>定时任务</strong></td>
+<td>sql 查询、定时任务</td>
 </tr>
 <tr>
-<td>充电桩项目，TCP报文的编码解码，起到<strong>中间件</strong>的作用，是基于<strong>socket</strong>传输实现的</td>
-<td>中间件、socket编程</td>
+<td>充电桩项目，TCP 报文的编码解码，起到<strong>中间件</strong>的作用，是基于<strong>socket</strong>传输实现的</td>
+<td>中间件、socket 编程</td>
 </tr>
 <tr>
-<td>hq大屏项目，用到了<strong>kafka</strong>作为消息队列，<strong>flink</strong>作为消费者</td>
+<td>hq 大屏项目，用到了<strong>kafka</strong>作为消息队列，<strong>flink</strong>作为消费者</td>
 <td>kafka、flink</td>
 </tr>
 </tbody></table>
-<p>其实关是一个sql查询，就有很多学习空间。我写leetcode上的sql题时还是有很多没见过的需求。</p>
+<p>其实关是一个 sql 查询，就有很多学习空间。我写 leetcode 上的 sql 题时还是有很多没见过的需求。</p>
 <p>还有自己做过的所有需求几乎都是面向后台的，比如后台管理系统，下一步是不是也要找点面向前台的需求呢？</p>
+<ul>
+<li>1.25</li>
+</ul>
+<p>这周非常有戏剧性。上周本以为充电桩项目已经基本完成了，这周三却被告知根本没入手最核心部分：将各接口按照实际流程组合起来测试一遍。结果做起来才知道坑爹之处：首先是 tcp 反直觉，tcp 报文一次发送，并不能收到对应的返回。其次，是三人联调，好处是出了问题一起想，坏处就是沟通成本高。</p>
+<p>需求是做不完的，这几天因为各种各样的原因，休息的也不好。确实要注意精力管理了。</p>
 
       </div>
       
@@ -237,7 +240,7 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2024-01-23
+              2024-01-26
             </span>
             
                   <span class="post-tags">
@@ -369,7 +372,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-01-24 08:59 GMT+0800, Total Posts: 117, Total Words: 181386.</div>
+    <div>Last Update: 2024-01-26 23:15 GMT+0800, Total Posts: 118, Total Words: 181977.</div>
     
 <script src="/js/uptime.js"></script>
 

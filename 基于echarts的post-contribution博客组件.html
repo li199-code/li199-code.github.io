@@ -180,9 +180,7 @@
 
 <p>这样兄弟选择器是没法只选中对应的年份的所有文章的。解决方法是给文章的div添加对应的年份class，如’y2023’.并且给onclick事件传入年份变量。</p>
 <h2 id="post-contribution"><a href="#post-contribution" class="headerlink" title="post contribution"></a>post contribution</h2><p>echarts是一个开源的图表库，支持创建丰富类型的图表，且配置性高。</p>
-<hr>
-<p>echarts使用手册<br><a target="_blank" rel="noopener" href="https://echarts.apache.org/handbook/zh/get-started/">https://echarts.apache.org/handbook/zh/get-started/</a></p>
-<hr>
+<p><a target="_blank" href="https://echarts.apache.org/handbook/zh/get-started/" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">echarts使用手册</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>https://echarts.apache.org/handbook/zh/get-started/</span></span></span></a></p>
 <p>开始并不顺利，安装就卡住了。按照’hexo echarts’去google，得到的方案是装一个npm包，但是实际上无效，图表没有被解析。后来用了质朴的cdn导入方式才成功。安装成功后，跑了一个demo也成功了，可是实现我的定制化需求时又犯了难。我的需求是，显示过去一年内，每天的文章创建数。echarts有很多配置项，不看文档是搞不清楚的。然而，配置项文档都是文字说明，没有对应的效果展示。还好，有chatgpt。描述好需求，gpt给出了非常接近的答案，再经过几轮问答补充细节后，我想要的效果就达成了。</p>
 <p>接着是数据的问题。我一开始的想法是，先在ejs中遍历site.posts，获得一个键为日期，值为当日发布文章数的对象。然后创建一个数据生成函数，遍历近一年的每一天，从之前的对象中取值。但是，当我实现到一半，发现一个问题：ejs创建的对象，无法被script标签读到。又是gpt给出了解决方案：将对象绑定在全局window上。</p>
 <p>完整代码：</p>
@@ -343,7 +341,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-01-24 08:59 GMT+0800, Total Posts: 117, Total Words: 181386.</div>
+    <div>Last Update: 2024-01-26 23:15 GMT+0800, Total Posts: 118, Total Words: 181977.</div>
     
 <script src="/js/uptime.js"></script>
 
