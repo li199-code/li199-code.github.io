@@ -2,7 +2,7 @@
 title: 同步异步任务在javascript中的实现
 author: Jason Lee
 date: 2023-08-07 14:45:51
-tags:
+tags: 异步编程
 categories:
 ---
 
@@ -95,8 +95,8 @@ Received data: Data
 
 所以，阻塞的部分仅仅是 async 修饰的函数内部，而不是整个程序。到这里，我也明白了 async 修饰符的意义，那就是告诉浏览器或者 nodejs，这部分代码必须要按照顺序串行执行。
 
-## 更新2
+## 更新 2
 
-async函数本质上还是一个返回promise容器的函数。async的作用，是把promise仍稍显古怪的then().then()这种‘一连串’写法，改成了跟同步一样的写法。即await来代替then。同时，更新1的例子中，fetchData()后面还能跟一个.then()，说明了async最终还是返回了一个promise容器。
+async 函数本质上还是一个返回 promise 容器的函数。async 的作用，是把 promise 仍稍显古怪的 then().then()这种‘一连串’写法，改成了跟同步一样的写法。即 await 来代替 then。同时，更新 1 的例子中，fetchData()后面还能跟一个.then()，说明了 async 最终还是返回了一个 promise 容器。
 
-async就像一个大的promise，装了小的promise。
+async 就像一个大的 promise，装了小的 promise。
