@@ -16,9 +16,9 @@ Nodejs Web 开发。喜欢独处，朋友很少。放松时脸很臭，让人不
 
 ### 架构
 
-博客是基于 hexo 生成、利用 github pages 提供服务的静态网站。图片托管在 github 仓库，结合 jsdelivr cdn 来加快访问速度。giscus 是本站评论系统，基于 github discussion。
+为了让网站更极客，以及可以完全免费运营（主要出于后者），我决定完全拥抱 github 生态。博客是基于 hexo 生成、利用 github pages 提供服务的静态网站。图片托管在 github 仓库，结合 jsdelivr cdn 来加快访问速度。基于 github discussion 的 giscus 是本站评论系统。
 
-### 更新
+### 博客里程碑
 
 2022/7
 
