@@ -11,8 +11,8 @@
   
   <title>
     
-      js事件循环机制 
-      
+      标签 
+       : postgresql
       
       |
     
@@ -112,126 +112,30 @@
 
 
       <div class="flex-container">
-        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
-<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
 
-
-
-
-  <!-- clipboard -->
-
+<div class="container tag-details">
+  <div class="content-title">
+    <h2>
+      <span>postgresql</span>
+    </h2>
+  </div>
   
-    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
-  
-  
-<script src="/js/codeCopy.js"></script>
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
-  <div class="container post-details" id="post-details">
-    <div class="post-content">
-      <div class="post-title">js事件循环机制</div>
-      <div class="post-attach">
-        <span class="post-pubtime">
-          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          
-            2022-09-08 | 
-            2023-11-17
-          
-        
-
-          <!-- 2022-09-08 | 
-          2023-11-17      -->
-        </span>
-        
+    <div class="post-list">
+      <div class="post-item" title="在ubuntu系统上操作postgresql">
+        <span class="time-m-d">2024-01-26</span>
+        <a href="/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%A3%E6%9B%BF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E5%AD%A6%E4%B9%A0linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%A7%8D%E9%80%89%E6%8B%A9.html">
+          <span>在ubuntu系统上操作postgresql</span>
+        </a>
       </div>
-      <div class="markdown-body">
-        <h3 id="一个困扰我已久的问题："><a href="#一个困扰我已久的问题：" class="headerlink" title="一个困扰我已久的问题："></a>一个困扰我已久的问题：</h3><p>JS 是单线程的，在同一个时间只能做一件事情，那为什么浏览器可以同时执行异步任务呢？</p>
-<span id="more"></span>
-
-<p>这是因为浏览器是多线程的，当 JS 需要执行异步任务时，浏览器会另外启动一个线程去执行该任务。也就是说，JavaScript是单线程的指的是执行JavaScript代码的线程只有一个，是浏览器提供的JavaScript引擎线程（主线程）。除此之外，浏览器中还有定时器线程、 HTTP 请求线程等线程，这些线程主要不是来执行 JS 代码的。<br>比如主线程中需要发送数据请求，就会把这个任务交给异步 HTTP 请求线程去执行，等请求数据返回之后，再将 callback 里需要执行的 JS 回调交给 JS 引擎线程去执行。也就是说，浏览器才是真正执行发送请求这个任务的角色，而 JS 只是负责执行最后的回调处理。所以这里的异步不是 JS 自身实现的，而是浏览器为其提供的能力。</p>
-<p>作者：CUGGZ<br>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6992167223523541023">https://juejin.cn/post/6992167223523541023</a><br>来源：稀土掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-
-      </div>
-      
-        <div class="prev-or-next">
-          <div class="post-foot-next">
-            
-              <a href="/%E5%87%BD%E6%95%B0%E7%9A%84%E5%8F%98%E9%87%8F%E6%8F%90%E5%8D%87%E7%AD%89.html" target="_self">
-                <i class="iconfont icon-chevronleft"></i>
-                <span>上一页</span>
-              </a>
-            
-          </div>
-          <!-- <div class="post-attach">
-            <span class="post-pubtime">
-              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17
-            </span>
-            
-          </div> -->
-          <div class="post-foot-prev">
-            
-              <a href="/moka%E6%8B%9B%E8%81%98%E7%B3%BB%E7%BB%9F%E9%9D%A2%E8%AF%95%E7%8A%B6%E6%80%81%E7%88%AC%E8%99%AB.html" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
-            
-          </div>
-        </div>
-      
     </div>
-    
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">目录</div>
-    <div class="catalog-content">
-      
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%9B%B0%E6%89%B0%E6%88%91%E5%B7%B2%E4%B9%85%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-text">一个困扰我已久的问题：</span></a></li></ol>
-      
-    </div>
-  </div>
-
   
-<script src="/js/catalog.js"></script>
-
-
-
-
+  <nav class="post-navigation">
     
-      <div class="comments-container">
-        
-
-
-
-
-
-
-
-<script src="https://giscus.app/client.js" data-repo="li199-code/li199-code.github.io" data-repo-id="R_kgDOKm243A"
-  data-category="Announcements" data-category-id="DIC_kwDOKm243M4Cb-iG" data-mapping="title" data-strict="0"
-  data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
-  data-lang="zh-CN" crossorigin="anonymous" async>
-  </script>
-
-      </div>
+    <span class="page-num">1 / 1</span>
     
-  </div>
-
+  </nav>
+</div>
 
         
 <div class="footer">
@@ -299,7 +203,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-01-26 23:15 GMT+0800, Total Posts: 118, Total Words: 181977.</div>
+    <div>Last Update: 2024-02-01 13:08 GMT+0800, Total Posts: 116, Total Words: 182822.</div>
     
 <script src="/js/uptime.js"></script>
 

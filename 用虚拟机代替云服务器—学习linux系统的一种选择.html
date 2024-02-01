@@ -11,7 +11,7 @@
   
   <title>
     
-      用虚拟机代替云服务器—学习linux系统的一种选择 
+      在ubuntu系统上操作postgresql 
       
       
       |
@@ -142,22 +142,40 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">用虚拟机代替云服务器—学习linux系统的一种选择</div>
+      <div class="post-title">在ubuntu系统上操作postgresql</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
-            2024-01-26
+            2024-01-26 | 
+            2024-01-31
           
         
 
           <!-- 2024-01-26 | 
-          2024-01-26      -->
+          2024-01-31      -->
         </span>
         
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/postgresql/" title="postgresql">
+                    #postgresql
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/linux/" title="linux">
+                    #linux
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
       <div class="markdown-body">
-        <p>这几天在学习 pgsql，用 windows 环境有诸多限制，比如很多监听工具只能跑在 linux。一开始，我是想买一台云服务器的，但是后来发现，根据自己的需求，只要一台本地的 linux 虚拟机就可以实现了。本地虚拟机可以联网，可以下载安装包。这就够了。</p>
+        <h2 id="用虚拟机代替云服务器—学习-linux-系统的一种选择"><a href="#用虚拟机代替云服务器—学习-linux-系统的一种选择" class="headerlink" title="用虚拟机代替云服务器—学习 linux 系统的一种选择"></a>用虚拟机代替云服务器—学习 linux 系统的一种选择</h2><p>这几天在学习 pgsql，用 windows 环境有诸多限制，比如很多监听工具只能跑在 linux。一开始，我是想买一台云服务器的，但是后来发现，根据自己的需求，只要一台本地的 linux 虚拟机就可以实现了。本地虚拟机可以联网，可以下载安装包。这就够了。</p>
 <p>我的电脑之前装过虚拟机，故接下来的步骤是开放 22 端口方便外部通过 ssh 连接。运行下列命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install openssh-server //openssh提供ssh服务</span><br><span class="line">sudo service ssh status //查看ssh服务状态</span><br></pre></td></tr></table></figure>
 
@@ -166,6 +184,52 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ifconfig</span><br></pre></td></tr></table></figure>
 
 <p>查看 ens33 后面的 inet 地址。回到 xshell，新建连接，把 ip 地址填入，输入用户名密码（用户名似乎不能是 root），即可连接。</p>
+<h2 id="安装-postgresql"><a href="#安装-postgresql" class="headerlink" title="安装 postgresql"></a>安装 postgresql</h2><ul>
+<li>更新软件包列表：</li>
+</ul>
+<p>打开终端，运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装 PostgreSQL：</li>
+</ul>
+<p>继续运行以下命令安装 PostgreSQL：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install postgresql postgresql-contrib</span><br></pre></td></tr></table></figure>
+
+<p>这将安装 PostgreSQL 数据库服务器和一些附加组件。</p>
+<ul>
+<li>启动 PostgreSQL 服务：</li>
+</ul>
+<p>安装完成后，PostgreSQL 服务将自动启动。如果没有，你可以手动启动它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service postgresql start</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建一个 PostgreSQL 用户：</li>
+</ul>
+<p>默认情况下，PostgreSQL 安装时会创建一个名为 postgres 的系统用户，也会创建一个相应的数据库用户。为了方便，我们可以切换到 postgres 用户并进入 PostgreSQL 命令行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres psql</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>为用户设置密码：</li>
+</ul>
+<p>在 PostgreSQL 命令行中，可以为 postgres 用户设置密码：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">USER</span> postgres PASSWORD <span class="string">&#x27;your_password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>将 ‘your_password’ 替换为你想要设置的密码。</p>
+<ul>
+<li>退出 PostgreSQL 命令行：</li>
+</ul>
+<p>在 PostgreSQL 命令行中，键入以下命令退出：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\q</span><br></pre></td></tr></table></figure>
+
+<p>然后，通过键入 exit 或关闭终端来退出 postgres 用户。</p>
+<ul>
+<li>访问 PostgreSQL：</li>
+</ul>
+<p>你现在可以使用新设置的密码通过以下命令登录到 PostgreSQL：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">psql -U postgres -h localhost -d postgres</span><br></pre></td></tr></table></figure>
+
+<p>这将提示输入密码，输入之前设置的密码即可登录。</p>
 
       </div>
       
@@ -181,17 +245,56 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2024-01-26
+              2024-01-31
             </span>
             
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/postgresql/" title="postgresql">
+                        #postgresql
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/linux/" title="linux">
+                        #linux
+                      </a>
+                    </span>
+                    
+                  </span>
+              
           </div> -->
           <div class="post-foot-prev">
+            
+              <a href="/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95.html" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
             
           </div>
         </div>
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%A3%E6%9B%BF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E5%AD%A6%E4%B9%A0-linux-%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%A7%8D%E9%80%89%E6%8B%A9"><span class="toc-text">用虚拟机代替云服务器—学习 linux 系统的一种选择</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-postgresql"><span class="toc-text">安装 postgresql</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
 
     
       <div class="comments-container">
@@ -280,7 +383,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-01-26 23:15 GMT+0800, Total Posts: 118, Total Words: 181977.</div>
+    <div>Last Update: 2024-02-01 13:08 GMT+0800, Total Posts: 116, Total Words: 182822.</div>
     
 <script src="/js/uptime.js"></script>
 

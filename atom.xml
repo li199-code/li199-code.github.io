@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-01-26T15:12:12.410Z</updated>
+  <updated>2024-01-31T01:04:49.422Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>用虚拟机代替云服务器—学习linux系统的一种选择</title>
-    <link href="https://blog.jasonleehere.com/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%A3%E6%9B%BF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E5%AD%A6%E4%B9%A0linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%A7%8D%E9%80%89%E6%8B%A9.html"/>
-    <id>https://blog.jasonleehere.com/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%A3%E6%9B%BF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E5%AD%A6%E4%B9%A0linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%A7%8D%E9%80%89%E6%8B%A9.html</id>
-    <published>2024-01-26T14:59:47.000Z</published>
-    <updated>2024-01-26T15:12:12.410Z</updated>
+    <title>我的书单</title>
+    <link href="https://blog.jasonleehere.com/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95.html"/>
+    <id>https://blog.jasonleehere.com/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95.html</id>
+    <published>2024-01-27T13:19:39.000Z</published>
+    <updated>2024-01-31T01:04:49.422Z</updated>
     
     <summary type="html">
     
@@ -29,13 +29,43 @@
       
         
         
-          &lt;p&gt;这几天在学习 pgsql，用 windows 环境有诸多限制，比如很多监听工具只能跑在 linux。一开始，我是想买一台云服务器的，但是后来发现，根据自己的需求，只要一台本地的 linux
+          &lt;p&gt;此文记录我读过的书，和我对它们的评价。评价有长有短，重在日后看到能回忆起书中的大致内容。按时间排序。&lt;/p&gt;
+&lt;h2 id=&quot;2023&quot;&gt;&lt;a href=&quot;#2023&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
     
+    
+      <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在ubuntu系统上操作postgresql</title>
+    <link href="https://blog.jasonleehere.com/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%A3%E6%9B%BF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E5%AD%A6%E4%B9%A0linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%A7%8D%E9%80%89%E6%8B%A9.html"/>
+    <id>https://blog.jasonleehere.com/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%A3%E6%9B%BF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E5%AD%A6%E4%B9%A0linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%A7%8D%E9%80%89%E6%8B%A9.html</id>
+    <published>2024-01-26T14:59:47.000Z</published>
+    <updated>2024-01-31T01:13:15.943Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;用虚拟机代替云服务器—学习-linux-系统的一种选择&quot;&gt;&lt;a href=&quot;#用虚拟机代替云服务器—学习-linux-系统的一种选择&quot; class=&quot;headerlink&quot; title=&quot;用虚拟机代替云服务器—学习 linux
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="postgresql" scheme="https://blog.jasonleehere.com/tags/postgresql/"/>
+    
+      <category term="linux" scheme="https://blog.jasonleehere.com/tags/linux/"/>
     
   </entry>
   
@@ -91,9 +121,9 @@
     
       <category term="run" scheme="https://blog.jasonleehere.com/tags/run/"/>
     
-      <category term="随想" scheme="https://blog.jasonleehere.com/tags/%E9%9A%8F%E6%83%B3/"/>
-    
       <category term="政治" scheme="https://blog.jasonleehere.com/tags/%E6%94%BF%E6%B2%BB/"/>
+    
+      <category term="随想" scheme="https://blog.jasonleehere.com/tags/%E9%9A%8F%E6%83%B3/"/>
     
   </entry>
   
@@ -129,7 +159,7 @@
     <link href="https://blog.jasonleehere.com/sql%E4%BC%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"/>
     <id>https://blog.jasonleehere.com/sql%E4%BC%98%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</id>
     <published>2024-01-08T14:01:24.000Z</published>
-    <updated>2024-01-24T00:54:06.319Z</updated>
+    <updated>2024-01-31T01:04:49.418Z</updated>
     
     <summary type="html">
     
@@ -145,7 +175,7 @@
     
     
     
-      <category term="sql" scheme="https://blog.jasonleehere.com/tags/sql/"/>
+      <category term="sql优化" scheme="https://blog.jasonleehere.com/tags/sql%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
@@ -205,7 +235,7 @@
     <link href="https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html"/>
     <id>https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html</id>
     <published>2023-12-21T13:04:19.000Z</published>
-    <updated>2024-01-26T14:50:53.087Z</updated>
+    <updated>2024-01-31T01:04:49.421Z</updated>
     
     <summary type="html">
     
@@ -349,8 +379,12 @@
     </summary>
     
     
+      <category term="JavaScript异步编程" scheme="https://blog.jasonleehere.com/categories/JavaScript%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
+    
     
       <category term="nodejs" scheme="https://blog.jasonleehere.com/tags/nodejs/"/>
+    
+      <category term="异步编程" scheme="https://blog.jasonleehere.com/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
     
       <category term="进程" scheme="https://blog.jasonleehere.com/tags/%E8%BF%9B%E7%A8%8B/"/>
     
@@ -522,31 +556,6 @@
     
     
       <category term="pgsql" scheme="https://blog.jasonleehere.com/tags/pgsql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一次装机记录</title>
-    <link href="https://blog.jasonleehere.com/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A3%85%E6%9C%BA%E8%AE%B0%E5%BD%95.html"/>
-    <id>https://blog.jasonleehere.com/%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%A3%85%E6%9C%BA%E8%AE%B0%E5%BD%95.html</id>
-    <published>2023-11-09T14:17:43.000Z</published>
-    <updated>2023-11-17T13:56:07.644Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;硬件配置&quot;&gt;&lt;a href=&quot;#硬件配置&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="装机" scheme="https://blog.jasonleehere.com/tags/%E8%A3%85%E6%9C%BA/"/>
     
   </entry>
   
