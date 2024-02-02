@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-01-31T01:04:49.422Z</updated>
+  <updated>2024-02-02T09:30:06.650Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>记一次sql查询调优实战过程</title>
+    <link href="https://blog.jasonleehere.com/%E8%AE%B0%E4%B8%80%E6%AC%A1sql%E6%9F%A5%E8%AF%A2%E8%B0%83%E4%BC%98%E5%AE%9E%E6%88%98%E8%BF%87%E7%A8%8B.html"/>
+    <id>https://blog.jasonleehere.com/%E8%AE%B0%E4%B8%80%E6%AC%A1sql%E6%9F%A5%E8%AF%A2%E8%B0%83%E4%BC%98%E5%AE%9E%E6%88%98%E8%BF%87%E7%A8%8B.html</id>
+    <published>2024-02-02T08:57:18.000Z</published>
+    <updated>2024-02-02T09:30:06.650Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;在处理一个长达 500 行的大型 sql 查询文件的过程中，我发现了响应非常慢。这段 sql 是为后台报表服务的，仅仅查询一天的数据就要花费接近 20 秒的时间，那么如果是一个月的话肯定超时了。毫无疑问，这个 sql 需要优化。&lt;/p&gt;
+&lt;p&gt;首先查看执行计划。如果是执行
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="sql优化" scheme="https://blog.jasonleehere.com/tags/sql%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>我的书单</title>
     <link href="https://blog.jasonleehere.com/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95.html"/>
     <id>https://blog.jasonleehere.com/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95.html</id>
     <published>2024-01-27T13:19:39.000Z</published>
-    <updated>2024-01-31T01:04:49.422Z</updated>
+    <updated>2024-02-02T00:38:10.316Z</updated>
     
     <summary type="html">
     
@@ -530,32 +556,6 @@
     
     
       <category term="网站建设" scheme="https://blog.jasonleehere.com/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pgsql常用且容易忘记的一些用法</title>
-    <link href="https://blog.jasonleehere.com/pgsql%E5%B8%B8%E7%94%A8%E4%B8%94%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html"/>
-    <id>https://blog.jasonleehere.com/pgsql%E5%B8%B8%E7%94%A8%E4%B8%94%E5%AE%B9%E6%98%93%E5%BF%98%E8%AE%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html</id>
-    <published>2023-11-11T08:41:49.000Z</published>
-    <updated>2023-11-17T13:59:04.273Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;总结一些工作中非常有用的 pgsql 用法。&lt;/p&gt;
-&lt;h2 id=&quot;日期类&quot;&gt;&lt;a href=&quot;#日期类&quot; class=&quot;headerlink&quot; title=&quot;日期类&quot;&gt;&lt;/a&gt;日期类&lt;/h2&gt;&lt;p&gt;加入 time 列是 timestamp
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="pgsql" scheme="https://blog.jasonleehere.com/tags/pgsql/"/>
     
   </entry>
   

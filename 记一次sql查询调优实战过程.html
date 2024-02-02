@@ -11,7 +11,7 @@
   
   <title>
     
-      我在2023年回顾python3基础 
+      记一次sql查询调优实战过程 
       
       
       |
@@ -142,26 +142,25 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">我在2023年回顾python3基础</div>
+      <div class="post-title">记一次sql查询调优实战过程</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
-            2023-05-06 | 
-            2023-11-17
+            2024-02-02
           
         
 
-          <!-- 2023-05-06 | 
-          2023-11-17      -->
+          <!-- 2024-02-02 | 
+          2024-02-02      -->
         </span>
         
               <span class="post-tags">
                 <i class="iconfont icon-tags mr-10" title="标签"></i>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/python/" title="python">
-                    #python
+                  <a href="/tags/sql%E4%BC%98%E5%8C%96/" title="sql优化">
+                    #sql优化
                   </a>
                 </span>
                 
@@ -169,30 +168,20 @@
           
       </div>
       <div class="markdown-body">
-        <h2 id="到底什么是数字、元组、字符串的不可变性？"><a href="#到底什么是数字、元组、字符串的不可变性？" class="headerlink" title="到底什么是数字、元组、字符串的不可变性？"></a>到底什么是数字、元组、字符串的不可变性？</h2><p>不可变性，指的是不能改变原有位置上的元素；不包括在空位置上创建元素。所以，元组都可以连接其他同类元素使得自己变得更长，而不能改变原来的元素。</p>
-<p>数字、字符串的不可变性：变量赋值 a=5 后再赋值 a=10，这里实际是新生成一个 int 值对象 10，再让 a 指向它，而 5 被丢弃，不是改变 a 的值，相当于新生成了 a。字符串类似。</p>
-<h2 id="生成器和迭代器"><a href="#生成器和迭代器" class="headerlink" title="生成器和迭代器"></a>生成器和迭代器</h2><p>生成器和迭代器都可以提高性能和内存效率，因为它们可以一次生成一个元素，而不必在内存中存储整个数据集。通过理解生成器和迭代器的工作原理，我们可以更有效地处理大型数据集。</p>
-<p>假如有一个场景，我们深度学习训练时读取数据，由于训练图片很多，不可能一次性读进内存，所以采用生成器或迭代器的方式，一次读取几张图像。</p>
-<p>生成器和迭代器实现的事情都是类似的，即一次只输出少量的数据，只是他们的<strong>创建方式</strong>有差异。</p>
-<h3 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h3><p>迭代器是一种对象，它可以用于迭代序列中的元素。迭代器具有一个<strong>next</strong>()方法，该方法返回序列中的下一个元素，并在没有更多元素时引发StopIteration异常。</p>
-<p>创建迭代器的方法：一个从现有序列中直接创造：<code>iter(seq)</code>，另一种需要创建一个类（由类实例化出对象），类带有<code>__iter__</code>和<code>__next__</code>方法：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class FibonacciIterator:</span><br><span class="line">    def __init__(self):</span><br><span class="line">        self.a = 0</span><br><span class="line">        self.b = 1</span><br><span class="line">    </span><br><span class="line">    def __iter__(self):</span><br><span class="line">        return self</span><br><span class="line">    </span><br><span class="line">    def __next__(self):</span><br><span class="line">        result = self.b</span><br><span class="line">        self.a, self.b = self.b, self.a + self.b</span><br><span class="line">        return result</span><br><span class="line"></span><br><span class="line">fib_iter = FibonacciIterator()</span><br><span class="line">for i in range(10):</span><br><span class="line">    print(next(fib_iter)) </span><br><span class="line">## 另外一种调用方式</span><br><span class="line">for value in fib_iter:</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
+        <p>在处理一个长达 500 行的大型 sql 查询文件的过程中，我发现了响应非常慢。这段 sql 是为后台报表服务的，仅仅查询一天的数据就要花费接近 20 秒的时间，那么如果是一个月的话肯定超时了。毫无疑问，这个 sql 需要优化。</p>
+<p>首先查看执行计划。如果是执行 explain 命令来获得执行计划，得到的 cost 并不能直接看出速度的快慢。因此，需要用<code>explain (analyze)</code>。由于查询是由好几个 CTE 子表组成的，所以执行计划也是分别给出了几个 CTE 子表的花费时间。虽然很长，但是，细心的查看后，果然发现了异常：</p>
+<p><img src="/images/image-loading.svg" data-original="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/17068653903891706865390291.png" alt="17068653903891706865390291.png"></p>
+<p>可以看到，在查询 money_bag_balance 这张子表时，actutal time(实际执行时间)达到了 2295 毫秒，他就是元凶。接下来看，发现是在 trade_list_internal 这张流水表上进行全表扫描，难怪这么慢！于是，我定位到 money_bag_balance 的 sql 语句,这张表是由 income 和 balance 合并而来，以 income 为例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">money_bag_income <span class="keyword">as</span> (</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;wx_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> wechat_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;ali_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> alipay_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;epay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> epay_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;wallet_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> money_bag_income_real,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;virtual_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> money_bag_income_virtual,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;union_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> union_pay_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;ccb_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> ccb_pay_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;ccb_pay_dc&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> ccb_pay_dc_income</span><br><span class="line"> <span class="keyword">from</span> trade_list_internal</span><br><span class="line"> <span class="keyword">where</span> trade_type<span class="operator">=</span><span class="string">&#x27;charge&#x27;</span></span><br><span class="line">   <span class="keyword">and</span> status<span class="operator">=</span><span class="string">&#x27;success&#x27;</span></span><br><span class="line"><span class="comment">-- 	 and commit_time between &#x27;2023-07-17&#x27; and &#x27;2023-07-18&#x27;</span></span><br><span class="line">	<span class="keyword">and</span>  (  (<span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-02&#x27;</span>) <span class="keyword">or</span></span><br><span class="line">	(<span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-02&#x27;</span> <span class="keyword">and</span> commit_time<span class="operator">&gt;=</span><span class="string">&#x27;2024-02-01&#x27;</span> ) <span class="keyword">or</span></span><br><span class="line">	(<span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-02&#x27;</span> <span class="keyword">and</span> commit_time<span class="operator">&lt;</span><span class="string">&#x27;2024-02-02&#x27;</span> ) <span class="keyword">or</span></span><br><span class="line">	(<span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-02&#x27;</span> <span class="keyword">and</span> commit_time <span class="operator">&gt;=</span> <span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> commit_time<span class="operator">&lt;</span><span class="string">&#x27;2024-02-02&#x27;</span> ) )</span><br><span class="line">),</span><br></pre></td></tr></table></figure>
 
-<h3 id="生成器"><a href="#生成器" class="headerlink" title="生成器"></a>生成器</h3><p>生成器是一种特殊的函数，它使用yield关键字来产生一个值，并暂停函数的执行。每次调用生成器函数时，它都会从上一次停止的位置继续执行，直到遇到yield语句。生成器是一种简单而强大的工具，可以在处理大型数据集时提高性能和内存效率。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">def fibonacci():</span><br><span class="line">    a, b = 0, 1</span><br><span class="line">    while True:</span><br><span class="line">        yield b</span><br><span class="line">        a, b = b, a + b</span><br><span class="line"></span><br><span class="line">f = fibonacci()</span><br><span class="line">for i in range(10):</span><br><span class="line">    print(next(f))</span><br><span class="line">## 也可以：</span><br><span class="line">for value in f:</span><br><span class="line">    print(value)</span><br></pre></td></tr></table></figure>
-
-<p>可以看出，生成器在这个例子中会简短一些。同时可以看出，调用的时候，生成器和迭代器的两种方式都一样，分别是固定次数（可能会超出边界而引发StopIteration异常，以及forin循环。创建时的不同是：生成器是一个函数，而迭代器是一个对象。</p>
-<h2 id="不定长参数"><a href="#不定长参数" class="headerlink" title="不定长参数"></a>不定长参数</h2><p>不定长参数就是那种在定义函数或者方法时，括号里的参数带一个或者两个星星的。一个星星被放入元组，实参不带参数关键字；两个星星被放入字典，实参带关键字，关键字被当作字典的键名。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def printinfo( arg1, *vartuple, **vardict ):</span><br><span class="line">   &quot;打印任何传入的参数&quot;</span><br><span class="line">   print (&quot;输出: &quot;)</span><br><span class="line">   print (arg1)</span><br><span class="line">   print(vartuple)</span><br><span class="line">   print(vardict)</span><br><span class="line"></span><br><span class="line">printinfo( 70, 6, a=60, b=50)</span><br><span class="line"></span><br><span class="line">out:</span><br><span class="line"></span><br><span class="line">输出: </span><br><span class="line">70</span><br><span class="line">(6,)</span><br><span class="line">&#123;&#x27;a&#x27;: 60, &#x27;b&#x27;: 50&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>raise 抛出异常，程序把异常打印出来（抛给用户），并停止后续代码的运行。如果没有raise，程序将继续运行。</p>
+<p>commit_time 这个字段没加索引，所以走了全表查询。经过沟通，换了一个正确的且带索引的字段，查询在 0.2s 内完成！一下子提升了四十多倍！</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/flex-grid%E5%B8%83%E5%B1%80%E5%9C%A8tailwindcss%E4%B8%AD%E7%9A%84%E4%BD%BF%E7%94%A8.html" target="_self">
+              <a href="/%E6%88%91%E7%9A%84%E4%B9%A6%E5%8D%95.html" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -201,15 +190,15 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17
+              2024-02-02
             </span>
             
                   <span class="post-tags">
                     <i class="iconfont icon-tags mr-10" title="标签"></i>
                     
                     <span class="span--tag mr-8">
-                      <a href="/tags/python/" title="python">
-                        #python
+                      <a href="/tags/sql%E4%BC%98%E5%8C%96/" title="sql优化">
+                        #sql优化
                       </a>
                     </span>
                     
@@ -218,33 +207,11 @@
           </div> -->
           <div class="post-foot-prev">
             
-              <a href="/JWT%E8%AE%A4%E8%AF%81.html" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
-            
           </div>
         </div>
       
     </div>
     
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">目录</div>
-    <div class="catalog-content">
-      
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%B0%E5%BA%95%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E5%AD%97%E3%80%81%E5%85%83%E7%BB%84%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%80%A7%EF%BC%9F"><span class="toc-text">到底什么是数字、元组、字符串的不可变性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8%E5%92%8C%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">生成器和迭代器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="toc-text">迭代器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%99%A8"><span class="toc-text">生成器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E5%AE%9A%E9%95%BF%E5%8F%82%E6%95%B0"><span class="toc-text">不定长参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-text">异常处理</span></a></li></ol>
-      
-    </div>
-  </div>
-
-  
-<script src="/js/catalog.js"></script>
-
-
-
 
     
       <div class="comments-container">
