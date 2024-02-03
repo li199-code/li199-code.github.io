@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-02-02T11:17:04.937Z</updated>
+  <updated>2024-02-03T12:37:13.133Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分布式nodejs的学习心得</title>
+    <link href="https://blog.jasonleehere.com/%E5%88%86%E5%B8%83%E5%BC%8Fnodejs%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97.html"/>
+    <id>https://blog.jasonleehere.com/%E5%88%86%E5%B8%83%E5%BC%8Fnodejs%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97.html</id>
+    <published>2024-02-03T12:10:56.000Z</published>
+    <updated>2024-02-03T12:37:13.133Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;p&gt;在云服务器的 centos 系统上需要先设置好开发环境。首先是 git
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="nodejs" scheme="https://blog.jasonleehere.com/tags/nodejs/"/>
+    
+  </entry>
   
   <entry>
     <title>记一次超过500行sql查询调优实战过程</title>
@@ -65,33 +90,6 @@
     
     
       <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在ubuntu系统上操作postgresql</title>
-    <link href="https://blog.jasonleehere.com/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%A3%E6%9B%BF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E5%AD%A6%E4%B9%A0linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%A7%8D%E9%80%89%E6%8B%A9.html"/>
-    <id>https://blog.jasonleehere.com/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%A3%E6%9B%BF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E5%AD%A6%E4%B9%A0linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%A7%8D%E9%80%89%E6%8B%A9.html</id>
-    <published>2024-01-26T14:59:47.000Z</published>
-    <updated>2024-01-31T01:13:15.943Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;用虚拟机代替云服务器—学习-linux-系统的一种选择&quot;&gt;&lt;a href=&quot;#用虚拟机代替云服务器—学习-linux-系统的一种选择&quot; class=&quot;headerlink&quot; title=&quot;用虚拟机代替云服务器—学习 linux
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="postgresql" scheme="https://blog.jasonleehere.com/tags/postgresql/"/>
-    
-      <category term="linux" scheme="https://blog.jasonleehere.com/tags/linux/"/>
     
   </entry>
   
@@ -261,7 +259,7 @@
     <link href="https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html"/>
     <id>https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html</id>
     <published>2023-12-21T13:04:19.000Z</published>
-    <updated>2024-01-31T01:04:49.421Z</updated>
+    <updated>2024-02-03T06:23:02.436Z</updated>
     
     <summary type="html">
     

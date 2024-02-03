@@ -11,8 +11,8 @@
   
   <title>
     
-      标签 
-       : postgresql
+      分布式nodejs的学习心得 
+      
       
       |
     
@@ -112,30 +112,149 @@
 
 
       <div class="flex-container">
-        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<div class="container tag-details">
-  <div class="content-title">
-    <h2>
-      <span>postgresql</span>
-    </h2>
-  </div>
+
+
+
+  <!-- clipboard -->
+
   
-    <div class="post-list">
-      <div class="post-item" title="在ubuntu系统上操作postgresql">
-        <span class="time-m-d">2024-01-26</span>
-        <a href="/%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BB%A3%E6%9B%BF%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E2%80%94%E5%AD%A6%E4%B9%A0linux%E7%B3%BB%E7%BB%9F%E7%9A%84%E4%B8%80%E7%A7%8D%E9%80%89%E6%8B%A9.html">
-          <span>在ubuntu系统上操作postgresql</span>
-        </a>
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">分布式nodejs的学习心得</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          
+            2024-02-03
+          
+        
+
+          <!-- 2024-02-03 | 
+          2024-02-03      -->
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/nodejs/" title="nodejs">
+                    #nodejs
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
+      <div class="markdown-body">
+        <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>在云服务器的 centos 系统上需要先设置好开发环境。首先是 git 安装，并下载好书的配套代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br><span class="line">yum install git</span><br></pre></td></tr></table></figure>
+
+<p>然后安装 nvm：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash <span class="comment">## curl运行会卡住</span></span><br><span class="line"><span class="comment"># 打开一个新的标签页后，接着输入命令</span></span><br><span class="line">nvm -v</span><br><span class="line">nvm install 16</span><br><span class="line">nvm use 16</span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三章-扩展"><a href="#第三章-扩展" class="headerlink" title="第三章 扩展"></a>第三章 扩展</h2><p>上来的第一节先介绍了 node 原生的 cluster（集群）模块。主要作用是通过<code>cluster.fork()</code>方法在同一台机器上复制 node 实例的多个副本。书中通过几个例子说明了，cluster 能在多核 cpu 上提高吞吐量和响应速度，但是在单核上进行集群扩展的性能反而不如单核，这是因为一个核心一次只能运行一个 node 实例。更加值得一提的是，书中提到了一个测试工具：autocannon。使用过程如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">autocannon -c 2 http://127.0.0.1:4000/10000</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-loading.svg" data-original="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/17069636893951706963689188.png" alt="17069636893951706963689188.png"></p>
+<p>还有一个将进程强制在某一个核心上运行的命令：taskset.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskset -<span class="built_in">cp</span> 0 &lt;pid&gt;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/%E8%AE%B0%E4%B8%80%E6%AC%A1sql%E6%9F%A5%E8%AF%A2%E8%B0%83%E4%BC%98%E5%AE%9E%E6%88%98%E8%BF%87%E7%A8%8B.html" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <!-- <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-02-03
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/nodejs/" title="nodejs">
+                        #nodejs
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div> -->
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
     </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-text">准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%89%A9%E5%B1%95"><span class="toc-text">第三章 扩展</span></a></li></ol>
+      
+    </div>
+  </div>
+
   
-  <nav class="post-navigation">
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-    <span class="page-num">1 / 1</span>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js" data-repo="li199-code/li199-code.github.io" data-repo-id="R_kgDOKm243A"
+  data-category="Announcements" data-category-id="DIC_kwDOKm243M4Cb-iG" data-mapping="title" data-strict="0"
+  data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+  data-lang="zh-CN" crossorigin="anonymous" async>
+  </script>
+
+      </div>
     
-  </nav>
-</div>
+  </div>
+
 
         
 <div class="footer">
@@ -203,7 +322,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-02-03 10:36 GMT+0800, Total Posts: 117, Total Words: 185558.</div>
+    <div>Last Update: 2024-02-03 22:01 GMT+0800, Total Posts: 117, Total Words: 185040.</div>
     
 <script src="/js/uptime.js"></script>
 
