@@ -5,7 +5,32 @@ tags: sql优化
 categories:
 ---
 
-## sql 优化总览
+## 预备知识
+
+### 查询 sql 语句执行顺序
+
+```
+(8) SELECT (9)DISTINCT<Select_list>
+(1) FROM <left_table> (3) <join_type>JOIN<right_table>
+(2) ON<join_condition>
+(4) WHERE<where_condition>
+(5) GROUP BY<group_by_list>
+(6) WITH {CUBE|ROLLUP}
+(7) HAVING<having_condtion>
+(10) ORDER BY<order_by_list>
+(11) LIMIT<limit_number>
+```
+
+具体说明详见：
+
+---
+
+SQL 的书写顺序和执行顺序
+https://zhuanlan.zhihu.com/p/77847158
+
+---
+
+### 优化目标
 
 在前一段时间写了不下百段的逻辑库后，sql 优化将是我下一阶段的学习方向，它和业务表现息息相关。奇怪的是，它并没有在任何一个路线图上出现，尽管它其实非常重要。
 
