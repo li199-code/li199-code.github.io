@@ -1,9 +1,11 @@
 ---
-title: 记一次超过500行sql查询调优实战过程
+title: sql查询调优实战过程
 date: 2024-02-02 16:57:18
 tags: sql优化
 categories:
 ---
+
+## 例 1 筛选字段没加索引
 
 在处理一个长达 500 行的大型 sql 查询文件的过程中，我发现了响应非常慢。这段 sql 是为后台报表服务的，仅仅查询一天的数据就要花费接近 20 秒的时间，那么如果是一个月的话肯定超时了。毫无疑问，这个 sql 需要优化。
 
@@ -36,3 +38,28 @@ select
 ```
 
 commit_time 这个字段没加索引，所以走了全表查询。经过沟通，换了一个正确的且带索引的字段，查询在 0.2s 内完成！一下子提升了四十多倍！
+
+## 例 2 在筛选字段上进行计算导致索引失效
+
+和例 1 一样，本例也是一个营收分析的脚本。一样从执行计划开始。观察后发现，多次出现了一个过滤条件：
+
+```
+> Parallel Seq Scan on statistics_by_area_block_street a  (cost=0.00..66759.73 rows=911 width=282) (actual time=825.208..825.444 rows=120 loops=5)
+
+Filter: (((data_owner_id)::text = ANY ('{66ebc3d0-5870-11ea-bbb2-d5c9d3c42033,8d51f590-21c7-11ec-8c04-8f0bedcb705d,95885640-cd3e-11ed-856c-93f3797cd92f,a65816d0-1489-11ee-a19d-0765044c45ed}'::text[])) AND (to_char((sta_date)::timestamp with time zone, 'yyyy-MM-dd'::text) >= '2024-02-03'::text) AND (to_char((sta_date)::timestamp with time zone, 'yyyy-MM-dd'::text) <= '2024-02-03'::text))'
+
+Rows Removed by Filter: 172940
+```
+
+对应的 sql 片段：
+
+```sql
+where (  (''='2024-02-03' and ''='2024-02-03') or
+(''<>'2024-02-03' and ''='2024-02-03' and to_char(sta_date,'yyyy-MM-dd')>='2024-02-03' ) or
+(''='2024-02-03' and ''<>'2024-02-03' and to_char(sta_date,'yyyy-MM-dd')<='2024-02-03' ) or
+(''<>'2024-02-03' and ''<>'2024-02-03' and to_char(sta_date,'yyyy-MM-dd') between '2024-02-03' and '2024-02-03' )
+)
+and a.data_owner_id in ('66ebc3d0-5870-11ea-bbb2-d5c9d3c42033','8d51f590-21c7-11ec-8c04-8f0bedcb705d','95885640-cd3e-11ed-856c-93f3797cd92f','a65816d0-1489-11ee-a19d-0765044c45ed')
+```
+
+data_owner_id 和 sta_date 两个字段，前者没有索引，后者加了索引。于是我先把 data_owner_id 加了索引，再运行，速度没有提升。看到后面，发现是 `to_char` 这个函数用在 sta_date 上导致索引失效。修改成 sta_date<'2024-02-03'后，速度从原来的 5.2s 提升到 0.6s。
