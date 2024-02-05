@@ -11,7 +11,7 @@
   
   <title>
     
-      记一次超过500行sql查询调优实战过程 
+      sql查询调优实战过程 
       
       
       |
@@ -142,17 +142,18 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">记一次超过500行sql查询调优实战过程</div>
+      <div class="post-title">sql查询调优实战过程</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
-            2024-02-02
+            2024-02-02 | 
+            2024-02-04
           
         
 
           <!-- 2024-02-02 | 
-          2024-02-02      -->
+          2024-02-04      -->
         </span>
         
               <span class="post-tags">
@@ -168,13 +169,20 @@
           
       </div>
       <div class="markdown-body">
-        <p>在处理一个长达 500 行的大型 sql 查询文件的过程中，我发现了响应非常慢。这段 sql 是为后台报表服务的，仅仅查询一天的数据就要花费接近 20 秒的时间，那么如果是一个月的话肯定超时了。毫无疑问，这个 sql 需要优化。</p>
+        <h2 id="例-1-筛选字段没加索引"><a href="#例-1-筛选字段没加索引" class="headerlink" title="例 1 筛选字段没加索引"></a>例 1 筛选字段没加索引</h2><p>在处理一个长达 500 行的大型 sql 查询文件的过程中，我发现了响应非常慢。这段 sql 是为后台报表服务的，仅仅查询一天的数据就要花费接近 20 秒的时间，那么如果是一个月的话肯定超时了。毫无疑问，这个 sql 需要优化。</p>
 <p>首先查看执行计划。如果是执行 explain 命令来获得执行计划，得到的 cost 并不能直接看出速度的快慢。因此，需要用<code>explain (analyze)</code>。由于查询是由好几个 CTE 子表组成的，所以执行计划也是分别给出了几个 CTE 子表的花费时间。虽然很长，但是，细心的查看后，果然发现了异常：</p>
 <p><img src="/images/image-loading.svg" data-original="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/17068653903891706865390291.png" alt="17068653903891706865390291.png"></p>
 <p>可以看到，在查询 money_bag_balance 这张子表时，actutal time(实际执行时间)达到了 2295 毫秒，他就是元凶。接下来看，发现是在 trade_list_internal 这张流水表上进行全表扫描，难怪这么慢！于是，我定位到 money_bag_balance 的 sql 语句,这张表是由 income 和 balance 合并而来，以 income 为例：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">money_bag_income <span class="keyword">as</span> (</span><br><span class="line"><span class="keyword">select</span></span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;wx_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> wechat_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;ali_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> alipay_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;epay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> epay_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;wallet_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> money_bag_income_real,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;virtual_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> money_bag_income_virtual,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;union_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> union_pay_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;ccb_pay&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> ccb_pay_income,</span><br><span class="line"> <span class="built_in">COALESCE</span>(<span class="built_in">SUM</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> <span class="keyword">method</span> <span class="operator">=</span> <span class="string">&#x27;ccb_pay_dc&#x27;</span> <span class="keyword">THEN</span> real_fee <span class="keyword">ELSE</span> <span class="number">0</span> <span class="keyword">END</span>),<span class="number">0</span>) <span class="keyword">AS</span> ccb_pay_dc_income</span><br><span class="line"> <span class="keyword">from</span> trade_list_internal</span><br><span class="line"> <span class="keyword">where</span> trade_type<span class="operator">=</span><span class="string">&#x27;charge&#x27;</span></span><br><span class="line">   <span class="keyword">and</span> status<span class="operator">=</span><span class="string">&#x27;success&#x27;</span></span><br><span class="line"><span class="comment">-- 	 and commit_time between &#x27;2023-07-17&#x27; and &#x27;2023-07-18&#x27;</span></span><br><span class="line">	<span class="keyword">and</span>  (  (<span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-02&#x27;</span>) <span class="keyword">or</span></span><br><span class="line">	(<span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-02&#x27;</span> <span class="keyword">and</span> commit_time<span class="operator">&gt;=</span><span class="string">&#x27;2024-02-01&#x27;</span> ) <span class="keyword">or</span></span><br><span class="line">	(<span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-02&#x27;</span> <span class="keyword">and</span> commit_time<span class="operator">&lt;</span><span class="string">&#x27;2024-02-02&#x27;</span> ) <span class="keyword">or</span></span><br><span class="line">	(<span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-02&#x27;</span> <span class="keyword">and</span> commit_time <span class="operator">&gt;=</span> <span class="string">&#x27;2024-02-01&#x27;</span> <span class="keyword">and</span> commit_time<span class="operator">&lt;</span><span class="string">&#x27;2024-02-02&#x27;</span> ) )</span><br><span class="line">),</span><br></pre></td></tr></table></figure>
 
 <p>commit_time 这个字段没加索引，所以走了全表查询。经过沟通，换了一个正确的且带索引的字段，查询在 0.2s 内完成！一下子提升了四十多倍！</p>
+<h2 id="例-2-在筛选字段上进行计算导致索引失效"><a href="#例-2-在筛选字段上进行计算导致索引失效" class="headerlink" title="例 2 在筛选字段上进行计算导致索引失效"></a>例 2 在筛选字段上进行计算导致索引失效</h2><p>和例 1 一样，本例也是一个营收分析的脚本。一样从执行计划开始。观察后发现，多次出现了一个过滤条件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; Parallel Seq Scan on statistics_by_area_block_street a  (cost=0.00..66759.73 rows=911 width=282) (actual time=825.208..825.444 rows=120 loops=5)</span><br><span class="line"></span><br><span class="line">Filter: (((data_owner_id)::text = ANY (&#x27;&#123;66ebc3d0-5870-11ea-bbb2-d5c9d3c42033,8d51f590-21c7-11ec-8c04-8f0bedcb705d,95885640-cd3e-11ed-856c-93f3797cd92f,a65816d0-1489-11ee-a19d-0765044c45ed&#125;&#x27;::text[])) AND (to_char((sta_date)::timestamp with time zone, &#x27;yyyy-MM-dd&#x27;::text) &gt;= &#x27;2024-02-03&#x27;::text) AND (to_char((sta_date)::timestamp with time zone, &#x27;yyyy-MM-dd&#x27;::text) &lt;= &#x27;2024-02-03&#x27;::text))&#x27;</span><br><span class="line"></span><br><span class="line">Rows Removed by Filter: 172940</span><br></pre></td></tr></table></figure>
+
+<p>对应的 sql 片段：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">where</span> (  (<span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-03&#x27;</span>) <span class="keyword">or</span></span><br><span class="line">(<span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> to_char(sta_date,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>)<span class="operator">&gt;=</span><span class="string">&#x27;2024-02-03&#x27;</span> ) <span class="keyword">or</span></span><br><span class="line">(<span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> to_char(sta_date,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>)<span class="operator">&lt;=</span><span class="string">&#x27;2024-02-03&#x27;</span> ) <span class="keyword">or</span></span><br><span class="line">(<span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> to_char(sta_date,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>) <span class="keyword">between</span> <span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2024-02-03&#x27;</span> )</span><br><span class="line">)</span><br><span class="line"><span class="keyword">and</span> a.data_owner_id <span class="keyword">in</span> (<span class="string">&#x27;66ebc3d0-5870-11ea-bbb2-d5c9d3c42033&#x27;</span>,<span class="string">&#x27;8d51f590-21c7-11ec-8c04-8f0bedcb705d&#x27;</span>,<span class="string">&#x27;95885640-cd3e-11ed-856c-93f3797cd92f&#x27;</span>,<span class="string">&#x27;a65816d0-1489-11ee-a19d-0765044c45ed&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>data_owner_id 和 sta_date 两个字段，前者没有索引，后者加了索引。于是我先把 data_owner_id 加了索引，再运行，速度没有提升。看到后面，发现是 <code>to_char</code> 这个函数用在 sta_date 上导致索引失效。修改成 sta_date&lt;’2024-02-03’后，速度从原来的 5.2s 提升到 0.6s。</p>
 
       </div>
       
@@ -190,7 +198,7 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2024-02-02
+              2024-02-04
             </span>
             
                   <span class="post-tags">
@@ -217,6 +225,23 @@
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-1-%E7%AD%9B%E9%80%89%E5%AD%97%E6%AE%B5%E6%B2%A1%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-text">例 1 筛选字段没加索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-2-%E5%9C%A8%E7%AD%9B%E9%80%89%E5%AD%97%E6%AE%B5%E4%B8%8A%E8%BF%9B%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%87%B4%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="toc-text">例 2 在筛选字段上进行计算导致索引失效</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
 
     
       <div class="comments-container">
@@ -305,7 +330,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-02-03 22:01 GMT+0800, Total Posts: 117, Total Words: 185040.</div>
+    <div>Last Update: 2024-02-05 08:50 GMT+0800, Total Posts: 117, Total Words: 186788.</div>
     
 <script src="/js/uptime.js"></script>
 
