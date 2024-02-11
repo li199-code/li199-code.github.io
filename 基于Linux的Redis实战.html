@@ -11,8 +11,8 @@
   
   <title>
     
-      标签 
-       : database
+      基于Linux的Redis实战 
+      
       
       |
     
@@ -112,30 +112,177 @@
 
 
       <div class="flex-container">
-        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<div class="container tag-details">
-  <div class="content-title">
-    <h2>
-      <span>database</span>
-    </h2>
-  </div>
+
+
+
+  <!-- clipboard -->
+
   
-    <div class="post-list">
-      <div class="post-item" title="数据库的基础知识">
-        <span class="time-m-d">2022-11-15</span>
-        <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html">
-          <span>数据库的基础知识</span>
-        </a>
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">基于Linux的Redis实战</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          
+            2024-02-06 | 
+            2024-02-10
+          
+        
+
+          <!-- 2024-02-06 | 
+          2024-02-10      -->
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/redis/" title="redis">
+                    #redis
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
+      <div class="markdown-body">
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>更新系统：</strong>首先，确保您的系统已经更新到最新版本。您可以通过以下命令执行此操作：</p>
+<p><code>sudo yum update</code><br><strong>安装 Redis：</strong>使用 yum 包管理器安装 Redis：</p>
+<p><code>sudo yum install redis</code><br><strong>启动 Redis 服务：</strong>安装完成后，启动 Redis 服务：<br><code>sudo systemctl start redis</code><br><strong>设置 Redis 开机自启动：</strong>如果您希望 Redis 在系统启动时自动启动，可以执行以下命令：</p>
+<p><code>sudo systemctl enable redis</code><br><strong>验证 Redis 是否正在运行：</strong>您可以使用以下命令检查 Redis 服务的运行状态：</p>
+<p><code>sudo systemctl status redis</code><br>如果一切正常，您应该会看到 Redis 正在运行的输出。</p>
+<p><strong>测试 Redis：</strong>您可以使用 redis-cli 命令行工具连接到 Redis 服务器并执行一些基本操作，例如设置键值对、获取键值对等：</p>
+<p><code>redis-cli</code><br><strong>关闭 Redis 服务（可选）：</strong>如果需要，您可以随时停止 Redis 服务：</p>
+<p><code>sudo systemctl stop redis</code><br>这样，您就在 CentOS 上成功安装和配置了 Redis。您可以根据需要进一步配置 Redis，例如更改端口、设置密码等。</p>
+<h2 id="用-python-连接-redis"><a href="#用-python-连接-redis" class="headerlink" title="用 python 连接 redis"></a>用 python 连接 redis</h2><p>因为《redis 实战》这本书中的示例代码是用 python，所以这篇文章也以 python 为媒介来学习 redis。</p>
+<p>Python 中有几个常用的 Redis 客户端库，其中最流行的是 redis-py。以下是 redis-py 中一些常用的 API 及其用法：</p>
+<ul>
+<li>连接到 Redis 服务器：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建 Redis 连接</span></span><br><span class="line">r = redis.Redis(host=<span class="string">&#x27;localhost&#x27;</span>, port=<span class="number">6379</span>, db=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者使用连接池</span></span><br><span class="line">pool = redis.ConnectionPool(host=<span class="string">&#x27;localhost&#x27;</span>, port=<span class="number">6379</span>, db=<span class="number">0</span>)</span><br><span class="line">r = redis.Redis(connection_pool=pool)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>字符串操作：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># 设置键值对</span></span><br><span class="line">r.<span class="built_in">set</span>(<span class="string">&#x27;key&#x27;</span>, <span class="string">&#x27;value&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取值</span></span><br><span class="line">value = r.get(<span class="string">&#x27;key&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 批量设置键值对</span></span><br><span class="line">r.mset(&#123;<span class="string">&#x27;key1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;key2&#x27;</span>: <span class="string">&#x27;value2&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 批量获取值</span></span><br><span class="line">values = r.mget([<span class="string">&#x27;key1&#x27;</span>, <span class="string">&#x27;key2&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>哈希操作：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置哈希值</span></span><br><span class="line">r.hset(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;field&#x27;</span>, <span class="string">&#x27;value&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取哈希值</span></span><br><span class="line">value = r.hget(<span class="string">&#x27;hash_key&#x27;</span>, <span class="string">&#x27;field&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 批量设置哈希值</span></span><br><span class="line">r.hmset(<span class="string">&#x27;hash_key&#x27;</span>, &#123;<span class="string">&#x27;field1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;field2&#x27;</span>: <span class="string">&#x27;value2&#x27;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 批量获取哈希值</span></span><br><span class="line">values = r.hmget(<span class="string">&#x27;hash_key&#x27;</span>, [<span class="string">&#x27;field1&#x27;</span>, <span class="string">&#x27;field2&#x27;</span>])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列表操作：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在列表左侧添加元素</span></span><br><span class="line">r.lpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;value1&#x27;</span>, <span class="string">&#x27;value2&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在列表右侧添加元素</span></span><br><span class="line">r.rpush(<span class="string">&#x27;list_key&#x27;</span>, <span class="string">&#x27;value3&#x27;</span>, <span class="string">&#x27;value4&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取列表范围内的元素</span></span><br><span class="line">values = r.lrange(<span class="string">&#x27;list_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>集合操作：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加元素到集合</span></span><br><span class="line">r.sadd(<span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;member1&#x27;</span>, <span class="string">&#x27;member2&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取集合所有成员</span></span><br><span class="line">members = r.smembers(<span class="string">&#x27;set_key&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从集合中移除元素</span></span><br><span class="line">r.srem(<span class="string">&#x27;set_key&#x27;</span>, <span class="string">&#x27;member1&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>有序集合操作：</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加元素到有序集合</span></span><br><span class="line">r.zadd(<span class="string">&#x27;zset_key&#x27;</span>, &#123;<span class="string">&#x27;member1&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;member2&#x27;</span>: <span class="number">2</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取有序集合范围内的元素</span></span><br><span class="line">members = r.zrange(<span class="string">&#x27;zset_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>, withscores=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/%E8%AE%B0%E4%B8%80%E6%AC%A1sql%E6%9F%A5%E8%AF%A2%E8%B0%83%E4%BC%98%E5%AE%9E%E6%88%98%E8%BF%87%E7%A8%8B.html" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <!-- <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-02-10
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/redis/" title="redis">
+                        #redis
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div> -->
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
     </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-python-%E8%BF%9E%E6%8E%A5-redis"><span class="toc-text">用 python 连接 redis</span></a></li></ol>
+      
+    </div>
+  </div>
+
   
-  <nav class="post-navigation">
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-    <span class="page-num">1 / 1</span>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js" data-repo="li199-code/li199-code.github.io" data-repo-id="R_kgDOKm243A"
+  data-category="Announcements" data-category-id="DIC_kwDOKm243M4Cb-iG" data-mapping="title" data-strict="0"
+  data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+  data-lang="zh-CN" crossorigin="anonymous" async>
+  </script>
+
+      </div>
     
-  </nav>
-</div>
+  </div>
+
 
         
 <div class="footer">
@@ -203,7 +350,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-02-05 08:50 GMT+0800, Total Posts: 117, Total Words: 186788.</div>
+    <div>Last Update: 2024-02-11 20:01 GMT+0800, Total Posts: 115, Total Words: 186695.</div>
     
 <script src="/js/uptime.js"></script>
 
