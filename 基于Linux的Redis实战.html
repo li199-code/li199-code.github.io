@@ -148,12 +148,12 @@
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
             2024-02-06 | 
-            2024-02-10
+            2024-02-12
           
         
 
           <!-- 2024-02-06 | 
-          2024-02-10      -->
+          2024-02-12      -->
         </span>
         
               <span class="post-tags">
@@ -169,15 +169,19 @@
           
       </div>
       <div class="markdown-body">
-        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>更新系统：</strong>首先，确保您的系统已经更新到最新版本。您可以通过以下命令执行此操作：</p>
-<p><code>sudo yum update</code><br><strong>安装 Redis：</strong>使用 yum 包管理器安装 Redis：</p>
-<p><code>sudo yum install redis</code><br><strong>启动 Redis 服务：</strong>安装完成后，启动 Redis 服务：<br><code>sudo systemctl start redis</code><br><strong>设置 Redis 开机自启动：</strong>如果您希望 Redis 在系统启动时自动启动，可以执行以下命令：</p>
-<p><code>sudo systemctl enable redis</code><br><strong>验证 Redis 是否正在运行：</strong>您可以使用以下命令检查 Redis 服务的运行状态：</p>
-<p><code>sudo systemctl status redis</code><br>如果一切正常，您应该会看到 Redis 正在运行的输出。</p>
-<p><strong>测试 Redis：</strong>您可以使用 redis-cli 命令行工具连接到 Redis 服务器并执行一些基本操作，例如设置键值对、获取键值对等：</p>
-<p><code>redis-cli</code><br><strong>关闭 Redis 服务（可选）：</strong>如果需要，您可以随时停止 Redis 服务：</p>
-<p><code>sudo systemctl stop redis</code><br>这样，您就在 CentOS 上成功安装和配置了 Redis。您可以根据需要进一步配置 Redis，例如更改端口、设置密码等。</p>
-<h2 id="用-python-连接-redis"><a href="#用-python-连接-redis" class="headerlink" title="用 python 连接 redis"></a>用 python 连接 redis</h2><p>因为《redis 实战》这本书中的示例代码是用 python，所以这篇文章也以 python 为媒介来学习 redis。</p>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><strong>更新系统：</strong>首先，确保您的系统已经更新到最新版本。您可以通过以下命令执行此操作：<br><code>sudo yum update</code></p>
+<p><strong>安装 Redis：</strong>使用 yum 包管理器安装 Redis：<br><code>sudo yum install redis</code></p>
+<p><strong>启动 Redis 服务：</strong>安装完成后，启动 Redis 服务：<br><code>sudo systemctl start redis</code></p>
+<p><strong>设置 Redis 开机自启动：</strong>如果您希望 Redis 在系统启动时自动启动，可以执行以下命令：<br><code>sudo systemctl enable redis</code></p>
+<p><strong>验证 Redis 是否正在运行：</strong>您可以使用以下命令检查 Redis 服务的运行状态：<br><code>sudo systemctl status redis</code></p>
+<p>如果一切正常，您应该会看到 Redis 正在运行的输出。</p>
+<p><strong>测试 Redis：</strong>您可以使用 redis-cli 命令行工具连接到 Redis 服务器并执行一些基本操作，例如设置键值对、获取键值对等：<br><code>redis-cli</code></p>
+<p>如果输入命令后出现报错：<code>(error) NOAUTH Authentication required.</code>, 说明在 Redis 配置文件中启用了身份验证（通常是 redis.conf 文件），则需要输入密码才能登录。使用以下命令输入密码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AUTH your_password</span><br></pre></td></tr></table></figure>
+
+<p><strong>关闭 Redis 服务（可选）：</strong>如果需要，您可以随时停止 Redis 服务：<br><code>sudo systemctl stop redis</code></p>
+<p>这样，您就在 CentOS 上成功安装和配置了 Redis。您可以根据需要进一步配置 Redis，例如更改端口、设置密码等。</p>
+<h2 id="五大数据类型"><a href="#五大数据类型" class="headerlink" title="五大数据类型"></a>五大数据类型</h2><p>因为《redis 实战》这本书中的示例代码是用 python，所以这篇文章也以 python 为媒介来学习 redis。</p>
 <p>Python 中有几个常用的 Redis 客户端库，其中最流行的是 redis-py。以下是 redis-py 中一些常用的 API 及其用法：</p>
 <ul>
 <li>连接到 Redis 服务器：</li>
@@ -209,6 +213,23 @@
 </ul>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加元素到有序集合</span></span><br><span class="line">r.zadd(<span class="string">&#x27;zset_key&#x27;</span>, &#123;<span class="string">&#x27;member1&#x27;</span>: <span class="number">1</span>, <span class="string">&#x27;member2&#x27;</span>: <span class="number">2</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取有序集合范围内的元素</span></span><br><span class="line">members = r.zrange(<span class="string">&#x27;zset_key&#x27;</span>, <span class="number">0</span>, -<span class="number">1</span>, withscores=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
 
+<p>五种数据类型分别是字符串、列表、哈希、集合、有序集合。都知道 redis 是一种键值对数据库，每种数据类型都体现了键值对。字符串、列表、集合比较简单，一级结构，键名对应的就是存储的数据。哈希和有序集合是二级结构，外层的键名指向数据结构的实例，内层的键名才是实际存值的地方。</p>
+<p>有一个问题：如果我知道键名，但不知道数据类型，怎么获得值呢？</p>
+<p>具体步骤如下：</p>
+<ul>
+<li>使用 TYPE 命令确定键的数据类型。</li>
+<li>根据数据类型执行相应的命令来获取值。</li>
+</ul>
+<p>例如，假设你要获取名为 mykey 的键的值，但不确定其数据类型，可以按照以下步骤进行：</p>
+<p>使用 TYPE 命令确定键的数据类型：<code>TYPE mykey</code></p>
+<p>根据返回的数据类型执行相应的命令来获取值。以下是不同数据类型的获取值的命令示例：</p>
+<p>如果 mykey 的数据类型是字符串（string）：<code>GET mykey</code></p>
+<p>如果 mykey 的数据类型是列表（list）：<code>LRANGE mykey 0 -1</code></p>
+<p>如果 mykey 的数据类型是集合（set）：<code>SMEMBERS mykey</code></p>
+<p>如果 mykey 的数据类型是有序集合（sorted set）：<code>ZRANGE mykey 0 -1 WITHSCORES</code></p>
+<p>如果 mykey 的数据类型是哈希（hash）：<code>HGETALL mykey</code></p>
+<p>根据实际情况选择合适的命令来获取值。</p>
+
       </div>
       
         <div class="prev-or-next">
@@ -223,7 +244,7 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2024-02-10
+              2024-02-12
             </span>
             
                   <span class="post-tags">
@@ -240,6 +261,11 @@
           </div> -->
           <div class="post-foot-prev">
             
+              <a href="/%E5%A6%82%E4%BD%95%E5%B0%BD%E9%87%8F%E5%BF%AB%E4%B9%90%E4%B8%80%E4%BA%9B.html" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -252,7 +278,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-python-%E8%BF%9E%E6%8E%A5-redis"><span class="toc-text">用 python 连接 redis</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">五大数据类型</span></a></li></ol>
       
     </div>
   </div>
@@ -350,7 +376,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-02-11 20:01 GMT+0800, Total Posts: 115, Total Words: 186695.</div>
+    <div>Last Update: 2024-02-16 09:18 GMT+0800, Total Posts: 116, Total Words: 187841.</div>
     
 <script src="/js/uptime.js"></script>
 

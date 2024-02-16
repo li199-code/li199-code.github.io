@@ -11,7 +11,7 @@
   
   <title>
     
-      softmax回归（分类） 
+      如何尽量快乐一些 
       
       
       |
@@ -142,37 +142,25 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">softmax回归（分类）</div>
+      <div class="post-title">如何尽量快乐一些</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
-            2023-03-23 | 
-            2023-11-17
+            2024-02-14
           
         
 
-          <!-- 2023-03-23 | 
-          2023-11-17      -->
+          <!-- 2024-02-14 | 
+          2024-02-14      -->
         </span>
         
-              <span class="post-categories">
-                <i class="iconfont icon-bookmark" title="分类"></i>
-                
-                <span class="span--category">
-                  <a href="/categories/%E5%8A%A8%E6%89%8Bpytorch/" title="动手pytorch">
-                    <b>#</b> 动手pytorch
-                  </a>
-                </span>
-                
-              </span>
-          
               <span class="post-tags">
                 <i class="iconfont icon-tags mr-10" title="标签"></i>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/deep-learning/" title="deep-learning">
-                    #deep-learning
+                  <a href="/tags/%E9%9A%8F%E6%83%B3/" title="随想">
+                    #随想
                   </a>
                 </span>
                 
@@ -180,20 +168,17 @@
           
       </div>
       <div class="markdown-body">
-        <h2 id="回归和分类"><a href="#回归和分类" class="headerlink" title="回归和分类"></a>回归和分类</h2><p>机器学习（深度学习）的任务纷繁复杂。最基础的是回归和分类。回归是预测连续值，分类是预测离散类别。</p>
-<p>分类问题是多输出，因此，训练标签和模型（网络）的输出应该是多维的。<em>独热编码</em> （one-hot encoding）是一种表示多分类的方式。就是在一个向量中，将真实分类索引下的值设为1，其他是0，因此向量自身的内积为1。另外，模型的线性表示为：</p>
-<p>所以，softmax也是一个单层全连接网络。</p>
-<p>\begin{aligned}<br>o_1 &amp;= x_1 w_{11} + x_2 w_{12} + x_3 w_{13} + x_4 w_{14} + b_1,\<br>o_2 &amp;= x_1 w_{21} + x_2 w_{22} + x_3 w_{23} + x_4 w_{24} + b_2,\<br>o_3 &amp;= x_1 w_{31} + x_2 w_{32} + x_3 w_{33} + x_4 w_{34} + b_3.<br>\end{aligned}</p>
-<h2 id="softmax函数"><a href="#softmax函数" class="headerlink" title="softmax函数"></a>softmax函数</h2><p>分类问题的训练，可以用最大化正确分类的概率来表示。因此，要通过softmax函数将神经网络的输出$o_i$转化为0-1之间的概率。</p>
-<p>\begin{equation}<br>\hat{\mathbf{y}} = \mathrm{softmax}(\mathbf{o})\quad \text{其中}\quad \hat{y}_j = \frac{\exp(o_j)}{\sum_k \exp(o_k)}<br>\end{equation}</p>
-<p>softmax可以保证输出在0-1之间，且softmax可导。</p>
+        <p>我时时会感到不快乐，有的是在长时间玩游戏后，有的就是无源头的感到无聊。</p>
+<p>这不禁让我产生思考：如何获得快乐？不得不承认，在这个时代，想获得感官刺激进而分泌多巴胺来产生“快乐”的感觉，确实很容易。但是，我今天就要探讨一下快乐究竟是啥？就是大脑中一种物质的分泌。游戏、视听体验等带来的感官刺激能带来快乐，但是廉价。</p>
+<p>人生其实本身就没有什么意义，快乐就是最大的意义。快乐有它自己的物质基础：比如身体健康和足够的金钱。剩下的东西就比较主观，但是如果抽象起来，就是人和周围环境的互动健康度。</p>
+<p>有的人身体不健康，或者金钱勉强维持生活开销，这些情况大概率是不幸福的。人又是群居动物，基因决定了我们必须要在和别人的交往中获得精神上的收获和满足。对我而言，短板就是这个。从方法论的角度来看，多运动，保持身体健康；然后在不损害身心健康的情况下，尽可能多挣钱。能同时做到上述两点，就是获得快乐的基本盘了。其余能做的，就是尽量多增加和外界接触的机会，比如参加一些喜欢的活动，或者把大自然当作一个无声的朋友，出去拥抱自然。</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92.html" target="_self">
+              <a href="/%E5%9F%BA%E4%BA%8ELinux%E7%9A%84Redis%E5%AE%9E%E6%88%98.html" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -202,26 +187,15 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17
+              2024-02-14
             </span>
             
-                  <span class="post-categories">
-                    <i class="iconfont icon-bookmark" title="分类"></i>
-                    
-                    <span class="span--category">
-                      <a href="/categories/%E5%8A%A8%E6%89%8Bpytorch/" title="动手pytorch">
-                        <b>#</b> 动手pytorch
-                      </a>
-                    </span>
-                    
-                  </span>
-              
                   <span class="post-tags">
                     <i class="iconfont icon-tags mr-10" title="标签"></i>
                     
                     <span class="span--tag mr-8">
-                      <a href="/tags/deep-learning/" title="deep-learning">
-                        #deep-learning
+                      <a href="/tags/%E9%9A%8F%E6%83%B3/" title="随想">
+                        #随想
                       </a>
                     </span>
                     
@@ -230,33 +204,11 @@
           </div> -->
           <div class="post-foot-prev">
             
-              <a href="/%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%EF%BC%88MLP.html" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
-            
           </div>
         </div>
       
     </div>
     
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">目录</div>
-    <div class="catalog-content">
-      
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E5%92%8C%E5%88%86%E7%B1%BB"><span class="toc-text">回归和分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#softmax%E5%87%BD%E6%95%B0"><span class="toc-text">softmax函数</span></a></li></ol>
-      
-    </div>
-  </div>
-
-  
-<script src="/js/catalog.js"></script>
-
-
-
 
     
       <div class="comments-container">
