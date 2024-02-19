@@ -148,12 +148,12 @@
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
             2024-02-02 | 
-            2024-02-04
+            2024-02-18
           
         
 
           <!-- 2024-02-02 | 
-          2024-02-04      -->
+          2024-02-18      -->
         </span>
         
               <span class="post-tags">
@@ -183,6 +183,17 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">where</span> (  (<span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-03&#x27;</span>) <span class="keyword">or</span></span><br><span class="line">(<span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> to_char(sta_date,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>)<span class="operator">&gt;=</span><span class="string">&#x27;2024-02-03&#x27;</span> ) <span class="keyword">or</span></span><br><span class="line">(<span class="string">&#x27;&#x27;</span><span class="operator">=</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> to_char(sta_date,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>)<span class="operator">&lt;=</span><span class="string">&#x27;2024-02-03&#x27;</span> ) <span class="keyword">or</span></span><br><span class="line">(<span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;&#x27;</span><span class="operator">&lt;&gt;</span><span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> to_char(sta_date,<span class="string">&#x27;yyyy-MM-dd&#x27;</span>) <span class="keyword">between</span> <span class="string">&#x27;2024-02-03&#x27;</span> <span class="keyword">and</span> <span class="string">&#x27;2024-02-03&#x27;</span> )</span><br><span class="line">)</span><br><span class="line"><span class="keyword">and</span> a.data_owner_id <span class="keyword">in</span> (<span class="string">&#x27;66ebc3d0-5870-11ea-bbb2-d5c9d3c42033&#x27;</span>,<span class="string">&#x27;8d51f590-21c7-11ec-8c04-8f0bedcb705d&#x27;</span>,<span class="string">&#x27;95885640-cd3e-11ed-856c-93f3797cd92f&#x27;</span>,<span class="string">&#x27;a65816d0-1489-11ee-a19d-0765044c45ed&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>data_owner_id 和 sta_date 两个字段，前者没有索引，后者加了索引。于是我先把 data_owner_id 加了索引，再运行，速度没有提升。看到后面，发现是 <code>to_char</code> 这个函数用在 sta_date 上导致索引失效。修改成 sta_date&lt;’2024-02-03’后，速度从原来的 5.2s 提升到 0.6s。</p>
+<h2 id="例-3-count-distinct-问题"><a href="#例-3-count-distinct-问题" class="headerlink" title="例 3 count distinct 问题"></a>例 3 count distinct 问题</h2><p>原 sql 如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	<span class="built_in">count</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> type <span class="operator">=</span> <span class="string">&#x27;user&#x27;</span> <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">END</span>) &quot;total_count&quot;,</span><br><span class="line">	<span class="built_in">count</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> &quot;type&quot; <span class="operator">=</span> <span class="string">&#x27;user&#x27;</span> <span class="keyword">AND</span> created_at <span class="operator">&gt;</span> <span class="built_in">CURRENT_DATE</span> <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">END</span>) &quot;today_count&quot;,</span><br><span class="line">	<span class="built_in">count</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> &quot;type&quot; <span class="operator">=</span> <span class="string">&#x27;user&#x27;</span> <span class="keyword">AND</span> created_at <span class="operator">&gt;</span> <span class="built_in">CURRENT_DATE</span> <span class="operator">-</span> <span class="number">7</span> <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">END</span>) &quot;7days_count&quot;,</span><br><span class="line">	<span class="built_in">count</span>(<span class="keyword">CASE</span> <span class="keyword">WHEN</span> &quot;type&quot; <span class="operator">=</span> <span class="string">&#x27;user&#x27;</span> <span class="keyword">AND</span> created_at <span class="operator">&gt;</span> <span class="built_in">CURRENT_DATE</span> <span class="operator">-</span> <span class="number">30</span> <span class="keyword">THEN</span> <span class="number">1</span> <span class="keyword">END</span>) &quot;30days_count&quot;,</span><br><span class="line">	(<span class="keyword">SELECT</span> <span class="built_in">count</span>(<span class="keyword">DISTINCT</span> user_id) <span class="keyword">FROM</span> bind_plate_no <span class="keyword">WHERE</span> deleted <span class="operator">=</span> <span class="literal">FALSE</span>) bind_total_count <span class="comment">-- 执行慢的部分</span></span><br><span class="line"><span class="keyword">FROM</span> base_user</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/image-loading.svg" data-original="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/17082445872911708244586983.png" alt="17082445872911708244586983.png"></p>
+<p>base_user 表的数据量是百万级。从执行计划看出，耗时部分出现在 bind_plate_no 表的 aggregate 上。对应的 sql 是一个典型的 count distinct 问题。虽然 user_id 加了索引，但是在 count 内部 distinct 需要大量的额外计算，因此很慢。试过去掉 distinct 后，这句 sql 就变得很快了。但是，不能破坏原有业务逻辑啊。解决方案是先去重、再汇总。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> (<span class="keyword">select</span> <span class="keyword">distinct</span> user_id <span class="keyword">FROM</span> bind_plate_no <span class="keyword">WHERE</span> deleted <span class="operator">=</span> <span class="literal">FALSE</span>) tmp</span><br></pre></td></tr></table></figure>
+
+<p>新的 sql 运行速度从 9 秒，提升到 2.5 秒。</p>
+<p>另外，我也试了另一种解决方案，即 count group by，本质也是先去重、再汇总。结果来看，比上述方案慢了 1 秒。</p>
+<p>参考资料：</p>
+<p><a target="_blank" href="http://www.jasongj.com/2015/03/15/count_distinct/" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">SQL 优化（二） 快速计算 Distinct Count</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>http://www.jasongj.com/2015/03/15/count_distinct/</span></span></span></a></p>
 
       </div>
       
@@ -198,7 +209,7 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2024-02-04
+              2024-02-18
             </span>
             
                   <span class="post-tags">
@@ -232,7 +243,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-1-%E7%AD%9B%E9%80%89%E5%AD%97%E6%AE%B5%E6%B2%A1%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-text">例 1 筛选字段没加索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-2-%E5%9C%A8%E7%AD%9B%E9%80%89%E5%AD%97%E6%AE%B5%E4%B8%8A%E8%BF%9B%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%87%B4%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="toc-text">例 2 在筛选字段上进行计算导致索引失效</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-1-%E7%AD%9B%E9%80%89%E5%AD%97%E6%AE%B5%E6%B2%A1%E5%8A%A0%E7%B4%A2%E5%BC%95"><span class="toc-text">例 1 筛选字段没加索引</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-2-%E5%9C%A8%E7%AD%9B%E9%80%89%E5%AD%97%E6%AE%B5%E4%B8%8A%E8%BF%9B%E8%A1%8C%E8%AE%A1%E7%AE%97%E5%AF%BC%E8%87%B4%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88"><span class="toc-text">例 2 在筛选字段上进行计算导致索引失效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B-3-count-distinct-%E9%97%AE%E9%A2%98"><span class="toc-text">例 3 count distinct 问题</span></a></li></ol>
       
     </div>
   </div>
@@ -330,7 +341,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-02-16 12:35 GMT+0800, Total Posts: 116, Total Words: 188039.</div>
+    <div>Last Update: 2024-02-19 08:51 GMT+0800, Total Posts: 116, Total Words: 189334.</div>
     
 <script src="/js/uptime.js"></script>
 
