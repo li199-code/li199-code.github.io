@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-02-14T13:11:17.035Z</updated>
+  <updated>2024-02-21T02:50:41.023Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux上kafka安装和入门</title>
+    <link href="https://blog.jasonleehere.com/linux%E4%B8%8Akafka%E5%AE%89%E8%A3%85%E5%92%8C%E5%85%A5%E9%97%A8.html"/>
+    <id>https://blog.jasonleehere.com/linux%E4%B8%8Akafka%E5%AE%89%E8%A3%85%E5%92%8C%E5%85%A5%E9%97%A8.html</id>
+    <published>2024-02-21T02:47:00.000Z</published>
+    <updated>2024-02-21T02:50:41.023Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;之前在 windows 上安装 kafka 算是吃尽苦头。现在用 linux 机器再试一次。像 kafka 这种依赖 zookeeper
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="kafka" scheme="https://blog.jasonleehere.com/tags/kafka/"/>
+    
+      <category term="消息队列" scheme="https://blog.jasonleehere.com/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>如何尽量快乐一些</title>
@@ -170,9 +197,9 @@
     
       <category term="run" scheme="https://blog.jasonleehere.com/tags/run/"/>
     
-      <category term="政治" scheme="https://blog.jasonleehere.com/tags/%E6%94%BF%E6%B2%BB/"/>
-    
       <category term="随想" scheme="https://blog.jasonleehere.com/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+      <category term="政治" scheme="https://blog.jasonleehere.com/tags/%E6%94%BF%E6%B2%BB/"/>
     
   </entry>
   
@@ -284,7 +311,7 @@
     <link href="https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html"/>
     <id>https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html</id>
     <published>2023-12-21T13:04:19.000Z</published>
-    <updated>2024-02-21T01:52:48.029Z</updated>
+    <updated>2024-02-21T05:49:27.647Z</updated>
     
     <summary type="html">
     
@@ -523,37 +550,6 @@
     
     
       <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于网站主题的一系列小问题的修复过程</title>
-    <link href="https://blog.jasonleehere.com/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%B3%BB%E5%88%97%E5%B0%8F%E9%97%AE%E9%A2%98%E7%9A%84%E4%BF%AE%E5%A4%8D%E8%BF%87%E7%A8%8B.html"/>
-    <id>https://blog.jasonleehere.com/%E5%85%B3%E4%BA%8E%E7%BD%91%E7%AB%99%E4%B8%BB%E9%A2%98%E7%9A%84%E4%B8%80%E7%B3%BB%E5%88%97%E5%B0%8F%E9%97%AE%E9%A2%98%E7%9A%84%E4%BF%AE%E5%A4%8D%E8%BF%87%E7%A8%8B.html</id>
-    <published>2023-11-12T12:47:20.000Z</published>
-    <updated>2023-11-12T12:47:20.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;前阵子发现，本网站的主题 oranges 有一系列历史遗留问题一直没解决，包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;代码块样式失效&lt;/li&gt;
-&lt;li&gt;控制台有很多莫名其妙的报错&lt;/li&gt;
-&lt;li&gt;更新时间显示错误&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;由于这些问题不好解决，我甚至想过迁移到
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="网站建设" scheme="https://blog.jasonleehere.com/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/"/>
     
   </entry>
   

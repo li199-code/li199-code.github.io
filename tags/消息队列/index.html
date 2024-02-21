@@ -11,8 +11,8 @@
   
   <title>
     
-      kafka初体验 
-      
+      标签 
+       : 消息队列
       
       |
     
@@ -112,182 +112,30 @@
 
 
       <div class="flex-container">
-        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
-<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
 
-
-
-
-  <!-- clipboard -->
-
+<div class="container tag-details">
+  <div class="content-title">
+    <h2>
+      <span>消息队列</span>
+    </h2>
+  </div>
   
-    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
-  
-  
-<script src="/js/codeCopy.js"></script>
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
-  <div class="container post-details" id="post-details">
-    <div class="post-content">
-      <div class="post-title">kafka初体验</div>
-      <div class="post-attach">
-        <span class="post-pubtime">
-          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          
-            2023-09-20 | 
-            2023-11-17
-          
-        
-
-          <!-- 2023-09-20 | 
-          2023-11-17      -->
-        </span>
-        
-              <span class="post-tags">
-                <i class="iconfont icon-tags mr-10" title="标签"></i>
-                
-                <span class="span--tag mr-8">
-                  <a href="/tags/kafka/" title="kafka">
-                    #kafka
-                  </a>
-                </span>
-                
-              </span>
-          
+    <div class="post-list">
+      <div class="post-item" title="linux上kafka安装和入门">
+        <span class="time-m-d">2024-02-21</span>
+        <a href="/linux%E4%B8%8Akafka%E5%AE%89%E8%A3%85%E5%92%8C%E5%85%A5%E9%97%A8.html">
+          <span>linux上kafka安装和入门</span>
+        </a>
       </div>
-      <div class="markdown-body">
-        <h2 id="启动-zookeeper-和-kafka"><a href="#启动-zookeeper-和-kafka" class="headerlink" title="启动 zookeeper 和 kafka"></a>启动 zookeeper 和 kafka</h2><p>安装参考<a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/how-to-install-and-run-apache-kafka-on-windows/">教程</a>。本机版本是 2.12-3.5.1。</p>
-<p>在启动 kafka 之前先启动 zookeeper：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties</span><br></pre></td></tr></table></figure>
-
-<p>然后</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-server-start.bat .\config\server.properties</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建-topic"><a href="#创建-topic" class="headerlink" title="创建 topic"></a>创建 topic</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --topic my-topic --partitions 3 --replication-factor 1</span><br></pre></td></tr></table></figure>
-
-<p>解释一下参数的含义：</p>
-<ul>
-<li>kafka-topics.bat：用于创建、列出或删除 Kafka 主题的命令。</li>
-<li>create：指示要创建主题。</li>
-<li>bootstrap-server localhost:9092：指定 Kafka 服务器的地址和端口。确保这个地址和端口与你的 Kafka 服务器配置一致。</li>
-<li>topic my-topic：指定要创建的主题名称，你可以将 my-topic 替换为你想要的主题名称。</li>
-<li>partitions 3：指定主题的分区数。你可以根据需要调整分区数。</li>
-<li>replication-factor 1：指定主题的复制因子。在本例中，复制因子为 1，这意味着每个分区只有一个副本。</li>
-</ul>
-<p>列出 kafka 所有 topics，查看是否创建成功：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092</span><br></pre></td></tr></table></figure>
-
-<h2 id="生产者发送消息"><a href="#生产者发送消息" class="headerlink" title="生产者发送消息"></a>生产者发送消息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic my-topic</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>kafka-console-producer.bat：这是 Kafka 的命令行生产者工具。</li>
-<li>bootstrap-server localhost:9092：指定 Kafka 服务器的地址和端口。确保这个地址和端口与你的 Kafka 服务器配置一致。</li>
-<li>topic your-topic-name：指定你要发送消息的主题名称，请将 your-topic-name 替换为你的实际主题名称。</li>
-</ul>
-<p>运行上述命令后，命令行将进入消息输入模式。你可以在命令行中输入消息，然后按 Enter 键发送它们。当你完成发送消息后，你可以通过键入 Ctrl+C 来退出 Kafka 生产者。</p>
-<h2 id="消费者接受消息"><a href="#消费者接受消息" class="headerlink" title="消费者接受消息"></a>消费者接受消息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic my-topic --from-beginning</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>kafka-console-consumer.bat：这是 Kafka 的命令行消费者工具。</li>
-<li>bootstrap-server localhost:9092：指定 Kafka 服务器的地址和端口。确保这个地址和端口与你的 Kafka 服务器配置一致。</li>
-<li>topic your-topic-name：指定你要消费消息的主题名称，请将 your-topic-name 替换为你的实际主题名称。</li>
-<li>from-beginning：这个选项表示你要从主题的起始位置开始消费消息。如果你希望从当前的消息位置开始消费，可以省略这个选项。</li>
-</ul>
-<p>运行上述命令后，Kafka 消费者将开始消费指定主题中的消息。如果你之前已经在生产者中发送了消息到该主题，那么这些消息将会显示在命令行中。</p>
-<p>你可以在命令行中看到消费的消息，直到你手动停止消费者（通过按 Ctrl+C）或者关闭命令行窗口。</p>
-
-      </div>
-      
-        <div class="prev-or-next">
-          <div class="post-foot-next">
-            
-              <a href="/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E6%AF%94%E8%B5%9B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html" target="_self">
-                <i class="iconfont icon-chevronleft"></i>
-                <span>上一页</span>
-              </a>
-            
-          </div>
-          <!-- <div class="post-attach">
-            <span class="post-pubtime">
-              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17
-            </span>
-            
-                  <span class="post-tags">
-                    <i class="iconfont icon-tags mr-10" title="标签"></i>
-                    
-                    <span class="span--tag mr-8">
-                      <a href="/tags/kafka/" title="kafka">
-                        #kafka
-                      </a>
-                    </span>
-                    
-                  </span>
-              
-          </div> -->
-          <div class="post-foot-prev">
-            
-              <a href="/sklearn-crash-course.html" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
-            
-          </div>
-        </div>
-      
     </div>
-    
-  <div id="btn-catalog" class="btn-catalog">
-    <i class="iconfont icon-catalog"></i>
-  </div>
-  <div class="post-catalog hidden" id="catalog">
-    <div class="title">目录</div>
-    <div class="catalog-content">
-      
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8-zookeeper-%E5%92%8C-kafka"><span class="toc-text">启动 zookeeper 和 kafka</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-topic"><span class="toc-text">创建 topic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF"><span class="toc-text">生产者发送消息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85%E6%8E%A5%E5%8F%97%E6%B6%88%E6%81%AF"><span class="toc-text">消费者接受消息</span></a></li></ol>
-      
-    </div>
-  </div>
-
   
-<script src="/js/catalog.js"></script>
-
-
-
-
+  <nav class="post-navigation">
     
-      <div class="comments-container">
-        
-
-
-
-
-
-
-
-<script src="https://giscus.app/client.js" data-repo="li199-code/li199-code.github.io" data-repo-id="R_kgDOKm243A"
-  data-category="Announcements" data-category-id="DIC_kwDOKm243M4Cb-iG" data-mapping="title" data-strict="0"
-  data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
-  data-lang="zh-CN" crossorigin="anonymous" async>
-  </script>
-
-      </div>
+    <span class="page-num">1 / 1</span>
     
-  </div>
-
+  </nav>
+</div>
 
         
 <div class="footer">
@@ -355,7 +203,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-02-21 09:53 GMT+0800, Total Posts: 115, Total Words: 188055.</div>
+    <div>Last Update: 2024-02-21 17:14 GMT+0800, Total Posts: 115, Total Words: 186674.</div>
     
 <script src="/js/uptime.js"></script>
 

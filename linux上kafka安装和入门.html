@@ -11,7 +11,7 @@
   
   <title>
     
-      主题更换和迁移到vercel记录 
+      linux上kafka安装和入门 
       
       
       |
@@ -142,26 +142,31 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">主题更换和迁移到vercel记录</div>
+      <div class="post-title">linux上kafka安装和入门</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
-            2023-03-07 | 
-            2023-11-17
+            2024-02-21
           
         
 
-          <!-- 2023-03-07 | 
-          2023-11-17      -->
+          <!-- 2024-02-21 | 
+          2024-02-21      -->
         </span>
         
               <span class="post-tags">
                 <i class="iconfont icon-tags mr-10" title="标签"></i>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/" title="网站建设">
-                    #网站建设
+                  <a href="/tags/kafka/" title="kafka">
+                    #kafka
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" title="消息队列">
+                    #消息队列
                   </a>
                 </span>
                 
@@ -169,20 +174,15 @@
           
       </div>
       <div class="markdown-body">
-        <p>首先是主题更换。之前用的主题原生很多动画和功能，但是我本身是不喜欢复杂的，所以把背景和功能改的很精简。但是这样反而做的不称心。我的理想样式是：文章居中，两侧没有除了目录外的任何东西。所以，我找到了目前用的这个 orange 主题，这次我用的时间打算长些，短时间不换了。</p>
-<p>其次是静态网站服务器从 github-pages 转移到 vercel。主要考虑是，github-pages 要求对应的仓库必须是公开的，这样有心人可以看到每一次过往文章提交修改记录，这让我觉得有点膈应。vercel 是一种流行的无服务平台，代码托管在 github 仓库后，vercel 可以实现自动部署和发布。现在的工作流是，本地修改好文章，直接推到 github 私有仓库，vercel 检测到变化，自动部署。值得一提的是，我顺便更换了 DNS 的 nameserver，由原来 namesilo 默认的，换到全球最大的 CDN 商 cloudflare。中间的过程记录一下。</p>
-<p>vercel 创建实例成功后，会分配一个 <code>example.vercel.app</code>的二级域名。为了将买到的域名用上，需要去自定义设置，添加域名，vercel 会给你一个 A 或者 CNAME 记录。如果是一级域名，给 A 记录；如果是二级域名，给 CNAME 记录。这时候要在 cloudflare 添加记录。首先注册 cloudflare，然后，输入自己先前购买的域名，自动导入目前的 DNS 解析记录和 nameserver。这时候，将 DNS 解析规则先删除，并来到 namesilo 的管理页面，改变 nameserver 为 cloudflare 提供的地址。到这里的修改都是实时生效的。回到 cloudflare，刷新，cloudflare 开始接管你的域名，这一过程会花费十几分钟。</p>
-<p>然后，将之前 vercel 提供的解析记录，提供给 cloudflare。不同于 github-pages，只有输入一条就能解析了。</p>
-<p><img src="/images/image-loading.svg" data-original="https://s3.bmp.ovh/imgs/2023/03/07/507ecae07ffccde7.png" alt=""></p>
-<p>其中，名称就是二级域名，内容是 vercel 的地址。成功后，这是你浏览器发出的请求就会被 cloudflare 所解析啦，并且可以勾选他们家提供的 CDN 服务。据说，中国大陆的 cloudflare CDN 反而是减速器，所以我没选。设置好后，实测不用翻墙就可以访问网站。</p>
-<p>以后就专心写文章啦！</p>
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>之前在 windows 上安装 kafka 算是吃尽苦头。现在用 linux 机器再试一次。像 kafka 这种依赖 zookeeper 的服务，最简单的方法还得是 docker。具体的教程就参考这篇文字：</p>
+<p><a target="_blank" href="https://ken.io/note/kafka-standalone-docker-install" style="position: relative; display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; box-sizing: border-box; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; -webkit-align-items: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 390px; min-height: 84px; border-radius: 8px; max-width: 100%; overflow: hidden; margin: 16px auto; padding: 12px 12px 9px 12px; background-color: #F6F6F6;"><span class="LinkCard-contents"><span style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; max-height: 40px; line-height: 1.25; color: #121212;">使用 Docker 部署 Kafka 单机版</span><span style="display: -webkit-box; font-size: 13px; height: 18px; line-height: 18px; color: #999; word-break: break-all; text-overflow: ellipsis; overflow: hidden; -webkit-line-clamp: 1; -webkit-box-orient: vertical;"><span style="display: inline-flex; align-items: center;"><svg class="Zi Zi--InsertLink" fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M13.414 4.222a4.5 4.5 0 1 1 6.364 6.364l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005a2.5 2.5 0 1 0-3.536-3.536l-3.005 3.005a.5.5 0 0 1-.707 0l-.707-.707a.5.5 0 0 1 0-.707l3.005-3.005zm-6.187 6.187a.5.5 0 0 1 .638-.058l.07.058.706.707a.5.5 0 0 1 .058.638l-.058.07-3.005 3.004a2.5 2.5 0 0 0 3.405 3.658l.13-.122 3.006-3.005a.5.5 0 0 1 .638-.058l.069.058.707.707a.5.5 0 0 1 .058.638l-.058.069-3.005 3.005a4.5 4.5 0 0 1-6.524-6.196l.16-.168 3.005-3.005zm8.132-3.182a.25.25 0 0 1 .353 0l1.061 1.06a.25.25 0 0 1 0 .354l-8.132 8.132a.25.25 0 0 1-.353 0l-1.061-1.06a.25.25 0 0 1 0-.354l8.132-8.132z"></path></svg></span><span>https://ken.io/note/kafka-standalone-docker-install</span></span></span></a></p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/latex-tabularx%E8%A7%A3%E5%86%B3%E8%A1%A8%E6%A0%BC%E6%BB%A1%E5%AE%BD.html" target="_self">
+              <a href="/%E5%A6%82%E4%BD%95%E5%B0%BD%E9%87%8F%E5%BF%AB%E4%B9%90%E4%B8%80%E4%BA%9B.html" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -191,15 +191,21 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17
+              2024-02-21
             </span>
             
                   <span class="post-tags">
                     <i class="iconfont icon-tags mr-10" title="标签"></i>
                     
                     <span class="span--tag mr-8">
-                      <a href="/tags/%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE/" title="网站建设">
-                        #网站建设
+                      <a href="/tags/kafka/" title="kafka">
+                        #kafka
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" title="消息队列">
+                        #消息队列
                       </a>
                     </span>
                     
@@ -208,16 +214,28 @@
           </div> -->
           <div class="post-foot-prev">
             
-              <a href="/%E8%AE%B0%E4%B8%80%E6%AC%A1%E7%9C%8B%E7%97%85%E7%BB%8F%E5%8E%86.html" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
-            
           </div>
         </div>
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
 
     
       <div class="comments-container">
