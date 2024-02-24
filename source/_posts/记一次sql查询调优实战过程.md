@@ -63,3 +63,38 @@ and a.data_owner_id in ('66ebc3d0-5870-11ea-bbb2-d5c9d3c42033','8d51f590-21c7-11
 ```
 
 data_owner_id 和 sta_date 两个字段，前者没有索引，后者加了索引。于是我先把 data_owner_id 加了索引，再运行，速度没有提升。看到后面，发现是 `to_char` 这个函数用在 sta_date 上导致索引失效。修改成 sta_date<'2024-02-03'后，速度从原来的 5.2s 提升到 0.6s。
+
+## 例 3 count distinct 问题
+
+原 sql 如下：
+
+```sql
+SELECT
+	count(CASE WHEN type = 'user' THEN 1 END) "total_count",
+	count(CASE WHEN "type" = 'user' AND created_at > CURRENT_DATE THEN 1 END) "today_count",
+	count(CASE WHEN "type" = 'user' AND created_at > CURRENT_DATE - 7 THEN 1 END) "7days_count",
+	count(CASE WHEN "type" = 'user' AND created_at > CURRENT_DATE - 30 THEN 1 END) "30days_count",
+	(SELECT count(DISTINCT user_id) FROM bind_plate_no WHERE deleted = FALSE) bind_total_count -- 执行慢的部分
+FROM base_user
+```
+
+![17082445872911708244586983.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/17082445872911708244586983.png)
+
+base_user 表的数据量是百万级。从执行计划看出，耗时部分出现在 bind_plate_no 表的 aggregate 上。对应的 sql 是一个典型的 count distinct 问题。虽然 user_id 加了索引，但是在 count 内部 distinct 需要大量的额外计算，因此很慢。试过去掉 distinct 后，这句 sql 就变得很快了。但是，不能破坏原有业务逻辑啊。解决方案是先去重、再汇总。
+
+```sql
+select count(*) from (select distinct user_id FROM bind_plate_no WHERE deleted = FALSE) tmp
+```
+
+新的 sql 运行速度从 9 秒，提升到 2.5 秒。
+
+另外，我也试了另一种解决方案，即 count group by，本质也是先去重、再汇总。结果来看，比上述方案慢了 1 秒。
+
+参考资料：
+
+---
+
+SQL 优化（二） 快速计算 Distinct Count
+http://www.jasongj.com/2015/03/15/count_distinct/
+
+---
