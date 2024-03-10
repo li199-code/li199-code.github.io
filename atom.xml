@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-02-22T09:21:01.948Z</updated>
+  <updated>2024-03-07T00:49:24.933Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一点美股挣钱的小心得</title>
+    <link href="https://blog.jasonleehere.com/%E4%B8%80%E7%82%B9%E7%BE%8E%E8%82%A1%E6%8C%A3%E9%92%B1%E7%9A%84%E5%B0%8F%E5%BF%83%E5%BE%97.html"/>
+    <id>https://blog.jasonleehere.com/%E4%B8%80%E7%82%B9%E7%BE%8E%E8%82%A1%E6%8C%A3%E9%92%B1%E7%9A%84%E5%B0%8F%E5%BF%83%E5%BE%97.html</id>
+    <published>2024-03-02T02:59:06.000Z</published>
+    <updated>2024-03-07T00:49:24.933Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;好久没写关于投资理财的文章了。相比上次落笔，我的仓位也发生了变化，主要是纳斯达克 A 类基买的少了，转去买 C 类。截至今日，我的投资总收益已经破千。然而，展示收益不是今天这篇文章的重点。前几天英伟达的大涨带动纳斯达克大盘暴涨，还有 PCE
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="美股" scheme="https://blog.jasonleehere.com/tags/%E7%BE%8E%E8%82%A1/"/>
+    
+      <category term="投资" scheme="https://blog.jasonleehere.com/tags/%E6%8A%95%E8%B5%84/"/>
+    
+  </entry>
   
   <entry>
     <title>mongodb 安装和入门</title>
@@ -71,7 +98,7 @@
     <link href="https://blog.jasonleehere.com/%E5%A6%82%E4%BD%95%E5%B0%BD%E9%87%8F%E5%BF%AB%E4%B9%90%E4%B8%80%E4%BA%9B.html"/>
     <id>https://blog.jasonleehere.com/%E5%A6%82%E4%BD%95%E5%B0%BD%E9%87%8F%E5%BF%AB%E4%B9%90%E4%B8%80%E4%BA%9B.html</id>
     <published>2024-02-14T12:42:41.000Z</published>
-    <updated>2024-02-27T02:52:09.612Z</updated>
+    <updated>2024-03-10T03:23:06.034Z</updated>
     
     <summary type="html">
     
@@ -220,9 +247,9 @@
     
       <category term="run" scheme="https://blog.jasonleehere.com/tags/run/"/>
     
-      <category term="政治" scheme="https://blog.jasonleehere.com/tags/%E6%94%BF%E6%B2%BB/"/>
-    
       <category term="随想" scheme="https://blog.jasonleehere.com/tags/%E9%9A%8F%E6%83%B3/"/>
+    
+      <category term="政治" scheme="https://blog.jasonleehere.com/tags/%E6%94%BF%E6%B2%BB/"/>
     
   </entry>
   
@@ -330,22 +357,15 @@
   </entry>
   
   <entry>
-    <title>后端工程师的成长之路（长期更新）</title>
+    <title>后端工程师的成长之路</title>
     <link href="https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html"/>
     <id>https://blog.jasonleehere.com/%E5%90%8E%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%9A%84%E6%88%90%E9%95%BF%E4%B9%8B%E8%B7%AF%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89.html</id>
     <published>2023-12-21T13:04:19.000Z</published>
-    <updated>2024-02-29T08:01:44.716Z</updated>
+    <updated>2024-03-10T02:06:23.413Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;p&gt;从这篇文章开始，我将参考这个网站提供的&lt;a href=&quot;https://roadmap.sh/backend&quot;&gt;技术路线&lt;/a&gt;进行学习。因为技术内容会专门写新文章，所以本文是记录学习进度和一些偏感性的认知，顺带工作过程中的一些感悟。&lt;/p&gt;
-&lt;h2
-        
-      
+      Here&#39;s something encrypted, password is required to continue reading.
     
     </summary>
     
@@ -517,35 +537,6 @@
     
     
       <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nodejs程序调试</title>
-    <link href="https://blog.jasonleehere.com/nodejs%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95.html"/>
-    <id>https://blog.jasonleehere.com/nodejs%E7%A8%8B%E5%BA%8F%E8%B0%83%E8%AF%95.html</id>
-    <published>2023-11-23T02:22:54.000Z</published>
-    <updated>2023-11-23T02:22:54.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;一种是在浏览器中调试，另一种是在 vscode 中调试。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;test&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;浏览器&quot;&gt;&lt;a href=&quot;#浏览器&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="nodejs" scheme="https://blog.jasonleehere.com/tags/nodejs/"/>
     
   </entry>
   
