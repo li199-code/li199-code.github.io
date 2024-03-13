@@ -172,9 +172,9 @@
             
             <tag> run </tag>
             
-            <tag> 随想 </tag>
-            
             <tag> 政治 </tag>
+            
+            <tag> 随想 </tag>
             
         </tags>
       
@@ -1024,11 +1024,11 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> django </tag>
             
             <tag> mysql </tag>
+            
+            <tag> docker </tag>
             
         </tags>
       
@@ -1200,9 +1200,9 @@
       
         <tags>
             
-            <tag> docker </tag>
-            
             <tag> django </tag>
+            
+            <tag> docker </tag>
             
             <tag> uwsgi </tag>
             
@@ -2149,6 +2149,25 @@
         <tags>
             
             <tag> python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker入门</title>
+      <link href="/Docker%E5%85%A5%E9%97%A8.html"/>
+      <url>/Docker%E5%85%A5%E9%97%A8.html</url>
+      
+        <content type="html"><![CDATA[<p>公司的项目是用 docker 来部署的。之前看过一个 docker 科普视频，还没有动手实践过。现在将查到的东西做一个梳理（windows 平台）。</p><h1 id="docker-基本概念"><a href="#docker-基本概念" class="headerlink" title="docker 基本概念"></a>docker 基本概念</h1><p>docker 可以理解为一个简易的虚拟机，它去掉了一个完整操作系统中不需要的部分，仅保留能让应用程序（mysql, jvm, php）等运行起来的环境。它让代码项目可以极其方便地部署在不同的机器上。docker 有以下三个主要文件：</p><ul><li>DockerFile 描述了如何创建 image 文件及其基本信息</li><li>image 文件 环境的完整信息，类似于 windows 安装时的 iso 文件，便携，可以发布到公共空间供他人下载。</li><li>container 容器，本机系统上的一个进程，将自身与外部操作系统隔离。</li></ul><h1 id="docker-使用方式"><a href="#docker-使用方式" class="headerlink" title="docker 使用方式"></a>docker 使用方式</h1><p>让我们从 DockerFile 开始。首先编写 dockerignore 文件，忽视某些文件和文件夹，使之不要打包进 image 文件。是不是很类似于 gitignore？是的，image 文件就可类比 git 工作区，可以提交到 dockerhub，一个 image 文件托管平台。然后，编写 DockerFile。它无后缀，可以像下面这样写：</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:<span class="number">8.4</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . /app</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm install --register=https://register.npm.taobao.com</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br></pre></td></tr></table></figure><p>注意，RUN npm install 是在制作 image 文件阶段执行的，说明 npm 包会打包进 image 文件。</p><p>有了 DockerFile，就可以创建 image 文件。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t koa-demo .</span><br></pre></td></tr></table></figure><p><code>-t</code>指定 image 文件的别名，不然就是一串哈希字符。注意最后有一个点，表示 dockerfile 就在当前路径。运行后，新生成的 image 文件存在 windows 下的 <code>C:\Users\$&#123;用户名&#125;\AppData\Local\Docker\wsl\data\ext4.vhdx</code>. 但是，要看是否创建成功，指令 <code>docker image ls。</code></p><p>有了 image 文件，可以正式创建容器：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dp 8000:3000 koa-demo</span><br></pre></td></tr></table></figure><p><code>-d</code> detached, 单独模式，在后台运行。<code>-p</code>建立本机和容器端口之间的映射，即本机的 8000 映射到容器的 3000。<code>koa-demo</code>就是容器的别名。</p><p>补充：Docker 中的数据卷（Volume）是用来持久化容器中的数据的一种机制。数据卷可以在容器之间共享数据，并且可以保持数据的持久性，即使容器被删除或重新创建，数据仍然会保留。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker volume create my_volume</span><br><span class="line">docker run -d --name my_container -v my_volume:/path/to/mount my_image</span><br></pre></td></tr></table></figure><p>终止容器，首先运行 <code>docker ps</code>，获得 容器名称或 id，运行 <code>docker stop [name]</code>。删除容器：<code>docker rm [name]</code>。</p><h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker compose"></a>docker compose</h2><p>compose 是一个 docker 系统的工具，可以一次管理多个容器，并且替代了 bash 脚本，而使用 yaml 来启动容器。在 linux 中，它需要单独安装：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.3.1/docker-compose-`<span class="built_in">uname</span> -s`-`<span class="built_in">uname</span> -m` &gt; /usr/local/bin/docker-compose</span><br><span class="line"><span class="built_in">chmod</span> +x /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure><p>常用命令：</p><blockquote><p>docker-compose up：启动应用，并创建、启动所有定义的服务容器。如果服务不存在，会先构建镜像。可以通过 -d 选项使应用在后台运行。<br>docker-compose down：停止并删除应用的所有容器、网络、存储卷等相关资源。<br>docker-compose start：启动应用的所有容器，但不重新创建。<br>docker-compose stop：停止应用的所有容器，但不删除。<br>docker-compose restart：重启应用的所有容器。</p></blockquote>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
             
         </tags>
       

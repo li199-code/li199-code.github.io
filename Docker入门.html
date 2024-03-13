@@ -11,7 +11,7 @@
   
   <title>
     
-      kafka初体验 
+      Docker入门 
       
       
       |
@@ -142,26 +142,26 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">kafka初体验</div>
+      <div class="post-title">Docker入门</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
-            2023-09-20 | 
-            2023-11-17
+            2023-01-31 | 
+            2024-03-13
           
         
 
-          <!-- 2023-09-20 | 
-          2023-11-17      -->
+          <!-- 2023-01-31 | 
+          2024-03-13      -->
         </span>
         
               <span class="post-tags">
                 <i class="iconfont icon-tags mr-10" title="标签"></i>
                 
                 <span class="span--tag mr-8">
-                  <a href="/tags/kafka/" title="kafka">
-                    #kafka
+                  <a href="/tags/docker/" title="docker">
+                    #docker
                   </a>
                 </span>
                 
@@ -169,52 +169,43 @@
           
       </div>
       <div class="markdown-body">
-        <h2 id="启动-zookeeper-和-kafka"><a href="#启动-zookeeper-和-kafka" class="headerlink" title="启动 zookeeper 和 kafka"></a>启动 zookeeper 和 kafka</h2><p>安装参考<a target="_blank" rel="noopener" href="https://www.geeksforgeeks.org/how-to-install-and-run-apache-kafka-on-windows/">教程</a>。本机版本是 2.12-3.5.1。</p>
-<p>在启动 kafka 之前先启动 zookeeper：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties</span><br></pre></td></tr></table></figure>
-
-<p>然后</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-server-start.bat .\config\server.properties</span><br></pre></td></tr></table></figure>
-
-<h2 id="创建-topic"><a href="#创建-topic" class="headerlink" title="创建 topic"></a>创建 topic</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --topic my-topic --partitions 3 --replication-factor 1</span><br></pre></td></tr></table></figure>
-
-<p>解释一下参数的含义：</p>
+        <p>公司的项目是用 docker 来部署的。之前看过一个 docker 科普视频，还没有动手实践过。现在将查到的东西做一个梳理（windows 平台）。</p>
+<h1 id="docker-基本概念"><a href="#docker-基本概念" class="headerlink" title="docker 基本概念"></a>docker 基本概念</h1><p>docker 可以理解为一个简易的虚拟机，它去掉了一个完整操作系统中不需要的部分，仅保留能让应用程序（mysql, jvm, php）等运行起来的环境。它让代码项目可以极其方便地部署在不同的机器上。docker 有以下三个主要文件：</p>
 <ul>
-<li>kafka-topics.bat：用于创建、列出或删除 Kafka 主题的命令。</li>
-<li>create：指示要创建主题。</li>
-<li>bootstrap-server localhost:9092：指定 Kafka 服务器的地址和端口。确保这个地址和端口与你的 Kafka 服务器配置一致。</li>
-<li>topic my-topic：指定要创建的主题名称，你可以将 my-topic 替换为你想要的主题名称。</li>
-<li>partitions 3：指定主题的分区数。你可以根据需要调整分区数。</li>
-<li>replication-factor 1：指定主题的复制因子。在本例中，复制因子为 1，这意味着每个分区只有一个副本。</li>
+<li>DockerFile 描述了如何创建 image 文件及其基本信息</li>
+<li>image 文件 环境的完整信息，类似于 windows 安装时的 iso 文件，便携，可以发布到公共空间供他人下载。</li>
+<li>container 容器，本机系统上的一个进程，将自身与外部操作系统隔离。</li>
 </ul>
-<p>列出 kafka 所有 topics，查看是否创建成功：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092</span><br></pre></td></tr></table></figure>
+<h1 id="docker-使用方式"><a href="#docker-使用方式" class="headerlink" title="docker 使用方式"></a>docker 使用方式</h1><p>让我们从 DockerFile 开始。首先编写 dockerignore 文件，忽视某些文件和文件夹，使之不要打包进 image 文件。是不是很类似于 gitignore？是的，image 文件就可类比 git 工作区，可以提交到 dockerhub，一个 image 文件托管平台。然后，编写 DockerFile。它无后缀，可以像下面这样写：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> node:<span class="number">8.4</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . /app</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm install --register=https://register.npm.taobao.com</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="生产者发送消息"><a href="#生产者发送消息" class="headerlink" title="生产者发送消息"></a>生产者发送消息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-console-producer.bat --bootstrap-server localhost:9092 --topic my-topic</span><br></pre></td></tr></table></figure>
+<p>注意，RUN npm install 是在制作 image 文件阶段执行的，说明 npm 包会打包进 image 文件。</p>
+<p>有了 DockerFile，就可以创建 image 文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t koa-demo .</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>kafka-console-producer.bat：这是 Kafka 的命令行生产者工具。</li>
-<li>bootstrap-server localhost:9092：指定 Kafka 服务器的地址和端口。确保这个地址和端口与你的 Kafka 服务器配置一致。</li>
-<li>topic your-topic-name：指定你要发送消息的主题名称，请将 your-topic-name 替换为你的实际主题名称。</li>
-</ul>
-<p>运行上述命令后，命令行将进入消息输入模式。你可以在命令行中输入消息，然后按 Enter 键发送它们。当你完成发送消息后，你可以通过键入 Ctrl+C 来退出 Kafka 生产者。</p>
-<h2 id="消费者接受消息"><a href="#消费者接受消息" class="headerlink" title="消费者接受消息"></a>消费者接受消息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic my-topic --from-beginning</span><br></pre></td></tr></table></figure>
+<p><code>-t</code>指定 image 文件的别名，不然就是一串哈希字符。注意最后有一个点，表示 dockerfile 就在当前路径。运行后，新生成的 image 文件存在 windows 下的 <code>C:\Users\$&#123;用户名&#125;\AppData\Local\Docker\wsl\data\ext4.vhdx</code>. 但是，要看是否创建成功，指令 <code>docker image ls。</code></p>
+<p>有了 image 文件，可以正式创建容器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dp 8000:3000 koa-demo</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>kafka-console-consumer.bat：这是 Kafka 的命令行消费者工具。</li>
-<li>bootstrap-server localhost:9092：指定 Kafka 服务器的地址和端口。确保这个地址和端口与你的 Kafka 服务器配置一致。</li>
-<li>topic your-topic-name：指定你要消费消息的主题名称，请将 your-topic-name 替换为你的实际主题名称。</li>
-<li>from-beginning：这个选项表示你要从主题的起始位置开始消费消息。如果你希望从当前的消息位置开始消费，可以省略这个选项。</li>
-</ul>
-<p>运行上述命令后，Kafka 消费者将开始消费指定主题中的消息。如果你之前已经在生产者中发送了消息到该主题，那么这些消息将会显示在命令行中。</p>
-<p>你可以在命令行中看到消费的消息，直到你手动停止消费者（通过按 Ctrl+C）或者关闭命令行窗口。</p>
+<p><code>-d</code> detached, 单独模式，在后台运行。<code>-p</code>建立本机和容器端口之间的映射，即本机的 8000 映射到容器的 3000。<code>koa-demo</code>就是容器的别名。</p>
+<p>补充：Docker 中的数据卷（Volume）是用来持久化容器中的数据的一种机制。数据卷可以在容器之间共享数据，并且可以保持数据的持久性，即使容器被删除或重新创建，数据仍然会保留。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker volume create my_volume</span><br><span class="line">docker run -d --name my_container -v my_volume:/path/to/mount my_image</span><br></pre></td></tr></table></figure>
+
+<p>终止容器，首先运行 <code>docker ps</code>，获得 容器名称或 id，运行 <code>docker stop [name]</code>。删除容器：<code>docker rm [name]</code>。</p>
+<h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker compose"></a>docker compose</h2><p>compose 是一个 docker 系统的工具，可以一次管理多个容器，并且替代了 bash 脚本，而使用 yaml 来启动容器。在 linux 中，它需要单独安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.3.1/docker-compose-`<span class="built_in">uname</span> -s`-`<span class="built_in">uname</span> -m` &gt; /usr/local/bin/docker-compose</span><br><span class="line"><span class="built_in">chmod</span> +x /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证安装</span></span><br><span class="line">docker-compose --version</span><br></pre></td></tr></table></figure>
+
+<p>常用命令：</p>
+<blockquote>
+<p>docker-compose up：启动应用，并创建、启动所有定义的服务容器。如果服务不存在，会先构建镜像。可以通过 -d 选项使应用在后台运行。<br>docker-compose down：停止并删除应用的所有容器、网络、存储卷等相关资源。<br>docker-compose start：启动应用的所有容器，但不重新创建。<br>docker-compose stop：停止应用的所有容器，但不删除。<br>docker-compose restart：重启应用的所有容器。</p>
+</blockquote>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E6%AF%94%E8%B5%9B%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95.html" target="_self">
+              <a href="/git%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8.html" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -223,15 +214,15 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17
+              2024-03-13
             </span>
             
                   <span class="post-tags">
                     <i class="iconfont icon-tags mr-10" title="标签"></i>
                     
                     <span class="span--tag mr-8">
-                      <a href="/tags/kafka/" title="kafka">
-                        #kafka
+                      <a href="/tags/docker/" title="docker">
+                        #docker
                       </a>
                     </span>
                     
@@ -240,7 +231,7 @@
           </div> -->
           <div class="post-foot-prev">
             
-              <a href="/sklearn-crash-course.html" target="_self">
+              <a href="/%E5%88%A9%E7%94%A8python%E5%9C%A8%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E4%BC%A0%E6%96%87%E4%BB%B6.html" target="_self">
                 <span>下一页</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -257,7 +248,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8-zookeeper-%E5%92%8C-kafka"><span class="toc-text">启动 zookeeper 和 kafka</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-topic"><span class="toc-text">创建 topic</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF"><span class="toc-text">生产者发送消息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85%E6%8E%A5%E5%8F%97%E6%B6%88%E6%81%AF"><span class="toc-text">消费者接受消息</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">docker 基本概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">docker 使用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#docker-compose"><span class="toc-text">docker compose</span></a></li></ol></li></ol>
       
     </div>
   </div>
