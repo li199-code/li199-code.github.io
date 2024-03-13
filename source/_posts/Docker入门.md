@@ -32,7 +32,7 @@ EXPOSE 3000
 
 有了 DockerFile，就可以创建 image 文件。
 
-```
+```bash
 docker build -t koa-demo .
 ```
 
@@ -40,29 +40,37 @@ docker build -t koa-demo .
 
 有了 image 文件，可以正式创建容器：
 
-```
+```bash
 docker run -dp 8000:3000 koa-demo
 ```
 
 `-d` detached, 单独模式，在后台运行。`-p`建立本机和容器端口之间的映射，即本机的 8000 映射到容器的 3000。`koa-demo`就是容器的别名。
 
-终止容器，首先运行 `docker container ls`，获得 id，运行 `docker container kill [id]`.
+补充：Docker 中的数据卷（Volume）是用来持久化容器中的数据的一种机制。数据卷可以在容器之间共享数据，并且可以保持数据的持久性，即使容器被删除或重新创建，数据仍然会保留。
 
-# 公司项目部署实战
-
-公司的 vue 前端项目，部署在私有的 docker 服务器。
-
-## 准备工作
-
-注册 docker 账号，然后配置 docker daemon 文件。
-
-## 正式开始
-
-首先打包项目文件到 dist 目录。
-
-```js
-"docker:build": "cross-var docker build -t dev2.smart-kind.com:18082/docker/$npm_package_name:$npm_package_version --build-arg ppath=$npm_package_name -f Dockerfile dist",
-"docker:push": "cross-var docker push dev2.smart-kind.com:18082/docker/$npm_package_name:$npm_package_version",
+```bash
+docker volume create my_volume
+docker run -d --name my_container -v my_volume:/path/to/mount my_image
 ```
 
-`yarn docker:build,` `yarn docker:push`将生成的镜像推送到公司服务器。
+终止容器，首先运行 `docker ps`，获得 容器名称或 id，运行 `docker stop [name]`。删除容器：`docker rm [name]`。
+
+## docker compose
+
+compose 是一个 docker 系统的工具，可以一次管理多个容器，并且替代了 bash 脚本，而使用 yaml 来启动容器。在 linux 中，它需要单独安装：
+
+```bash
+curl -L https://github.com/docker/compose/releases/download/1.3.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
+# 验证安装
+docker-compose --version
+```
+
+常用命令：
+
+> docker-compose up：启动应用，并创建、启动所有定义的服务容器。如果服务不存在，会先构建镜像。可以通过 -d 选项使应用在后台运行。
+> docker-compose down：停止并删除应用的所有容器、网络、存储卷等相关资源。
+> docker-compose start：启动应用的所有容器，但不重新创建。
+> docker-compose stop：停止应用的所有容器，但不删除。
+> docker-compose restart：重启应用的所有容器。
