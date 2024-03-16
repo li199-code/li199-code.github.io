@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-03-07T00:49:24.933Z</updated>
+  <updated>2024-03-16T15:40:58.005Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>k8s入门</title>
+    <link href="https://blog.jasonleehere.com/k8s%E5%85%A5%E9%97%A8.html"/>
+    <id>https://blog.jasonleehere.com/k8s%E5%85%A5%E9%97%A8.html</id>
+    <published>2024-03-16T02:10:36.000Z</published>
+    <updated>2024-03-16T15:40:58.005Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;我没想到有一天我会去学 k8s，但这是新公司要求的，现在我觉得我即将入职的岗位可能是
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="k8s" scheme="https://blog.jasonleehere.com/tags/k8s/"/>
+    
+      <category term="devops" scheme="https://blog.jasonleehere.com/tags/devops/"/>
+    
+  </entry>
   
   <entry>
     <title>一点美股挣钱的小心得</title>
@@ -509,34 +536,6 @@
     
     
       <category term="run" scheme="https://blog.jasonleehere.com/tags/run/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>新冠防疫政策改变了我的什么--写在动态清零结束一周年之际</title>
-    <link href="https://blog.jasonleehere.com/%E6%96%B0%E5%86%A0%E9%98%B2%E7%96%AB%E6%94%BF%E7%AD%96%E6%94%B9%E5%8F%98%E4%BA%86%E6%88%91%E7%9A%84%E4%BB%80%E4%B9%88-%E5%86%99%E5%9C%A8%E5%8A%A8%E6%80%81%E6%B8%85%E9%9B%B6%E7%BB%93%E6%9D%9F%E4%B8%80%E5%91%A8%E5%B9%B4%E4%B9%8B%E9%99%85.html"/>
-    <id>https://blog.jasonleehere.com/%E6%96%B0%E5%86%A0%E9%98%B2%E7%96%AB%E6%94%BF%E7%AD%96%E6%94%B9%E5%8F%98%E4%BA%86%E6%88%91%E7%9A%84%E4%BB%80%E4%B9%88-%E5%86%99%E5%9C%A8%E5%8A%A8%E6%80%81%E6%B8%85%E9%9B%B6%E7%BB%93%E6%9D%9F%E4%B8%80%E5%91%A8%E5%B9%B4%E4%B9%8B%E9%99%85.html</id>
-    <published>2023-11-23T14:18:04.000Z</published>
-    <updated>2023-11-23T14:18:04.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;人总是健忘的，尤其是中国人。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;最近我脑中一直回荡一句话：人活得久了，什么奇怪的事情都会发生。就是说，世界上很少有一成不变的东西，很多看似坚不可摧，流传万世的事物，实际上风一吹就散了。正如这三年对中国大陆的改
-        
-      
-    
-    </summary>
-    
-    
-    
-      <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
