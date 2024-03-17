@@ -29,7 +29,11 @@ https://labs.play-with-k8s.com/
 
 ---
 
-play-with-k8s 的网页命令行不能执行复制粘贴，killercoda 不仅可以粘贴命令，而且是已经设置好集群了（包含控制和节点）。所以，推荐 killercoda。
+play-with-k8s 的网页命令行不能执行复制粘贴，killercoda 不仅可以粘贴命令，而且是已经设置好集群了（包含控制平面和一个工作节点）。所以，推荐 killercoda。
+
+## k8s 架构
+
+![17106433391641710643338733.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/17106433391641710643338733.png)
 
 ## pod, replicaset, deploy, service
 
