@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-03-16T15:40:58.005Z</updated>
+  <updated>2024-03-17T15:16:02.842Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>nginx 入门</title>
+    <link href="https://blog.jasonleehere.com/nginx-%E5%85%A5%E9%97%A8.html"/>
+    <id>https://blog.jasonleehere.com/nginx-%E5%85%A5%E9%97%A8.html</id>
+    <published>2024-03-17T14:12:46.000Z</published>
+    <updated>2024-03-17T15:16:02.842Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;出现报错，nginx 的错误日志位置：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="nginx" scheme="https://blog.jasonleehere.com/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
     <title>k8s入门</title>
     <link href="https://blog.jasonleehere.com/k8s%E5%85%A5%E9%97%A8.html"/>
     <id>https://blog.jasonleehere.com/k8s%E5%85%A5%E9%97%A8.html</id>
     <published>2024-03-16T02:10:36.000Z</published>
-    <updated>2024-03-16T15:40:58.005Z</updated>
+    <updated>2024-03-17T02:42:29.181Z</updated>
     
     <summary type="html">
     
@@ -508,34 +534,6 @@
       <category term="异步编程" scheme="https://blog.jasonleehere.com/tags/%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B/"/>
     
       <category term="进程" scheme="https://blog.jasonleehere.com/tags/%E8%BF%9B%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不用读书直接找工作的签证</title>
-    <link href="https://blog.jasonleehere.com/%E4%B8%8D%E7%94%A8%E8%AF%BB%E4%B9%A6%E7%9B%B4%E6%8E%A5%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%9A%84%E7%AD%BE%E8%AF%81.html"/>
-    <id>https://blog.jasonleehere.com/%E4%B8%8D%E7%94%A8%E8%AF%BB%E4%B9%A6%E7%9B%B4%E6%8E%A5%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%9A%84%E7%AD%BE%E8%AF%81.html</id>
-    <published>2023-11-26T00:45:02.000Z</published>
-    <updated>2023-11-26T00:45:02.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;p&gt;这篇文章按国家和地区总结一些可以直接通过工作移民的签证机会。&lt;/p&gt;
-&lt;h2 id=&quot;德国&quot;&gt;&lt;a href=&quot;#德国&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="润学心经" scheme="https://blog.jasonleehere.com/categories/%E6%B6%A6%E5%AD%A6%E5%BF%83%E7%BB%8F/"/>
-    
-    
-      <category term="run" scheme="https://blog.jasonleehere.com/tags/run/"/>
     
   </entry>
   
