@@ -125,3 +125,27 @@ server {
 ```
 
 proxy_cache_path 规定了缓存文件存放位置。keys_zone 作为标识供 location 引用。10m 表示缓存文件大小不超过 10m。location 中的 proxy_cache_valid 规定了缓存失效时间。
+
+## 负载均衡
+
+```
+upstream ruoyi-apps {
+    #不写，采用轮循机制
+    ip_hash; #可确保来自同一客户端的请求将始终定向到同一服务器
+    hash $request_uri consistent;
+    server localhost:8080;
+    server localhost:8088;
+
+}
+
+server {
+
+  listen 8003;
+  server_name ruoyi.loadbalance;
+
+  location / {
+    proxy_pass http://ruoyi-apps;
+  }
+
+}
+```
