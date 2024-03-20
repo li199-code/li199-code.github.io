@@ -11,9 +11,9 @@
   
   <title>
     
-      Category 
+      网络安全相关知识 
       
-       : 润学心经
+      
       |
     
      Jason Lee
@@ -112,66 +112,146 @@
 
 
       <div class="flex-container">
-        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<div class="container category-details">
-  <div class="content-title">
-    <h2>
-      <span>润学心经</span>
-    </h2>
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">网络安全相关知识</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          
+            2024-03-20
+          
+        
+
+          <!-- 2024-03-20 | 
+          2024-03-20      -->
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/https/" title="https">
+                    #https
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <p>这一篇文章，主要记录我在学习网络安全相关知识的一些体会。</p>
+<h2 id="https"><a href="#https" class="headerlink" title="https"></a>https</h2><p>了解 https 之前，首先学习一下哈希算法。弄明白哈希算法的输入输出：输入一串不定长的数据，输出的字符串是定长的（比如 256bit）。</p>
+<p>关于 https，首先在脑海中呈现的，应该是这样一个模型：</p>
+<p><img src="/images/image-loading.svg" data-original="https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/17109479490611710947948667.png" alt="17109479490611710947948667.png"></p>
+<p>可以看出，https 就是在 http 的基础上，套了一层 SSL/TLS，而 SSL/TLS 的功能其实本质上是<strong>如何协商出安全的对称加密密钥以利用此密钥进行后续通讯的过程</strong>。</p>
+<p>我们来解释一下上面这句话的意思。因为 http 是明文传输，所以应该想办法对传输数据进行加密，使得黑客拿到的数据都是一堆无意义的字符串。加密需要密钥，密钥就像一把箱子的钥匙，数据就被所在箱子里。看起来，明文传输的问题解决了。</p>
+<p>然而，密钥也是通过互联网进行传输的，意味着黑客也可以获得密钥，这意味着数据还是裸奔。所以，有必要对密钥也进行加密！听起来是不是在套娃了呢？别急，非对称加密终结了这个死结。所谓的非对称加密，就是让客户端（浏览器）保存公钥（任何人可获得），服务器保存私钥（绝对不能让其他人知道）。客户端带着用公钥加密的对称加密密钥（这里别被绕晕了哈），传给服务器，只有服务器的私钥才能解密，获得对称加密密钥，到这里，我们是不是可以理解出上面加粗句子中的协商的意思呢。</p>
+<p>然而，问题到这里还没有结束。客户端是如何获得真实的公钥呢？肯定是不能由服务器传来的啦！这时候就要引入一个可信的第三方的概念了！服务器会去向这个权威第三方申请一个证书，证书带着公钥，客户端拿到证书后，利用操作系统内置的信任证书公钥，对证书进行验证，确认真实性。</p>
+<p>最后结合一点工作上的实际经验加深体会。常常听到别人说，某个项目网站的 https 证书过期了，要花钱续期（也不便宜了，一年几千）。这个证书就是上面的服务端证书，需要向 CA 申请！所以说，不能随便信任证书。</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/nginx-%E5%85%A5%E9%97%A8.html" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <!-- <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2024-03-20
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/https/" title="https">
+                        #https
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div> -->
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
   </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="我对中国这些年政治情况的一些看法">
-        <span class="time-m-d">2024-01-20</span>
-        <a href="/%E6%88%91%E5%AF%B9%E4%B8%AD%E5%9B%BD%E8%BF%99%E4%BA%9B%E5%B9%B4%E6%94%BF%E6%B2%BB%E6%83%85%E5%86%B5%E7%9A%84%E4%B8%80%E4%BA%9B%E7%9C%8B%E6%B3%95.html">
-          <span>我对中国这些年政治情况的一些看法</span>
-        </a>
-      </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#https"><span class="toc-text">https</span></a></li></ol>
+      
     </div>
+  </div>
+
   
-    <div class="post-list">
-      <div class="post-item" title="不用读书直接找工作的签证">
-        <span class="time-m-d">2023-11-26</span>
-        <a href="/%E4%B8%8D%E7%94%A8%E8%AF%BB%E4%B9%A6%E7%9B%B4%E6%8E%A5%E6%89%BE%E5%B7%A5%E4%BD%9C%E7%9A%84%E7%AD%BE%E8%AF%81.html">
-          <span>不用读书直接找工作的签证</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="移民路上的风景">
-        <span class="time-m-d">2023-06-13</span>
-        <a href="/%E8%B0%88%E8%B0%88%E7%A7%BB%E6%B0%91%E7%9A%84%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9B%AE%E6%A0%87%E7%9A%84%E5%AE%89%E6%8E%92.html">
-          <span>移民路上的风景</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="爱尔兰-Irish攻略">
-        <span class="time-m-d">2023-05-24</span>
-        <a href="/%E7%88%B1%E5%B0%94%E5%85%B0-Irish%E6%94%BB%E7%95%A5.html">
-          <span>爱尔兰-Irish攻略</span>
-        </a>
-      </div>
-    </div>
-  
-    <div class="post-list">
-      <div class="post-item" title="run的方法论">
-        <span class="time-m-d">2023-05-24</span>
-        <a href="/run%E7%9A%84%E6%96%B9%E6%B3%95%E8%AE%BA.html">
-          <span>run的方法论</span>
-        </a>
-      </div>
-    </div>
-  
-  <nav class="post-navigation">
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-    <span class="page-num">1 / 1</span>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+<script src="https://giscus.app/client.js" data-repo="li199-code/li199-code.github.io" data-repo-id="R_kgDOKm243A"
+  data-category="Announcements" data-category-id="DIC_kwDOKm243M4Cb-iG" data-mapping="title" data-strict="0"
+  data-reactions-enabled="0" data-emit-metadata="0" data-input-position="bottom" data-theme="preferred_color_scheme"
+  data-lang="zh-CN" crossorigin="anonymous" async>
+  </script>
+
+      </div>
     
-  </nav>
-</div>
+  </div>
+
 
         
 <div class="footer">
