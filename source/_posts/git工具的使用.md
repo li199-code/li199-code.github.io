@@ -66,6 +66,8 @@ git config --local --add user.email 111@qq.com
 
 `git status`查看本地有哪些修改。`git log`查看提交日志。`git checkout [hashcode]`根据某次提交的哈希值将代码回滚。
 
+有一个有用的 git log 命令：`git log --graph --oneline`. 可以用查看历史提交的记录。
+
 ## branch 分支（时间线）
 
 `git branch [name]`创建分支。新分支会继承主分支上的所有历史改动，类似于时间线的概念。
@@ -74,17 +76,17 @@ git config --local --add user.email 111@qq.com
 
 ## git checkout
 
-`git checkout [id] filepath` 用于回滚时，最好加上要回滚的文件名，这样只会改变该文件，而不会专门进入detached head模式。
+`git checkout [id] filepath` 用于回滚时，最好加上要回滚的文件名，这样只会改变该文件，而不会专门进入 detached head 模式。
 
-> "Detached HEAD"是一个Git术语，用来描述HEAD指针在一个特定的提交版本上，而不是指向任何分支的状态。这种状态下，你处于一个游离的、临时的工作环境，没有与之关联的分支。
-> 
-> 当你切换到一个特定的提交版本（通过提交哈希、标签或分支名）而不是一个分支时，Git会将HEAD指针直接指向该提交。这就是所谓的"Detached HEAD"状态。
-> 
-> Detached HEAD状态通常用于以下情况：
-> 
-> 查看历史提交：你可以在Detached HEAD状态下查看、比较和分析以前的提交。这对于浏览代码历史、调试问题或查找特定更改非常有用。
-> 
-> 临时工作：如果你想在不影响当前分支的情况下进行一些临时的更改或实验，可以切换到Detached HEAD状态。你可以在该状态下创建新的提交，但这些提交不会属于任何分支。
+> "Detached HEAD"是一个 Git 术语，用来描述 HEAD 指针在一个特定的提交版本上，而不是指向任何分支的状态。这种状态下，你处于一个游离的、临时的工作环境，没有与之关联的分支。
+>
+> 当你切换到一个特定的提交版本（通过提交哈希、标签或分支名）而不是一个分支时，Git 会将 HEAD 指针直接指向该提交。这就是所谓的"Detached HEAD"状态。
+>
+> Detached HEAD 状态通常用于以下情况：
+>
+> 查看历史提交：你可以在 Detached HEAD 状态下查看、比较和分析以前的提交。这对于浏览代码历史、调试问题或查找特定更改非常有用。
+>
+> 临时工作：如果你想在不影响当前分支的情况下进行一些临时的更改或实验，可以切换到 Detached HEAD 状态。你可以在该状态下创建新的提交，但这些提交不会属于任何分支。
 
 ## git remote
 
@@ -114,17 +116,17 @@ git push origin master
 
 附上一篇[文章]()，解释为什么需要先 pull 后 push。
 
-## git状态（更新）
+## git 状态（更新）
 
 ![16872235086311687223508501.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16872235086311687223508501.png)
 
-这张图展示了git的四种状态：untracked, unmodified, modified, staged. 从指向每个状态的箭头，我解读出一些有用的信息。首先，`git init`命令执行，创建了一个“容器”，但是所有的文件依旧是untracked. staged要么是从untracked转来，要么是已经被跟踪的文件被修改后执行`git add`而来。stage状态的文件被commit后，状态就会回到unmodified。
+这张图展示了 git 的四种状态：untracked, unmodified, modified, staged. 从指向每个状态的箭头，我解读出一些有用的信息。首先，`git init`命令执行，创建了一个“容器”，但是所有的文件依旧是 untracked. staged 要么是从 untracked 转来，要么是已经被跟踪的文件被修改后执行`git add`而来。stage 状态的文件被 commit 后，状态就会回到 unmodified。
 
-在现代的工作环境下，大多数人是通过vscode等IDE进行git操作了。所以，结合vscode页面说明对应的git状态和操作有助于加深理解。以我的vscode界面为例。如果一个项目还没有被git管理，这时候初始化，那么在vscode的explorer里，所有文件都会变成绿色，这种对应的就是上图的untracked状态，绿色的U。同理新建一个文件，也是这种状态。然后，如果修改了一个文件，modified，黄色的M。删除不在上面的图中，表示为红色的D。当然了，没有修改的文件就是白色的，unmodified。
+在现代的工作环境下，大多数人是通过 vscode 等 IDE 进行 git 操作了。所以，结合 vscode 页面说明对应的 git 状态和操作有助于加深理解。以我的 vscode 界面为例。如果一个项目还没有被 git 管理，这时候初始化，那么在 vscode 的 explorer 里，所有文件都会变成绿色，这种对应的就是上图的 untracked 状态，绿色的 U。同理新建一个文件，也是这种状态。然后，如果修改了一个文件，modified，黄色的 M。删除不在上面的图中，表示为红色的 D。当然了，没有修改的文件就是白色的，unmodified。
 
 ![17031659366861703165935807.png](https://fastly.jsdelivr.net/gh/li199-code/blog-img-2@main/17031659366861703165935807.png)
 
-继续看，只有处在staged状态的文件才能被commit。所以下图的加号就是把modified变为staged，点了之后，文件会进入staged changes。这里都是为了精细化控制单个文件。另外，vscode有自己一套默认规则。正常情况下，点commit按钮只会提交staged changes内容，如果只有changes没有staged changes，那么vscode就会自动将changes内容变为staged并提交。
+继续看，只有处在 staged 状态的文件才能被 commit。所以下图的加号就是把 modified 变为 staged，点了之后，文件会进入 staged changes。这里都是为了精细化控制单个文件。另外，vscode 有自己一套默认规则。正常情况下，点 commit 按钮只会提交 staged changes 内容，如果只有 changes 没有 staged changes，那么 vscode 就会自动将 changes 内容变为 staged 并提交。
 
 ![17031663916541703166390710.png](https://fastly.jsdelivr.net/gh/li199-code/blog-img-2@main/17031663916541703166390710.png)
 
