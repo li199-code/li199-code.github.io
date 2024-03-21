@@ -1,7 +1,13 @@
+/**
+ * @description 筛选篇幅过短的文章
+ * @author jason
+ */
+
+
 const fs = require('fs');
 const path = require('path');
 
-const folderPath = './'; // 当前文件夹路径
+const folderPath = './source/_posts'; 
 
 fs.readdir(folderPath, (err, files) => {
   if (err) {
