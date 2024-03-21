@@ -11,7 +11,7 @@
   
   <title>
     
-      wey项目的改造 
+      latex奇怪bug解决方案 
       
       
       |
@@ -142,26 +142,26 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title">wey项目的改造</div>
+      <div class="post-title">latex奇怪bug解决方案</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
           
-            2023-07-16 | 
-            2023-11-17
+            2023-02-12 | 
+            2024-03-21
           
         
 
-          <!-- 2023-07-16 | 
-          2023-11-17      -->
+          <!-- 2023-02-12 | 
+          2024-03-21      -->
         </span>
         
-              <span class="post-categories">
-                <i class="iconfont icon-bookmark" title="分类"></i>
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
                 
-                <span class="span--category">
-                  <a href="/categories/%E5%85%A8%E6%A0%88%E9%A1%B9%E7%9B%AEwey/" title="全栈项目wey">
-                    <b>#</b> 全栈项目wey
+                <span class="span--tag mr-8">
+                  <a href="/tags/latex/" title="latex">
+                    #latex
                   </a>
                 </span>
                 
@@ -169,21 +169,47 @@
           
       </div>
       <div class="markdown-body">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近根据油管上提供的<a target="_blank" rel="noopener" href="https://drive.google.com/file/d/1V3xa8aArTpjch8_HJe4ceU-UDI2LPXgr/view?usp=drive_link">全栈路线示意图</a>, 同时对自己的开发对象进行了总结（即全栈做小微型应用），结合知乎上的回答，对wey项目进行改造，使得学过的东西能用上，且更好地贴近实际生产场景。</p>
-<h2 id="改什么"><a href="#改什么" class="headerlink" title="改什么"></a>改什么</h2><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><p>数据库自然是第一重要的。现在的项目是装在docker容器中的mysql，我打算：</p>
+        <h1 id="latex-overleaf-生僻字处理方案"><a href="#latex-overleaf-生僻字处理方案" class="headerlink" title="latex overleaf 生僻字处理方案"></a>latex overleaf 生僻字处理方案</h1><p>用 overleaf 写大论文时候，有一个作者的名字带生僻字：“赟”，overleaf 会显示为“F”。解决方案如下：</p>
+<p>在 usepackage 区里，添加以下代码：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\usepackage</span>&#123;ctex&#125;</span><br><span class="line"><span class="keyword">\setCJKfamilyfont</span>&#123;myfont&#125;&#123;BabelStone Han&#125;</span><br><span class="line"><span class="keyword">\newcommand</span>&#123;<span class="keyword">\MyFont</span>&#125;&#123;<span class="keyword">\CJKfamily</span>&#123;myfont&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>意思是添加一个自定义指令，专门用某个可以正常显示生僻字的字体，这里是 BabelStone Han。</p>
+<p>然后在正文处：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;\MyFont&#123;赟&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就可以正常显示了！</p>
+<h1 id="latex-清除浮动来消除大片空白"><a href="#latex-清除浮动来消除大片空白" class="headerlink" title="latex 清除浮动来消除大片空白"></a>latex 清除浮动来消除大片空白</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>虽然 latex 是自动排版，但是偶尔会出现明明可以放下内容的地方，被留下空白。通常是发生在多个表格或者图片相连，然后后面跟着文字，文字和最后一个图表之间就会分页。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>最简单的，先从垂直间距开始调起。<code>\vspace&#123;-1cm&#125;</code>。但是可能不起效果，比如本文提到的情景。</p>
+<p>或者是清除浮动。浮动的含义是，图表的位置并不固定在源码的位置，而可能被放置在上下几页，具体取决于 latex 算法认为美观的地方。在我这种情况中，显然是 latex 的算法自动排列的算法不符合真正的美观，所以要手动取消浮动，并且人工微调。取消浮动的方式是引入下列的包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\usepackage[section]&#123;placeins&#125; 避免浮动体跨过 \section</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;float&#125; 禁止浮动</span><br><span class="line">% ...</span><br><span class="line">\begin&#123;figure&#125;[H]</span><br><span class="line">% ...</span><br><span class="line">\begin&#123;table&#125;[H]</span><br><span class="line">% ...</span><br></pre></td></tr></table></figure>
+
+<p>幸运的是，取消浮动后，一张表占据一整页的现象消失了，而且位置刚好，没有出现大面积空白。</p>
+<blockquote>
+<p>参考: <a target="_blank" rel="noopener" href="https://www.zhihu.com/question/25082703">https://www.zhihu.com/question/25082703</a></p>
+</blockquote>
+<h1 id="tabularx-解决表格满宽"><a href="#tabularx-解决表格满宽" class="headerlink" title="tabularx 解决表格满宽"></a>tabularx 解决表格满宽</h1><p>需求：让表格宽度等于页面宽度，单元格列宽可以指定，单元格文字居中。</p>
+<p>解决方案：tabularx 是 tabular 的增强版，可以指定表格总体所占宽度，设置步骤如下：</p>
 <ol>
-<li>引入redis缓存数据库。</li>
-<li>使用云数据库，而不是现在的docker容器。</li>
-<li>用oss存图片、日志等。</li>
+<li>在导言区导入 tabularx 包，并设置自适应宽度和指定宽度两种列选项，使得文字可以居中（默认是左对齐）</li>
 </ol>
-<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>trends和peopleumayknow两个脚本文件的定时执行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">\usepackage&#123;tabularx&#125;</span><br><span class="line">\usepackage&#123;array&#125;</span><br><span class="line">\usepackage&#123;ragged2e&#125;</span><br><span class="line">% 该命令用于控制 p&#123;&#125; 的情况</span><br><span class="line">\newcolumntype&#123;P&#125;[1]&#123;&gt;&#123;\RaggedRight\hspace&#123;0pt&#125;&#125;p&#123;#1&#125;&#125; % 使用过程中，将p&#123;4cm&#125;换成P&#123;4cm&#125;，小写改成大写即可！</span><br><span class="line">% 该命令用于控制 X 的情况</span><br><span class="line">\newcolumntype&#123;Z&#125;&#123;&gt;&#123;\centering\let\newline\\\arraybackslash\hspace&#123;0pt&#125;&#125;X&#125; % 使用过程中，将Z 换成 X，即可！</span><br><span class="line">\let\oldtabularx\tabularx</span><br><span class="line">\renewcommand&#123;\tabularx&#125;&#123;\zihao&#123;5&#125;\oldtabularx&#125;</span><br><span class="line"></span><br><span class="line">% 可利用 RaggedLeft Centering替换RaggedRight，实现靠右和居中 [代码对大小写敏感！！！！！！！！！！！！！！！！！！！！！！！！！！！！]</span><br></pre></td></tr></table></figure>
+
+<p>其中，p 表示指定宽度，X 表示自适应，也就是均分宽度。</p>
+<ol start="2">
+<li>在表格区域内使用方式：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;table&#125;[h!]</span><br><span class="line">    \centering</span><br><span class="line">    \caption&#123;DICM、LIME、MEF、NPE数据集上的平均NIQE值&#125; \label&#123;dwtqrcp_niqe&#125;</span><br><span class="line">    \begin&#123;tabularx&#125;&#123;\textwidth&#125;&#123;ZZZZZ&#125;</span><br><span class="line">    data</span><br><span class="line">\end&#123;tabularx&#125;</span><br><span class="line">\end&#123;table&#125;</span><br></pre></td></tr></table></figure>
+
+<p>\begin{tabularx}{\textwidth}{ZZZZZ} 第二个选项指定整体宽度，第三个是列选项。</p>
 
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/linux-ubuntu%E7%AC%94%E8%AE%B0.html" target="_self">
+              <a href="/%E7%AB%99%E5%9C%A8%E6%9B%B4%E9%AB%98%E7%9A%84%E8%A7%92%E5%BA%A6%E6%80%9D%E8%80%83%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB.html" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -192,15 +218,15 @@
           <!-- <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2023-11-17
+              2024-03-21
             </span>
             
-                  <span class="post-categories">
-                    <i class="iconfont icon-bookmark" title="分类"></i>
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
                     
-                    <span class="span--category">
-                      <a href="/categories/%E5%85%A8%E6%A0%88%E9%A1%B9%E7%9B%AEwey/" title="全栈项目wey">
-                        <b>#</b> 全栈项目wey
+                    <span class="span--tag mr-8">
+                      <a href="/tags/latex/" title="latex">
+                        #latex
                       </a>
                     </span>
                     
@@ -209,7 +235,7 @@
           </div> -->
           <div class="post-foot-prev">
             
-              <a href="/%E5%85%A5%E8%81%8C%E5%88%9D%E4%BD%93%E9%AA%8C.html" target="_self">
+              <a href="/%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%8D%A2%E5%92%8C%E8%BF%81%E7%A7%BB%E5%88%B0vercel%E8%AE%B0%E5%BD%95.html" target="_self">
                 <span>下一页</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -226,7 +252,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%94%B9%E4%BB%80%E4%B9%88"><span class="toc-text">改什么</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#latex-overleaf-%E7%94%9F%E5%83%BB%E5%AD%97%E5%A4%84%E7%90%86%E6%96%B9%E6%A1%88"><span class="toc-text">latex overleaf 生僻字处理方案</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#latex-%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%9D%A5%E6%B6%88%E9%99%A4%E5%A4%A7%E7%89%87%E7%A9%BA%E7%99%BD"><span class="toc-text">latex 清除浮动来消除大片空白</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tabularx-%E8%A7%A3%E5%86%B3%E8%A1%A8%E6%A0%BC%E6%BB%A1%E5%AE%BD"><span class="toc-text">tabularx 解决表格满宽</span></a></li></ol>
       
     </div>
   </div>
@@ -324,7 +350,7 @@
   <div class="footer-more">
     
   
-    <div>Last Update: 2024-03-20 23:48 GMT+0800, Total Posts: 122, Total Words: 261857.</div>
+    <div>Last Update: 2024-03-21 22:48 GMT+0800, Total Posts: 104, Total Words: 260670.</div>
     
 <script src="/js/uptime.js"></script>
 
