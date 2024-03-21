@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.jasonleehere.com/"/>
-  <updated>2024-03-21T14:22:01.025Z</updated>
+  <updated>2024-03-20T15:47:36.297Z</updated>
   <id>https://blog.jasonleehere.com/</id>
   
   <author>
@@ -15,35 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="https://blog.jasonleehere.com/check.html"/>
-    <id>https://blog.jasonleehere.com/check.html</id>
-    <published>2024-03-21T14:20:28.743Z</published>
-    <updated>2024-03-21T14:22:01.025Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          const fs = require(&#39;fs&#39;);
-const path = require(&#39;path&#39;);
-
-const folderPath = &#39;./&#39;; // 当前文件夹路径
-
-fs.readdir(folderPath, (err, files) =&gt; {
-  if
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
   
   <entry>
     <title>网络安全相关知识</title>
@@ -530,6 +501,33 @@ fs.readdir(folderPath, (err, files) =&gt; {
     
     
       <category term="es6" scheme="https://blog.jasonleehere.com/tags/es6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>收拾心情，继续上路——2023年终总结</title>
+    <link href="https://blog.jasonleehere.com/%E6%94%B6%E6%8B%BE%E5%BF%83%E6%83%85%EF%BC%8C%E7%BB%A7%E7%BB%AD%E4%B8%8A%E8%B7%AF%E2%80%94%E2%80%942023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93.html"/>
+    <id>https://blog.jasonleehere.com/%E6%94%B6%E6%8B%BE%E5%BF%83%E6%83%85%EF%BC%8C%E7%BB%A7%E7%BB%AD%E4%B8%8A%E8%B7%AF%E2%80%94%E2%80%942023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93.html</id>
+    <published>2023-12-16T02:19:23.000Z</published>
+    <updated>2023-12-16T02:19:23.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;谁都会制定计划，关键是执行情况。&lt;/p&gt;
+&lt;p&gt;这一年我完成从学生到社畜的身份转变，那我就分毕业前后的两个阶段来试着回顾这一年。&lt;/p&gt;
+&lt;h2 id=&quot;毕业前&quot;&gt;&lt;a href=&quot;#毕业前&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+      <category term="生活" scheme="https://blog.jasonleehere.com/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   
