@@ -1,8 +1,8 @@
 ---
 title: pdf转word
 date: 2023-04-14 19:35:26
-tags: latex
-categories: 写论文工具
+tags: 办公软件
+categories:
 ---
 
 ## 问题描述
