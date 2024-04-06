@@ -1,5 +1,5 @@
 ---
-title: k8s入门
+title: k8s 入门
 date: 2024-03-16 10:10:36
 tags:
   - k8s
