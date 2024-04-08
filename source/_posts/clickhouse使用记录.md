@@ -1,5 +1,5 @@
 ---
-title: 尝试解决一个 clickhouse 多分片多副本问题过程中的学习记录
+title: clickhouse 入门
 date: 2024-04-02 13:29:21
 tags: clickhouse
 categories:
