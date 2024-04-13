@@ -9,3 +9,4 @@ public/
 package-lock.json
 .vscode
 source/_drafts/
+auto_deploy.bat

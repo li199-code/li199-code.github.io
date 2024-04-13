@@ -4,12 +4,12 @@
 
 # Site
 title: Jason Lee
-subtitle: 
-description: 
+subtitle:
+description:
 author: Jason
 language: zh-CN
-timezone: 
-site_start_date: '2022-07-27 18:00:00'
+timezone:
+site_start_date: "2022-07-27 18:00:00"
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -26,7 +26,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render: ['sitemap.xml']
+skip_render: ["sitemap.xml"]
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
+  exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -52,7 +52,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -79,13 +79,13 @@ pagination_dir: page
 theme: oranges
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  message: update
+# deploy:
+#   type: git
+#   message: update
 
-  # 部署github pages
-  repo: https://github.com/li199-code/li199-code.github.io
-  branch: master
+#   # 部署github pages
+#   repo: https://github.com/li199-code/li199-code.github.io
+#   branch: master
 
 # hexo-algolia
 # algolia:
@@ -96,9 +96,9 @@ deploy:
 
 # hexo-admin authentification
 admin:
-  username: 
-  password_hash: 
-  secret: 
+  username:
+  password_hash:
+  secret:
 
 # rss订阅
 # hexo-generator-feed
@@ -109,7 +109,7 @@ feed:
   hub:
   content:
   content_limit: 140
-  content_limit_delim: ' '
+  content_limit_delim: " "
   order_by: -date
   icon: icon.png
   autodiscovery: true
