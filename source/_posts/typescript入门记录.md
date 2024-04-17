@@ -151,3 +151,7 @@ let strArray = getArray<string>(['brad', 'John', 'Jill'])
 
 strArray.push(1) // Throws error
 ```
+
+## 相关工具使用感受
+
+目前已知的运行 ts 的工具有两个：tsc 和 ts-node。前者是将代码转为 js 代码，这意味着运行一段代码还要分两次运行。后者倒是可以直接运行，无需分步。但是，即使是一个两行代码的 ts 文件，这两个工具都要运行大概 2 秒钟才能出结果，相对于`node xx.js`的体验肯定是差不少。
