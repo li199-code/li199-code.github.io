@@ -117,7 +117,7 @@ feed:
 
 # scss syntax
 node_sass:
-  outputStyle: nested
+  outputStyle: compressed
   precision: 5
   sourceComments: false
 
