@@ -1,6 +1,7 @@
 ---
 title: 关于
 date: 2022-11-09 10:57:30
+updated: 2024-05-01
 layout: "about"
 ---
 
@@ -8,9 +9,9 @@ layout: "about"
 
 ## 关于我
 
-1998 年，我出生于福建的一个山区小镇。本科专业是化工(chemical engineering)，毕业时为了逃离化工厂，考研进了南京邮电大学的控制专业(control science)。从我研究生入学的 2020 年，开始写代码。从最初的 Matlab，到后来的 Python、Javascript，用编程解决的问题领域跨越了图像处理、深度学习、爬虫、web 服务。
+来自于东南的一个山区小镇。研究生阶段转码，从最初的 Matlab，到后来的 Python、Javascript，用编程解决的问题领域跨越了图像处理、深度学习、爬虫、web 服务。
 
-写代码不仅是工作，更是一种生活方式，一种坐下来花时间以安静的状态享受解决问题过程的生活方式。
+人生格言：经历一些美好，不留遗憾。
 
 ## 关于本站
 
@@ -40,3 +41,9 @@ layout: "about"
 2023/11
 
 - 因为博客主题的样式解析需要低版本的 nodejs，而 vercel 不提供，回归 github pages
+
+### 网站维护参考资料
+
+这里记录一些关于网站维护的有用的参考链接：
+
+- [https://www.imgyh.com/archives/17.html](Cloudflare面板使用教程)
