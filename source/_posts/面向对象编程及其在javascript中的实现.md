@@ -1,7 +1,7 @@
 ---
 title: 面向对象编程及其在javascript中的实现
 date: 2023-12-16 23:38:01
-updated: 2023-12-16 23:38:01
+updated: 2024-05-03
 tags: es6
 categories:
 ---
@@ -51,7 +51,7 @@ class Animal {
 Animal.return10();
 ```
 
-### get 方法
+### getter/setter
 
 明明是方法，但是调用时形式像是属性。
 
@@ -64,6 +64,10 @@ class Animal {
 
   get metaData() {
     return `${this.type}, ${this.legs}`;
+  }
+
+  set setType(value) {
+    this.type = value;
   }
 }
 
@@ -107,3 +111,15 @@ cat.makeNoise("meow", 40);
 ```
 
 这里的 super 就起到继承的作用，构造函数的继承就是 super()，而方法的继承是 super.methodName()。super()是随意调用的，不一定在重写中。
+
+### 权限控制符：public、private、protect
+
+对一个变量、方法的使用范围做限制的修饰符。public 可以在类和对象使用；private 只能在类内使用；private 可以在类及其子类中使用。
+
+### interface 接口
+
+接口的含义是，使用这个接口（关键字是 implements）的类，必须将接口中的属性和方法全部实现一遍。
+
+### abstract class 抽象类
+
+抽象类是类的模板，可以被类继承，但是不能直接实例化出对象。

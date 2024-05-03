@@ -2,6 +2,7 @@
 title: typescript入门记录
 author: Jason Lee
 date: 2023-08-04 09:29:21
+updated: 2024-05-02
 tags: typescript
 categories:
 ---
@@ -165,3 +166,5 @@ strArray.push(1) // Throws error
 我觉得最佳实践可能是学习 typescript 过程中非常重要的一部分。因为任何 js 代码都是合法的 ts。如何有选择性的加上类型声明，恰当发挥 ts 的优势，总结起来就是最佳实践。
 
 - 利用类型推断功能，不必在所有变量和参数后加类型声明。
+- 命名函数时要加上入参和出参的类型声明。
+- 用 type 给 object 类型的对象添加声明。
