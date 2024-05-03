@@ -9,7 +9,7 @@ layout: "about"
 
 ## 关于我
 
-来自于东南的一个山区小镇。研究生阶段转码，从最初的 Matlab，到后来的 Python、Javascript，用编程解决的问题领域跨越了图像处理、深度学习、爬虫、web 服务。
+Hi，我是 Jason，来自于东南的一个山区小镇。研究生阶段转码，从最初的 Matlab，到后来的 Python、Javascript，用编程解决的问题领域跨越了图像处理、深度学习、爬虫、web 服务。
 
 人生格言：经历一些美好，不留遗憾。
 
@@ -21,9 +21,12 @@ layout: "about"
 
 ### 架构
 
-为了让网站更极客，以及尽可能低成本运营（主要出于后者），我决定完全拥抱 github 生态。博客是基于 hexo 生成、利用 github pages 提供服务的静态网站。图片托管在 github 仓库，结合 jsdelivr cdn 来加快访问速度。基于 github discussion 的 giscus 是本站评论系统。
+- 域名：Namesilo / Cloudflare
+- 托管：Github
+- 框架：Hexo / Markdown
+- 编辑：VSCode
 
-### 重大事件
+### 大事记
 
 2022/7
 
