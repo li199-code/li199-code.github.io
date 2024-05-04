@@ -14,7 +14,7 @@ categories:
 
 get 请求里面，可能携带的参数位置都在 url 上，分别是路径上的参数和查询参数：
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16839892604181683989259695.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16839892604181683989259695.png)
 
 类视图中的获取方式如下：
 

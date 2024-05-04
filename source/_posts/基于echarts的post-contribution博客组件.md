@@ -146,4 +146,4 @@ https://echarts.apache.org/handbook/zh/get-started/
 
 附上改造后的 archive 页：
 
-![17051159772241705115976390.png](https://cdn.jsdelivr.net/gh/li199-code/blog-img-2@main/17051159772241705115976390.png)
+![17051159772241705115976390.png](https://cdn.jsdelivr.us/gh/li199-code/blog-img-2@main/17051159772241705115976390.png)

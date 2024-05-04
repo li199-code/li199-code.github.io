@@ -66,7 +66,7 @@ plt.bar(x_indexes, py_dev_y, color='b', width=width, label='Python Devs')
 plt.bar(x_indexes+width, js_dev_y, color='g',width=width, label='JavaScript Devs')
 ```
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16820744899401682074489216.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16820744899401682074489216.png)
 
 紧接着，作者给出了一个实例，从 csv 文件读取数据，并统计各个编程语言的使用人数。用的是 python 标准 csv 库进行读取，后续可以用 pandas。
 
@@ -93,7 +93,7 @@ Counter({'JavaScript': 59219, 'HTML/CSS': 55466, 'SQL': 47544, 'Python': 36443, 
 
 画图用 bar 函数的话，x 轴就会很拥挤。所以采用横柱状图 plt.barh()，将 x，y 颠倒。
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16820748929351682074891976.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16820748929351682074891976.png)
 
 ## part3 饼状图
 
@@ -112,13 +112,13 @@ plt.title('My Awesome Pie Chart')
 plt.show()
 ```
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16820787849411682078784535.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16820787849411682078784535.png)
 
 ## part4 堆积面积图
 
 堆积面积是 stackplot 的直译，但似乎不是很妥当？api 是 plt.stackplot()
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821263319421682126331749.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16821263319421682126331749.png)
 
 ## part5 折现填充图
 
@@ -128,7 +128,7 @@ plt.show()
 plt.plot(ages, py_salaries, label='Python')
 ```
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821275949341682127594019.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16821275949341682127594019.png)
 
 ## part6 直方图
 
@@ -138,7 +138,7 @@ bins 是每根柱代表的数据间距, log 表示将数据取对数
 plt.hist(ages, bins=bins, edgecolor='black', log=True)
 ```
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821444843081682144484185.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16821444843081682144484185.png)
 
 ## part7 散点图
 
@@ -158,7 +158,7 @@ plt.show()
 
 c 是指颜色的深浅度，cmap 设置颜色的系列，plt.colorbar()在图中添加彩色条，plt.xscale('log')将刻度改为对数，防止过大的数远离图表中心。
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821519242431682151923660.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16821519242431682151923660.png)
 
 ## part8 时序图
 
@@ -174,7 +174,7 @@ plt.plot_date(price_date, price_close, linestyle='solid')
 plt.gcf().autofmt_xdate() ## 自动格式化日期
 ```
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821546612471682154660773.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16821546612471682154660773.png)
 
 ## part9 动画
 

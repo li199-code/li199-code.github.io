@@ -16,7 +16,7 @@ categories: 全栈项目wey
 
 ## 总体流程图
 
-![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16857932628311685793261939.png)
+![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16857932628311685793261939.png)
 
 这是两容器之间的配合示意图。外部的请求从宿主机的 8000 端口进来，然后被 docker 投射到容器 1，交给 nginx 处理。nginx 根据请求的 url，判断是动态还是静态请求。如果是静态，则去找 vue 项目打包来的文件夹 dist 内的资源并返回；如果是动态资源，通过 http 方式转发给容器 2 的端口 8000。uwsgi 处理完逻辑后，将可能有的响应转回给 nginx，再返回给用户。
 

@@ -123,3 +123,5 @@ cat.makeNoise("meow", 40);
 ### abstract class 抽象类
 
 抽象类是类的模板，可以被类继承，但是不能直接实例化出对象。
+
+## 泛型

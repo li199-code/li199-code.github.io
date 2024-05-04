@@ -16,7 +16,7 @@ categories:
 
 不同于 mysql 直接通过命令行工具启动，pgsql 的启动方式有两种。一种是自带的 pgadmin4 这款数据库可视化软件，只要第一次连接上，后续打开都会自动连接。另一种是 sql shell, 也是随 pgsql 一起安装的。打开后，前面几个参数都是默认，最后输入口令（密码）。
 
-![16959671454581695967145365.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16959671454581695967145365.png)
+![16959671454581695967145365.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16959671454581695967145365.png)
 
 ## eggjs+sequelize 的开发流程
 

@@ -11,11 +11,11 @@ categories:
 
 行式：
 
-![17120436082921712043607431.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17120436082921712043607431.png)
+![17120436082921712043607431.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/17120436082921712043607431.png)
 
 列式：
 
-![17120436512831712043650838.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17120436512831712043650838.png)
+![17120436512831712043650838.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/17120436512831712043650838.png)
 
 ## 副本、分片
 
