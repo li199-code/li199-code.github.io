@@ -12,7 +12,7 @@ categories:
 ## acrobat DC 的使用
 
 当初本科时候就装了这个软件。用它输出 word 有两种模式：
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16814725700571681472569208.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16814725700571681472569208.png)
 
 保持流动顺序和保持页面布局。其中，保持流动顺序是让段落顺序和 pdf 一样，转换结果的总页数和 pdf 可能不一致；而保持页面布局是强行让文字位置和 pdf 一样，但是丧失了可编辑性。因为后面还要加公式，所以选择第一种，同时也是默认模式。
 
@@ -25,11 +25,11 @@ categories:
 ### 样式管理
 
 来到文字编辑部分。acrobat 会把文档的标题字体给改了，而且正文段落的缩进还各不相同。如果每一段都设置太麻烦了。所以，从“样式”选项卡修改，可以一劳永逸。首先，选择某个样式的文字，点开样式的修改选项卡，如图：
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16814736786221681473678101.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16814736786221681473678101.png)
 
 然后，设置好字体和段落，比如宋体、两端对齐，去除缩进等。勾上自动更新，然后相同样式的所有文字都会应用。
 
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16814737966141681473796057.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16814737966141681473796057.png)
 
 注意这个自动更新，如果后面你想对一些格式微调，那么自动更新会让你的微调作用于全局，所以，建议初步改完后，关掉自动更新。完成这一步后，文档大致美观了。
 

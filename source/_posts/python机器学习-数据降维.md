@@ -112,4 +112,4 @@ plt.show()
 
 ```
 
-![16978904104791697890409581.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16978904104791697890409581.png)
+![16978904104791697890409581.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16978904104791697890409581.png)

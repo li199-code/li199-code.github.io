@@ -39,11 +39,11 @@ plt.grid(True)
 plt.show()
 ```
 
-plot.plot()函数，一个对应一条曲线，而且，color, linestyle, marker单独作为参数写，而不是混在一起；还有，把图例放在plot函数里而不是legend()，都是为了增加可读性。
+plot.plot()函数，一个对应一条曲线，而且，color, linestyle, marker 单独作为参数写，而不是混在一起；还有，把图例放在 plot 函数里而不是 legend()，都是为了增加可读性。
 
 ## part2 柱状图
 
-画柱状图的函数是plt.bar()。但是如果将上述的plt.plot()改成plt.bar()，会出现重叠的情况。为了避免重叠，需要添加偏移。
+画柱状图的函数是 plt.bar()。但是如果将上述的 plt.plot()改成 plt.bar()，会出现重叠的情况。为了避免重叠，需要添加偏移。
 
 ```
 ages_x = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35]
@@ -58,7 +58,7 @@ x_indexes = np.arange(len(ages_x))
 width=0.25
 ```
 
-width是柱的宽度，柱的数量*width应该小等于1。
+width 是柱的宽度，柱的数量\*width 应该小等于 1。
 
 ```
 plt.bar(x_indexes-width, dev_y, color='k', width=width, label='All Devs')
@@ -66,34 +66,34 @@ plt.bar(x_indexes, py_dev_y, color='b', width=width, label='Python Devs')
 plt.bar(x_indexes+width, js_dev_y, color='g',width=width, label='JavaScript Devs')
 ```
 
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16820744899401682074489216.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16820744899401682074489216.png)
 
-紧接着，作者给出了一个实例，从csv文件读取数据，并统计各个编程语言的使用人数。用的是python标准csv库进行读取，后续可以用pandas。
+紧接着，作者给出了一个实例，从 csv 文件读取数据，并统计各个编程语言的使用人数。用的是 python 标准 csv 库进行读取，后续可以用 pandas。
 
 ```
 with open('data.csv') as csv_file:
     csv_reader = csv.DictReader(csv_file)
     counter = Counter()
-    
+
     for row in csv_reader:
         counter.update(row['LanguagesWorkedWith'].split(';'))
-    
+
 print(counter)
 with open('data.csv') as csv_file:
     csv_reader = csv.DictReader(csv_file)
     counter = Counter()
-    
+
     for row in csv_reader:
         counter.update(row['LanguagesWorkedWith'].split(';'))
-    
+
 print(counter)
 
 Counter({'JavaScript': 59219, 'HTML/CSS': 55466, 'SQL': 47544, 'Python': 36443, 'Java': 35917, 'Bash/Shell/PowerShell': 31991, 'C#': 27097, 'PHP': 23030, 'C++': 20524, 'TypeScript': 18523, 'C': 18017, 'Other(s):': 7920, 'Ruby': 7331, 'Go': 7201, 'Assembly': 5833, 'Swift': 5744, 'Kotlin': 5620, 'R': 5048, 'VBA': 4781, 'Objective-C': 4191, 'Scala': 3309, 'Rust': 2794, 'Dart': 1683, 'Elixir': 1260, 'Clojure': 1254, 'WebAssembly': 1015, 'F#': 973, 'Erlang': 777})
 ```
 
-画图用bar函数的话，x轴就会很拥挤。所以采用横柱状图plt.barh()，将x，y颠倒。
+画图用 bar 函数的话，x 轴就会很拥挤。所以采用横柱状图 plt.barh()，将 x，y 颠倒。
 
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16820748929351682074891976.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16820748929351682074891976.png)
 
 ## part3 饼状图
 
@@ -112,31 +112,33 @@ plt.title('My Awesome Pie Chart')
 plt.show()
 ```
 
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16820787849411682078784535.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16820787849411682078784535.png)
 
 ## part4 堆积面积图
 
-堆积面积是stackplot的直译，但似乎不是很妥当？api是plt.stackplot()
+堆积面积是 stackplot 的直译，但似乎不是很妥当？api 是 plt.stackplot()
 
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16821263319421682126331749.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821263319421682126331749.png)
 
 ## part5 折现填充图
 
 在折现的上方或下方进行填充，直观地表示差距。
+
 ```
 plt.plot(ages, py_salaries, label='Python')
 ```
 
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16821275949341682127594019.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821275949341682127594019.png)
 
 ## part6 直方图
 
-bins是每根柱代表的数据间距, log表示将数据取对数
+bins 是每根柱代表的数据间距, log 表示将数据取对数
+
 ```
 plt.hist(ages, bins=bins, edgecolor='black', log=True)
 ```
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16821444843081682144484185.png)
 
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821444843081682144484185.png)
 
 ## part7 散点图
 
@@ -154,11 +156,12 @@ plt.ylabel('Total Likes')
 plt.show()
 ```
 
-c是指颜色的深浅度，cmap设置颜色的系列，plt.colorbar()在图中添加彩色条，plt.xscale('log')将刻度改为对数，防止过大的数远离图表中心。
+c 是指颜色的深浅度，cmap 设置颜色的系列，plt.colorbar()在图中添加彩色条，plt.xscale('log')将刻度改为对数，防止过大的数远离图表中心。
 
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16821519242431682151923660.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821519242431682151923660.png)
 
 ## part8 时序图
+
 ```
 data['Date'] = pd.to_datetime(data['Date']) ##把字符串解析为日期格式
 data.sort_values('Date', inplace=True)
@@ -171,7 +174,7 @@ plt.plot_date(price_date, price_close, linestyle='solid')
 plt.gcf().autofmt_xdate() ## 自动格式化日期
 ```
 
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16821546612471682154660773.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16821546612471682154660773.png)
 
 ## part9 动画
 
@@ -207,7 +210,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-但是上述代码在jupyter中无法正常运行，只能用pycharm来输出。
+但是上述代码在 jupyter 中无法正常运行，只能用 pycharm 来输出。
 
 ## part10 子图
 
@@ -245,4 +248,4 @@ fig1.savefig('fig1.png')
 fig2.savefig('fig2.png')
 ```
 
-首先，子图中最重要的概念是figure和axis。之前的代码都是针对figure（默认），figure可以认为是一个容器，表现为窗口；axis就是一张具体的图。
+首先，子图中最重要的概念是 figure 和 axis。之前的代码都是针对 figure（默认），figure 可以认为是一个容器，表现为窗口；axis 就是一张具体的图。

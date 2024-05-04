@@ -14,7 +14,7 @@ categories: python 机器学习
 
 分类任务中的一种图，可以看出模型在整个网格内的预测结果。
 
-![16962158450461696215844398.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16962158450461696215844398.png)
+![16962158450461696215844398.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16962158450461696215844398.png)
 
 代码如下：
 

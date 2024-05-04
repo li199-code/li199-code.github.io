@@ -2,29 +2,29 @@
 title: 基于docker的django+vue网站部署
 author: Jason Lee
 date: 2023-05-29 22:28:41
-tags: 
-- docker
-- django
-- uwsgi
-- nginx
+tags:
+  - docker
+  - django
+  - uwsgi
+  - nginx
 categories: 全栈项目wey
 ---
 
 ## 前言
 
-部署和开发是两个完全不同的工作。得益于docker等虚拟化技术，现在的部署已经简单许多了。尽管作者是用原生linux环境做示范，但是我选用docker作为部署工具。主要以查找博客和问chatgpt来学习，中间由于对nginx不了解，还看了相关的视频教程。大概花了三四天时间，从本地win环境，到最终的云主机。现在，我终于可以说，自己是一个全栈工程师了，真正从应用的开发到落地都有了粗浅的涉及。
+部署和开发是两个完全不同的工作。得益于 docker 等虚拟化技术，现在的部署已经简单许多了。尽管作者是用原生 linux 环境做示范，但是我选用 docker 作为部署工具。主要以查找博客和问 chatgpt 来学习，中间由于对 nginx 不了解，还看了相关的视频教程。大概花了三四天时间，从本地 win 环境，到最终的云主机。现在，我终于可以说，自己是一个全栈工程师了，真正从应用的开发到落地都有了粗浅的涉及。
 
 ## 总体流程图
 
-![](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16857932628311685793261939.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16857932628311685793261939.png)
 
-这是两容器之间的配合示意图。外部的请求从宿主机的8000端口进来，然后被docker投射到容器1，交给nginx处理。nginx根据请求的url，判断是动态还是静态请求。如果是静态，则去找vue项目打包来的文件夹dist内的资源并返回；如果是动态资源，通过http方式转发给容器2的端口8000。uwsgi处理完逻辑后，将可能有的响应转回给nginx，再返回给用户。
+这是两容器之间的配合示意图。外部的请求从宿主机的 8000 端口进来，然后被 docker 投射到容器 1，交给 nginx 处理。nginx 根据请求的 url，判断是动态还是静态请求。如果是静态，则去找 vue 项目打包来的文件夹 dist 内的资源并返回；如果是动态资源，通过 http 方式转发给容器 2 的端口 8000。uwsgi 处理完逻辑后，将可能有的响应转回给 nginx，再返回给用户。
 
 ## 项目结构
 
 ```
 wey
- ├── docker-compose.yml 
+ ├── docker-compose.yml
  ├── wey-frontend
  │   ├── dist
  │   ├── Dockerfile
@@ -57,7 +57,7 @@ wey
 
 ```
 
-## 容器1配置
+## 容器 1 配置
 
 ```
 # nginx.conf
@@ -91,7 +91,9 @@ server {
 }
 
 ```
-对应的dockerfile:
+
+对应的 dockerfile:
+
 ```
 # 使用一个基础的 Node.js 镜像作为构建环境
 FROM node:14 as builder
@@ -128,7 +130,7 @@ EXPOSE 80
 
 ```
 
-## 容器2配置
+## 容器 2 配置
 
 ```
 [uwsgi]
@@ -149,7 +151,8 @@ vaccum=true
 die-on-term=true
 ```
 
-对应的dockerfile配置：
+对应的 dockerfile 配置：
+
 ```
 FROM python:3.11
 RUN mkdir /code
@@ -169,7 +172,7 @@ CMD ["uwsgi", "--ini", "uwsgi.ini"]
 
 ## docker-compose
 
-docker compose是在有多个容器且容器之间存在依赖关系时适用。它取代的是命令行构建镜像和创建容器的方式，使得部署更简洁。比如在nginx中，ports:"8000:80"，是在建立端口映射。volumes:是在把特定的目录在整个docker应用进程内建立一个索引，实现文件共享。
+docker compose 是在有多个容器且容器之间存在依赖关系时适用。它取代的是命令行构建镜像和创建容器的方式，使得部署更简洁。比如在 nginx 中，ports:"8000:80"，是在建立端口映射。volumes:是在把特定的目录在整个 docker 应用进程内建立一个索引，实现文件共享。
 
 ```
 version: "3.9"
@@ -182,9 +185,9 @@ services:
     volumes:
       - web_static:/var/www/mysite/assets/static
       - web_media:/var/www/mysite/assets/media
-    depends_on: 
+    depends_on:
       - django
-    
+
 
   django:
     build: ./wey_backend/
@@ -192,7 +195,7 @@ services:
     expose:
       - 8000
     command: >
-      sh -c "python manage.py collectstatic --noinput 
+      sh -c "python manage.py collectstatic --noinput
       && uwsgi --ini uwsgi.ini"
     volumes:
       - web_static:/var/www/mysite/assets/static
@@ -205,6 +208,6 @@ volumes:
 
 ## 总结
 
-这篇文章实现了用docker来部署django+vue的前后端分离网站，并用docker-compose来简化了部署。
+这篇文章实现了用 docker 来部署 django+vue 的前后端分离网站，并用 docker-compose 来简化了部署。
 
 为什么中间遭遇了较大的挫折并且一度想放弃呢？反思的结果是，自己一开始就把多个容器放在一起考虑，导致头绪纷乱无章。后面在尝试了测试两个容器是否能独立运行，然后联合运行，才成功。

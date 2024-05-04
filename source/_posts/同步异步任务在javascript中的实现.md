@@ -12,7 +12,7 @@ categories: JavaScript异步编程
 
 ## 同步 or 异步？
 
-![16913918214981691391820745.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16913918214981691391820745.png)
+![16913918214981691391820745.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16913918214981691391820745.png)
 
 上面这张图表示了两种模式的执行顺序区别，也是最根本的区别。
 

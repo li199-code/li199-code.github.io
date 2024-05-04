@@ -5,7 +5,7 @@ updated: 2024-05-01
 layout: "about"
 ---
 
-![17039493831578070e401a72b3c6f6e771eb976894d7.jpg](https://fastly.jsdelivr.net/gh/li199-code/blog-img-2@main/17039493831578070e401a72b3c6f6e771eb976894d7.jpg)
+![17039493831578070e401a72b3c6f6e771eb976894d7.jpg](https://cdn.jsdelivr.net/gh/li199-code/blog-img-2@main/17039493831578070e401a72b3c6f6e771eb976894d7.jpg)
 
 ## 关于我
 

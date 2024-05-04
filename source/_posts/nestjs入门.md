@@ -14,7 +14,7 @@ categories:
 
 类似于 vue2，也要安装一个脚手架。启动后，访问 localhost:3000，出现一个朴实无华的 Hello world，甚至没有用标题 html 标签：
 
-![16907906119941690790611215.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16907906119941690790611215.png)
+![16907906119941690790611215.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16907906119941690790611215.png)
 
 ## nestjs 和 express 的关系
 
@@ -30,11 +30,11 @@ categories:
 
 我是跟着油管的[教程](https://www.youtube.com/watch?v=xzu3QXwo1BU&list=PL_cUvD4qzbkw-phjGK2qq0nQiG6gw1cKK&index=2&ab_channel=AnsontheDeveloper)敲了一个基础小项目。下面是项目目录的截图。
 
-![16909392755291690939274607.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16909392755291690939274607.png)
+![16909392755291690939274607.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16909392755291690939274607.png)
 
 nestjs 推荐通过脚手架工具来生成代码文件，这样的初始代码来自模板文件。所有可自动生成的文件如下：
 
-![16909397445231690939744129.png](https://fastly.jsdelivr.net/gh/li199-code/blog-imgs@main/16909397445231690939744129.png)
+![16909397445231690939744129.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16909397445231690939744129.png)
 
 这里和我熟悉的 django 框架做一个对比。
 
