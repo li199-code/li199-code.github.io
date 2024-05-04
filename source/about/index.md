@@ -45,6 +45,10 @@ Hi，我是 Jason，来自于东南的一个山区小镇。研究生阶段转码
 
 - 因为博客主题的样式解析需要低版本的 nodejs，而 vercel 不提供，回归 github pages
 
+2024/05
+
+- 针对图片加载速度慢问题，将 github 图床的 cdn 提供方设置为[JSDMirror](https://github.com/54ayao/JSDMirror)
+
 ### 网站维护参考资料
 
 这里记录一些关于网站维护的有用的参考链接：
