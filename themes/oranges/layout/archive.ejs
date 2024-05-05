@@ -6,7 +6,7 @@
 <!-- <script src="../source/js/echarts.min.js"></script> -->
 <!-- <%- js(['/js/echarts.min.js']) %> -->
 <div class="container archives">
-  <div id="main" style="width:100%; height:260px; margin: 0 auto"></div>
+  <div id="heatmap" style="width:100%; height:200px; margin: 0 auto; overflow-x: scroll;"></div>
   <%
   const postsCountByDate = {};
   site.posts.each((item, index) => {
@@ -27,7 +27,7 @@
   <script type="text/javascript">
 
 
-      var chartDom = document.getElementById('main');
+      var chartDom = document.getElementById('heatmap');
       var myChart = echarts.init(chartDom);
       var option;
 
@@ -63,7 +63,7 @@
         title: {
           top: 0,
           left: 'center',
-          text: 'Post Contribution'
+          // text: 'Post Contribution'
         },
         tooltip: {},
         visualMap: {
@@ -84,10 +84,10 @@
         },
 
         calendar: {
-          top: 80,
+          top: 30,
           left: 30,
           right: 30,
-          cellSize: ['auto', 13],
+          cellSize: [13, 13],
           range: [formatted_startDate, formatted_endDate],
           itemStyle: {
             borderWidth: 0.5
@@ -102,6 +102,11 @@
       };
 
       option && myChart.setOption(option);
+
+      // // 响应式图表
+      //   window.addEventListener('resize', function () {
+      //     myChart.resize();
+      //   });
 
     
   </script>
@@ -148,6 +153,17 @@
   .toggle {
     cursor: pointer;
   }
+
+  /* #heatmap {
+    width:100%; height:260px; margin: 0 auto;
+  } */
+
+  @media screen and (max-width: 600px) {
+    #heatmap {
+        /* width:100%; */
+        overflow-x: scroll; /* 自动滚动溢出内容 */
+    }
+}
 </style>
 
 <script>
