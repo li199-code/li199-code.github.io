@@ -6,7 +6,7 @@
 <!-- <script src="../source/js/echarts.min.js"></script> -->
 <!-- <%- js(['/js/echarts.min.js']) %> -->
 <div class="container archives">
-  <div id="heatmap" style="width:100%; height:200px; margin: 0 auto; overflow-x: scroll;"></div>
+  <div id="heatmap" style="width:100%; height:200px; margin: 0 auto"></div>
   <%
   const postsCountByDate = {};
   site.posts.each((item, index) => {
@@ -154,16 +154,8 @@
     cursor: pointer;
   }
 
-  /* #heatmap {
-    width:100%; height:260px; margin: 0 auto;
-  } */
 
-  @media screen and (max-width: 600px) {
-    #heatmap {
-        /* width:100%; */
-        overflow-x: scroll; /* 自动滚动溢出内容 */
-    }
-}
+
 </style>
 
 <script>
