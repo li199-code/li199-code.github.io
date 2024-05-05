@@ -3,10 +3,12 @@
 <!-- last: 按年份把文章分组，当前遍历到的年份 -->
 <!-- now: 当前遍历到的文章的发布年份 -->
 <script src="https://cdn.jsdelivr.us/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script> -->
+
 <!-- <script src="../source/js/echarts.min.js"></script> -->
 <!-- <%- js(['/js/echarts.min.js']) %> -->
 <div class="container archives">
-  <div id="heatmap" style="width:100%; height:200px; margin: 0 auto"></div>
+  <div id="heatmap" style="height:200px; margin: 0 auto"></div>
   <%
   const postsCountByDate = {};
   site.posts.each((item, index) => {
@@ -51,6 +53,7 @@
 
       const startDate = new Date(); //
       startDate.setFullYear(startDate.getFullYear() - 1); // 一年前的日期 e.g 2023.1.10
+      // const startDate = moment().subtract(6, 'months').toDate(); // 6个月前的日期 e.g 2023.7.10
       const endDate = new Date(); // 当前日期 e.g 2024.1.10
 
       const simulatedData = generateRandomData(startDate, endDate);
@@ -87,7 +90,7 @@
           top: 30,
           left: 30,
           right: 30,
-          cellSize: [13, 13],
+          cellSize: ['auto', 13],
           range: [formatted_startDate, formatted_endDate],
           itemStyle: {
             borderWidth: 0.5
