@@ -167,4 +167,4 @@ strArray.push(1) // Throws error
 
 - 利用类型推断功能，不必在所有变量和参数后加类型声明。
 - 命名函数时要加上入参和出参的类型声明。
-- 用 type 给 object 类型的对象添加声明。
+- 用 interface 给 object 类型的对象添加声明。
