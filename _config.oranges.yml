@@ -21,12 +21,12 @@
 #
 favicon:
   enable: true
-  icon: https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1714834886312fish-bgfree.png
-  touch_icon: https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1714834886312fish-bgfree.png
+  icon: https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1715515421826wired-lineal-63-home-100-zip.gif
+  touch_icon: https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1715515421826wired-lineal-63-home-100-zip.gif
 
 # 用户头像与昵称
 avatar:
-  author_photo: https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1714834886312fish-bgfree.png
+  author_photo: https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1715515421826wired-lineal-63-home-100-zip.gif
   author_nickname: Jason Lee
   path: /
 
