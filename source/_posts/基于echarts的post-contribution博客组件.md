@@ -1,7 +1,7 @@
 ---
 title: 基于echarts的post contribution博客组件
 date: 2024-01-12 23:03:33
-updated: 2024-01-12 23:03:33
+updated: 2024-05-12
 tags:
   - echarts
   - 网站建设
@@ -147,3 +147,149 @@ https://echarts.apache.org/handbook/zh/get-started/
 附上改造后的 archive 页：
 
 ![17051159772241705115976390.png](https://cdn.jsdelivr.net/gh/li199-code/blog-img-2@main/17051159772241705115976390.png)
+
+## 更新
+
+经过一段时间的使用，发现了以下问题：
+
+- 右下角的范围筛选控件很丑，但是删不掉；
+- 手机上显示效果很差。
+
+在参考别人博客的类似效果后，我想实现：
+
+- 鼠标悬停在单元格上显示的是标题；
+- 去掉筛选控件
+
+这一次，又是 chatgpt 的答案就几近完美。看来它对 echarts 非常熟悉。
+
+```javascript
+// 获取博客文章数据
+const postsCountByDate = {};
+site.posts.each((item, index) => {
+  let postDate = new Date(item.date);
+  // 获取年、月、日
+  let formattedDate =
+    postDate.getFullYear() +
+    "-" +
+    (postDate.getMonth() + 1) +
+    "-" +
+    postDate.getDate();
+  let arrofTitle = postsCountByDate[formattedDate] || [];
+  arrofTitle.push(item.title);
+  postsCountByDate[formattedDate] = arrofTitle;
+});
+
+// heatmap options数据准备
+var chartDom = document.getElementById("heatmap");
+var myChart = echarts.init(chartDom);
+var option;
+
+var dates = Object.keys(postsCountByDate);
+var colors = ["#FFFFFF", "#FFCCCC", "#FF9999", "#FF6666", "#FF3333", "#FF0000"];
+
+// 提取数据中的标题
+var titles = [];
+Object.keys(postsCountByDate).forEach(function (key) {
+  titles = titles.concat(postsCountByDate[key]);
+});
+
+// 计算最大值
+var maxCount = Math.max.apply(
+  null,
+  Object.values(postsCountByDate).map((arr) => arr.length)
+);
+
+// 计算开头结尾时间，作为calendar的range
+const startDate = new Date(); //
+startDate.setFullYear(startDate.getFullYear() - 1); // 一年前的日期 e.g 2023.1.10
+// const startDate = moment().subtract(6, 'months').toDate(); // 6个月前的日期 e.g 2023.7.10
+const endDate = new Date(); // 当前日期 e.g 2024.1.10
+let startDate_ = new Date(startDate);
+let endDate_ = new Date(endDate);
+formatted_startDate =
+  startDate_.getFullYear() +
+  "-" +
+  (startDate_.getMonth() + 1) +
+  "-" +
+  startDate_.getDate();
+formatted_endDate =
+  endDate_.getFullYear() +
+  "-" +
+  (endDate_.getMonth() + 1) +
+  "-" +
+  endDate_.getDate();
+
+option = {
+  title: {
+    top: 0,
+    left: "center",
+    // text: 'Post Contribution'
+  },
+  tooltip: {
+    position: "top",
+    formatter: function (params) {
+      var date = params.data[0];
+      var titles = postsCountByDate[date] || [];
+      return titles.join("<br>");
+    },
+  },
+
+  calendar: {
+    top: "middle",
+    left: "center",
+    cellSize: ["auto", 13],
+    range: [formatted_startDate, formatted_endDate],
+    itemStyle: {
+      borderWidth: 0.5,
+    },
+    yearLabel: { show: false },
+    monthLabel: {
+      nameMap: [
+        "Jan",
+        "",
+        "Mar",
+        "",
+        "May",
+        "",
+        "Jul",
+        "",
+        "Sep",
+        "",
+        "Nov",
+        "",
+      ],
+    },
+    dayLabel: { show: true, firstDay: 1, nameMap: "en" },
+  },
+  series: {
+    type: "heatmap",
+    coordinateSystem: "calendar",
+    data: dates.map(function (date) {
+      return [date, postsCountByDate[date].length];
+    }),
+    label: {
+      show: false,
+      formatter: function (params) {
+        return params.value[1];
+      },
+    },
+    itemStyle: {
+      normal: {
+        color: function (params) {
+          var count = params.value[1];
+          var level = Math.ceil(count / (maxCount / colors.length));
+          level = Math.min(level, colors.length - 1);
+          return colors[level];
+        },
+      },
+    },
+  },
+};
+
+option && myChart.setOption(option);
+
+// 响应式图表
+window.addEventListener("resize", function () {
+  myChart.resize();
+});
+```

@@ -5,7 +5,7 @@ updated: 2024-05-01
 layout: "about"
 ---
 
-![17039493831578070e401a72b3c6f6e771eb976894d7.jpg](https://cdn.jsdelivr.net/gh/li199-code/blog-img-2@main/17039493831578070e401a72b3c6f6e771eb976894d7.jpg)
+![1715506544711压缩图片.jpg](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1715506544711%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87.jpg)
 
 ## 关于我
 
@@ -22,6 +22,7 @@ Hi，我是 Jason，来自于东南的一个山区小镇。研究生阶段转码
 ### 架构
 
 - 域名：Namesilo / Cloudflare
+- CDN: Cloudflare / JsDelivr
 - 托管：Github
 - 框架：Hexo / Markdown
 - 编辑：VSCode
@@ -44,10 +45,6 @@ Hi，我是 Jason，来自于东南的一个山区小镇。研究生阶段转码
 2023/11
 
 - 因为博客主题的样式解析需要低版本的 nodejs，而 vercel 不提供，回归 github pages
-
-2024/05
-
-- 针对图片加载速度慢问题，将 github 图床的 cdn 提供方设置为[JSDMirror](https://github.com/54ayao/JSDMirror)
 
 ### 网站维护参考资料
 
