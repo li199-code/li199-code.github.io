@@ -1,8 +1,9 @@
 ---
 title: 动手pytorch
-date: 2023-03-21 10:18:17
 tags: deep-learning
 categories: 动手pytorch
+abbrlink: 7649c4b2
+date: 2023-03-21 10:18:17
 ---
 
 这个系列记录我跟随 B 站上李沐的《动手学深度学习》的视频教程。每五个章节的笔记合成一篇 blog。

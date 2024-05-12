@@ -1,8 +1,9 @@
 ---
 title: matplotlib最佳实践
 author: Jason Lee
-date: 2023-04-21 14:25:44
 tags: matplotlib
+abbrlink: d9a6bba3
+date: 2023-04-21 14:25:44
 categories:
 ---
 

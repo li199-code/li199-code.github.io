@@ -1,9 +1,10 @@
 ---
 title: 《python 机器学习》数据预处理
 author: Jason Lee
-date: 2023-10-10 21:20:00
 tags: machine-learning
 categories: python 机器学习
+abbrlink: 3e539f1
+date: 2023-10-10 21:20:00
 ---
 
 ## 缺失数据值的处理

@@ -1,9 +1,10 @@
 ---
 title: 'wey: 基于vue+django的社交网站(0)'
 author: Jason Lee
-date: 2023-06-22 20:49:39
-tags: 
 categories: 全栈项目wey
+abbrlink: 578822d0
+date: 2023-06-22 20:49:39
+tags:
 ---
 
 ## 前言

@@ -1,8 +1,9 @@
 ---
-title: 'string/array方法总结'
+title: string/array方法总结
+tags:
+  - javascript
+abbrlink: e50d8a89
 date: 2022-08-24 14:55:55
-tags: 
-- javascript
 ---
 string、array是非常常用的数据类型。对下面的常用方法进行总结。
 

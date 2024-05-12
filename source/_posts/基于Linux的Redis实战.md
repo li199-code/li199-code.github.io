@@ -1,7 +1,8 @@
 ---
 title: 基于Linux的Redis实战
-date: 2024-02-06 21:34:31
 tags: redis
+abbrlink: 92e3410d
+date: 2024-02-06 21:34:31
 categories:
 ---
 

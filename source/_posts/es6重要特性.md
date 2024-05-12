@@ -1,9 +1,10 @@
 ---
 title: es6重要特性
-date: 2023-12-16 21:12:33
-updated: 2023-12-16 21:12:33
 tags:
   - es6
+abbrlink: c5db1152
+date: 2023-12-16 21:12:33
+updated: 2023-12-16 21:12:33
 categories:
 ---
 

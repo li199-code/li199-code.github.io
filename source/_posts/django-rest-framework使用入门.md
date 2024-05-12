@@ -1,8 +1,9 @@
 ---
 title: django-rest-framework使用入门
 author: Jason Lee
-date: 2023-05-02 14:19:07
 tags: django
+abbrlink: dcdad5f8
+date: 2023-05-02 14:19:07
 categories:
 ---
 

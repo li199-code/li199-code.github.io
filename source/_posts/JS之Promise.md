@@ -1,8 +1,9 @@
 ---
 title: JS之Promise
-date: 2022-07-26 17:58:45
 tags: javascript
 categories: JavaScript异步编程
+abbrlink: 5d9fa5e8
+date: 2022-07-26 17:58:45
 ---
 
 ## 为什么需要 promise

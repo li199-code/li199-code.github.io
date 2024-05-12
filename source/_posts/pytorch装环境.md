@@ -1,8 +1,9 @@
 ---
 title: pytorch装环境
-date: 2023-04-01 20:54:38
 tags: pytorch
 categories: 动手pytorch
+abbrlink: 72f09985
+date: 2023-04-01 20:54:38
 ---
 
 ## 问题描述

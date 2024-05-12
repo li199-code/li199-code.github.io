@@ -1,7 +1,8 @@
 ---
 title: namesilo购买域名和github pages配置
-date: 2023-02-04 18:27:15
 tags: 网站建设
+abbrlink: 7d52c22c
+date: 2023-02-04 18:27:15
 categories:
 ---
 

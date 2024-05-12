@@ -1,12 +1,13 @@
 ---
 title: django+nginx+mysql 三容器部署
 author: Jason Lee
-date: 2023-06-24 17:16:09
 tags:
   - docker
   - django
   - mysql
 categories: 全栈项目wey
+abbrlink: f5061afc
+date: 2023-06-24 17:16:09
 ---
 
 ## 前言

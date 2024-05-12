@@ -1,9 +1,10 @@
 ---
 title: 《python机器学习》分类算法
 author: Jason Lee
-date: 2023-10-02 10:57:30
 tags: machine-learning
 categories: python 机器学习
+abbrlink: ccf92e0d
+date: 2023-10-02 10:57:30
 ---
 
 ## 前言

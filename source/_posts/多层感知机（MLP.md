@@ -1,8 +1,9 @@
 ---
 title: 多层感知机（MLP)
-date: 2023-03-25 14:59:43
 tags: deep-learning
 categories: 动手pytorch
+abbrlink: baa5a140
+date: 2023-03-25 14:59:43
 ---
 终于从前面的单层网络linear-regression和softmax过渡到多层神经网络了。为了对更加复杂的数据进行学习，多层感知机将多个全连接层叠加，并增加激活函数。激活函数是非线性的，因为如果不加激活函数或者激活函数线性，那么多层神经网络还是遵循线性规律，等同于一层。
 

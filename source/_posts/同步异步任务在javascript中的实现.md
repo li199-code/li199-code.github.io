@@ -1,9 +1,10 @@
 ---
 title: 同步异步任务在javascript中的实现
 author: Jason Lee
-date: 2023-08-07 14:45:51
 tags: 异步编程
 categories: JavaScript异步编程
+abbrlink: c8c3d6c5
+date: 2023-08-07 14:45:51
 ---
 
 ## 前言

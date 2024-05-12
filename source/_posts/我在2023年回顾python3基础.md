@@ -1,8 +1,9 @@
 ---
 title: 我在2023年回顾python3基础
 author: Jason Lee
-date: 2023-05-06 17:02:05
 tags: python
+abbrlink: 31e7f4f2
+date: 2023-05-06 17:02:05
 categories:
 ---
 

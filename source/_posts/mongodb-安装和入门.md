@@ -1,5 +1,6 @@
 ---
 title: mongodb 安装和入门
+abbrlink: 96b3f720
 date: 2024-02-22 17:10:41
 tags:
 categories:

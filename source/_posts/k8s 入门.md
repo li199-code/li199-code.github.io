@@ -1,9 +1,10 @@
 ---
 title: k8s 入门
-date: 2024-03-16 10:10:36
 tags:
   - k8s
   - devops
+abbrlink: b702da18
+date: 2024-03-16 10:10:36
 categories:
 ---
 

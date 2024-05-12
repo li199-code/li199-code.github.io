@@ -1,7 +1,8 @@
 ---
 title: vscode 使用技巧
-date: 2024-04-15 20:38:17
 tags: vscode
+abbrlink: 43c7ac09
+date: 2024-04-15 20:38:17
 categories:
 ---
 

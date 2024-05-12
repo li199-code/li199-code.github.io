@@ -1,9 +1,10 @@
 ---
 title: 针对csv文件类型的深度学习全流程记录
 author: Jason Lee
-date: 2023-06-06 19:46:55
 tags: deep-learning
 categories: 动手pytorch
+abbrlink: dcaadedb
+date: 2023-06-06 19:46:55
 ---
 
 ## 前言

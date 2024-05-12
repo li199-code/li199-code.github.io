@@ -1,9 +1,10 @@
 ---
 title: python机器学习-数据降维
 author: Jason Lee
-date: 2023-10-15 23:00:39
 tags: machine-learning
 categories: python 机器学习
+abbrlink: 43105c4b
+date: 2023-10-15 23:00:39
 ---
 
 ## PCA（主成分分析）

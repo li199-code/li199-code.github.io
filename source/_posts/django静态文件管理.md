@@ -1,8 +1,9 @@
 ---
 title: django静态文件管理
 author: Jason Lee
-date: 2023-05-30 20:57:21
 tags: django
+abbrlink: 97aaa74f
+date: 2023-05-30 20:57:21
 categories:
 ---
 

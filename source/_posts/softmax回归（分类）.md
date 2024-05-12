@@ -1,8 +1,9 @@
 ---
 title: softmax回归（分类）
-date: 2023-03-23 10:20:57
 tags: deep-learning
 categories: 动手pytorch
+abbrlink: f17e2337
+date: 2023-03-23 10:20:57
 ---
 ## 回归和分类
 

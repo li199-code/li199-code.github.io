@@ -1,9 +1,10 @@
 ---
 title: run的方法论
 author: Jason Lee
-date: 2023-05-24 20:44:06
 tags: run
 categories: 润学心经
+abbrlink: bf801794
+date: 2023-05-24 20:44:06
 ---
 
 每一个国家的方案设计，都可以概括为三步：

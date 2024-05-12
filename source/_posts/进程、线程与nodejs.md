@@ -1,12 +1,13 @@
 ---
 title: 进程、线程与nodejs
-date: 2023-12-04 10:01:11
-updated: 2023-12-04 10:01:11
 tags:
   - 进程
   - nodejs
   - 异步编程
 categories: JavaScript异步编程
+abbrlink: 480a0b0a
+date: 2023-12-04 10:01:11
+updated: 2023-12-04 10:01:11
 ---
 
 这篇文章是补齐我一些关于进程和线程的基础知识，以及他们和 nodejs 的关系。形式为 chatgpt 问答。

@@ -1,7 +1,8 @@
 ---
 title: clickhouse 入门
-date: 2024-04-02 13:29:21
 tags: clickhouse
+abbrlink: 3cb7e0b0
+date: 2024-04-02 13:29:21
 categories:
 ---
 

@@ -1,9 +1,10 @@
 ---
 title: linux上kafka安装和入门
-date: 2024-02-21 10:47:00
 tags:
   - kafka
   - 消息队列
+abbrlink: e6a6fb0a
+date: 2024-02-21 10:47:00
 categories:
 ---
 

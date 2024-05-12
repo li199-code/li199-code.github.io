@@ -1,7 +1,8 @@
 ---
 title: sql查询调优实战过程
-date: 2024-02-02 16:57:18
 tags: sql优化
+abbrlink: 24b1f175
+date: 2024-02-02 16:57:18
 categories:
 ---
 

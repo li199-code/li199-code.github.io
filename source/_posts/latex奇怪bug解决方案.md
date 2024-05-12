@@ -1,7 +1,8 @@
 ---
 title: latex奇怪bug解决方案
-date: 2023-02-12 23:23:38
 tags: latex
+abbrlink: f1f9e77b
+date: 2023-02-12 23:23:38
 categories:
 ---
 

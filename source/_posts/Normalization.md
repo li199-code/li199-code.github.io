@@ -1,8 +1,9 @@
 ---
 title: Batch Normalization
-date: 2023-04-02 20:31:59
 tags: deep-learning
 categories: 动手pytorch
+abbrlink: 49cd3ce
+date: 2023-04-02 20:31:59
 ---
 
 ## 前言

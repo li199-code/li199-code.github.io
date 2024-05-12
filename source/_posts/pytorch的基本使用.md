@@ -1,8 +1,9 @@
 ---
 title: pytorch的基本使用
-date: 2023-03-28 16:43:29
 tags: deep-learning
 categories: 动手pytorch
+abbrlink: edc1f807
+date: 2023-03-28 16:43:29
 ---
 之前我们有大量的从零实现一层网络，现在借用先进的pytorch框架，让很多功能得到封装，可以快捷的组建一个块。
 

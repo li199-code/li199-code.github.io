@@ -1,10 +1,11 @@
 ---
 title: JWT认证
 author: Jason Lee
-date: 2023-05-08 19:33:25
 tags:
   - authentication
   - jwt
+abbrlink: c6140e8e
+date: 2023-05-08 19:33:25
 categories:
 ---
 

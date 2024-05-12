@@ -1,7 +1,8 @@
 ---
 title: nginx 入门
-date: 2024-03-17 22:12:46
 tags: nginx
+abbrlink: cf06bc3b
+date: 2024-03-17 22:12:46
 categories:
 ---
 

@@ -1,8 +1,9 @@
 ---
 title: linux ubuntu笔记
 author: Jason Lee
-date: 2023-07-10 19:43:44
 tags: linux
+abbrlink: be5075f5
+date: 2023-07-10 19:43:44
 categories:
 ---
 

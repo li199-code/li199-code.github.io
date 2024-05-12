@@ -1,8 +1,9 @@
 ---
 title: JavaScript函数进阶内容
+tags: javascript
+abbrlink: b7e39eaf
 date: 2023-12-22 14:31:38
 updated: 2023-12-22 14:31:38
-tags: javascript
 categories:
 ---
 

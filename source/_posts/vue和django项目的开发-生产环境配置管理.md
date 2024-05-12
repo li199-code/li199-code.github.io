@@ -1,12 +1,13 @@
 ---
 title: vue和django项目的开发/生产环境配置管理
 author: Jason Lee
-date: 2023-06-26 22:33:30
-tags: 
-- vue
-- django
-- 最佳实践
+tags:
+  - vue
+  - django
+  - 最佳实践
 categories: 全栈项目wey
+abbrlink: 6f16f258
+date: 2023-06-26 22:33:30
 ---
 
 ## 前言

@@ -1,8 +1,9 @@
 ---
 title: sklearn crash course
 author: Jason Lee
-date: 2023-09-24 23:06:24
 tags: sklearn
+abbrlink: 7a11e9dc
+date: 2023-09-24 23:06:24
 categories:
 ---
 

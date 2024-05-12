@@ -1,9 +1,10 @@
 ---
 title: python机器学习-模型评估与参数调优
 author: Jason Lee
-date: 2023-10-23 23:20:22
 tags: machine-learning
 categories: python 机器学习
+abbrlink: a279c7bb
+date: 2023-10-23 23:20:22
 ---
 
 ## 性能指标（二分类问题）

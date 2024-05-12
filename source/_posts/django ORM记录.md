@@ -1,8 +1,9 @@
 ---
-title: "Django ORM记录"
-date: 2022-11-24 11:22:00
+title: Django ORM记录
 tags:
   - django
+abbrlink: 6318eae6
+date: 2022-11-24 11:22:00
 ---
 
 记录曾经不懂的问题和踩过的坑

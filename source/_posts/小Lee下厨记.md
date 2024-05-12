@@ -1,10 +1,11 @@
 ---
 title: 小Lee下厨记
+tags: 日常
+top: true
+abbrlink: 103ae959
 date: 2024-05-06 20:27:50
 updated: 2024-05-06 20:27:50
-tags: 日常
 categories:
-top: true
 ---
 
 工作后，做饭的妙处在于省钱、吃的放心，还有学会一项技能的喜悦感。我决定把我做过的菜记录下来，并按照烹饪的时间精力综合消耗排序，方便纠结不知道做啥菜的时候参考。星级越高，表示越不容易。
@@ -26,8 +27,8 @@ https://www.bilibili.com/video/BV1tJ4m1p7aE/?spm_id_from=333.1007.top_right_bar_
 
 ---
 
-https://www.bilibili.com/video/BV11E421G79E/?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&vd_source=71c0be7c56c09a5e949353c5bf93df72
 酱油猪扒饭 | 外焦里嫩、我可以连续吃一个星期！
+https://www.bilibili.com/video/BV11E421G79E/?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&vd_source=71c0be7c56c09a5e949353c5bf93df72
 
 ---
 

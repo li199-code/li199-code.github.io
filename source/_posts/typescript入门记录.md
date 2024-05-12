@@ -1,9 +1,10 @@
 ---
 title: typescript入门记录
 author: Jason Lee
-date: 2023-08-04 09:29:21
-updated: 2024-05-02
 tags: typescript
+abbrlink: e0862921
+date: 2023-08-04 09:29:21
+updated: 2024-05-02 00:00:00
 categories:
 ---
 

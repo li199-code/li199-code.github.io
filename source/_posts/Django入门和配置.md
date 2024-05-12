@@ -1,8 +1,9 @@
 ---
 title: Django入门和配置
-date: 2022-11-10 13:50:11
 tags:
   - django
+abbrlink: 1977695e
+date: 2022-11-10 13:50:11
 ---
 
 Django 是 python 的一个 web 后台框架。他的特点是大而全，因此本身命令和代码构架和原生 python 有较大区别，这篇文章是对 django 从入门到项目运行的学习记录。

@@ -1,8 +1,9 @@
 ---
 title: ModelForm详解
 author: Jason Lee
-date: 2023-04-28 16:05:54
 tags: django
+abbrlink: '62789229'
+date: 2023-04-28 16:05:54
 categories:
 ---
 

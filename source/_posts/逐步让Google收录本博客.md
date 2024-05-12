@@ -1,10 +1,11 @@
 ---
 title: 逐步让Google收录本博客
 author: Jason Lee
-date: 2023-06-19 09:18:30
 tags:
   - seo
   - 网站建设
+abbrlink: 28cb7a4d
+date: 2023-06-19 09:18:30
 categories:
 ---
 

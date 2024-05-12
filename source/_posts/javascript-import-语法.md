@@ -1,9 +1,10 @@
 ---
 title: javascript 模块系统
-date: 2023-02-02 15:20:42
 tags:
   - nodejs
   - es6
+abbrlink: 84f29cc2
+date: 2023-02-02 15:20:42
 categories:
 ---
 

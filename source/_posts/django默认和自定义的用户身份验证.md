@@ -1,8 +1,9 @@
 ---
 title: django默认和自定义的用户身份验证
 author: Jason Lee
-date: 2023-05-10 09:16:20
 tags: django
+abbrlink: 9a6288e8
+date: 2023-05-10 09:16:20
 categories:
 ---
 

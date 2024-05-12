@@ -1,13 +1,14 @@
 ---
 title: 基于docker的django+vue网站部署
 author: Jason Lee
-date: 2023-05-29 22:28:41
 tags:
   - docker
   - django
   - uwsgi
   - nginx
 categories: 全栈项目wey
+abbrlink: e818c632
+date: 2023-05-29 22:28:41
 ---
 
 ## 前言

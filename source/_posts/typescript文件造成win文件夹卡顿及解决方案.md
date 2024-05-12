@@ -1,8 +1,9 @@
 ---
 title: typescript文件造成win文件夹卡顿原因及解决方案
 author: Jason Lee
-date: 2023-08-09 09:43:24
 tags: typescript
+abbrlink: ee91a880
+date: 2023-08-09 09:43:24
 categories:
 ---
 
