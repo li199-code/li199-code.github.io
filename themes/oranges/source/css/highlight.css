@@ -239,6 +239,10 @@ figure figcaption {
   border-top-right-radius: 5px;
 }
 
+figure table {
+  max-height: 800px;
+}
+
 figure table .gutter {
   user-select: none;
 }
