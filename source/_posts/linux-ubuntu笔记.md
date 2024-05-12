@@ -41,10 +41,10 @@ win 的所有文件都存在 C 盘（假如不分区），而 linux 的根目录
 win 通过任务管理器，可以得知系统的所有实时信息：磁盘、处理器、进程等。如果要在 linux 的命令行窗口中获得实时信息，可以用 top 或者 htop 命令：
 
 top 的输出：
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16891288146221689128813983.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16891288146221689128813983.png)
 
 htop 的输出：
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16891288816201689128881589.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16891288816201689128881589.png)
 
 htop 的信息更清晰一些。
 

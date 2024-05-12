@@ -15,11 +15,11 @@ categories: 动手pytorch
 
 对于有 GPU 的机器，需要下载 cuda 取代。然后输入`nvidia-smi`查看 cuda 版本。如下：
 
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16804384729851680438472133.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16804384729851680438472133.png)
 
 CUDA 分为两种，驱动 API 和运行 API，驱动 API 指的是指的显卡驱动支持的最高 cuda 版本，我们运行程序时用的是运行 API。图片右上角的是去掉 API，显示 11.2。而运行`nvcc -V`查看运行 API：
 
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16804385269811680438526702.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16804385269811680438526702.png)
 
 10.2. 所以驱动 API 一般高于运行 API。但是，当我们用 conda 虚拟环境时，还有另外一种情况：
 
@@ -27,7 +27,7 @@ CUDA 分为两种，驱动 API 和运行 API，驱动 API 指的是指的显卡�
 
 `conda list`查看 cudatoolkit 的版本。这里是 10.2。最终确定要安装的 torch+torchaudio+torchvision 组合一定要是 cuda10.
 
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16804386679841680438667613.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16804386679841680438667613.png)
 
 ## whl 安装
 

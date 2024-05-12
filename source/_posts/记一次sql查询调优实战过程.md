@@ -11,7 +11,7 @@ categories:
 
 首先查看执行计划。如果是执行 explain 命令来获得执行计划，得到的 cost 并不能直接看出速度的快慢。因此，需要用`explain (analyze)`。由于查询是由好几个 CTE 子表组成的，所以执行计划也是分别给出了几个 CTE 子表的花费时间。虽然很长，但是，细心的查看后，果然发现了异常：
 
-![17068653903891706865390291.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/17068653903891706865390291.png)
+![17068653903891706865390291.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17068653903891706865390291.png)
 
 可以看到，在查询 money_bag_balance 这张子表时，actutal time(实际执行时间)达到了 2295 毫秒，他就是元凶。接下来看，发现是在 trade_list_internal 这张流水表上进行全表扫描，难怪这么慢！于是，我定位到 money_bag_balance 的 sql 语句,这张表是由 income 和 balance 合并而来，以 income 为例：
 
@@ -78,7 +78,7 @@ SELECT
 FROM base_user
 ```
 
-![17082445872911708244586983.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/17082445872911708244586983.png)
+![17082445872911708244586983.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17082445872911708244586983.png)
 
 base_user 表的数据量是百万级。从执行计划看出，耗时部分出现在 bind_plate_no 表的 aggregate 上。对应的 sql 是一个典型的 count distinct 问题。虽然 user_id 加了索引，但是在 count 内部 distinct 需要大量的额外计算，因此很慢。试过去掉 distinct 后，这句 sql 就变得很快了。但是，不能破坏原有业务逻辑啊。解决方案是先去重、再汇总。
 

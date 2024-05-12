@@ -34,7 +34,7 @@ COPY ./data.sql /docker-entrypoint-initdb.d/data.sql
 
 最后一行使得 data.sql 在容器初始化时就被执行。这时候虽然有了数据库但是没有表格，需要去 django 项目下，执行`python manage.py migrate`来在库里面创建表格。运行`docker exec -it <name> /bin/bash`，进入容器 terminal，进入 mysql 命令行，show tables，可以得到：
 
-![16875289399621687528939092.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16875289399621687528939092.png)
+![16875289399621687528939092.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16875289399621687528939092.png)
 
 说明，数据表格创建成功了。
 

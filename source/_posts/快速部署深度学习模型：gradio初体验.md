@@ -42,11 +42,11 @@ interface.launch(share=True)
 
 huggingface space 是一个类似 github 的地方，可以用来存 py 文件和预训练模型，并且在和 gradio 绑定后，可以实现免费的部署。如果是新电脑，运行`gradio deploy`，按指示添加 write token，绑定 huggingface 账号。也可以通过 git clone 命令，下载空间到本地再修改。新建 space 时的信息：
 
-![16886436128041688643612164.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16886436128041688643612164.png)
+![16886436128041688643612164.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16886436128041688643612164.png)
 
 除了一个基础的 cpu 是免费的，其他都是按小时收费的。说实话还是蛮贵的，比如 T4 gpu，colab 和 kaggle 都是免费提供的，这里收 0.6 美刀/小时。当代码每次有更改时，空间会自动刷新并运行一次，可通过点击红框内的按钮查看进度：
 
-![16886441928151688644192174.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16886441928151688644192174.png)
+![16886441928151688644192174.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16886441928151688644192174.png)
 
 成功之后，可以通过分享这个 space 的链接，来实现在线演示。
 

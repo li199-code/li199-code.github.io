@@ -26,11 +26,11 @@ categories:
 
 ## 实现方式
 
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16835504248481683550424778.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16835504248481683550424778.png)
 
 上图是 jwt 的结构。三段式，分别是头部、负荷和签名。头部有两个字段：生成签名用到的加密算法和 token 类型。负荷中的 iat 指的是 issue at，签发时间。签名框里的意思是，头部加负荷，再加上密钥，一同经过 sha256 算法，生成了签名。
 
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16835498537981683549853156.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16835498537981683549853156.png)
 
 chatgpt 的解释：
 

@@ -118,16 +118,16 @@ git push origin master
 
 ## git 状态（更新）
 
-![16872235086311687223508501.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16872235086311687223508501.png)
+![16872235086311687223508501.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16872235086311687223508501.png)
 
 这张图展示了 git 的四种状态：untracked, unmodified, modified, staged. 从指向每个状态的箭头，我解读出一些有用的信息。首先，`git init`命令执行，创建了一个“容器”，但是所有的文件依旧是 untracked. staged 要么是从 untracked 转来，要么是已经被跟踪的文件被修改后执行`git add`而来。stage 状态的文件被 commit 后，状态就会回到 unmodified。
 
 在现代的工作环境下，大多数人是通过 vscode 等 IDE 进行 git 操作了。所以，结合 vscode 页面说明对应的 git 状态和操作有助于加深理解。以我的 vscode 界面为例。如果一个项目还没有被 git 管理，这时候初始化，那么在 vscode 的 explorer 里，所有文件都会变成绿色，这种对应的就是上图的 untracked 状态，绿色的 U。同理新建一个文件，也是这种状态。然后，如果修改了一个文件，modified，黄色的 M。删除不在上面的图中，表示为红色的 D。当然了，没有修改的文件就是白色的，unmodified。
 
-![17031659366861703165935807.png](https://cdn.jsdelivr.us/gh/li199-code/blog-img-2@main/17031659366861703165935807.png)
+![17031659366861703165935807.png](https://cdn.jsdelivr.net/gh/li199-code/blog-img-2@main/17031659366861703165935807.png)
 
 继续看，只有处在 staged 状态的文件才能被 commit。所以下图的加号就是把 modified 变为 staged，点了之后，文件会进入 staged changes。这里都是为了精细化控制单个文件。另外，vscode 有自己一套默认规则。正常情况下，点 commit 按钮只会提交 staged changes 内容，如果只有 changes 没有 staged changes，那么 vscode 就会自动将 changes 内容变为 staged 并提交。
 
-![17031663916541703166390710.png](https://cdn.jsdelivr.us/gh/li199-code/blog-img-2@main/17031663916541703166390710.png)
+![17031663916541703166390710.png](https://cdn.jsdelivr.net/gh/li199-code/blog-img-2@main/17031663916541703166390710.png)
 
-![17031665366531703166535845.png](https://cdn.jsdelivr.us/gh/li199-code/blog-img-2@main/17031665366531703166535845.png)
+![17031665366531703166535845.png](https://cdn.jsdelivr.net/gh/li199-code/blog-img-2@main/17031665366531703166535845.png)

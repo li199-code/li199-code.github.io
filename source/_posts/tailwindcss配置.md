@@ -20,7 +20,7 @@ cdn 是最快尝试 tcss 的方法。它是通过在线引入 tcss 的 styleshee
 
 通过 CDN 引入的显著缺点是，每一次更改样式都要请求网络，如果网络不好或者断网，就会带来不好的开发体验。官网文档还给出了一些缺点：
 
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16825858863281682585886085.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16825858863281682585886085.png)
 
 ## Tailwind CLI
 

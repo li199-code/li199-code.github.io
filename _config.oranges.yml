@@ -21,12 +21,12 @@
 #
 favicon:
   enable: true
-  icon: https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/1714834886312fish-bgfree.png
-  touch_icon: https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/1714834886312fish-bgfree.png
+  icon: https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1714834886312fish-bgfree.png
+  touch_icon: https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1714834886312fish-bgfree.png
 
 # 用户头像与昵称
 avatar:
-  author_photo: https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/1714834886312fish-bgfree.png
+  author_photo: https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1714834886312fish-bgfree.png
   author_nickname: Jason Lee
   path: /
 

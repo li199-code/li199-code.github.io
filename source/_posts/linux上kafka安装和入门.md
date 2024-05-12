@@ -70,7 +70,7 @@ sendMessage()
   .catch(console.error);
 ```
 
-![17085683262981708568325402.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/17085683262981708568325402.png)
+![17085683262981708568325402.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17085683262981708568325402.png)
 
 在输出消息之前，控制台还打印出了几条日志。目前主要关注最后两条。消费者启动并加入到消费者组。为了确定 kafka 的主题中是否真的有这个消息，运行：
 

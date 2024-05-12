@@ -22,7 +22,7 @@ python -m venv <envname>
 
 这样就创建了一个文件夹，内部目录为：
 
-![16873086912601687308690642.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16873086912601687308690642.png)
+![16873086912601687308690642.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16873086912601687308690642.png)
 
 其中，Lib 装了环境，Scripts 有激活和退出环境的脚本。以 powershell 为例，输入脚本路径，就激活了环境：
 
@@ -32,7 +32,7 @@ C:\venv\helloalgo\Scripts\activate.ps1
 
 退出：`deactivate`. 通过`pip list`，新环境预装的包为：
 
-![16873091022651687309101499.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16873091022651687309101499.png)
+![16873091022651687309101499.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16873091022651687309101499.png)
 
 可以说什么都没有，具有很大的灵活性了，完全由用户掌控。
 
@@ -42,11 +42,11 @@ C:\venv\helloalgo\Scripts\activate.ps1
 
 首先说说 vscode。右下角选择 venv 解释器路径：
 
-![16873102812591687310281154.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16873102812591687310281154.png)
+![16873102812591687310281154.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16873102812591687310281154.png)
 
 然后是 pycharm,同样是右下角，add new interpreter->existing->选择解释器位置：
 
-![16873105482641687310547564.png](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16873105482641687310547564.png)
+![16873105482641687310547564.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16873105482641687310547564.png)
 
 这时候要新建一个 terminal，就会自动将环境挂载上。
 

@@ -18,7 +18,7 @@ tailwindcss 使得不用离开 html 界面就可以完成 css coding。常见的
 
 基本组成，flex container 和 flex item。他们可以分别设置属性。
 
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16830806001751683080598915.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16830806001751683080598915.png)
 
 容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做 main start，结束位置叫做 main end；交叉轴的开始位置叫做 cross start，结束位置叫做 cross end。项目默认沿主轴排列。单个项目占据的主轴空间叫做 main size，占据的交叉轴空间叫做 cross size。
 
@@ -35,11 +35,11 @@ tailwindcss 使得不用离开 html 界面就可以完成 css coding。常见的
 
 这里对 align-content 做出一点说明。所谓的多根轴线，是指在元素较多，形成换行后，每一行元素所在的轴，而不是指主轴和交叉轴：
 
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16830822436551683082242968.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16830822436551683082242968.png)
 
 如图，每一根红线都是一个轴。也就是说，align-content 定义了多行元素的整体对齐方式。作为对比，align-items 的对象是当行元素：
 
-![](https://cdn.jsdelivr.us/gh/li199-code/blog-imgs@main/16830824356581683082435406.png)
+![](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/16830824356581683082435406.png)
 
 换句话说，多行元素用 align-content，单行元素用 align-items。
 
