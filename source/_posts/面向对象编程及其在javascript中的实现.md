@@ -74,7 +74,8 @@ class Animal {
 
 let dog = new Animal((type = "dog"), (legs = "2"));
 
-console.log(dog.metaData);
+console.log(dog.metaData); // getter调用
+dog.setType = "alaska dog"; // setter调用
 ```
 
 ### 继承
@@ -112,6 +113,8 @@ cat.makeNoise("meow", 40);
 ```
 
 这里的 super 就起到继承的作用，构造函数的继承就是 super()，而方法的继承是 super.methodName()。super()是随意调用的，不一定在重写中。
+
+以下内容只存在于 typescript 中。
 
 ### 权限控制符：public、private、protect
 
