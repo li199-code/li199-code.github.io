@@ -15,7 +15,7 @@ jobs:
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
       - name: Restore file modification time
-        run: find source/_posts -name '*.md' | while read file; do echo "$file" && touch -d "$(git log -1 --format="@%ct" "$file")" "$file" && stat -c %y "$file"; done
+        run: find source/_posts -name '*.md' | while read file; do echo "$file" && touch -d "2020-01-01 00:00:00" "$file" && stat -c %y "$file"; done
       - name: Use Node.js 12
         uses: actions/setup-node@v4
         with:
