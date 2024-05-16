@@ -14,8 +14,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
-      - name: Restore file modification time
-        run: find source/_posts -name '*.md' | while read file; do echo "$file" && git log -1 --date=format:"%Y-%m-%d %H:%M:%S" --format="%cd" "$file" && touch -d "$(git log -1 --date=format:"%Y-%m-%d %H:%M:%S" --format="%cd" "$file")" "$file" && stat -c %y "$file"; done
       - name: Use Node.js 12
         uses: actions/setup-node@v4
         with:

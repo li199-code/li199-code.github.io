@@ -7,7 +7,7 @@ date: 2022-07-30 10:55:52
 
 ### 前言
 
-一直苦于 css 的内容繁多，潜意识回避。但是对于初级前端岗位，重现页面是基本功。所以，决定花几天时间，重学 css。知乎上的[回答](https://www.zhihu.com/question/383581311/answer/1114218936)建议将 css 分为选择器、样式、盒模型、定位四个部分。那么我就按这个路线学一遍，并记录自己容易出错的地方。ddd
+一直苦于 css 的内容繁多，潜意识回避。但是对于初级前端岗位，重现页面是基本功。所以，决定花几天时间，重学 css。知乎上的[回答](https://www.zhihu.com/question/383581311/answer/1114218936)建议将 css 分为选择器、样式、盒模型、定位四个部分。那么我就按这个路线学一遍，并记录自己容易出错的地方。
 
 <!--more-->
 
@@ -107,7 +107,7 @@ vertical-align:top\middle\button
 
 ```css
 text-align: center;
-line-height: //box height;
+line-height: //box height;;
 ```
 
 ### 盒模型

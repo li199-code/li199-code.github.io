@@ -66,17 +66,17 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="<%= __('updateTime') %>"></i>
-          <% 
+          <!-- <% 
           const created = page.date.format("YYYY-MM-DD")
           const updated = page.updated.format("YYYY-MM-DD")
-          if (created === updated) { %>
-            <%= page.date.format("YYYY-MM-DD") %>
-          <% } else { %>
+          if (created === updated) { %> -->
+            <!-- <% page.date.format("YYYY-MM-DD") %> -->
+          <!-- <% } else { %>
             <%= page.date.format("YYYY-MM-DD") %> | 
             <%= page.updated.format("YYYY-MM-DD") %>
-          <% } %>
+          <% } %> -->
         
-
+          <%- page.date.format("YYYY-MM-DD") %>
           <!-- <%- page.date.format("YYYY-MM-DD") %> | 
           <%- page.updated.format("YYYY-MM-DD") %>      -->
         </span>
