@@ -31,16 +31,16 @@ Hi，我是 Jason，来自于东南的一个山区小镇。研究生阶段转码
 
 2022/7
 
-- 网站成立，基于 GitHub pages 提供的免费服务器，域名在 Namesilo 上购买，top 后缀域名（￥ 6.72/year）是全部花销。
+- 网站成立，建立在 github pages 上
 
 2023/3
 
-- 用 cloudflare 的 nameserver
+- 改用 cloudflare 的 DNS nameserver
 - 改用 vercel 提供静态文件托管服务
 
 2023/5
 
-- 对于之前的 top、life、xyz 后缀的域名心存芥蒂的自己，终于换了现在的 com 域名
+- 放弃 top/xyz 域名，换到现在的 `jasonleehere.com`
 
 2023/11
 
@@ -50,4 +50,4 @@ Hi，我是 Jason，来自于东南的一个山区小镇。研究生阶段转码
 
 这里记录一些关于网站维护的有用的参考链接：
 
-- [https://www.imgyh.com/archives/17.html](Cloudflare面板使用教程)
+- [Cloudflare 面板使用教程](https://www.imgyh.com/archives/17.html)
