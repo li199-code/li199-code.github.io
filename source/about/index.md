@@ -9,7 +9,7 @@ layout: "about"
 
 ## 关于我
 
-Hi，我是 Jason，来自于东南的一个山区小镇。研究生阶段转码，从最初的 Matlab，到后来的 Python、Javascript，用编程解决的问题领域跨越了图像处理、深度学习、爬虫、web 服务。
+Hi，我是 Jason，来自于东南的一个山区小镇。研究生阶段转码，从最初的 Matlab，到后来的 Python、JavaScript，用编程解决的问题领域跨越了图像处理、深度学习、爬虫、web 服务。
 
 人生格言：经历一些美好，不留遗憾。
 
