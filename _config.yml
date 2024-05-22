@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Jason Lee
-subtitle:
-description:
+title: Jason Lee - Always be learning
+subtitle: A blog about technology, life, and more.
+description: A blog about technology, life, and more.
 author: Jason
 language: zh-CN
-timezone:
+timezone: Asia/Shanghai
 site_start_date: "2022-07-27 18:00:00"
 
 # URL
