@@ -69,4 +69,15 @@ https://www.bilibili.com/video/BV1Xv4y1M7dB/?spm_id_from=333.1007.top_right_bar_
 
 茄子这玩意儿的备菜稍微麻烦了些，第一次做的时候还想加盐把水析出来，但是没啥效果，下次就直接洗干净然后挤干就好了。没有现成肉末的话，就把瘦肉切得尽量细小点。
 
+- 红烧豆腐
+
+---
+
+豆腐简单好吃的家常做法，滑嫩鲜香，入味下饭，比麻婆豆腐还好吃
+https://www.bilibili.com/video/BV1tV4y187oV/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&vd_source=71c0be7c56c09a5e949353c5bf93df72
+
+---
+
+视频教的很详细，连刀工都教了。这道菜就是备菜有点麻烦。豆腐要焯水，肉要剁成末，还有淀粉水、葱姜蒜。不过菜做出来还是很香的。
+
 ## 三星
