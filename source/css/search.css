@@ -1,0 +1,58 @@
+/* 样式部分 */
+#searchContainer {
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+#searchInput {
+
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+#searchInput:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#searchResults {
+    list-style: none;
+    padding: 3;
+    max-height: 300px;
+    /* 设置最大高度 */
+    overflow-y: auto;
+    /* 当内容超过最大高度时出现滚动条 */
+}
+
+.search-result {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-result a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+}
+
+.search-result a:hover {
+    text-decoration: underline;
+}
+
+.no-results {
+    color: #888;
+    font-size: 16px;
+    text-align: center;
+    padding: 10px;
+}
