@@ -56,3 +56,12 @@
     text-align: center;
     padding: 10px;
 }
+
+code {
+    max-height: 1000px;
+    overflow-y: scroll;
+}
+
+.next-post {
+    margin-top: 20px;
+}
