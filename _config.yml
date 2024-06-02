@@ -125,3 +125,20 @@ search:
   path: search.xml
   field: post
   content: true
+
+feed:
+  type: # Feed 类型，可选值：atom、rss2、rdf
+    - atom
+  path: # 可选多个
+    - atom.xml
+  limit: 30
+  hub:
+  content:
+  content_limit: 160
+  content_limit_delim: " "
+  order_by: -date
+
+sitemap:
+  path: # 可选只要一个
+    - sitemap.xml
+  rel: true # 是否在页面头部添加 rel="sitemap" 链接
