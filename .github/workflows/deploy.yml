@@ -26,8 +26,8 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
-      - name: Generate Hexo Files
-        run: hexo generate
+      - name: Build
+        run: npm run build
       - name: Run Gulp to Compress Files
         run: |
           npx gulp compress
