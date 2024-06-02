@@ -55,3 +55,7 @@ Hi，我是 Jason，JavaScript/Python 程序员，几经波折才吃上了 codin
 这里记录一些关于网站维护的有用的参考链接：
 
 - [Cloudflare 面板使用教程](https://www.imgyh.com/archives/17.html)
+
+### 加入的博客组织
+
+- [博友圈: 博客人的朋友圈，博客收录与文章 RSS 聚合网站](https://www.boyouquan.com/home)
