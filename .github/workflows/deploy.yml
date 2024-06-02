@@ -12,13 +12,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # If your repository depends on submodule, please see: https://github.com/actions/checkout
           submodules: recursive
       - name: Use Node.js 12
         uses: actions/setup-node@v4
         with:
-          # Examples: 20, 18.19, >=16.20.2, lts/Iron, lts/Hydrogen, *, latest, current, node
-          # Ref: https://github.com/actions/setup-node#supported-version-syntax
           node-version: "12"
       - name: Cache NPM dependencies
         uses: actions/cache@v4
@@ -29,8 +26,11 @@ jobs:
             ${{ runner.OS }}-npm-cache
       - name: Install Dependencies
         run: npm install
-      - name: Build
-        run: npm run build
+      - name: Generate Hexo Files
+        run: hexo generate
+      - name: Run Gulp to Compress Files
+        run: |
+          npx gulp compress
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
