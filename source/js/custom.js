@@ -1,4 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() {
+/**
+ * 自定义脚本，会注入到每个页面的底部
+ */
+
+// new feature: 搜索功能
+document.addEventListener("DOMContentLoaded", function () {
     fetch('/search.xml')
         .then(response => response.text())
         .then(data => {
@@ -35,3 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
         })
         .catch(error => console.error('Error fetching the search.xml file:', error));
 });
+
+// new feature: 给正文结尾添加分割线
+const contentDiv = document.querySelector('.post-content'); 
+const hr = document.createElement('hr');
+contentDiv.appendChild(hr);
+
