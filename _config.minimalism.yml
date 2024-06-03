@@ -64,11 +64,11 @@ comment:
 # 底部链接
 bottom_link:
   rss:
-    url:
+    url: https://blog.jasonleehere.com/atom.xml
     text: RSS
-  icp:
-    url: # beian.miit.gov.cn
-    text: # 沪ICP备 09007032号-1
+  copyright:
+    url: https://blog.jasonleehere.com
+    text: copyright © 2022-2024
 
 # 底部显示来源信息
 bottom_source:

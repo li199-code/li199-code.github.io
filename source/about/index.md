@@ -11,7 +11,7 @@ layout: "about"
 
 Hi，我是 Jason，JavaScript/Python 程序员，几经波折才吃上了 coding 这碗饭。目前坐标在上海。阳光、新鲜空气、开阔地、公园爱好者。
 
-人生格言：经历一些美好，不留遗憾。
+快乐在于折腾，快乐是自己给的！
 
 ## 关于本站
 
@@ -56,6 +56,6 @@ Hi，我是 Jason，JavaScript/Python 程序员，几经波折才吃上了 codin
 
 - [Cloudflare 面板使用教程](https://www.imgyh.com/archives/17.html)
 
-### 加入的博客组织
+### 友链
 
 - [博友圈: 博客人的朋友圈，博客收录与文章 RSS 聚合网站](https://www.boyouquan.com/home)
