@@ -44,5 +44,5 @@ document.addEventListener("DOMContentLoaded", function () {
 // new feature: 给正文结尾添加分割线
 const contentDiv = document.querySelector('.post-content'); 
 const hr = document.createElement('hr');
-contentDiv.appendChild(hr);
+if (contentDiv) contentDiv.appendChild(hr);
 
