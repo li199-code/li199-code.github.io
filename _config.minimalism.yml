@@ -41,7 +41,7 @@ avatar: /images/avatar-removebg-preview-30.png
 favicon: /favicon.ico
 
 # 谷歌统计 跟踪 ID
-ga:
+ga: G-B6Y2N218TS
 
 # 百度统计 The baidu web analytics
 baidu_tongji:
@@ -68,7 +68,7 @@ bottom_link:
     text: RSS
   copyright:
     url: https://blog.jasonleehere.com
-    text: copyright © 2022-2024
+    text: © 2022-2024
 
 # 底部显示来源信息
 bottom_source:
