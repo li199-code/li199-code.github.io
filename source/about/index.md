@@ -59,3 +59,4 @@ Hi，我是 Jason，JavaScript/Python 程序员，几经波折才吃上了 codin
 ### 友链
 
 - [博友圈: 博客人的朋友圈，博客收录与文章 RSS 聚合网站](https://www.boyouquan.com/home)
+- [积薪：中文独立博客导航。利用 AI 为文章进行分类和摘要，也有每天人工推荐的文章。在这个时代拒绝中心化、营造信息茧房的推荐算法，回归 20 年前互联网的精神和氛围](https://firewood.news/)
