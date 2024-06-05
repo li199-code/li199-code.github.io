@@ -1,5 +1,5 @@
 ---
-title: 基于echarts的post contribution博客组件
+title: 基于echarts的hexo博客热力图
 tags:
   - echarts
   - 网站建设
@@ -9,7 +9,7 @@ updated: 2024-05-12 00:00:00
 categories:
 ---
 
-最近觉得博客的 archive 页太空旷了，和首页雷同，且文章多了之后，archieve 页很长。archive 页平时也不做停留，基本没有意义。因此，我决定改造一下 archive，修复并添加一些东西。首先是历史文章要支持展开和收起，这样，archive 页面就不会过长了。然后，仿照 github contribution, 做一个 post contribution，记录历史文章提交日历图。
+最近觉得博客的 archive 页太空旷了，和首页雷同，且文章多了之后，archieve 页很长。archive 页平时也不做停留，基本没有意义。因此，我决定改造一下 archive，修复并添加一些东西。首先是历史文章要支持展开和收起，这样，archive 页面就不会过长了。然后，仿照 github contribution, 做一个 博客热力图，记录历史文章提交日历图。
 
 ## 展开/收起控件添加
 

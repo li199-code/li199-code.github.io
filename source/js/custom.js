@@ -46,3 +46,22 @@ const contentDiv = document.querySelector('.post-content');
 const hr = document.createElement('hr');
 if (contentDiv) contentDiv.appendChild(hr);
 
+// new feature: og:url header
+var currentUrl = window.location.href;
+
+// 查找是否已经存在og:url元标签
+var ogUrlMetaTag = document.querySelector('meta[property="og:url"]');
+
+if (ogUrlMetaTag) {
+    // 如果存在，更新其内容
+    ogUrlMetaTag.setAttribute('content', currentUrl);
+} else {
+    // 如果不存在，创建一个新的meta标签
+    ogUrlMetaTag = document.createElement('meta');
+    ogUrlMetaTag.setAttribute('property', 'og:url');
+    ogUrlMetaTag.setAttribute('content', currentUrl);
+    
+    // 将新创建的meta标签插入到head中
+    document.head.appendChild(ogUrlMetaTag);
+}
+
