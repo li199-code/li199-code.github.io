@@ -22,7 +22,7 @@ hexo.extend.filter.register('after_render:html', function (data) {
   `;
 
   // 将 sitemap header 内容插入到 <head> 标签内的最开始
-  data = data.replace(/<head>/, `<head>${sitemapHeaderContent}${opengraphHeaderContent}${faviconHeaderContent}`);
+  data = data.replace(/<head>/, `<head>${sitemapHeaderContent}${opengraphHeaderContent}`);
   
   return data;
 });
