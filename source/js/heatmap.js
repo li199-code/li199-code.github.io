@@ -1,7 +1,8 @@
 const bloginfoPath = '/bloginfo.json';
 
 // 使用 fetch API 读取 JSON 文件
-const blogInfo = {'pages': []}
+const blogInfo = { 'pages': [] };
+
 fetch(bloginfoPath)
     .then(response => {
     if (!response.ok) {
@@ -11,10 +12,12 @@ fetch(bloginfoPath)
     })
     .then(data => {
         data.sort((a, b) => new Date(b.date) - new Date(a.date));
-        console.log('sorted data', data)
         blogInfo.pages = data;
 
         createHeatmap();
+        const totalCount = getPostAndWordCount();
+        const totalCountDiv = document.querySelector('.total_count');
+        totalCountDiv.innerHTML = `文章数量：${totalCount.postCount}篇  |  累计字数：${totalCount.wordCount}万字`;
     })
     .catch(error => {
         console.error('Error fetching the JSON file:', error);
@@ -57,6 +60,7 @@ heatmapDiv.innerHTML = `
         <div class="heatmap_more">More</div>
     </div>
 </div>
+<div class='total_count'></div>
 `
 archieveDiv.insertBefore(heatmapDiv, archieveDiv.firstChild);
 
@@ -220,5 +224,20 @@ function createHeatmap() {
 function formatDate(date) {
     const options = { month: 'short', day: 'numeric', year: 'numeric' };
     return date.toLocaleDateString('en-US', options);
+}
+
+function getPostAndWordCount() {
+    let postCount=0;
+    let wordCount=0;
+    
+    const pagearray = blogInfo.pages;
+    // console.log('blogInfo', pagearray)
+    pagearray.forEach(page => {
+        console.log('page', page)
+        postCount += 1;
+        wordCount += page.word_count;
+    })
+    wordCount = (wordCount / 10000).toFixed(1);
+    return {postCount, wordCount}
 }
 

@@ -26,12 +26,14 @@
 
 #heatmap_wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     /* 在主轴上居中 */
     align-items: center;
     /* 在交叉轴上居中 */
     height: 100vh;
     /* 使容器充满视口的高度 */
+    gap: 20px;
 }
 
 .heatmap_container {
@@ -189,4 +191,8 @@
 
 .heatmap_day_level_4 {
     background-color: var(--ht-lv-4);
+}
+
+.total_count {
+    white-space: pre;
 }
