@@ -72,6 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const paginationContainer = document.querySelector('.pagination-container');
     if (!paginationContainer) return;
+
+    const prevButtom = document.querySelector('.pagination-container .prev');
+    const nextButtom = document.querySelector('.pagination-container .next');
+    if (prevButtom) prevButtom.innerHTML = '<i class="icon icon-arrow-ios-back-outline"></i>';
+    if (nextButtom) nextButtom.innerHTML = '<i class="icon icon-arrow-ios-forward-outline"></i>';
+
     const pageNumbersContainer = document.createElement('div');
     pageNumbersContainer.className = 'page-numbers';
 
@@ -98,6 +104,13 @@ document.addEventListener('DOMContentLoaded', function () {
         return pageLink;
     };
 
+    const addEllipsis = () => {
+        const ellipsis = document.createElement('span');
+        ellipsis.className = 'ellipsis';
+        ellipsis.textContent = '...';
+        pageNumbersContainer.appendChild(ellipsis);
+    };
+
     fetch('/bloginfo.json')
         .then(response => {
             if (!response.ok) {
@@ -108,23 +121,37 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(data => { 
             const postsPerPage = 10; //每页文章数量
             const totalPages = Math.ceil(data.length / postsPerPage); 
-            if (totalPages <= 5) {
+            if (totalPages <= 3) {
                 for (let i = 1; i <= totalPages; i++) {
                     pageNumbersContainer.appendChild(createPageLink(i));
                 }
-            } else {
-                for (let i = 1; i <= 5; i++) {
-                    pageNumbersContainer.appendChild(createPageLink(i));
-                }
-
-                if (totalPages > 5) {
-                    const ellipsis = document.createElement('span');
-                    ellipsis.className = 'ellipsis';
-                    ellipsis.textContent = '...';
-                    pageNumbersContainer.appendChild(ellipsis);
-
+            } else if (totalPages > 3) {
+                if (currentPage <= 3) {
+                    for (let i = 1; i <= 3; i++) {
+                        pageNumbersContainer.appendChild(createPageLink(i));
+                    }
+                    addEllipsis();
                     pageNumbersContainer.appendChild(createPageLink(totalPages));
+                } else if (currentPage > 3 && currentPage < totalPages - 1) {
+                    pageNumbersContainer.appendChild(createPageLink(1));
+                    addEllipsis();
+                    pageNumbersContainer.appendChild(createPageLink(currentPage));
+                    addEllipsis();
+                    pageNumbersContainer.appendChild(createPageLink(totalPages));
+                } else if (currentPage === totalPages - 1) {
+                    pageNumbersContainer.appendChild(createPageLink(1));
+                    addEllipsis();
+                    pageNumbersContainer.appendChild(createPageLink(currentPage));
+                    pageNumbersContainer.appendChild(createPageLink(totalPages));
+                } else if (currentPage === totalPages) {
+                    pageNumbersContainer.appendChild(createPageLink(1));
+                    addEllipsis();
+                    pageNumbersContainer.appendChild(createPageLink(currentPage - 1));
+                    pageNumbersContainer.appendChild(createPageLink(currentPage));
                 }
+
+            } else {
+                console.log('Error: Unknown total pages number');
             }
 
             paginationContainer.insertBefore(pageNumbersContainer, paginationContainer.querySelector('.next'));
