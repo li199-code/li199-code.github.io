@@ -31,9 +31,11 @@
     /* 在主轴上居中 */
     align-items: center;
     /* 在交叉轴上居中 */
-    height: 100vh;
+    /* height: 100vh; */
     /* 使容器充满视口的高度 */
     gap: 20px;
+    padding-top: 60px;
+    padding-bottom: 20px;
 }
 
 .heatmap_container {

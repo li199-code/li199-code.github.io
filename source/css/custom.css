@@ -64,3 +64,46 @@ code {
 .next-post {
     margin-top: 20px;
 }
+
+/* new feature: 自定义分页组件 */
+
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-container .prev,
+.pagination-container .next {
+    margin: 0 10px;
+}
+
+.page-numbers {
+    display: flex;
+    gap: 5px;
+}
+
+.page-number {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 3px;
+}
+
+.page-number.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.page-number:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+.ellipsis {
+    display: inline-block;
+    padding: 5px 10px;
+    color: #6c757d;
+}

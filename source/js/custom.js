@@ -65,3 +65,75 @@ if (ogUrlMetaTag) {
     document.head.appendChild(ogUrlMetaTag);
 }
 
+// new feature 自定义分页组件
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+    const paginationContainer = document.querySelector('.pagination-container');
+    if (!paginationContainer) return;
+    const pageNumbersContainer = document.createElement('div');
+    pageNumbersContainer.className = 'page-numbers';
+
+    const currentPage = extractPageNumber(window.location.href);  // 你可以通过一些方式动态获取当前页码
+
+    function extractPageNumber(url) {
+        const regex = /(?:\/page\/(\d+))?\/?$/;
+        const match = url.match(regex);
+        return match[1] ? parseInt(match[1], 10) : 1;
+    }
+
+    const createPageLink = (pageNumber) => {
+        const pageLink = document.createElement('a');
+        if (pageNumber === 1) {
+            pageLink.href = `/`;
+        } else {
+            pageLink.href = `/page/${pageNumber}/`;
+        }
+        pageLink.className = 'page-number';
+        pageLink.textContent = pageNumber;
+        if (pageNumber === currentPage) {
+            pageLink.classList.add('active');
+        }
+        return pageLink;
+    };
+
+    fetch('/bloginfo.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => { 
+            const postsPerPage = 10; //每页文章数量
+            const totalPages = Math.ceil(data.length / postsPerPage); 
+            if (totalPages <= 5) {
+                for (let i = 1; i <= totalPages; i++) {
+                    pageNumbersContainer.appendChild(createPageLink(i));
+                }
+            } else {
+                for (let i = 1; i <= 5; i++) {
+                    pageNumbersContainer.appendChild(createPageLink(i));
+                }
+
+                if (totalPages > 5) {
+                    const ellipsis = document.createElement('span');
+                    ellipsis.className = 'ellipsis';
+                    ellipsis.textContent = '...';
+                    pageNumbersContainer.appendChild(ellipsis);
+
+                    pageNumbersContainer.appendChild(createPageLink(totalPages));
+                }
+            }
+
+            paginationContainer.insertBefore(pageNumbersContainer, paginationContainer.querySelector('.next'));
+
+        })
+        .catch(error => console.error('Error fetching the bloginfo.json file:', error))
+
+
+});
+
+
+

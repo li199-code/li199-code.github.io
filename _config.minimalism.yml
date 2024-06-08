@@ -7,14 +7,10 @@ menu:
     url: /tags
     External: false
     name: 标签
-  #  Categories:
-  #    url: /categories
-  #    External: false
-  #    name: 分类
-  Archives:
-    url: /archives
+  Categories:
+    url: /categories
     External: false
-    name: 归档
+    name: 分类
   About:
     url: /about
     External: false
@@ -32,7 +28,6 @@ contact:
   weibo:
   zhihu:
   facebook:
-  mail: "sdf@qq.com"
 
 # 首页头像图片
 avatar: /images/avatar-removebg-preview-30.png

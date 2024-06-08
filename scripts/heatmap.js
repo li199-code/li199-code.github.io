@@ -1,11 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 
-hexo.extend.injector.register('body_end', `
-  <script src="/js/heatmap.js"></script>
-  <link rel="stylesheet" href="/css/heatmap.css">
-`, 'archive')
-
 hexo.extend.generator.register('bloginfo-json', function (locals) {
   const posts = locals.posts.map(post => {
     let postDate = new Date(post.date);
