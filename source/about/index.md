@@ -58,5 +58,5 @@ Hi，我是 Jason，全栈/AI 工程师，几经波折才吃上了 coding 这碗
 
 ### 友链
 
-- [博友圈: 博客人的朋友圈，博客收录与文章 RSS 聚合网站](https://www.boyouquan.com/home)
+- [博友圈: 博客人的朋友圈，博客收录与文章 RSS 聚合网站](https://www.boyouquan.com/home) [星球穿梭](https://www.boyouquan.com/planet-shuttle)
 - [积薪：中文独立博客导航。回归 20 年前互联网的精神和氛围](https://firewood.news/)

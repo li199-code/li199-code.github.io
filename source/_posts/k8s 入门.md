@@ -34,13 +34,19 @@ play-with-k8s 的网页命令行不能执行复制粘贴，killercoda 不仅可�
 
 ## k8s 架构
 
-![17106433391641710643338733.png](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17106433391641710643338733.png)
+![k8s集群架构](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17183477058631718347705420.png)
 
-## pod, replicaset, deploy, service
+## node, pod, replicaset, deploy, service
 
-k8s 能操作的最小单元是 pod，而 pod 是容器组，可以包含多个容器。这样似乎就说明了，k8s 的常用操作不涉及容器，因此不必纠结于底层是 docker 还是 containerd 了。replicaset(副本集)又是 pod 的集合。然而 deploy 可以理解为 replicaset 的一种实现，并添加了很多特性，比如扩容、版本回滚等。
+node(节点)，一个集群至少包含一个控制平面和一个节点。一个节点通常映射到一个物理服务器或一个虚拟机。节点上的组件包括 kubelet、 容器运行时以及 kube-proxy。
 
-service 是一组 pod 所在的网络服务。service 配置文件的 port 和 targetport 区别：
+k8s 能操作的最小单元是 pod，而 pod 是容器组，可以包含多个容器。这样似乎就说明了，k8s 的常用操作不涉及容器，因此不必纠结于底层是 docker 还是 containerd 了。
+
+replicaset(副本集)又是 pod 的集合。然而 deploy 可以理解为 replicaset 的一种实现，并添加了很多特性，比如扩容、版本回滚等。
+
+Service 是将运行在一个或一组 Pod 上的网络应用程序公开为网络服务的方法。
+
+service 配置文件的 port 和 targetport 区别：
 
 port：这是 Service 本身暴露给集群内其他 Pod 或外部用户的端口号。当其他应用程序或服务想要与 Service 通信时，它们将使用该端口。例如，如果你有一个 Web 应用程序，你可能会将端口设置为 80（HTTP）或 443（HTTPS）。
 
