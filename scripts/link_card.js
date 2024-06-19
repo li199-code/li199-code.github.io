@@ -2,7 +2,7 @@
 
 hexo.extend.filter.register('before_post_render', function (data) {
 
-  let backgroundColor = '#CCCCCC';
+  let backgroundColor = '#EEEEEE';
   let titleColor = '#3a3a3a';
   let descColor = '#999';
 
