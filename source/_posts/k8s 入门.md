@@ -66,6 +66,15 @@ configMap: 明文配置；secret: 不方便给外界看的配置。
 - kube proxy 负责 pod 请求的转发
 - 容器运行时
 
+控制节点也可以不止一个。控制平面管理集群中的所有操作。主要组件包括：
+
+- API Server：集群的入口，接收和处理所有的 REST 请求。
+- etcd：一个高可用的键值存储，用于存储集群的所有数据。
+- Controller Manager：运行控制器，确保集群的期望状态和实际状态一致。
+- Scheduler：负责将新创建的 Pod 分配到适当的工作节点上。
+
+作为一个如此复杂的工具，我们应该知道什么东西是需要人来配置，什么东西是工具自己来调节操控的。**Deployment 以下的，都是 k8s 自主调节。**
+
 ## yaml 文件编写
 
 yaml 文件的四个必要部分：apiversion, kind, metadata, spec
@@ -126,20 +135,3 @@ https://kubernetes.io/zh-cn/docs/concepts
 运行 yaml 文件的命令：`kubectl apply -f test.yaml`
 
 另外，yaml 文件还有一个实时更新的部分：status。它记录了当前状态和 yaml 文件的目标状态之间的差异。
-
-## minikube
-
-上面介绍在线运行 k8s 的网站，其实在 windows 本地，用 minikube 尝试来管理容器，其实也挺好用的。minikube 文档：
-
----
-
-minikube 文档
-https://minikube.sigs.k8s.io/docs/
-
----
-
-minikube 的默认启动命令是`minikube start`，如果不在后面加上`--nodes x`，就是一个控制节点，但是又能同时实现工作节点的功能，即运行容器。命令行启动界面：
-
-![minikube启动界面](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17187761890551718776188800.png)
-
-可以看出，我本机上的 minikube 版本号为 1.32.0，且使用到了预装的 docker 和 kubectl，k8s 的版本号为 1.28.3. 启动后，docker desktop 显示多了一个 minikube 容器，说明这个 k8s 也是以容器的方式运行，感觉在套娃。
