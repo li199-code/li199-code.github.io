@@ -19,7 +19,7 @@ menu:
 # 深色主题
 dark_theme:
   enable: true
-  mode: dark # 可选 auto、dark
+  mode: auto # 可选 auto、dark
 
 # 联系方式
 contact:

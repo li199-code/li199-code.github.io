@@ -19,7 +19,7 @@ try {
             const heatmapDiv = document.createElement('div');
             heatmapDiv.id = 'heatmap_wrapper';
             heatmapDiv.innerHTML = `
-            <div class="heatmap_container" data-theme="dark"> <!-- 全部用 Flex 排版 -->
+            <div class="heatmap_container"> <!-- 全部用 Flex 排版 -->
                 <div class="heatmap_content">
                     <div class="heatmap_week">
                         <span>Mon</span>

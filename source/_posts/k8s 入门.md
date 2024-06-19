@@ -32,19 +32,19 @@ https://labs.play-with-k8s.com/
 
 play-with-k8s 的网页命令行不能执行复制粘贴，killercoda 不仅可以粘贴命令，而且是已经设置好集群了（包含控制平面和一个工作节点）。所以，推荐 killercoda。
 
-## k8s 架构
-
-![k8s集群架构](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17183477058631718347705420.png)
-
-## node, pod, replicaset, deploy, service
+## 基础概念
 
 node(节点)，一个集群至少包含一个控制平面和一个节点。一个节点通常映射到一个物理服务器或一个虚拟机。节点上的组件包括 kubelet、 容器运行时以及 kube-proxy。
 
-k8s 能操作的最小单元是 pod，而 pod 是容器组，可以包含多个容器。这样似乎就说明了，k8s 的常用操作不涉及容器，因此不必纠结于底层是 docker 还是 containerd 了。
+k8s 能操作的最小单元是 pod，大多数应用场景下，一个 Pod 只包含一个容器。
 
-replicaset(副本集)又是 pod 的集合。然而 deploy 可以理解为 replicaset 的一种实现，并添加了很多特性，比如扩容、版本回滚等。
+Deplyment 下的 replica 属性规定了 pod 的集合内容器。有了 deployment，意味着应用容器挂掉可以马上转到新的一模一样的容器中，而没有任何 downtime.
 
-Service 是将运行在一个或一组 Pod 上的网络应用程序公开为网络服务的方法。
+statefulset 类似于 deployment，但是针对于有状态的应用（如数据库）。deployment 只记录了无状态应用的 blueprint，而 statefulset 还保存了有状态应用的状态信息。（注：如果数据库只有单节点而非集群，也可以用 deployment 管理，只需要配置好 volumn 即可）
+
+Service 是将运行在一个或一组 Pod （一组内的 pod 应该具有相同的功能）上的网络应用程序公开为网络服务的方法。具体而言，Service 提供了三个功能：标签选择器（Label Selector）、稳定的网络标识、负载均衡。其中，稳定的网络标识是核心。Service 为其选择的一组 Pods 提供一个稳定的 IP 地址和 DNS 名称。无论 Pod 的 IP 地址如何变化，客户端都可以通过 Service 的 IP 地址或 DNS 名称来访问这些 Pods。
+
+Ingress 是指在访问域名而非 ip 地址时，需要先经过 Ingress（DNS？）
 
 service 配置文件的 port 和 targetport 区别：
 
@@ -53,6 +53,18 @@ port：这是 Service 本身暴露给集群内其他 Pod 或外部用户的端�
 targetPort：这是 Service 用来连接后端 Pod 的端口号。当 Service 接收到来自外部的请求时，它将流量路由到目标端口上。这个端口对应于 Service 所指向的后端 Pod 中运行的应用程序的端口。例如，如果你的后端应用程序在容器中监听 3000 端口，你会将 targetPort 设置为 3000。
 
 举例来说，假设你有一个运行在容器内的 Web 服务器，该服务器监听 3000 端口。你可以创建一个 Service，将 Service 的端口设置为 80（用于外部访问），将 targetPort 设置为 3000（用于与后端 Pod 通信）。这样，当外部用户访问 Service 时，流量将被路由到 Pod 的 3000 端口上。
+
+configMap: 明文配置；secret: 不方便给外界看的配置。
+
+## k8s 架构
+
+![k8s集群架构](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17183477058631718347705420.png)
+
+每个工作节点内部必须有三个进程：
+
+- kubelet 负责 pod 的创建
+- kube proxy 负责 pod 请求的转发
+- 容器运行时
 
 ## yaml 文件编写
 
@@ -78,9 +90,7 @@ spec:
       image: nginx:latest
       ports:
         - containerPort: 80
-```
-
-```yaml
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -130,6 +140,6 @@ https://minikube.sigs.k8s.io/docs/
 
 minikube 的默认启动命令是`minikube start`，如果不在后面加上`--nodes x`，就是一个控制节点，但是又能同时实现工作节点的功能，即运行容器。命令行启动界面：
 
-![minikube启动界面](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17183477058631718347705420.png)
+![minikube启动界面](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17187761890551718776188800.png)
 
 可以看出，我本机上的 minikube 版本号为 1.32.0，且使用到了预装的 docker 和 kubectl，k8s 的版本号为 1.28.3. 启动后，docker desktop 显示多了一个 minikube 容器，说明这个 k8s 也是以容器的方式运行，感觉在套娃。
