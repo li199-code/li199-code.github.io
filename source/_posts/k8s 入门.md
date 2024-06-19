@@ -6,6 +6,7 @@ tags:
 abbrlink: b702da18
 date: 2024-03-16 10:10:36
 categories:
+summary: 每看一次nana的k8s教程，都会有新的收获。记录一下自己对k8s的理解。
 ---
 
 ## 前言

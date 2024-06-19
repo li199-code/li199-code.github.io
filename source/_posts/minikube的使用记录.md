@@ -1,6 +1,6 @@
 ---
 title: minikube的使用记录
-summary: 文章摘要！
+summary: minikube在windows笔记本上的安装运行，kubectl的使用。
 date: 2024-06-19 21:44:57
 tags: k8s
 ---
