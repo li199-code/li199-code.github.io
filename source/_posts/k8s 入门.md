@@ -58,6 +58,52 @@ targetPort：这是 Service 用来连接后端 Pod 的端口号。当 Service �
 
 yaml 文件的四个必要部分：apiversion, kind, metadata, spec
 
+- apiVersion: 指定资源的 API 版本，例如 v1。
+- kind: 指定资源的类型，例如 Pod、Service、Deployment 等。
+- metadata: 提供资源的元数据，例如名称、命名空间、标签等。
+- spec: 指定资源的具体配置，内容根据资源类型的不同而有所不同。
+
+一份示例 yaml 文件：
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+  labels:
+    app: myapp
+spec:
+  containers:
+    - name: mycontainer
+      image: nginx:latest
+      ports:
+        - containerPort: 80
+```
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+  labels:
+    app: myapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: mycontainer
+          image: nginx:latest
+          ports:
+            - containerPort: 80
+```
+
 一般 yaml 文件不要求从头写，而是从模板复制：
 
 ---
@@ -71,6 +117,19 @@ https://kubernetes.io/zh-cn/docs/concepts
 
 另外，yaml 文件还有一个实时更新的部分：status。它记录了当前状态和 yaml 文件的目标状态之间的差异。
 
-## 更新
+## minikube
 
-用 minikube 尝试来管理容器，其实也挺好用的。只不过，minikube 的默认启动命令是`minikube start`，如果不在后面加上`--nodes x`，就是一个控制节点，但是又能同时实现工作节点的功能，即运行容器。
+上面介绍在线运行 k8s 的网站，其实在 windows 本地，用 minikube 尝试来管理容器，其实也挺好用的。minikube 文档：
+
+---
+
+minikube 文档
+https://minikube.sigs.k8s.io/docs/
+
+---
+
+minikube 的默认启动命令是`minikube start`，如果不在后面加上`--nodes x`，就是一个控制节点，但是又能同时实现工作节点的功能，即运行容器。命令行启动界面：
+
+![minikube启动界面](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/17183477058631718347705420.png)
+
+可以看出，我本机上的 minikube 版本号为 1.32.0，且使用到了预装的 docker 和 kubectl，k8s 的版本号为 1.28.3. 启动后，docker desktop 显示多了一个 minikube 容器，说明这个 k8s 也是以容器的方式运行，感觉在套娃。
