@@ -127,16 +127,19 @@ search:
   content: true
 
 feed:
+  enable: true
   type: # Feed 类型，可选值：atom、rss2、rdf
     - atom
   path: # 可选多个
     - atom.xml
   limit: 30
   hub:
-  content:
-  content_limit: 160
-  content_limit_delim: " "
+  content: true
+  # content_limit: 160
+  # content_limit_delim: " "
   order_by: -date
+  autodiscovery: true
+  template: ./source/atom-template.xml
 
 sitemap:
   path: # 可选只要一个

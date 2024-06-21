@@ -1,8 +1,9 @@
 ---
 title: minikube的使用记录
 summary: minikube在windows笔记本上的安装运行，kubectl的使用，yaml文件的编写
-date: 2024-06-19 21:44:57
 tags: k8s
+abbrlink: dab56f78
+date: 2024-06-19 21:44:57
 ---
 
 ## 前言
