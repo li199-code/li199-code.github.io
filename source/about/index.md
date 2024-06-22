@@ -5,7 +5,7 @@ updated: 2024-05-15
 layout: "about"
 ---
 
-![1715506544711压缩图片.jpg](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1715506544711%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87.jpg)
+![在海边](https://cdn.jsdelivr.net/gh/li199-code/blog-imgs@main/1715506544711%E5%8E%8B%E7%BC%A9%E5%9B%BE%E7%89%87.jpg)
 
 ## 关于我
 
@@ -21,10 +21,9 @@ Hi，我是 Jason，全栈/AI 工程师，几经波折才吃上了 coding 这碗
 
 ### 架构
 
-- 域名：Namesilo / Cloudflare
 - CDN: Cloudflare / JsDelivr
-- 托管：Github
-- 框架：Hexo / Markdown
+- 部署：Github Pages via Github Actions
+- 框架：Hexo
 - 编辑：VSCode
 
 ### 大事记
