@@ -8,6 +8,7 @@ permalink: /404
 <html>
 <head>
 <meta charset='utf-8'>
+<title>404 Not Found</title>
 <link rel="stylesheet" type="text/css" href="/404/404.css">
 </head>
 </html>
