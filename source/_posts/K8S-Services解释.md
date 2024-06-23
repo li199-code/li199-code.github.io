@@ -1,8 +1,9 @@
 ---
 title: K8S Services解释
 summary: 对四种k8s service类型做了说明，给出了它们的工作场景。
-date: 2024-06-22 18:52:40
 tags: k8s
+abbrlink: b5627f2f
+date: 2024-06-22 18:52:40
 ---
 
 ## 前言
