@@ -1,10 +1,10 @@
 ---
-title: 面向对象编程及其在javascript中的实现
+title: 面向对象编程及其在 javascript 中的实现
 tags: es6
 abbrlink: 584a7bac
 date: 2023-12-16 23:38:01
 updated: 2024-05-03 00:00:00
-categories:
+categories: Javascript 进阶
 ---
 
 ## 历史
@@ -12,6 +12,8 @@ categories:
 谈到 OOP（面向对象编程），我的印象总是停留在我刚学一些静态语言时（如 java），相对于 python、JavaScript，OOP 的概念总是被很早的引入。视频里的讲师总是举一些诸如 Animal 类和 Cat\Dog 对象的例子。Ok 能听懂，so what the fuck is next? 这东西到底有啥用？实际编写网站项目时，也用不着什么 Animal 类啊。
 
 在一番探索后，我目前的想法是：OOP 本身是为了降低代码的耦合度而提出的，那么一切代码耦合度较高的地方都可以尝试用 OOP。另外，现代的框架很多时候是这样工作的，框架规范了写法是在类内书写属性和方法，然后创建对象的工作交给了框架在后台进行，故看不到。这样的框架在前后端都有，比如 react、eggjs。也就是说，实际上 OOP 无处不在，学习 OOP 有助于理解框架并更好的使用。
+
+说到 Javascript 的面向对象，ES6 之前是借助一套复杂难懂的原型系统实现，ES6 之后向主流的面向对象语言写法靠近，采用了 class 关键字来创建类。以前的那套只做了解，重点掌握的应该是现代的写法。
 
 ## 规范
 
@@ -31,7 +33,7 @@ let dog = new Animal((type = "dog"), (legs = 4));
 dog.legs = 2; // 对象属性可以修改
 ```
 
-constructor 是必须要有的函数，而方法可以没有。
+constructor 构造函数执行类的初始化操作，如果不需要初始化，可以不定义构造函数，这种情况相当于构造函数内部为空。
 
 ### 静态方法
 
@@ -80,7 +82,7 @@ dog.setType = "alaska dog"; // setter调用
 
 ### 继承
 
-新类拓展父类，而不需要将父类复制一遍，这就是继承。问题是，如何继承？如何拓展？
+新类拓展父类，而不需要将父类复制一遍，这就是继承。问题是，如何继承？如何拓展？借助 super 关键字。
 
 ```javascript
 class Animal {
@@ -112,7 +114,7 @@ let cat = new Cat("cat", 4, true);
 cat.makeNoise("meow", 40);
 ```
 
-这里的 super 就起到继承的作用，构造函数的继承就是 super()，而方法的继承是 super.methodName()。super()是随意调用的，不一定在重写中。
+这里的 super 就起到继承的作用，构造函数的继承就是 super()，而方法的继承是 super.methodName()。super 只能在类的构造函数和方法中使用。必须在构造函数中首先调用 super：在子类的构造函数中，必须在使用 this 之前先调用 super。否则会抛出错误。
 
 以下内容只存在于 typescript 中。
 
@@ -128,4 +130,14 @@ cat.makeNoise("meow", 40);
 
 抽象类是类的模板，可以被类继承，但是不能直接实例化出对象。
 
-## 泛型
+## 拧巴的地方
+
+JavaScript 中并没有类这个数据类型，类的实质是函数：
+
+```js
+class Person {}
+console.log(Person); // class Person {}
+console.log(typeof Person); // function
+```
+
+ES6 中的 class 很大程度上是基于既有原型机制的语法糖。
